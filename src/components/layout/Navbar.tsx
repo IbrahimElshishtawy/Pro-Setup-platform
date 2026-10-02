@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, ChevronDown, Sparkles } from 'lucide-react';
-import { COMPANY_INFO, NAV_LINKS, SERVICE_CATEGORIES } from '../../core/config/constants';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, ArrowRight, ChevronDown, ChevronRight, TrendingUp, Palette, Code2, ShieldCheck, Sparkles } from 'lucide-react';
+import { NAV_LINKS, MEGA_MENU_CATEGORIES } from '../../core/config/constants';
 import { Button } from '../common/Button';
 import { ActivePage } from '../../core/types/common';
 
@@ -13,7 +13,11 @@ export interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQuote }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [servicesMegaMenuOpen, setServicesMegaMenuOpen] = useState(false);
+  const [mobileServicesAccordionOpen, setMobileServicesAccordionOpen] = useState(false);
+  const [hoveredCategory, setHoveredCategory] = useState<string>('digital');
+
+  const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,27 +27,59 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleMouseEnterMenu = () => {
+    if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
+    setServicesMegaMenuOpen(true);
+  };
+
+  const handleMouseLeaveMenu = () => {
+    menuTimeoutRef.current = setTimeout(() => {
+      setServicesMegaMenuOpen(false);
+    }, 200);
+  };
+
   const handleLinkClick = (pageId: string) => {
     onNavigate(pageId as ActivePage);
     setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
+    setServicesMegaMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const getCategoryIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'TrendingUp': return TrendingUp;
+      case 'Palette': return Palette;
+      case 'Code2': return Code2;
+      case 'ShieldCheck': return ShieldCheck;
+      default: return Sparkles;
+    }
+  };
+
+  const isServicesActive =
+    activePage === 'services' ||
+    activePage === 'digital-marketing' ||
+    activePage === 'design-branding' ||
+    activePage === 'software-technology' ||
+    activePage === 'security-surveillance' ||
+    activePage === 'photography-video' ||
+    activePage === 'advertising';
 
   return (
     <header
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-900/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl py-3.5'
+          ? 'bg-dark-950/92 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-3.5'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo - Matching Visual Reference */}
+          
+          {/* Logo - Matching Visual Identity */}
           <button
             onClick={() => handleLinkClick('home')}
             className="flex items-center gap-3 group text-left focus:outline-none"
+            aria-label="PRO SETUP Home"
           >
             <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-electric-600 to-electric-cyan p-[1px] shadow-glow-sm group-hover:shadow-glow-md transition-all">
               <div className="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center">
@@ -57,58 +93,135 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 PRO <span className="text-electric-cyan">SETUP</span>
               </span>
               <span className="text-[10px] tracking-widest text-slate-400 font-medium -mt-1 uppercase">
-                Digital Solutions
+                Integrated Business Solutions
               </span>
             </div>
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-dark-800/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/[0.06]">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-dark-800/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/[0.07]">
             {NAV_LINKS.map((link) => {
-              const isActive = activePage === link.id || (link.id === 'services' && activePage.includes('service') || activePage === 'digital-marketing' || activePage === 'software-technology' || activePage === 'design-branding' || activePage === 'security-surveillance' || activePage === 'photography-video' || activePage === 'advertising');
-
               if (link.id === 'services') {
                 return (
                   <div
                     key={link.id}
                     className="relative"
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
+                    onMouseEnter={handleMouseEnterMenu}
+                    onMouseLeave={handleMouseLeaveMenu}
                   >
                     <button
                       onClick={() => handleLinkClick('services')}
-                      className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                        isActive
-                          ? 'text-white bg-white/[0.08] shadow-sm'
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                        isServicesActive
+                          ? 'text-white bg-white/[0.08] shadow-sm font-semibold'
                           : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                       }`}
+                      aria-expanded={servicesMegaMenuOpen}
                     >
-                      {link.label}
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-electric-cyan' : ''}`} />
+                      <span>{link.label}</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                          servicesMegaMenuOpen ? 'rotate-180 text-electric-cyan' : 'text-slate-400'
+                        }`}
+                      />
                     </button>
 
-                    {/* Services Flyout Mega Menu */}
-                    {servicesDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 w-72 p-2 rounded-2xl bg-dark-800/95 backdrop-blur-2xl border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200">
-                        <div className="px-3 py-2 text-[11px] font-semibold text-slate-400 uppercase tracking-wider border-b border-white/5 flex items-center justify-between">
-                          <span>Core Capabilities</span>
-                          <Sparkles className="w-3 h-3 text-electric-cyan" />
+                    {/* Animated Mega Menu Dropdown */}
+                    {servicesMegaMenuOpen && (
+                      <div
+                        className="absolute top-full -left-20 lg:-left-36 mt-3 w-[720px] lg:w-[840px] p-6 rounded-3xl bg-dark-950/95 backdrop-blur-2xl border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-200 z-50"
+                        onMouseEnter={handleMouseEnterMenu}
+                        onMouseLeave={handleMouseLeaveMenu}
+                      >
+                        {/* Mega Menu Header */}
+                        <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-5">
+                          <div>
+                            <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
+                              All Business Needs in One Place
+                            </span>
+                            <h3 className="text-base font-black text-white">
+                              Integrated Capabilities Spectrum
+                            </h3>
+                          </div>
+                          <button
+                            onClick={() => handleLinkClick('services')}
+                            className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-electric-cyan transition-colors"
+                          >
+                            <span>View All Services</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
                         </div>
-                        <div className="mt-1 space-y-1">
-                          {SERVICE_CATEGORIES.map((cat) => (
-                            <button
-                              key={cat.id}
-                              onClick={() => handleLinkClick(cat.id === 'software-tech' ? 'software-technology' : cat.id === 'security-surveillance' ? 'security-surveillance' : cat.id === 'photography-video' ? 'photography-video' : cat.id)}
-                              className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-white/[0.06] transition-colors group flex flex-col"
-                            >
-                              <span className="text-xs font-semibold text-white group-hover:text-electric-cyan transition-colors">
-                                {cat.name}
-                              </span>
-                              <span className="text-[11px] text-slate-400 truncate">
-                                {cat.shortDesc}
-                              </span>
-                            </button>
-                          ))}
+
+                        {/* 4-Category Mega Menu Grid (Digital, Creative, Technology, Security) */}
+                        <div className="grid grid-cols-4 gap-4">
+                          {MEGA_MENU_CATEGORIES.map((cat) => {
+                            const Icon = getCategoryIcon(cat.icon);
+                            const isHovered = hoveredCategory === cat.id;
+
+                            return (
+                              <div
+                                key={cat.id}
+                                onMouseEnter={() => setHoveredCategory(cat.id)}
+                                className={`p-4 rounded-2xl transition-all duration-300 flex flex-col justify-between text-left ${
+                                  isHovered
+                                    ? 'bg-dark-800/90 border border-electric-cyan/40 shadow-glow-sm'
+                                    : 'bg-dark-900/50 border border-white/[0.05] hover:bg-dark-800/50'
+                                }`}
+                              >
+                                <div className="space-y-3">
+                                  {/* Icon & Category Title */}
+                                  <div className="flex items-center gap-2.5">
+                                    <div
+                                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                                        isHovered
+                                          ? 'bg-electric-600 text-white'
+                                          : 'bg-white/5 text-electric-cyan'
+                                      }`}
+                                    >
+                                      <Icon className="w-4 h-4" />
+                                    </div>
+                                    <h4 className="text-sm font-bold text-white">
+                                      {cat.title}
+                                    </h4>
+                                  </div>
+
+                                  {/* Short Description */}
+                                  <p className="text-[11px] text-slate-400 leading-snug line-clamp-2">
+                                    {cat.shortDesc}
+                                  </p>
+
+                                  {/* Related Services List */}
+                                  <div className="pt-2 space-y-1.5 border-t border-white/[0.06]">
+                                    {cat.services.map((svc, i) => (
+                                      <button
+                                        key={i}
+                                        onClick={() => handleLinkClick(svc.path)}
+                                        className="w-full text-left text-xs text-slate-300 hover:text-electric-cyan transition-colors flex items-center justify-between group/svc py-0.5"
+                                      >
+                                        <span className="truncate">{svc.name}</span>
+                                        <ChevronRight className="w-3 h-3 text-slate-500 opacity-0 group-hover/svc:opacity-100 group-hover/svc:translate-x-0.5 transition-all shrink-0" />
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Explore Button */}
+                                <div className="pt-4 mt-2">
+                                  <button
+                                    onClick={() => handleLinkClick(cat.targetPage)}
+                                    className={`w-full py-1.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-all ${
+                                      isHovered
+                                        ? 'bg-electric-600 text-white shadow-sm'
+                                        : 'bg-white/5 text-slate-300 hover:bg-white/10'
+                                    }`}
+                                  >
+                                    <span>Explore</span>
+                                    <ArrowRight className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -116,18 +229,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 );
               }
 
+              const isActive = activePage === link.id;
+
               return (
                 <button
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative ${
-                    activePage === link.id
+                    isActive
                       ? 'text-white bg-white/[0.08] shadow-sm font-semibold'
                       : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
                   {link.label}
-                  {activePage === link.id && (
+                  {isActive && (
                     <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-electric-cyan rounded-full shadow-glow-sm" />
                   )}
                 </button>
@@ -144,7 +259,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               glow
               onClick={onOpenQuote}
             >
-              Get Started
+              Start Your Project
             </Button>
           </div>
 
@@ -169,41 +284,123 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
         </div>
       </div>
 
-      {/* Mobile Animated Drawer Menu */}
+      {/* Mobile Animated Accordion Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-dark-900/98 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto">
-          <div className="flex flex-col space-y-2">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => handleLinkClick(link.id)}
-                className={`text-left px-4 py-3 rounded-xl text-base font-medium transition-all ${
-                  activePage === link.id
-                    ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
-                    : 'text-slate-200 hover:bg-white/5'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-dark-950/98 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto">
+          <div className="flex flex-col space-y-2 text-left">
+            <button
+              onClick={() => handleLinkClick('home')}
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                activePage === 'home'
+                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
+                  : 'text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              Home
+            </button>
 
-            <div className="pt-4 border-t border-white/10">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block px-4 mb-2">
-                Specialized Services
-              </span>
-              <div className="grid grid-cols-1 gap-1">
-                {SERVICE_CATEGORIES.map((cat) => (
+            {/* Services Accordion Button */}
+            <div className="rounded-xl border border-white/5 overflow-hidden bg-dark-900/50">
+              <button
+                onClick={() => setMobileServicesAccordionOpen(!mobileServicesAccordionOpen)}
+                className="w-full px-4 py-3 text-base font-medium text-slate-200 flex items-center justify-between hover:bg-white/5 transition-all"
+              >
+                <span className={isServicesActive ? 'text-electric-cyan font-bold' : ''}>Services</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    mobileServicesAccordionOpen ? 'rotate-180 text-electric-cyan' : 'text-slate-400'
+                  }`}
+                />
+              </button>
+
+              {/* Accordion Content */}
+              {mobileServicesAccordionOpen && (
+                <div className="p-3 border-t border-white/5 space-y-3 bg-dark-950/60 animate-in fade-in duration-200">
                   <button
-                    key={cat.id}
-                    onClick={() => handleLinkClick(cat.id === 'software-tech' ? 'software-technology' : cat.id === 'security-surveillance' ? 'security-surveillance' : cat.id === 'photography-video' ? 'photography-video' : cat.id)}
-                    className="text-left px-4 py-2.5 rounded-lg text-sm text-slate-300 hover:text-white hover:bg-white/5 flex items-center justify-between"
+                    onClick={() => handleLinkClick('services')}
+                    className="w-full text-left px-3 py-2 rounded-lg bg-electric-600/10 text-xs font-bold text-electric-cyan flex items-center justify-between"
                   >
-                    <span>{cat.name}</span>
-                    <span className="text-xs text-electric-cyan">→</span>
+                    <span>Overview: Everything Your Business Needs</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
-                ))}
-              </div>
+
+                  <div className="grid grid-cols-1 gap-2 pt-1">
+                    {MEGA_MENU_CATEGORIES.map((cat) => {
+                      const Icon = getCategoryIcon(cat.icon);
+                      return (
+                        <div key={cat.id} className="p-3 rounded-xl bg-dark-900 border border-white/5 space-y-2">
+                          <button
+                            onClick={() => handleLinkClick(cat.targetPage)}
+                            className="w-full flex items-center justify-between text-left"
+                          >
+                            <div className="flex items-center gap-2">
+                              <Icon className="w-4 h-4 text-electric-cyan" />
+                              <span className="text-xs font-bold text-white">{cat.title}</span>
+                            </div>
+                            <span className="text-[10px] text-electric-cyan font-medium">Explore →</span>
+                          </button>
+                          <div className="pl-6 space-y-1">
+                            {cat.services.map((svc, sIdx) => (
+                              <button
+                                key={sIdx}
+                                onClick={() => handleLinkClick(svc.path)}
+                                className="w-full text-left text-[11px] text-slate-400 hover:text-white block py-0.5"
+                              >
+                                • {svc.name}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
+
+            <button
+              onClick={() => handleLinkClick('portfolio')}
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                activePage === 'portfolio'
+                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
+                  : 'text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              Portfolio
+            </button>
+
+            <button
+              onClick={() => handleLinkClick('about')}
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                activePage === 'about'
+                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
+                  : 'text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              About
+            </button>
+
+            <button
+              onClick={() => handleLinkClick('process')}
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                activePage === 'process'
+                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
+                  : 'text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              Process
+            </button>
+
+            <button
+              onClick={() => handleLinkClick('contact')}
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                activePage === 'contact'
+                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30'
+                  : 'text-slate-200 hover:bg-white/5'
+              }`}
+            >
+              Contact
+            </button>
 
             <div className="pt-4">
               <Button

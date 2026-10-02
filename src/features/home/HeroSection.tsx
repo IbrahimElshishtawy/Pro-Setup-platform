@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { Button } from '../../components/common/Button';
+import { SocialIcons } from '../../components/common/SocialIcons';
 
 export interface HeroSectionProps {
   onExploreServices: () => void;
@@ -22,7 +23,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* LEFT COLUMN: Hero Copy & Actions (Matches Visual Reference Exactly) */}
+          {/* LEFT COLUMN: Hero Copy & Actions */}
           <div className="lg:col-span-6 space-y-6 md:space-y-8 z-10 text-left">
             {/* Small Label */}
             <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-[0.25em] text-slate-300 uppercase">
@@ -41,7 +42,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             {/* Sub-description */}
-            <p className="text-base md:text-lg text-slate-400 font-normal leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-xl">
               {COMPANY_INFO.subDescription}
             </p>
 
@@ -70,31 +71,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </Button>
             </div>
 
-            {/* Social Media Channels Row */}
-            <div className="pt-4 flex items-center gap-3">
-              {[
-                { name: 'Facebook', url: COMPANY_INFO.social.facebook, label: 'FB' },
-                { name: 'Instagram', url: COMPANY_INFO.social.instagram, label: 'IG' },
-                { name: 'TikTok', url: COMPANY_INFO.social.tiktok, label: 'TK' },
-                { name: 'LinkedIn', url: COMPANY_INFO.social.linkedin, label: 'IN' },
-                { name: 'YouTube', url: COMPANY_INFO.social.youtube, label: 'YT' },
-                { name: 'WhatsApp', url: COMPANY_INFO.social.whatsapp, label: 'WA' },
-              ].map((soc) => (
-                <a
-                  key={soc.name}
-                  href={soc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={soc.name}
-                  className="w-9 h-9 rounded-xl bg-dark-800/80 hover:bg-electric-600/20 text-slate-400 hover:text-electric-cyan border border-white/10 hover:border-electric-500/40 flex items-center justify-center text-xs font-bold transition-all duration-200 hover:-translate-y-1 shadow-sm"
-                >
-                  {soc.label}
-                </a>
-              ))}
+            {/* Social Media System Row with tooltips & official SVGs */}
+            <div className="pt-2">
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">
+                Official Channels:
+              </span>
+              <SocialIcons size="md" variant="glow" />
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Interactive Floating Glass Cards Grid (Matches Reference Perspective) */}
+          {/* RIGHT COLUMN: Interactive Floating Glass Cards Grid */}
           <div className="lg:col-span-6 relative perspective-1000">
             {/* Ambient Back Glow */}
             <div className="absolute inset-0 bg-radial-gradient from-electric-600/15 via-transparent to-transparent blur-2xl pointer-events-none" />
@@ -109,7 +95,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-                  alt="Software & Code"
+                  alt="Software & Code Engineering"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
@@ -128,7 +114,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-                  alt="Security CCTV Camera"
+                  alt="Security CCTV Camera Systems"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
@@ -164,7 +150,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
-                  alt="Digital Marketing Campaign"
+                  alt="Digital Marketing Campaign Management"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
@@ -182,7 +168,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80"
-                  alt="Creative Graphic Design"
+                  alt="Creative Graphic Design & Brand Identity"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
@@ -195,12 +181,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             </div>
 
-            {/* Handwritten Floating Badge from Reference: "Creative Ideas Real Results" */}
+            {/* Handwritten Floating Badge: "Creative Ideas Real Results" */}
             <div className="absolute -bottom-6 -right-2 sm:-bottom-4 sm:right-4 z-20 pointer-events-none transform rotate-3 select-none">
               <div className="relative font-script text-2xl sm:text-3xl text-white font-bold tracking-wide drop-shadow-[0_4px_16px_rgba(0,102,255,0.7)] flex flex-col items-center">
                 <span>Creative Ideas</span>
                 <span className="text-electric-cyan">Real Results</span>
-                {/* Curved blue sketch underline */}
                 <svg className="w-28 sm:w-36 h-4 text-electric-cyan" viewBox="0 0 140 20" fill="none">
                   <path d="M5 12 Q 70 2 135 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>

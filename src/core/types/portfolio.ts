@@ -2,9 +2,10 @@ export type ProjectCategory =
   | 'all'
   | 'marketing'
   | 'branding'
+  | 'design'
   | 'software'
-  | 'websites'
-  | 'mobile-apps'
+  | 'web'
+  | 'mobile'
   | 'security'
   | 'photography'
   | 'video'
@@ -16,13 +17,19 @@ export interface ProjectItem {
   title: string;
   category: ProjectCategory;
   categoryLabel: string;
+  tags?: ProjectCategory[];
   client: string;
+  industry: string;
   year: string;
   coverImage: string;
   summary: string;
   overview: string;
   challenge: string;
+  strategy: string;
   solution: string;
+  designPhase?: string;
+  developmentPhase?: string;
+  productionPhase?: string;
   servicesUsed: string[];
   techStack?: string[];
   results: {
@@ -31,6 +38,7 @@ export interface ProjectItem {
     improvement?: string;
   }[];
   gallery: string[];
+  finalOutcome?: string;
   videoUrl?: string;
   featured?: boolean;
 }

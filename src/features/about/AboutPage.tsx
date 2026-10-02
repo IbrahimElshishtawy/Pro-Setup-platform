@@ -1,58 +1,50 @@
 import React from 'react';
-import { ShieldCheck, Target, Zap, Award, CheckCircle2, ArrowRight, Users, Sparkles, Building2, Eye, Compass, HeartHandshake } from 'lucide-react';
+import { ShieldCheck, Target, Zap, Award, CheckCircle2, ArrowLeft, Building2, Sparkles, Compass } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
-import { SocialIcons } from '../../components/common/SocialIcons';
 
 export interface AboutPageProps {
   onOpenQuote: () => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
-  // Required Pillars per Prompt 17:
-  // Who We Are, What We Do, Our Vision, Our Mission, Our Values, Our Team
   const values = [
-    { title: 'Architectural Synergy', desc: 'No disconnected agency silos. Software engineers collaborate directly with marketing directors and security hardware specialists.', icon: Zap },
-    { title: 'Obsession with Measurable ROI', desc: 'We do not build vanity projects. Every line of code, ad creative, and optical sensor is deployed for concrete commercial yield.', icon: Target },
-    { title: 'Institutional Integrity & Security', desc: 'From cloud encryption and data governance to physical access control, we ensure your business remains bulletproof.', icon: ShieldCheck },
-    { title: 'Zero Vendor Friction', desc: 'One partner, one dedicated project director, one invoice — eliminating months of finger-pointing between separate vendors.', icon: Award },
+    { title: 'التناغم المعماري المتكامل', desc: 'لا وجود لجزر منعزلة. مهندسو البرمجيات يعملون جنباً إلى جنب مع مديري التسويق وخبراء الأنظمة الأمنية والمصورين في خطة واحدة.', icon: Zap },
+    { title: 'التركيز على العائد الاستثماري الحقيقي (ROI)', desc: 'لا نصنع مشاريع استعراضية فارغة. كل سطر كود، وتصميم إعلاني، وحساس كاميرا يُنشر لهدف تجاري واضح وملموس لزيادة أرباحك.', icon: Target },
+    { title: 'النزاهة المؤسسية والأمان المطلق', desc: 'من التشفير السحابي وحوكمة البيانات إلى بوابات الدخول البيومترية، نضمن بقاء منشأتك وبياناتك مؤمنة بأعلى المعايير العالمية.', icon: ShieldCheck },
+    { title: 'إنهاء فوضى تعدد الموردين', desc: 'شريك استراتيجي واحد، ومدير مشروع مخصص، وفاتورة موحدة — مما يوفر شهوراً من التنسيق المرهق وتبادل اللوم بين الشركات المنفصلة.', icon: Award },
   ];
 
-  // Professional Team Cards with Placeholders (Strictly adhering to Prompt 17 & 28: "Do not invent real names. Use placeholders until actual team information is provided.")
   const teamMembers = [
     {
-      name: '[Executive Director Placeholder]',
+      name: '[الرئيس التنفيذي]',
       position: 'Chief Executive Officer',
-      specialization: 'Corporate Business Setup & Strategic Growth',
+      specialization: 'تطوير الأعمال الاستراتيجي والنمو المؤسسي',
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-      socialLinks: ['linkedin'],
     },
     {
-      name: '[Engineering Director Placeholder]',
+      name: '[رئيس قطاع البرمجيات والأنظمة]',
       position: 'Head of Software & Cloud Systems',
-      specialization: 'Flutter Cross-Platform, Microservices & Data Arch',
+      specialization: 'تطوير Flutter، المعمارية السحابية وقواعد البيانات',
       photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
-      socialLinks: ['linkedin'],
     },
     {
-      name: '[Creative Director Placeholder]',
+      name: '[المدير الإبداعي والفني]',
       position: 'Head of Brand Design & UI/UX',
-      specialization: 'Visual Identity, Design Systems & Packaging',
+      specialization: 'الهوية البصرية، تصميم المنتجات وتجارب المستخدم',
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-      socialLinks: ['linkedin'],
     },
     {
-      name: '[Security Systems Lead Placeholder]',
+      name: '[مسؤول الأنظمة الأمنية والمراقبة]',
       position: 'Director of Hardware & Surveillance',
-      specialization: 'Commercial CCTV, PoE Networks & Biometrics',
+      specialization: 'شبكات كاميرات المراقبة، وتجهيز غرف السيرفرات والبوابات',
       photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
-      socialLinks: ['linkedin'],
     },
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-left">
+    <div className="py-12 md:py-20 space-y-20 text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* 1. SECTION: WHO WE ARE */}
@@ -60,20 +52,20 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold uppercase tracking-wider">
               <Building2 className="w-3.5 h-3.5" />
-              <span>Who We Are</span>
+              <span>من نحن</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              The Single Partner for <span className="text-electric-gradient">Complete Business Setups</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2]">
+              الشريك الموحد لكل ما <span className="text-electric-gradient">تحتاجه أعمالك</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              PRO SETUP is not a fragmented vendor or a traditional single-discipline agency. We are an integrated business architecture company that brings marketing, brand design, software engineering, security installations, cinema media production, and commercial advertising together under one roof.
+              ليست PRO SETUP مجرد وكالة تسويق تقليدية أو شركة برمجيات منفصلة، بل نحن شركة حلول وتجهيز أعمال متكاملة تجمع التسويق الرقمي، وتصميم الهويات البصرية، والبرمجيات المتقدمة، وتركيب كاميرات المراقبة، والإنتاج السينمائي، وإدارة الحملات الإعلانية تحت مظلة واحدة متناسقة.
             </p>
 
             <div className="pt-2">
-              <Button variant="primary" onClick={onOpenQuote} glow icon={ArrowRight}>
-                Partner With PRO SETUP
+              <Button variant="primary" onClick={onOpenQuote} glow icon={ArrowLeft}>
+                ابدأ شراكتك مع PRO SETUP
               </Button>
             </div>
           </div>
@@ -82,7 +74,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
             <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] bg-dark-800 relative group">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                alt="PRO SETUP Integrated Operations Hub"
+                alt="مركز عمليات وتجهيزات PRO SETUP"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
@@ -94,24 +86,24 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/80 border border-white/10 backdrop-blur-xl space-y-6">
           <div className="space-y-2">
             <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-              Integrated Capabilities
+              القدرات والخدمات المتكاملة
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white">
-              What We Do
+              ما الذي نقوم به؟
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
-              We engineer everything required to launch, operate, scale, and protect modern commercial enterprises.
+              نهندس كل ما يلزم لإطلاق وتشغيل وتوسيع وتأمين المنشآت والشركات التجارية الحديثة بكفاءة مطلقة.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
             {[
-              { title: 'Digital Marketing & Growth', desc: 'Predictable audience targeting, lead generation funnels, and social media management.' },
-              { title: 'Design & Visual Branding', desc: 'Iconic brand identities, UI/UX systems, and tactile luxury packaging.' },
-              { title: 'Software & Technology', desc: 'Next.js web platforms, Flutter mobile apps, ERPs, and cloud microservices.' },
-              { title: 'Security & Surveillance', desc: 'Turnkey 4K CCTV installation, centralized NVR storage, and biometric access barriers.' },
-              { title: 'Photography & Production', desc: 'Cinema 4K commercials, studio product photography, and viral vertical reels.' },
-              { title: 'Commercial Advertising', desc: 'Full-funnel media buying and algorithmic ROAS scale across global ad networks.' },
+              { title: 'التسويق الرقمي وإدارة السوشيال ميديا', desc: 'استهداف دقيق للجمهور، ومسارات استقطاب عملاء محتملين، وإدارة المحتوى اليومي.' },
+              { title: 'الهوية البصرية وتصميم UI/UX', desc: 'هويات أيقونية متكاملة، ونظم تصميم رقمية مريحة للمستخدمين، وتغليف فاخر.' },
+              { title: 'تطوير البرمجيات والتطبيقات', desc: 'منصات ويب سريعة، وتطبيقات Flutter على iOS و Android، وأنظمة تخطيط موارد ERP.' },
+              { title: 'كاميرات المراقبة والأنظمة الأمنية', desc: 'تركيب كاميرات 4K IP ذكية، ووحدات تخزين NVR، وبوابات تحكم بالبصمة.' },
+              { title: 'التصوير والإنتاج السينمائي', desc: 'إعلانات سينمائية بدقة 4K، وتصوير استوديو للمنتجات، ومقاطع ريلز سريعة الانتشار.' },
+              { title: 'الحملات الإعلانية الممولة', desc: 'شراء مساحات إعلانية مستند إلى البيانات ومضاعفة العائد الإعلاني على المنصات العالمية.' },
             ].map((item, i) => (
               <div key={i} className="p-4 rounded-xl bg-dark-900 border border-white/5 space-y-1.5">
                 <CheckCircle2 className="w-4 h-4 text-electric-cyan mb-1" />
@@ -128,9 +120,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
             <div className="w-12 h-12 rounded-2xl bg-electric-600/20 border border-electric-500/40 flex items-center justify-center text-electric-cyan">
               <Compass className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl font-black text-white">Our Vision</h3>
+            <h3 className="text-2xl font-black text-white">رؤيتنا</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              To stand as the definitive corporate setup and commercial architecture powerhouse — where founders, executives, and organizations can enter with an ambitious vision and emerge with an operating, profitable, technologically advanced, and secure enterprise.
+              أن نكون المرجع الأول والشريك الأكثر موثوقية لرواد الأعمال والمؤسسات الكبرى في العالم العربي عند تأسيس وتطوير وتأمين مشاريعهم — حيث يدخل العميل برؤية طموحة ويخرج بكيان تجاري متكامل، مربح، متقدم تكنولوجياً، ومحصن أمنياً.
             </p>
           </div>
 
@@ -138,9 +130,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
             <div className="w-12 h-12 rounded-2xl bg-electric-600/20 border border-electric-500/40 flex items-center justify-center text-electric-cyan">
               <Sparkles className="w-6 h-6" />
             </div>
-            <h3 className="text-2xl font-black text-white">Our Mission</h3>
+            <h3 className="text-2xl font-black text-white">رسالتنا</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              To permanently eliminate the chaos of coordinating disconnected agencies. By uniting technology, creative design, digital marketing, physical security, and advertising under one roof, we empower businesses with unstoppable operational momentum.
+              القضاء التام على الفوضى الناتجة عن التعامل مع وكالات وشركات منفصلة. من خلال توحيد التكنولوجيا، والتصميم الإبداعي، والتسويق، والأمان الميداني، والإنتاج البصري تحت سقف واحد، نمنح الشركات قوة دفع وانطلاقة تجارية لا يمكن إيقافها.
             </p>
           </div>
         </div>
@@ -148,10 +140,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
         {/* 4. SECTION: OUR VALUES */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Core Philosophy"
-            title="Our Guiding"
-            highlight="Values"
-            subtitle="The fundamental standards that govern every line of code, ad campaign, and security deployment."
+            badge="فلسفتنا الجوهرية"
+            title="القيم التي تحكم"
+            highlight="مسيرة عملنا"
+            subtitle="المعايير الصارمة التي توجه كل سطر برمجي، وكل حملة إعلانية، وكل منظومة أمنية ننفذها."
             align="center"
           />
 
@@ -161,7 +153,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
               return (
                 <div
                   key={i}
-                  className="p-6 rounded-2xl bg-dark-800/70 border border-white/[0.08] hover:border-electric-cyan/40 backdrop-blur-md transition-all text-left space-y-3"
+                  className="p-6 rounded-2xl bg-dark-800/70 border border-white/[0.08] hover:border-electric-cyan/40 backdrop-blur-md transition-all text-right space-y-3"
                 >
                   <div className="w-10 h-10 rounded-xl bg-electric-600/15 border border-electric-500/30 flex items-center justify-center text-electric-cyan">
                     <Icon className="w-5 h-5" />
@@ -174,13 +166,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
           </div>
         </div>
 
-        {/* 5. SECTION: OUR TEAM (Using Professional Cards with Placeholders per Prompt 17 & 28) */}
+        {/* 5. SECTION: OUR TEAM */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Executive Leadership"
-            title="The Minds Behind"
-            highlight="PRO SETUP"
-            subtitle="Seasoned technology architects, creative directors, and security systems specialists."
+            badge="القيادة والإشراف"
+            title="الفريق المتخصص خلف"
+            highlight="نجاحات PRO SETUP"
+            subtitle="مهندسو برمجيات معتمدون، ومخرجون إبداعيون، وخبراء أمن وشبكات يقودون كل تفصيلة في مشروعك."
             align="center"
           />
 
@@ -203,7 +195,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
                   <h4 className="text-base font-bold text-white group-hover:text-electric-cyan transition-colors">
                     {member.name}
                   </h4>
-                  <span className="text-xs text-electric-cyan font-semibold block">
+                  <span className="text-xs text-electric-cyan font-semibold block font-mono" dir="ltr">
                     {member.position}
                   </span>
                   <p className="text-[11px] text-slate-400 leading-relaxed pt-1">
@@ -212,14 +204,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
                 </div>
 
                 <div className="pt-2 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-slate-500">Official Channel:</span>
+                  <span className="text-[10px] font-mono text-slate-500">القناة الرسمية:</span>
                   <a
                     href={COMPANY_INFO.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-semibold text-slate-400 hover:text-electric-cyan transition-colors"
                   >
-                    LinkedIn Profile →
+                    حساب LinkedIn ←
                   </a>
                 </div>
               </div>
@@ -229,13 +221,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
 
         {/* 6. CTA SECTION */}
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl sm:text-3xl font-black text-white">Ready to partner with an integrated team?</h3>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-            Experience what happens when engineering precision, creative mastery, and operational security unite under one roof.
+          <h3 className="text-2xl sm:text-3xl font-black text-white">هل أنت مستعد للشراكة مع فريق متكامل؟</h3>
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            اكتشف الفارق الحقيقي عندما تجتمع الدقة الهندسية، والإبداع البصري، والأمان التشغيلي تحت قيادة واحدة لمشروعك.
           </p>
           <div className="pt-2">
             <Button variant="primary" onClick={onOpenQuote} glow>
-              Start Your Journey With Us
+              ابدأ رحلتك معنا الآن
             </Button>
           </div>
         </div>

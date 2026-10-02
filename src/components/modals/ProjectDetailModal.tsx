@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Layers, Sparkles, Code2, Film, Shield, TrendingUp } from 'lucide-react';
+import { X, CheckCircle2, ArrowLeft, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { ProjectItem } from '../../core/types/portfolio';
 import { PORTFOLIO_PROJECTS } from '../../data/portfolioData';
 import { Button } from '../common/Button';
@@ -20,10 +20,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      if (e.key === 'ArrowLeft' && project && onSelectProject) {
+      if (e.key === 'ArrowRight' && project && onSelectProject) {
         handlePrev();
       }
-      if (e.key === 'ArrowRight' && project && onSelectProject) {
+      if (e.key === 'ArrowLeft' && project && onSelectProject) {
         handleNext();
       }
     };
@@ -64,7 +64,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-dark-950/85 backdrop-blur-2xl animate-in fade-in duration-200"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-dark-900 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-10 space-y-8 animate-in zoom-in-95 duration-200 text-left"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-dark-900 border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-10 space-y-8 animate-in zoom-in-95 duration-200 text-right"
       >
         {/* Top Control Bar: Prev, Next, Close */}
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
@@ -73,25 +73,25 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             <button
               onClick={handlePrev}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-dark-800 text-xs font-semibold text-slate-300 hover:text-white hover:bg-dark-750 border border-white/10 transition-all"
-              aria-label="Previous Project"
+              aria-label="المشروع السابق"
             >
-              <ChevronLeft className="w-4 h-4" />
-              <span className="hidden sm:inline">Previous Case Study</span>
+              <ChevronRight className="w-4 h-4" />
+              <span className="hidden sm:inline">دراسة الحالة السابقة</span>
             </button>
             <button
               onClick={handleNext}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-dark-800 text-xs font-semibold text-slate-300 hover:text-white hover:bg-dark-750 border border-white/10 transition-all"
-              aria-label="Next Project"
+              aria-label="المشروع التالي"
             >
-              <span className="hidden sm:inline">Next Case Study</span>
-              <ChevronRight className="w-4 h-4" />
+              <span className="hidden sm:inline">دراسة الحالة التالية</span>
+              <ChevronLeft className="w-4 h-4" />
             </button>
           </div>
 
           {/* Close Button */}
           <button
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label="إغلاق النافذة"
             className="p-2 rounded-xl bg-dark-800 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -105,7 +105,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               {project.categoryLabel}
             </span>
             <span className="text-xs text-slate-400">
-              Year: {project.year}
+              سنة التنفيذ: {project.year}
             </span>
           </div>
 
@@ -131,23 +131,23 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {/* 2. CLIENT & INDUSTRY METADATA BAR */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-dark-950/70 border border-white/[0.08]">
           <div>
-            <span className="text-[10px] font-mono uppercase text-slate-500 block">Client</span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 block">العميل / الشريك</span>
             <span className="text-xs font-bold text-white block mt-0.5 truncate">{project.client}</span>
           </div>
           <div>
-            <span className="text-[10px] font-mono uppercase text-slate-500 block">Industry Sector</span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 block">قطاع الأعمال</span>
             <span className="text-xs font-bold text-electric-cyan block mt-0.5">{project.industry}</span>
           </div>
           <div>
-            <span className="text-[10px] font-mono uppercase text-slate-500 block">Setup Scope</span>
-            <span className="text-xs font-bold text-white block mt-0.5">End-to-End Enterprise Solution</span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 block">نطاق التجهيز</span>
+            <span className="text-xs font-bold text-white block mt-0.5">حلول متكاملة للمؤسسات</span>
           </div>
         </div>
 
         {/* 3. SERVICES DELIVERED */}
         <div className="space-y-2">
           <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-            Delivered Services
+            الخدمات المنفذة في المشروع
           </h4>
           <div className="flex flex-wrap gap-2">
             {project.servicesUsed.map((svc, i) => (
@@ -165,7 +165,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {/* 4. OVERVIEW */}
         <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
           <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-            Project Overview
+            نظرة عامة على المشروع
           </h4>
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
             {project.overview}
@@ -177,7 +177,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
             <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-amber-400" />
-              The Business Challenge
+              التحدي التجاري
             </h4>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               {project.challenge}
@@ -187,7 +187,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-2">
             <h4 className="text-xs font-bold text-electric-cyan uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-electric-cyan" />
-              The Strategic Approach
+              النهج الاستراتيجي
             </h4>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               {project.strategy}
@@ -199,35 +199,35 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         <div className="p-5 rounded-2xl bg-dark-800/80 border border-electric-500/30 space-y-2">
           <h4 className="text-xs font-bold text-electric-cyan uppercase tracking-wider flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5" />
-            The PRO SETUP Integrated Solution
+            حلول وتجهيزات PRO SETUP المتكاملة
           </h4>
           <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
             {project.solution}
           </p>
         </div>
 
-        {/* 7. THREE-PHASE EXECUTION BREAKDOWN (Design, Development, Production) */}
+        {/* 7. THREE-PHASE EXECUTION BREAKDOWN */}
         {(project.designPhase || project.developmentPhase || project.productionPhase) && (
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              Cross-Disciplinary Execution Phases
+              مراحل التنفيذ متعددة التخصصات
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {project.designPhase && (
                 <div className="p-4 rounded-xl bg-dark-950 border border-white/5 space-y-1.5">
-                  <span className="text-[10px] font-mono text-pink-400 font-bold uppercase block">Phase 01 • Design</span>
+                  <span className="text-[10px] font-mono text-pink-400 font-bold uppercase block">المرحلة 01 • التصميم</span>
                   <p className="text-xs text-slate-300 leading-relaxed">{project.designPhase}</p>
                 </div>
               )}
               {project.developmentPhase && (
                 <div className="p-4 rounded-xl bg-dark-950 border border-white/5 space-y-1.5">
-                  <span className="text-[10px] font-mono text-electric-cyan font-bold uppercase block">Phase 02 • Engineering</span>
+                  <span className="text-[10px] font-mono text-electric-cyan font-bold uppercase block">المرحلة 02 • التطوير الهندسي</span>
                   <p className="text-xs text-slate-300 leading-relaxed">{project.developmentPhase}</p>
                 </div>
               )}
               {project.productionPhase && (
                 <div className="p-4 rounded-xl bg-dark-950 border border-white/5 space-y-1.5">
-                  <span className="text-[10px] font-mono text-amber-400 font-bold uppercase block">Phase 03 • Production</span>
+                  <span className="text-[10px] font-mono text-amber-400 font-bold uppercase block">المرحلة 03 • الإنتاج والتجهيز</span>
                   <p className="text-xs text-slate-300 leading-relaxed">{project.productionPhase}</p>
                 </div>
               )}
@@ -235,14 +235,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           </div>
         )}
 
-        {/* 8. RESULTS (Clearly Marked Demonstrative Sample Metrics) */}
+        {/* 8. RESULTS */}
         {project.results && project.results.length > 0 && (
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Measurable Commercial Impact
+                الأثر والنتائج التجارية المحققة
               </h4>
-              <span className="text-[10px] text-slate-500 font-mono">(Sample Demonstrative Metrics)</span>
+              <span className="text-[10px] text-slate-500 font-mono">(نماذج قياسية توضيحية)</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {project.results.map((res, i) => (
@@ -250,7 +250,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                   key={i}
                   className="p-4 rounded-xl bg-dark-800/80 border border-white/[0.08] backdrop-blur-md flex flex-col"
                 >
-                  <span className="text-2xl sm:text-3xl font-black text-electric-cyan font-mono">
+                  <span className="text-2xl sm:text-3xl font-black text-electric-cyan font-mono" dir="ltr">
                     {res.value}
                   </span>
                   <span className="text-xs font-semibold text-white mt-1">
@@ -271,7 +271,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {project.gallery && project.gallery.length > 0 && (
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              Project Visual Showcase Gallery
+              معرض المخرجات والصور
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {project.gallery.map((img, i) => (
@@ -281,7 +281,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 >
                   <img
                     src={img}
-                    alt={`${project.title} gallery preview ${i + 1}`}
+                    alt={`${project.title} معاينة ${i + 1}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -294,9 +294,9 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {project.techStack && (
           <div className="space-y-2">
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-              Technologies, Platforms & Tools Deployed
+              التقنيات والمنصات والأدوات المستخدمة
             </h4>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" dir="ltr">
               {project.techStack.map((tech, i) => (
                 <span
                   key={i}
@@ -312,7 +312,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         {/* 11. FINAL OUTCOME */}
         {project.finalOutcome && (
           <div className="p-4 rounded-xl bg-dark-950 border border-emerald-500/20 space-y-1">
-            <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase block">Final Commercial Outcome</span>
+            <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase block">النتيجة والمحصلة التجارية النهائية</span>
             <p className="text-xs text-slate-300 leading-relaxed font-normal">{project.finalOutcome}</p>
           </div>
         )}
@@ -324,13 +324,13 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               onClick={handlePrev}
               className="px-3 py-1.5 rounded-xl bg-dark-800 text-xs text-slate-300 hover:text-white border border-white/10"
             >
-              ← Previous
+              السابق →
             </button>
             <button
               onClick={handleNext}
               className="px-3 py-1.5 rounded-xl bg-dark-800 text-xs text-slate-300 hover:text-white border border-white/10"
             >
-              Next →
+              ← التالي
             </button>
           </div>
 
@@ -341,12 +341,12 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               onClick={onClose}
               className="flex-1 sm:flex-initial"
             >
-              Close
+              إغلاق
             </Button>
             <Button
               variant="primary"
               size="sm"
-              icon={ArrowRight}
+              icon={ArrowLeft}
               glow
               onClick={() => {
                 onClose();
@@ -354,7 +354,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               }}
               className="flex-1 sm:flex-initial"
             >
-              Start Similar Setup
+              طلب مشروع وتجهيز مماثل
             </Button>
           </div>
         </div>

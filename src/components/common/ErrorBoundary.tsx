@@ -38,14 +38,14 @@ export class ErrorBoundary extends Component<Props, State> {
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold text-white tracking-tight">Something went wrong</h2>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                The application encountered an unexpected error. Please refresh the page or restart the development server.
+              <h2 className="text-2xl font-bold text-white tracking-tight">حدث خطأ غير متوقع</h2>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                واجه التطبيق خطأً غير متوقع أثناء معالجة الصفحة. يرجى إعادة تحميل الصفحة أو المحاولة لاحقاً.
               </p>
             </div>
 
             {this.state.error && (
-              <div className="p-3 rounded-xl bg-dark-950/80 border border-white/5 text-[11px] font-mono text-rose-300 text-left overflow-x-auto max-h-32">
+              <div className="p-3 rounded-xl bg-dark-950/80 border border-white/5 text-[11px] font-mono text-rose-300 text-left overflow-x-auto max-h-32" dir="ltr">
                 {this.state.error.message}
               </div>
             )}
@@ -55,7 +55,7 @@ export class ErrorBoundary extends Component<Props, State> {
               className="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl bg-electric-600 hover:bg-electric-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-glow-sm"
             >
               <RefreshCw className="w-4 h-4" />
-              <span>Reload Application</span>
+              <span>إعادة تحميل الصفحة</span>
             </button>
           </div>
         </div>

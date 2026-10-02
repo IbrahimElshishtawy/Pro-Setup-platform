@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Play, Pause, Volume2, VolumeX, Maximize2, Sparkles } from 'lucide-react';
+import { X, Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 
 export interface VideoPlayerModalProps {
@@ -47,20 +47,20 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({ isOpen, onCl
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-dark-950/90 backdrop-blur-2xl animate-in fade-in duration-300"
     >
       <div
-        className="relative w-full max-w-4xl bg-dark-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-4xl bg-dark-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-200 text-right"
       >
         {/* Top Control Bar */}
         <div className="flex items-center justify-between px-6 py-4 bg-dark-950/80 border-b border-white/10">
           <div className="flex items-center gap-2.5">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
             <span id="modal-video-title" className="text-xs font-semibold uppercase tracking-wider text-slate-200">
-              PRO SETUP • Official Agency Showreel 4K
+              PRO SETUP • العرض التعريفي والإنتاجي الرسمي بدقة 4K
             </span>
           </div>
 
           <button
             onClick={onClose}
-            aria-label="Close video player"
+            aria-label="إغلاق مشغل الفيديو"
             className="p-1.5 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
@@ -72,7 +72,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({ isOpen, onCl
           {/* Animated Background Cinema Media */}
           <img
             src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80"
-            alt="Agency Reel Preview"
+            alt="معاينة استعراض الشركة"
             className={`w-full h-full object-cover transition-transform duration-700 ${isPlaying ? 'scale-105' : 'scale-100 opacity-80'}`}
           />
 
@@ -155,7 +155,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({ isOpen, onCl
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>
-              <span className="font-mono text-[11px] text-slate-400">
+              <span className="font-mono text-[11px] text-slate-400" dir="ltr">
                 0:{progress < 10 ? `0${Math.floor(progress * 0.6)}` : Math.floor(progress * 0.6)} / 1:00
               </span>
             </div>

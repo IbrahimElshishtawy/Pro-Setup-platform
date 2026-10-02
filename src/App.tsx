@@ -63,56 +63,56 @@ export function App() {
   useEffect(() => {
     const titles: Record<ActivePage, { title: string; desc: string }> = {
       'home': {
-        title: 'PRO SETUP | All Your Business Needs in One Place',
-        desc: 'PRO SETUP provides Digital Marketing, Software Development, Branding, CCTV Security, Photography, Video Production, and Advertising under one roof.'
+        title: 'PRO SETUP | كل ما تحتاجه أعمالك في مكان واحد',
+        desc: 'تقدم PRO SETUP حلول التسويق الرقمي، تطوير البرمجيات، الهوية البصرية، كاميرات المراقبة، التصوير والإنتاج السينمائي، والحملات الإعلانية تحت سقف واحد.'
       },
       'services': {
-        title: 'Services Overview | PRO SETUP - Everything Your Business Needs',
-        desc: 'Explore PRO SETUP integrated capabilities: Marketing, Creative Design, Software Engineering, CCTV Security, Video Production, and Advertising.'
+        title: 'الخدمات المتكاملة | PRO SETUP - كل ما تحتاجه أعمالك',
+        desc: 'استكشف منظومة خدمات PRO SETUP: التسويق الرقمي، الهوية البصرية، تطوير البرمجيات والتطبيقات، كاميرات المراقبة، الإنتاج السينمائي، والإعلانات.'
       },
       'digital-marketing': {
-        title: 'Digital Marketing & Social Media Management | PRO SETUP',
-        desc: 'Performance marketing, audience targeting, social media growth, content creation, and lead generation analytics.'
+        title: 'التسويق الرقمي وإدارة السوشيال ميديا | PRO SETUP',
+        desc: 'حملات تسويقية مبنية على الأداء، استهداف الجماهير، إدارة منصات التواصل، صناعة المحتوى، ولوحات تحكم فورية لاستقطاب العملاء.'
       },
       'design-branding': {
-        title: 'Design & Branding Studio | PRO SETUP',
-        desc: 'Logo design, brand identity systems, social media design, packaging, and UI/UX digital design.'
+        title: 'استوديو الهوية البصرية وتصميم UI/UX | PRO SETUP',
+        desc: 'تصميم الشعارات، نظم الهوية البصرية للشركات، تصاميم السوشيال ميديا، التغليف الفاخر، وتصميم واجهات وتجربة المستخدم للمواقع والتطبيقات.'
       },
       'software-technology': {
-        title: 'Software & Technology Solutions | PRO SETUP',
-        desc: 'Web development, mobile applications, custom software, dashboards, APIs, cloud systems, and payment integrations.'
+        title: 'الحلول البرمجية والتقنية وتطوير المنصات | PRO SETUP',
+        desc: 'تطوير مواقع الويب السريعة، وتطبيقات الجوال عبر Flutter، والبرمجيات المخصصة، ولوحات البيانات، والواجهات البرمجية، والبنية السحابية.'
       },
       'security-surveillance': {
-        title: 'CCTV & Security Systems Installation | PRO SETUP',
-        desc: 'Professional CCTV, IP cameras, NVR/DVR systems, network architecture, and 24/7 access control monitoring.'
+        title: 'توريد وتركيب كاميرات المراقبة والأنظمة الأمنية | PRO SETUP',
+        desc: 'أنظمة CCTV تجارية، كاميرات IP بدقة 4K، وحدات تخزين NVR/DVR، شبكات PoE معزولة، وبوابات التحكم في الدخول والمراقبة 24/7.'
       },
       'photography-video': {
-        title: 'Commercial Photography & Video Production | PRO SETUP',
-        desc: 'High-end media production, 4K commercial videos, product photography, advertising reels, and cinematic color grading.'
+        title: 'التصوير التجاري والإنتاج السينمائي | PRO SETUP',
+        desc: 'إنتاج إعلامي فائق الدقة، إعلانات تجارية سينمائية 4K، تصوير المنتجات، فيديوهات الريلز السريعة، وهندسة تلوين سينمائية.'
       },
       'advertising': {
-        title: 'Commercial Advertising & Media Campaigns | PRO SETUP',
-        desc: 'Complete campaign lifecycle: Idea, Strategy, Creative, Production, Advertising, and Optimization.'
+        title: 'الحملات الإعلانية وإدارة الميزانيات | PRO SETUP',
+        desc: 'إدارة الحملات الإعلانية المتكاملة: الفكرة، الاستراتيجية، الابتكار، الإنتاج المرئي، الإطلاق الخوارزمي، والتحسين لمضاعفة العائد.'
       },
       'portfolio': {
-        title: 'Portfolio & Case Studies | PRO SETUP',
-        desc: 'Discover our work across digital marketing, software, branding, security installations, and video production.'
+        title: 'معرض الأعمال ودراسات الحالة | PRO SETUP',
+        desc: 'استكشف نماذج مشاريعنا المتكاملة في البرمجيات، الهويات البصرية، الحملات الإعلانية، والأنظمة الأمنية والإنتاج السينمائي.'
       },
       'about': {
-        title: 'About PRO SETUP | Your Vision. Our Setup.',
-        desc: 'Learn about our integrated business model, mission, vision, operational values, and leadership team.'
+        title: 'عن PRO SETUP | رؤيتك. تجهيزنا المتكامل.',
+        desc: 'تعرف على نموذج عملنا المتكامل، ورؤيتنا، ورسالتنا، وقيمنا الجوهرية، وفريق القيادة المتخصص في تجهيز الأعمال.'
       },
       'process': {
-        title: 'Our 6-Step Delivery Process | PRO SETUP',
-        desc: 'From Discovery and Strategy to Design, Development, Launch, and Continuous Optimization.'
+        title: 'منهجية العمل المكونة من 6 خطوات | PRO SETUP',
+        desc: 'من الاستكشاف والتخطيط الاستراتيجي إلى التصميم والبرمجة والإطلاق الحي والدعم المستمر.'
       },
       'contact': {
-        title: 'Contact PRO SETUP | Let\'s Build Something Great',
-        desc: 'Get in touch with our team for project inquiries, custom quotes, and consultations.'
+        title: 'تواصل مع PRO SETUP | لنصنع شيئاً عظيماً معاً',
+        desc: 'تواصل مباشرة مع فريقنا لمناقشة مشروعك، وطلب عروض الأسعار والاستشارات المخصصة.'
       },
       'faq': {
-        title: 'Frequently Asked Questions | PRO SETUP',
-        desc: 'Common questions about our integrated services, process, security installations, and technical capabilities.'
+        title: 'الأسئلة الشائعة والإرشادات | PRO SETUP',
+        desc: 'إجابات وافية على كافة الاستفسارات المتعلقة بخدماتنا المتكاملة، ومراحل العمل، والأنظمة التقنية والأمنية.'
       }
     };
 

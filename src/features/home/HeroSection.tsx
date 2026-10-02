@@ -1,0 +1,216 @@
+import React from 'react';
+import { ArrowRight, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette } from 'lucide-react';
+import { COMPANY_INFO } from '../../core/config/constants';
+import { Button } from '../../components/common/Button';
+
+export interface HeroSectionProps {
+  onExploreServices: () => void;
+  onWatchVideo: () => void;
+  onSelectVertical: (verticalId: string) => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  onExploreServices,
+  onWatchVideo,
+  onSelectVertical,
+}) => {
+  return (
+    <section className="relative pt-6 pb-20 md:py-24 lg:py-28 overflow-hidden">
+      {/* Background radial gradient accent */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* LEFT COLUMN: Hero Copy & Actions (Matches Visual Reference Exactly) */}
+          <div className="lg:col-span-6 space-y-6 md:space-y-8 z-10 text-left">
+            {/* Small Label */}
+            <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-[0.25em] text-slate-300 uppercase">
+              <span className="w-2 h-2 rounded-full bg-electric-cyan shadow-glow-sm" />
+              <span>YOUR VISION</span>
+              <span className="text-electric-cyan">•</span>
+              <span>OUR SETUP</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.1]">
+              All Your Business Needs in{' '}
+              <span className="text-electric-gradient inline-block">
+                One Place
+              </span>
+            </h1>
+
+            {/* Sub-description */}
+            <p className="text-base md:text-lg text-slate-400 font-normal leading-relaxed max-w-xl">
+              {COMPANY_INFO.subDescription}
+            </p>
+
+            {/* Dual CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Button
+                variant="primary"
+                size="lg"
+                icon={ArrowRight}
+                glow
+                onClick={onExploreServices}
+                className="w-full sm:w-auto"
+              >
+                Explore Our Services
+              </Button>
+
+              <Button
+                variant="glass"
+                size="lg"
+                icon={Play}
+                iconPosition="left"
+                onClick={onWatchVideo}
+                className="w-full sm:w-auto text-slate-200 hover:text-white"
+              >
+                Watch Our Video
+              </Button>
+            </div>
+
+            {/* Social Media Channels Row */}
+            <div className="pt-4 flex items-center gap-3">
+              {[
+                { name: 'Facebook', url: COMPANY_INFO.social.facebook, label: 'FB' },
+                { name: 'Instagram', url: COMPANY_INFO.social.instagram, label: 'IG' },
+                { name: 'TikTok', url: COMPANY_INFO.social.tiktok, label: 'TK' },
+                { name: 'LinkedIn', url: COMPANY_INFO.social.linkedin, label: 'IN' },
+                { name: 'YouTube', url: COMPANY_INFO.social.youtube, label: 'YT' },
+                { name: 'WhatsApp', url: COMPANY_INFO.social.whatsapp, label: 'WA' },
+              ].map((soc) => (
+                <a
+                  key={soc.name}
+                  href={soc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={soc.name}
+                  className="w-9 h-9 rounded-xl bg-dark-800/80 hover:bg-electric-600/20 text-slate-400 hover:text-electric-cyan border border-white/10 hover:border-electric-500/40 flex items-center justify-center text-xs font-bold transition-all duration-200 hover:-translate-y-1 shadow-sm"
+                >
+                  {soc.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Interactive Floating Glass Cards Grid (Matches Reference Perspective) */}
+          <div className="lg:col-span-6 relative perspective-1000">
+            {/* Ambient Back Glow */}
+            <div className="absolute inset-0 bg-radial-gradient from-electric-600/15 via-transparent to-transparent blur-2xl pointer-events-none" />
+
+            {/* The 5 Verticals Grid (Software, Security, Photo/Video, Marketing, Design) */}
+            <div className="relative grid grid-cols-12 gap-3 sm:gap-4 max-w-lg mx-auto lg:max-w-none">
+              
+              {/* Card 1: Software & Code (Top Left) */}
+              <div
+                onClick={() => onSelectVertical('software-technology')}
+                className="col-span-7 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/11]"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
+                  alt="Software & Code"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
+                
+                {/* Bottom Pill Badge */}
+                <div className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                  <Code2 className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Software</span>
+                </div>
+              </div>
+
+              {/* Card 2: Security & Surveillance (Top Right) */}
+              <div
+                onClick={() => onSelectVertical('security-surveillance')}
+                className="col-span-5 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/14]"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
+                  alt="Security CCTV Camera"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                  <ShieldCheck className="w-3.5 h-3.5 text-electric-cyan" />
+                  <span>Security</span>
+                </div>
+              </div>
+
+              {/* Card 3: Photography & Video (Mid-Right Stack) */}
+              <div
+                onClick={() => onSelectVertical('photography-video')}
+                className="col-span-6 col-start-7 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/11]"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+                  alt="Cinema Video Production Rig"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                  <Camera className="w-3.5 h-3.5 text-electric-cyan" />
+                  <span className="truncate">Photo & Video</span>
+                </div>
+              </div>
+
+              {/* Card 4: Digital Marketing (Mid-Left Stack) */}
+              <div
+                onClick={() => onSelectVertical('digital-marketing')}
+                className="col-span-6 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/14]"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
+                  alt="Digital Marketing Campaign"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                  <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Marketing</span>
+                </div>
+              </div>
+
+              {/* Card 5: Design & Branding (Bottom Center-Right) */}
+              <div
+                onClick={() => onSelectVertical('design-branding')}
+                className="col-span-6 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/12]"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80"
+                  alt="Creative Graphic Design"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
+                
+                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                  <Palette className="w-3.5 h-3.5 text-pink-400" />
+                  <span>Design</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Handwritten Floating Badge from Reference: "Creative Ideas Real Results" */}
+            <div className="absolute -bottom-6 -right-2 sm:-bottom-4 sm:right-4 z-20 pointer-events-none transform rotate-3 select-none">
+              <div className="relative font-script text-2xl sm:text-3xl text-white font-bold tracking-wide drop-shadow-[0_4px_16px_rgba(0,102,255,0.7)] flex flex-col items-center">
+                <span>Creative Ideas</span>
+                <span className="text-electric-cyan">Real Results</span>
+                {/* Curved blue sketch underline */}
+                <svg className="w-28 sm:w-36 h-4 text-electric-cyan" viewBox="0 0 140 20" fill="none">
+                  <path d="M5 12 Q 70 2 135 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};

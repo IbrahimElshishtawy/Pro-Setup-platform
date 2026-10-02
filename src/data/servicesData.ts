@@ -4,11 +4,11 @@ export const SERVICES_DATA: ServiceDetail[] = [
   {
     id: 'digital-marketing',
     slug: 'digital-marketing',
-    title: 'Digital Marketing & Growth',
-    shortTitle: 'Digital Marketing',
-    tagline: 'Scale Your Reach & Drive Predictable Revenue',
-    summary: 'Data-driven marketing campaigns, social media management, paid advertising, and conversion rate optimization tailored to dominate your industry.',
-    description: 'We craft and execute bespoke digital marketing ecosystems that transform casual scrollers into loyal, high-lifetime-value clients. Combining behavioral psychographics with granular algorithmic targeting, our team scales brands across Meta, Google, TikTok, and LinkedIn.',
+    title: 'التسويق الرقمي ونمو الأعمال',
+    shortTitle: 'التسويق الرقمي',
+    tagline: 'ضاعف وصولك وحقق نمواً استثنائياً ومستداماً في المبيعات',
+    summary: 'حملات تسويقية موجهة بالبيانات، إدارة احترافية للسوشيال ميديا، إعلانات ممولة عالية التحويل، وتحسين مستمر لمعدلات التحويل لفرض ريادتك في السوق.',
+    description: 'نبني وننفذ منظومات تسويق رقمي متكاملة تحوّل المتصفحين العاديين إلى عملاء دائمين ذوي قيمة شرائية عالية. عبر الدمج بين التحليل السلوكي والاستهداف الخوارزمي المتقدم، نساعد علامتك التجارية على التوسع عبر منصات Meta وGoogle وTikTok وLinkedIn.',
     iconName: 'Megaphone',
     accentColor: '#0066FF',
     heroImage: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=80',
@@ -18,43 +18,43 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'Social Media Management', description: 'Complete monthly handling of Instagram, TikTok, LinkedIn, and Facebook profiles.' },
-      { name: 'Social Media Strategy', description: 'Content pillars, audience segmentation, tone of voice, and competitive benchmarks.' },
-      { name: 'Content Creation & Planning', description: 'High-converting copywriting, carousels, infographics, and scheduled posting.' },
-      { name: 'Paid Advertising (PPC)', description: 'Laser-targeted ads on Facebook, Instagram, Google Search/Display, and TikTok.' },
-      { name: 'Lead Generation Funnels', description: 'High-intent lead capture pipelines designed to feed sales teams with qualified prospects.' },
-      { name: 'Campaign Optimization & Analytics', description: 'Continuous A/B split testing, pixel tracking, ROAS scaling, and weekly reporting.' },
-      { name: 'Brand Growth Strategy', description: 'Omnichannel scaling blueprints to expand market share and brand authority.' }
+      { name: 'إدارة منصات التواصل الاجتماعي', description: 'إدارة شهرية شاملة لحسابات انستغرام، تيك توك، فيسبوك، ولينكد إن مع التفاعل اليومي.' },
+      { name: 'استراتيجيات المحتوى والجمهور', description: 'تحديد ركائز المحتوى، نبرة الصوت التسويقية، تجزئة الجمهور المستهدف، وتحليل المنافسين.' },
+      { name: 'صناعة المحتوى التفاعلي', description: 'كتابة إعلانية مقنعة (Copywriting)، تصاميم كاروسيل، إنفوجرافيك، وجدولة النشر المنتظم.' },
+      { name: 'الإعلانات الرقمية الممولة (PPC)', description: 'حملات دقيقة ومدروسة على منصات Meta Ads، إعلانات بحث وجوجل، وإعلانات تيك توك.' },
+      { name: 'مسارات استقطاب العملاء المحتملين', description: 'بناء مسارات تحويل واستقطاب للعملاء المهتمين لمد فريق المبيعات بفرص تجارية واعدة.' },
+      { name: 'التحليلات ومضاعفة العائد الإعلاني', description: 'اختبارات A/B مستمرة، ربط البكسل وأدوات التتبع، ومضاعفة العائد على الإنفاق (ROAS).' },
+      { name: 'استشارات التوسع والنمو', description: 'خطط عمل شاملة متعددة القنوات لزيادة الحصة السوقية وبناء سلطة العلامة التجارية.' }
     ],
     deliverables: [
-      'Monthly Content Calendars (30+ assets)',
-      'Omnichannel Paid Ad Campaigns Setup',
-      'Custom Bi-Weekly Performance Dashboards',
-      'Audience Persona & Competitor Reports',
-      'Conversion Tracking & Pixel Integrations'
+      'خطة وتقويم محتوى شهري متكامل (أكثر من 30 منشوراً وفيديو)',
+      'إطلاق وضبط الحملات الإعلانية الممولة عبر القنوات المستهدفة',
+      'لوحة متابعة وتحليلات أسبوعية حية ومباشرة للنتائج',
+      'تقرير دقيق لدراسة الجمهور المستهدف والمنافسين في السوق',
+      'إعداد وربط أدوات التتبع والبكسل بدقة واحترافية'
     ],
     technologies: ['Meta Ads Manager', 'Google Ads', 'TikTok Ads Manager', 'Google Analytics 4', 'HubSpot', 'Looker Studio'],
     pipeline: [
-      { step: '01', title: 'Audience Audit', desc: 'Deep dive into target demographics, psychographics, and competitor ad spend.' },
-      { step: '02', title: 'Creative Hook Production', desc: 'Developing attention-grabbing visual hooks and high-converting copy.' },
-      { step: '03', title: 'Campaign Launch', desc: 'Configuring precise pixel events, custom audiences, and budget allocation.' },
-      { step: '04', title: 'Algorithmic Optimization', desc: 'Scaling winning ad sets and cutting unprofitable variations to maximize ROAS.' }
+      { step: '01', title: 'دراسة وتدقيق السوق', desc: 'تحليل دقيق للشريحة المستهدفة، احتياجات العملاء، وحجم المنافسة في السوق.' },
+      { step: '02', title: 'صناعة الفكرة والخطاف الإعلاني', desc: 'ابتكار أفكار بصرية ونصوص جذابة تخطف الانتباه في الثواني الأولى.' },
+      { step: '03', title: 'إطلاق الحملات وضبط التتبع', desc: 'إعداد الجمهور المستهدف، تحديد الميزانيات، وربط أحداث التحويل بدقة.' },
+      { step: '04', title: 'التحسين الخوارزمي والمضاعفة', desc: 'تعزيز الإعلانات الأكثر ربحية وإيقاف غير المجدية لرفع العائد الاستثماري.' }
     ],
     metricsHighlight: [
-      { label: 'Avg. ROAS Achieved', value: '4.8x' },
-      { label: 'Ad Impressions Managed', value: '15M+' },
-      { label: 'Qualified Leads Generated', value: '42K+' },
-      { label: 'Client Retention Rate', value: '96%' }
+      { label: 'متوسط العائد الإعلاني (نموذج)', value: '4.8x' },
+      { label: 'مرات الظهور المدارة', value: '+15M' },
+      { label: 'عملاء محتملون تم توليدهم', value: '+42K' },
+      { label: 'نسبة استمرار العملاء', value: '96%' }
     ]
   },
   {
     id: 'design-branding',
     slug: 'design-branding',
-    title: 'Design & Visual Branding',
-    shortTitle: 'Design & Branding',
-    tagline: 'Distinctive Identities That Command Authority',
-    summary: 'World-class brand identities, UI/UX product design, high-end packaging, and motion graphics that set your business apart from competition.',
-    description: 'A great brand is unforgettable. We sculpt iconic corporate identities, intuitive digital interfaces, and tactile physical collateral that resonate with premium audiences. From foundational typography to complete design systems, PRO SETUP ensures unmatched visual elegance.',
+    title: 'التصميم وبناء الهوية البصرية',
+    shortTitle: 'الهوية والتصميم',
+    tagline: 'هويات تجارية استثنائية تفرض حضورها وتكسب الثقة',
+    summary: 'تصميم هويات بصرية بمعايير عالمية، واجهات وتجربة المستخدم للمواقع والتطبيقات، وتصميم التغليف الفاخر الذي يميزك فوراً عن منافسيك.',
+    description: 'العلامة التجارية القوية هي التي لا تُنسى. نقوم بصياغة هويات بصرية مؤسسية أيقونية، وواجهات رقمية سلسة، ومواد دعائية فخمة تخاطب الفئات الراقية. من هندسة الخطوط والرموز إلى الدليل الإرشادي الكامل للهوية، تضمن لك PRO SETUP حضوراً بصرياً مبهراً.',
     iconName: 'Palette',
     accentColor: '#00D2FF',
     heroImage: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1600&q=80',
@@ -64,43 +64,43 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'Logo Design & Symbolism', description: 'Timeless, scalable insignia engineered with geometric precision.' },
-      { name: 'Full Brand Identity Systems', description: 'Color architecture, typography hierarchy, visual motifs, and stationery kits.' },
-      { name: 'Brand Guidelines Book', description: 'Comprehensive rules manual ensuring cross-platform brand consistency.' },
-      { name: 'Social Media & Advertising Graphics', description: 'Scroll-stopping feed templates, story formats, and promotional banners.' },
-      { name: 'UI/UX Design for Web & Mobile', description: 'User journey mapping, wireframing, high-fidelity Figma prototypes, and design tokens.' },
-      { name: 'Packaging & Print Materials', description: 'Luxury boxes, labels, business cards, corporate brochures, and roll-up banners.' },
-      { name: 'Motion Graphics & 3D Assets', description: 'Animated logo stings, product reveal animations, and micro-interactions.' }
+      { name: 'تصميم الشعارات والأيقونات', description: 'شعارات خالدة وقابلة للتوسع مصممة بدقة هندسية ونسب متوازنة.' },
+      { name: 'أنظمة الهوية البصرية الكاملة', description: 'منظومة الألوان، تسلسل الخطوط، العناصر الزخرفية، ومطبوعات الشركات الرسمية.' },
+      { name: 'الدليل الإرشادي للهوية (Brand Book)', description: 'دليل شامل يوضح قواعد استخدام الهوية وتطبيقاتها لضمان التناسق التام.' },
+      { name: 'تصاميم السوشيال ميديا والإعلانات', description: 'قوالب بوستات وقصص جذابة تلفت الانتباه وتبرز هوية علامتك التجارية.' },
+      { name: 'تصميم واجهات وتجربة المستخدم UI/UX', description: 'رسم رحلة المستخدم، مخططات Wireframes، ونماذج Figma تفاعلية عالية الدقة.' },
+      { name: 'تصميم التغليف والعبوات والعلب', description: 'تصاميم عبوات فاخرة، كروت عمل، ملصقات، ومطبوعات تجارية جاهزة للتنفيذ.' },
+      { name: 'الموشن جرافيك والتصاميم المتحركة', description: 'تحريك الشعارات الاحترافي، وفيديوهات موشن جرافيك توضيحية لمنتجاتك.' }
     ],
     deliverables: [
-      'Master Brand Guidelines Manual (PDF & Web)',
-      'Vector Logo Suite (.SVG, .AI, .EPS, .PNG, .PDF)',
-      'Full Design System with Figma Component Library',
-      'Ready-to-Print Packaging & Stationery Files',
-      'Complete Social Media Asset Kit'
+      'دليل الهوية التجارية الكامل والشامل (PDF وملفات الويب)',
+      'حزمة الشعار بجميع الصيغ المتجهة (.SVG, .AI, .EPS, .PNG, .PDF)',
+      'نظام التصميم الرقمي Design System بمكونات Figma الجاهزة',
+      'ملفات التغليف والمطبوعات المجهزة والمفصولة للطباعة الفورية',
+      'حزمة قوالب تصاميم التواصل الاجتماعي الجاهزة للاستخدام'
     ],
     technologies: ['Figma', 'Adobe Illustrator', 'Adobe Photoshop', 'After Effects', 'Blender', 'Cinema 4D'],
     pipeline: [
-      { step: '01', title: 'Brand Discovery', desc: 'Uncovering brand values, market positioning, and aesthetic vision.' },
-      { step: '02', title: 'Concept Exploration', desc: 'Developing moodboards, sketches, and 3 distinct visual directions.' },
-      { step: '03', title: 'Refinement & Systems', desc: 'Polishing typography, color harmonies, and responsive components.' },
-      { step: '04', title: 'Final Handover', desc: 'Packaging all production-ready files with strict brand compliance docs.' }
+      { step: '01', title: 'جلسة استكشاف الهوية', desc: 'التعرف على رؤية ورسالة الشركة، الجمهور المستهدف، والقيم المراد تجسيدها.' },
+      { step: '02', title: 'تطوير المفاهيم والخيارات', desc: 'بناء لوحة الإلهام (Moodboard) وتقديم 3 مسارات بصرية متميزة ومبتكرة.' },
+      { step: '03', title: 'الصقل والتطوير الشامل', desc: 'ضبط الألوان، واختيار الخطوط وتطبيق الشعار على مختلف النماذج والمطبوعات.' },
+      { step: '04', title: 'تسليم الحزمة الإنتاجية', desc: 'تجهيز ملفات المصدر الكاملة مع كتيب إرشادات الاستخدام المعتمد.' }
     ],
     metricsHighlight: [
-      { label: 'Brand Identities Built', value: '45+' },
-      { label: 'Design Awards & Recognitions', value: '12' },
-      { label: 'Prototypes Delivered', value: '80+' },
-      { label: 'Client Satisfaction', value: '100%' }
+      { label: 'هويات بصرية منجزة', value: '+45' },
+      { label: 'جوائز وتقديرات تصميمية', value: '12' },
+      { label: 'واجهات ونماذج تفاعلية', value: '+80' },
+      { label: 'نسبة رضا الشركاء', value: '100%' }
     ]
   },
   {
     id: 'software-technology',
     slug: 'software-technology',
-    title: 'Software & Technology',
-    shortTitle: 'Software & Tech',
-    tagline: 'Enterprise-Grade Software, Web & Mobile Platforms',
-    summary: 'Full-stack web engineering, native & cross-platform mobile apps (Flutter), scalable cloud architectures, custom ERP/CRM systems, and secure API integrations.',
-    description: 'We architect lightning-fast, ultra-secure, and endlessly scalable software solutions that automate operations and power modern businesses. From high-conversion SaaS web applications to mission-critical business management systems, our code is built to thrive under heavy enterprise workloads.',
+    title: 'البرمجيات والحلول التقنية',
+    shortTitle: 'البرمجيات والتكنولوجيا',
+    tagline: 'منصات برمجية مؤسسية، مواقع ويب وتطبيقات جوال فائقة الأداء',
+    summary: 'هندسة برمجية شاملة، تطبيقات جوال متعددة المنصات (Flutter)، بنى تحتية سحابية مرنة، أنظمة مخصصة ERP/CRM، وربط برمجيات الدفع والخدمات الخارجية.',
+    description: 'نصمم ونطوّر حلولاً برمجية فائقة السرعة، متناهية الأمان، وقابلة للتوسع لأتمتة العمليات ودعم نمو الأعمال الحديثة. من منصات الويب والمتاجر إلى أنظمة إدارة الشركات الحيوية، نبني أنظمتنا لتتحمل أعلى أحمال التشغيل المؤسسي.',
     iconName: 'Code2',
     accentColor: '#0066FF',
     heroImage: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1600&q=80',
@@ -110,45 +110,45 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'Custom Web Application Development', description: 'Next.js, React, TypeScript, and modern headless frontends with sub-second load times.' },
-      { name: 'Mobile App Development (Flutter & React Native)', description: 'Smooth 60fps iOS and Android applications with offline sync and push notifications.' },
-      { name: 'Enterprise Business Management Systems', description: 'Tailored ERP, inventory control, and employee management portals.' },
-      { name: 'High-Volume E-Commerce Platforms', description: 'Custom storefronts, automated checkout, order fulfillment, and multi-currency support.' },
-      { name: 'Interactive Dashboards & Analytics', description: 'Real-time telemetry, WebSocket streaming, and interactive data visualization charts.' },
-      { name: 'REST & GraphQL API Engineering', description: 'Robust microservices, webhook dispatchers, and third-party integrations.' },
-      { name: 'Cloud Infrastructure & Database Architecture', description: 'Google Cloud, Firebase, Supabase, PostgreSQL, Docker, and CI/CD pipelines.' },
-      { name: 'Payment Gateway Integration', description: 'Stripe, Paymob, Fawry, PayPal, and Apple Pay integrations with automated invoicing.' },
-      { name: '24/7 Monitoring & System Maintenance', description: '99.99% uptime guarantees, security audits, backups, and proactive updates.' }
+      { name: 'تطوير تطبيقات ومواقع الويب المخصصة', description: 'واجهات حديثة وسريعة بـ React وTypeScript وNext.js مع سرعة تحميل أقل من ثانية.' },
+      { name: 'تطبيقات الجوال (Flutter & iOS & Android)', description: 'تطبيقات جوال متوافقة بسلاسة 60 إطاراً في الثانية مع دعم وضع عدم الاتصال والإشعارات.' },
+      { name: 'أنظمة إدارة الأعمال المؤسسية ERP', description: 'منظومات مخصصة لإدارة العمليات، المخزون، الموارد البشرية، والتقارير المالية.' },
+      { name: 'المتاجر والمنصات التجارية الإلكترونية', description: 'متاجر متطورة ذات قدرة استيعابية عالية مع ربط بوابات الشحن والدفع الآلي.' },
+      { name: 'لوحات التحكم والتحليلات التفاعلية', description: 'بيانات حية مباشرة، وتدفق لحظي عبر WebSockets، ورسوم بيانية تفاعلية متقدمة.' },
+      { name: 'بناء واجهات الربط البرمجي REST & GraphQL', description: 'خدمات مصغرة آمنة ومترابطة، وربط فوري بين الأنظمة المختلفة عبر الـ APIs.' },
+      { name: 'البنية التحتية السحابية وقواعد البيانات', description: 'هندسة سحابية متقدمة على Google Cloud، Firebase، PostgreSQL، وحاويات Docker.' },
+      { name: 'ربط بوابات الدفع الإلكتروني', description: 'تكامل كامل مع Paymob، Fawry، Stripe، PayPal، وApple Pay مع الفوترة الفورية.' },
+      { name: 'الدعم والمراقبة الفنية على مدار الساعة', description: 'ضمان استقرار بنسبة 99.99%، ونسخ احتياطي دوري، وتحديثات أمنية مستمرة.' }
     ],
     deliverables: [
-      'Production-Ready Cloud Deployments (GCP / AWS / Firebase)',
-      'Cross-Platform iOS & Android App Store Builds',
-      'Complete Git Repository with Clean Architecture & Documentation',
-      'Automated CI/CD Deployment Pipelines',
-      'Comprehensive Admin Management Dashboard'
+      'نشر وتشغيل الأنظمة على السحابة (GCP / AWS / Firebase)',
+      'إصدارات تطبيقات الجوال المعتمدة لمتاجري Apple App Store وGoogle Play',
+      'مستودع الكود البرمجي الكامل مع توثيق المعمارية والتصميم الهندسي',
+      'خطوط الإنتاج والتحديث الآلي CI/CD مع صفر توقف للخدمة',
+      'لوحة تحكم إدارية شاملة للتحكم في كافة إعدادات النظام ومستخدميه'
     ],
     technologies: ['Flutter', 'Dart', 'React', 'TypeScript', 'Node.js', 'Firebase', 'Supabase', 'PostgreSQL', 'Docker', 'Google Cloud'],
     pipeline: [
-      { step: '01', title: 'Architecture Blueprint', desc: 'System requirements, entity relationship diagrams, and cloud topology.' },
-      { step: '02', title: 'Agile Sprint Development', desc: 'Milestone-driven code sprints with continuous test automation.' },
-      { step: '03', title: 'Security & QA Testing', desc: 'Penetration tests, load stress testing, and cross-device validation.' },
-      { step: '04', title: 'Production Launch & SLA', desc: 'Zero-downtime deployment with 24/7 telemetry monitoring.' }
+      { step: '01', title: 'المخطط الهندسي والمعماري', desc: 'تحليل المتطلبات التقنية، مخططات العلاقات (ERD)، وتحديد البنية السحابية.' },
+      { step: '02', title: 'التطوير البرمجي السريع', desc: 'سبرنتات برمجية مرنة مع اختبارات جودة آلية مستمرة في كل مرحلة.' },
+      { step: '03', title: 'اختبارات الأمان والأداء', desc: 'فحص الحماية واختبارات الجهد والأحمال والتحقق من التوافق على كافة الأجهزة.' },
+      { step: '04', title: 'الإطلاق والتشغيل الرسمي', desc: 'نشر النظام بدون توقف للخدمة مع تفعيل المراقبة اللحظية على مدار 24 ساعة.' }
     ],
     metricsHighlight: [
-      { label: 'System Uptime SLA', value: '99.99%' },
-      { label: 'Lines of Clean Code', value: '500K+' },
-      { label: 'APIs & Gateways Integrated', value: '60+' },
-      { label: 'Average Page Load', value: '< 0.8s' }
+      { label: 'ضمان استقرار النظام (SLA)', value: '99.99%' },
+      { label: 'أسطر برمجية نظيفة موثقة', value: '+500K' },
+      { label: 'بوابات وبرمجيات تم ربطها', value: '+60' },
+      { label: 'متوسط زمن استجابة الصفحة', value: '< 0.8s' }
     ]
   },
   {
     id: 'security-surveillance',
     slug: 'security-surveillance',
-    title: 'Security & Surveillance',
-    shortTitle: 'Security & CCTV',
-    tagline: 'Intelligent Surveillance & Access Defense Systems',
-    summary: 'Enterprise IP camera installations, DVR/NVR surveillance networks, smart access control, remote live monitoring, and proactive hardware maintenance.',
-    description: 'Protect your business, facilities, and assets with military-grade surveillance and access security infrastructure. Seamlessly integrated into PRO SETUP’s technological ecosystem, we deliver 4K AI-assisted cameras, thermal sensors, biometric entry systems, and encrypted remote feeds on mobile and web.',
+    title: 'الأمن والمراقبة الذكية CCTV',
+    shortTitle: 'الأمن والمراقبة',
+    tagline: 'منظومات مراقبة وحماية ذكية لحماية أعمالك ومنشآتك على مدار الساعة',
+    summary: 'توريد وتركيب كاميرات المراقبة IP المتطورة، شبكات التسجيل NVR/DVR، أنظمة التحكم بالدخول البيومترية، المراقبة الحية عن بُعد، والصيانة الدورية.',
+    description: 'احمِ منشأتك وأصولك وأعمالك بأقوى البنى التحتية للمراقبة والحماية الأمنية. كجزء من منظومة PRO SETUP المتكاملة، نقدّم كاميرات 4K مدعومة بالذكاء الاصطناعي، ومستشعرات حرارية، وأنظمة دخول بيومترية، وبثاً مشفراً يمكنك متابعته عبر هاتفك وحاسوبك من أي مكان.',
     iconName: 'ShieldCheck',
     accentColor: '#00D2FF',
     heroImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1600&q=80',
@@ -158,44 +158,44 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'CCTV Camera Installation', description: 'Certified commercial and industrial deployment of dome, bullet, and PTZ cameras.' },
-      { name: 'IP & Network Cameras', description: 'High-definition 4K optical clarity with night vision, WDR, and AI human detection.' },
-      { name: 'Indoor & Outdoor Weatherproof Systems', description: 'IP67/IK10 rated vandal-proof hardware resistant to extreme heat and dust.' },
-      { name: 'DVR / NVR Storage Infrastructure', description: 'Scalable multi-terabyte continuous RAID recording with cloud backup options.' },
-      { name: 'Dedicated Network & PoE Setup', description: 'Gigabit PoE switches, structured Cat6/Cat7 cabling, and isolated VLANs.' },
-      { name: 'Smart Biometric Access Control', description: 'Facial recognition, RFID cards, and digital attendance tracking systems.' },
-      { name: '24/7 Mobile Remote Monitoring', description: 'Encrypted live video streaming on your smartphone, tablet, or web dashboard.' },
-      { name: 'Security Audits & Hardware Upgrades', description: 'Modernizing legacy analog systems into high-definition digital networks.' }
+      { name: 'توريد وتركيب كاميرات المراقبة CCTV', description: 'تركيب احترافي معتمد للكاميرات الثابتة والمتحركة (PTZ) والقبابية للمصانع والشركات.' },
+      { name: 'كاميرات المراقبة الشبكية IP Cameras', description: 'دقة فائقة 4K مع رؤية ليلية متقدمة، ومقاومة الإضاءة العكسية WDR، واكتشاف الأشخاص بالذكاء الاصطناعي.' },
+      { name: 'كاميرات مقاومة للظروف المناخية', description: 'أجهزة بمعايير حماية IP67 وIK10 ضد الصدمات والغبار الشديد والحرارة العالية.' },
+      { name: 'أجهزة التسجيل وحفظ البيانات NVR / DVR', description: 'تخزين مستمر بسعة تيرابايت متعددة مع دعم منظومة RAID للنسخ الاحتياطي السحابي.' },
+      { name: 'تأسيس شبكات الكاميرات وكابلات PoE', description: 'سويتشات PoE جيجابت، وكابلات Cat6/Cat7 معزولة، وشبكات VLAN آمنة ومعزولة تماماً.' },
+      { name: 'أنظمة التحكم بالدخول Access Control', description: 'بوابات التعرف على الوجه، الكروت الذكية RFID، وبصمة الإصبع لتسجيل الحضور وتحديد الصلاحيات.' },
+      { name: 'المراقبة المباشرة عن بُعد عبر الجوال', description: 'بث حي مشفر ومباشر على مدار 24 ساعة عبر هاتفك الذكي أو لوحة تحكم الويب.' },
+      { name: 'فحص وترقية الأنظمة القديمة', description: 'تحديث الأنظمة التناظرية التقليدية وترقيتها إلى شبكات رقمية ذكية عالية الدقة.' }
     ],
     deliverables: [
-      'Complete Hardware Blueprint & Camera Coverage Map',
-      'Fully Configured NVR/DVR Storage with Local + Cloud Sync',
-      'Mobile & Desktop Secure Remote Access Apps Setup',
-      'Structured Cabling Certification & Labeling',
-      'Preventative Maintenance Contract & Hardware Warranty'
+      'مخطط هندسي متكامل ومخطط تغطية لزوايا الكاميرات وانعدام النقاط العمياء',
+      'أجهزة التسجيل NVR/DVR مهيأة بالكامل مع التخزين المحلي والسحابي',
+      'تطبيق المتابعة عن بُعد مضبوط ومشفّر على هواتف وأجهزة الإدارة',
+      'شهادة مطابقة وتسمية وتوثيق لكافة كابلات الشبكة والبنية التحتية',
+      'عقد صيانة وقائية دورية وضمان معتمد على الأجهزة والتركيبات'
     ],
     technologies: ['Hikvision', 'Dahua', 'Ubiquiti UniFi', 'Axis Communications', 'PoE Gigabit Switches', 'Synology Surveillance'],
     pipeline: [
-      { step: '01', title: 'Site Inspection & Blind Spot Audit', desc: 'On-site survey to map camera angles, focal lengths, and network runs.' },
-      { step: '02', title: 'Cabling & Mounting', desc: 'Discreet, industrial-grade conduit installation and precision camera positioning.' },
-      { step: '03', title: 'NVR & Network Hardening', desc: 'Configuring VLAN isolation, encryption certificates, and recording schedules.' },
-      { step: '04', title: 'Handover & Mobile Pairing', desc: 'Staff training, mobile app provisioning, and ongoing maintenance dispatch.' }
+      { step: '01', title: 'المعاينة الميدانية وكشف الزوايا', desc: 'زيارة المنشأة وتحديد أماكن الكاميرات، أطوال الكابلات، وضمان انعدام النقاط العمياء.' },
+      { step: '02', title: 'التمديد وتثبيت الأجهزة', desc: 'تمديد الكابلات عبر مسارات آمنة وتثبيت الكاميرات وضبط زوايا الرؤية بدقة.' },
+      { step: '03', title: 'تهيئة السيرفرات والتسجيل', desc: 'ضبط أجهزة NVR، عزل شبكة الكاميرات، وتفعيل التشفير والتسجيل الذكي.' },
+      { step: '04', title: 'التسليم وتدريب الإدارة', desc: 'تدريب فريق العمل، ربط التطبيق على هواتف الإدارة، وتفعيل الدعم الفني الفوري.' }
     ],
     metricsHighlight: [
-      { label: 'Cameras Installed', value: '450+' },
-      { label: 'Facility Sq. Footage Secured', value: '250K+' },
-      { label: 'Storage Retention SLA', value: '90 Days' },
-      { label: 'Response Time for Support', value: '< 2 Hrs' }
+      { label: 'كاميرات مراقبة تم تركيبها', value: '+450' },
+      { label: 'مساحات مؤمنة (متر مربع)', value: '+250K' },
+      { label: 'فترة استرجاع التسجيلات', value: '90 يوماً' },
+      { label: 'زمن الاستجابة للدعم الفني', value: '< ساعتين' }
     ]
   },
   {
     id: 'photography-video',
     slug: 'photography-video',
-    title: 'Photography & Video Production',
-    shortTitle: 'Photo & Video',
-    tagline: 'Cinematic Storytelling That Commands Attention',
-    summary: 'High-end commercial photography, 4K promotional videos, viral social media reels, corporate documentaries, and post-production color grading.',
-    description: 'Visual media is the heartbeat of consumer desire. Our in-house production studio combines RED and Sony FX cinema cameras with art directors, lighting masters, and sound designers to create cinematic imagery that elevates brand perception and drives direct conversions.',
+    title: 'التصوير التجاري والإنتاج المرئي',
+    shortTitle: 'التصوير والإنتاج',
+    tagline: 'محتوى مرئي سينمائي يأسر الأنظار ويحرك المبيعات',
+    summary: 'تصوير فوتوغرافي تجاري رفيع المستوى، أفلام إعلانية ترويجية 4K، تصوير ريلز وفيديوهات قصيرة واسعة الانتشار، وتصحيح ألوان احترافي.',
+    description: 'المحتوى المرئي هو شريان الجاذبية التسويقية الحديثة. يجمع استوديو الإنتاج لدينا بين كاميرات السينما الاحترافية Sony FX وRED ومخرجين وخبراء إضاءة وصوت لتجسيد قصة علامتك التجارية في مشاهد سينمائية تخطف الأنظار وتحفز الشراء.',
     iconName: 'Camera',
     accentColor: '#0066FF',
     heroImage: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80',
@@ -205,43 +205,43 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'Commercial & Product Photography', description: 'Studio e-commerce cutouts, luxury lifestyle staging, and macro product detail.' },
-      { name: 'Corporate & Executive Portraits', description: 'Polished team headshots, board member portraits, and workplace culture imagery.' },
-      { name: 'Promotional & Brand Commercials', description: 'High-impact 30s to 90s TVC and web commercials designed for virality.' },
-      { name: 'Social Media Reels & TikTok Production', description: 'Fast-paced, hook-driven vertical videos formatted for maximum engagement.' },
-      { name: 'Cinematic Video Editing & Color Grading', description: 'Hollywood-standard DaVinci Resolve color science and dynamic sound design.' },
-      { name: 'Corporate Events & Conference Coverage', description: 'Multi-camera live streaming, on-site recap reels, and keynote documentation.' },
-      { name: 'Behind-The-Scenes (BTS) Production', description: 'Authentic storytelling content highlighting craft and company milestones.' }
+      { name: 'تصوير المنتجات والتصوير التجاري', description: 'جلسات تصوير مخصصة للمتاجر، تصوير منتجات استوديو بدقة ماكرو، وتنسيق لقطات الحياة العصرية (Lifestyle).' },
+      { name: 'تصوير البورتريه المؤسسي والتنفيذي', description: 'صور احترافية لأعضاء مجلس الإدارة، فرق العمل، وتوثيق بيئة العمل والفعاليات.' },
+      { name: 'إنتاج الإعلانات التجارية والأفلام الترويجية', description: 'إعلانات مرئية مدتها من 30 إلى 90 ثانية مبنية وفق حبكة تسويقية محفزة للانتشار.' },
+      { name: 'تصوير الريلز ومحتوى TikTok السريع', description: 'فيديوهات عمودية سريعة ومثيرة للاهتمام مصممة لتحقيق أقصى تفاعل وانتشار.' },
+      { name: 'المونتاج السينمائي وتصحيح الألوان', description: 'هندسة ألوان سينمائية بمعايير هوليوود على DaVinci Resolve وتصميم مؤثرات صوتية حية.' },
+      { name: 'تغطية الفعاليات والمؤتمرات الكبرى', description: 'بث مباشر متعدد الكاميرات، ريلز تغطية فورية، وتوثيق احترافي للمؤتمرات والمعارض.' },
+      { name: 'تصوير كواليس العمل (Behind The Scenes)', description: 'محتوى توثيقي واقعي يعزز الشفافية والثقة ويروي قصة الشغف خلف العلامة التجارية.' }
     ],
     deliverables: [
-      '4K & 1080p Final Master Video Exports (Horizontal & 9:16 Vertical)',
-      'High-Resolution Retouched RAW Photos (Web & Print Resolution)',
-      'Royalty-Free Commercial Soundtrack & Sound Design Stems',
-      'B-Roll Footage Library for Ongoing Social Posts',
-      'Full Commercial Usage Rights'
+      'نسخ الفيديو النهائية بدقة 4K و1080p (بالأبعاد الأفقية والعمودية 9:16)',
+      'الصور الأصلية المعالجة بدقة فائقة ملائمة للمطبوعات والويب',
+      'موسيقى ومؤثرات صوتية مرخصة تجارياً بالكامل وبدون حقوق ملكية',
+      'مكتبة لقطات B-Roll إضافية للاستخدام في المنشورات المستقبلية',
+      'حقوق الاستخدام التجاري والإعلاني الكاملة لشركتك'
     ],
     technologies: ['Sony FX6 / FX3 Cinema Line', 'DaVinci Resolve Studio', 'Adobe Premiere Pro', 'Aputure Lighting', 'DJI Ronin Gimbals'],
     pipeline: [
-      { step: '01', title: 'Moodboard & Scripting', desc: 'Developing storyboards, shot lists, casting, and location scouting.' },
-      { step: '02', title: 'Production Shoot Day', desc: 'Full crew shoot with cinema lighting, audio recording, and precision gimbal work.' },
-      { step: '03', title: 'Post-Production & Grading', desc: 'Pacing edit, cinematic color correction, Foley sound design, and motion titles.' },
-      { step: '04', title: 'Review & Multi-Format Render', desc: 'Collaborative feedback cycles and rendering in all web and broadcast aspect ratios.' }
+      { step: '01', title: 'كتابة السيناريو وتجهيز الستوري بورد', desc: 'تحديد فكرة العمل، إعداد قائمة اللقطات، اختيار الممثلين، وتحديد مواقع التصوير.' },
+      { step: '02', title: 'يوم التصوير الإنتاجي', desc: 'تنفيذ التصوير بطاقم متكامل ومعدات سينمائية وإضاءة احترافية وتسجيل صوت نقي.' },
+      { step: '03', title: 'المونتاج وتصحيح الألوان', desc: 'تقطيع المشاهد، التلوين السينمائي، إضافة المؤثرات الصوتية، والنصوص المتحركة.' },
+      { step: '04', title: 'المراجعة والتصدير النهائي', desc: 'استلام الملاحظات وتصدير الفيديو بجميع النسب المتوافقة مع الشاشات ومنصات التواصل.' }
     ],
     metricsHighlight: [
-      { label: 'Video Views Generated', value: '25M+' },
-      { label: 'Commercial Projects Shot', value: '120+' },
-      { label: 'High-Res Deliverables', value: '10K+' },
-      { label: 'Production Equipment Spec', value: 'Cinema 4K' }
+      { label: 'مشاهدات تم تحقيقها', value: '+25M' },
+      { label: 'مشروع إعلاني تم تصويره', value: '+120' },
+      { label: 'صورة فائقة الدقة مسلّمة', value: '+10K' },
+      { label: 'مواصفات تصوير الأفلام', value: 'Cinema 4K' }
     ]
   },
   {
     id: 'advertising',
     slug: 'advertising',
-    title: 'Advertising & Performance Campaigns',
-    shortTitle: 'Advertising',
-    tagline: 'Full-Funnel Campaigns That Multiply Your Ad Spend',
-    summary: 'Strategic cross-channel advertising, creative concept development, performance marketing, programmatic buying, and conversion optimization.',
-    description: 'Advertising is not an expense — when engineered properly, it is your highest-yield capital investment. PRO SETUP unites psychological creative direction with rigorous algorithmic experimentation to consistently generate outsized ROI for retail, B2B, and digital clients.',
+    title: 'الحملات الإعلانية وصناعة الأثر',
+    shortTitle: 'الحملات الإعلانية',
+    tagline: 'حملات إعلانية متكاملة تضاعف ميزانيتك التسويقية وتحقق أعلى عائد',
+    summary: 'إدارة استراتيجية للإعلانات متعددة القنوات، تطوير الأفكار الإعلانية الابتكارية، الشراء البرمجي للمساحات، وتحسين مستمر لمعدلات التحويل.',
+    description: 'الإعلان ليس تكلفة بل استثمار مالي يدر أعلى العوائد عند تنفيذه باحترافية. في PRO SETUP، نجمع بين التوجيه الإبداعي النفسي والتجارب الخوارزمية الصارمة لتحقيق عوائد استثنائية لقطاعات التجزئة والشركات والمتاجر.',
     iconName: 'TrendingUp',
     accentColor: '#00D2FF',
     heroImage: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
@@ -251,32 +251,32 @@ export const SERVICES_DATA: ServiceDetail[] = [
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'
     ],
     subServices: [
-      { name: 'Omnichannel Digital Advertising', description: 'Coordinated ads across Google, Meta, TikTok, YouTube, and LinkedIn.' },
-      { name: 'Commercial & Video Advertisements', description: 'Direct-response video creatives engineered to stop thumbs in under 2 seconds.' },
-      { name: 'Creative Concept Campaigns', description: 'Big idea development that establishes market leadership and brand fame.' },
-      { name: 'Product Launch Blitz Campaigns', description: 'High-intensity multi-week launches designed to sell out inventory rapidly.' },
-      { name: 'Performance Marketing & Retargeting', description: 'Dynamic catalog ads, abandoned cart recovery, and VIP customer win-backs.' },
-      { name: 'Audience Segmentation & LTV Modeling', description: 'Predictive cohort targeting based on real customer lifetime value metrics.' }
+      { name: 'الإعلانات الرقمية الشاملة (Omnichannel)', description: 'حملات منسقة عبر Google وMeta وTikTok وYouTube وLinkedIn في توقيت واحد.' },
+      { name: 'تصميم وإنتاج الإعلانات التفاعلية', description: 'إعلانات فيديو موجهة للاستجابة المباشرة تلفت الانتباه خلال أول ثانيتين.' },
+      { name: 'حملات الأفكار الإعلانية الكبرى', description: 'ابتكار أفكار استثنائية تؤسس لمكانة رائدة لعلامتك التجارية في أذهان الجمهور.' },
+      { name: 'حملات إطلاق المنتجات الكبرى', description: 'إطلاقات تسويقية مكثفة ومدروسة تضمن نفاذ المخزون وتحقيق أرقام مبيعات قياسية.' },
+      { name: 'إعادة الاستهداف الذكي (Retargeting)', description: 'إعلانات تفاعلية للكتالوجات، واسترداد السلات المتروكة، وتنشيط العملاء السابقين.' },
+      { name: 'تجزئة الجمهور وحساب القيمة الدائمة LTV', description: 'استهداف شرائح العملاء الأعلى ربحية بناءً على بيانات القيمة المتوقعة للعميل.' }
     ],
     deliverables: [
-      'Multi-Format Ad Creative Matrix (Over 50+ Ad Variations)',
-      'Direct-Response Copywriting Suite',
-      'Live ROAS Tracking Dashboard',
-      'Audience Persona & Psychographic Map',
-      'Comprehensive Post-Campaign Debrief Report'
+      'مصفوفة إبداعية متكاملة من المواد الإعلانية (أكثر من 50 نموذج إعلان متنوع)',
+      'نصوص إعلانية محكمة ومحفزة على اتخاذ القرار (Copywriting)',
+      'لوحة متابعة مباشرة للعائد على الإنفاق الإعلاني (ROAS)',
+      'خريطة نفسية وسلوكية دقيقة للجمهور المستهدف',
+      'تقرير تحليلي شامل بعد انتهاء الحملة يوضح العوائد ونقاط التوسع'
     ],
     technologies: ['Meta Advantage+', 'Google Performance Max', 'TikTok Spark Ads', 'Klaviyo', 'Triple Whale', 'Hyros Tracking'],
     pipeline: [
-      { step: '01', title: 'Campaign Big Idea', desc: 'Formulating the emotional hook and unique value proposition.' },
-      { step: '02', title: 'Creative Production', desc: 'Producing static, motion, and video ad creatives tailored to each platform.' },
-      { step: '03', title: 'Launch & Audience Test', desc: 'Deploying targeted campaigns with automated budget pacing.' },
-      { step: '04', title: 'Aggressive ROAS Scaling', desc: 'Doubling down on winning ad hooks and driving down Cost-Per-Acquisition.' }
+      { step: '01', title: 'صياغة الفكرة الإعلانية الكبرى', desc: 'تحديد المحفز العاطفي والقيمة التنافسية الفريدة التي تميز العرض.' },
+      { step: '02', title: 'الإنتاج الإعلاني الإبداعي', desc: 'تصميم مواد إعلانية مصورة ومتحركة وفيديوهات مخصصة لكل منصة.' },
+      { step: '03', title: 'الإطلاق واختبار الاستجابة', desc: 'تشغيل الحملات واختبار تفاعل الجماهير بميزانيات تجريبية محسوبة.' },
+      { step: '04', title: 'المضاعفة وزيادة الميزانيات المربحة', desc: 'ضخ الميزانيات في الإعلانات الفائزة وخفض تكلفة الاستحواذ على العميل (CPA).' }
     ],
     metricsHighlight: [
-      { label: 'Ad Spend Managed', value: '$2.5M+' },
-      { label: 'Average ROAS Return', value: '4.8x' },
-      { label: 'Reduction in CPA', value: '-38%' },
-      { label: 'Conversion Lift', value: '+142%' }
+      { label: 'ميزانيات إعلانية مدارة (نموذج)', value: '+$2.5M' },
+      { label: 'متوسط العائد الإعلاني ROAS', value: '4.8x' },
+      { label: 'انخفاض تكلفة الاستحواذ', value: '-38%' },
+      { label: 'زيادة معدلات التحويل', value: '+142%' }
     ]
   }
 ];

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Megaphone, TrendingUp, Users, Target, BarChart3, CheckCircle2, ArrowRight, DollarSign, MousePointerClick, RefreshCw, Sparkles, Layers, ShieldCheck, ChevronDown, HelpCircle, Eye } from 'lucide-react';
+import { Megaphone, TrendingUp, Users, Target, BarChart3, CheckCircle2, ArrowLeft, DollarSign, MousePointerClick, Sparkles, ChevronDown, HelpCircle } from 'lucide-react';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
 import { PORTFOLIO_PROJECTS } from '../../data/portfolioData';
@@ -18,112 +18,111 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
     switch (selectedChannel) {
       case 'meta':
         return {
-          reach: (budgetMultiplier * 36).toLocaleString(),
-          engagement: (budgetMultiplier * 2.8).toLocaleString(),
-          leads: Math.floor(budgetMultiplier * 0.18).toLocaleString(),
-          conversions: Math.floor(budgetMultiplier * 0.085).toLocaleString(),
-          growth: '+280% Projected',
-          roas: '5.4x',
-          cpa: '$11.80',
+          reach: (budgetMultiplier * 36).toLocaleString('ar-EG'),
+          engagement: (budgetMultiplier * 2.8).toLocaleString('ar-EG'),
+          leads: Math.floor(budgetMultiplier * 0.18).toLocaleString('ar-EG'),
+          conversions: Math.floor(budgetMultiplier * 0.085).toLocaleString('ar-EG'),
+          growth: '+280% نمو متوقع',
+          roas: '5.4x عائد استثماري',
+          cpa: '$11.80 تكلفة العميل',
         };
       case 'google':
         return {
-          reach: (budgetMultiplier * 20).toLocaleString(),
-          engagement: (budgetMultiplier * 3.4).toLocaleString(),
-          leads: Math.floor(budgetMultiplier * 0.24).toLocaleString(),
-          conversions: Math.floor(budgetMultiplier * 0.12).toLocaleString(),
-          growth: '+210% Projected',
-          roas: '4.9x',
-          cpa: '$16.50',
+          reach: (budgetMultiplier * 20).toLocaleString('ar-EG'),
+          engagement: (budgetMultiplier * 3.4).toLocaleString('ar-EG'),
+          leads: Math.floor(budgetMultiplier * 0.24).toLocaleString('ar-EG'),
+          conversions: Math.floor(budgetMultiplier * 0.12).toLocaleString('ar-EG'),
+          growth: '+210% نمو متوقع',
+          roas: '4.9x عائد استثماري',
+          cpa: '$16.50 تكلفة العميل',
         };
       case 'tiktok':
         return {
-          reach: (budgetMultiplier * 58).toLocaleString(),
-          engagement: (budgetMultiplier * 4.6).toLocaleString(),
-          leads: Math.floor(budgetMultiplier * 0.15).toLocaleString(),
-          conversions: Math.floor(budgetMultiplier * 0.065).toLocaleString(),
-          growth: '+390% Projected',
-          roas: '4.3x',
-          cpa: '$9.20',
+          reach: (budgetMultiplier * 58).toLocaleString('ar-EG'),
+          engagement: (budgetMultiplier * 4.6).toLocaleString('ar-EG'),
+          leads: Math.floor(budgetMultiplier * 0.15).toLocaleString('ar-EG'),
+          conversions: Math.floor(budgetMultiplier * 0.065).toLocaleString('ar-EG'),
+          growth: '+390% نمو متوقع',
+          roas: '4.3x عائد استثماري',
+          cpa: '$9.20 تكلفة العميل',
         };
     }
   };
 
   const metrics = calculateMetrics();
 
-  // 7 Required Pillars per Prompt 9
   const marketingPillars = [
     {
-      title: 'Marketing Strategy',
-      desc: 'Deep market analysis, competitive positioning, and customer persona mapping to ensure every marketing dollar is spent with tactical purpose.',
+      title: 'استراتيجية التسويق والتموضع',
+      desc: 'تحليل دقيق للسوق والمنافسين ورسم نماذج العملاء المستهدفين لضمان إنفاق كل دولار بهدف تجاري واضح.',
       icon: Target,
     },
     {
-      title: 'Social Media Management',
-      desc: 'Active community engagement, daily feed optimization, comment monitoring, and algorithmic growth across Instagram, TikTok, LinkedIn, and Facebook.',
+      title: 'إدارة منصات السوشيال ميديا',
+      desc: 'إدارة تفاعلية يومية للحسابات، وتطوير المحتوى، والرد على الاستفسارات لزيادة المتابعين الأوفياء على إنستغرام وتيك توك وفيسبوك ولينكد إن.',
       icon: Users,
     },
     {
-      title: 'Content Creation',
-      desc: 'High-converting graphics, narrative carousels, authentic UGC scripts, and cinematic reels crafted specifically for digital ad networks.',
+      title: 'صناعة المحتوى التفاعلي',
+      desc: 'تصاميم جرافيك عالية التحويل، منشورات دائرية (Carousels) مشوقة، وسيناريوهات ريلز مخصصة لشبكات الإعلانات.',
       icon: Sparkles,
     },
     {
-      title: 'Paid Advertising (PPC)',
-      desc: 'Full-funnel media buying across Meta Advantage+, Google Performance Max, YouTube, and TikTok Spark Ads with strict CPA thresholds.',
+      title: 'الإعلانات الممولة (PPC)',
+      desc: 'إدارة استباقية للحملات عبر Meta Advantage+، وحملات أداء جوجل الأقصى، ويوتيوب، وإعلانات تيك توك بمحددات تكلفة صارمة.',
       icon: DollarSign,
     },
     {
-      title: 'Audience Targeting',
-      desc: 'Custom audience cohorts, lookalike modeling, predictive purchase signals, and server-side pixel tracking (CAPI) to reach verified buyers.',
+      title: 'الاستهداف الذكي والبيانات',
+      desc: 'بناء جماهير مخصصة وشبيهة (Lookalike)، مع ربط واجهات تتبع التحويلات من الخوادم (CAPI) للوصول للمشترين الفعليين.',
       icon: MousePointerClick,
     },
     {
-      title: 'Lead Generation',
-      desc: 'Conversion-optimized landing pages, instant WhatsApp chat funnels, and CRM automation delivering qualified buyers to your sales team.',
+      title: 'استقطاب العملاء المحتملين (Leads)',
+      desc: 'صفحات هبوط مهيأة للتحويل، ومسارات تواصل مباشر عبر واتساب، مع أتمتة الربط بأنظمة خدمة العملاء والمبيعات (CRM).',
       icon: TrendingUp,
     },
     {
-      title: 'Analytics & Reporting',
-      desc: 'Transparent Looker Studio dashboards tracking blended ROAS, customer lifetime value, and cohort retention without vanity vanity metrics.',
+      title: 'التحليلات ولوحات الأداء',
+      desc: 'لوحات تحكم تفاعلية وشفافة عبر Looker Studio لتتبع العائد الإعلاني الحقيقي وقيمة العميل دون مؤشرات وهمية.',
       icon: BarChart3,
     },
   ];
 
   const workflowSteps = [
-    { step: '01', title: 'Audience & Offer Audit', desc: 'We dissect your historical customer data, unit economics, and competitors to design an uncopyable core offer.' },
-    { step: '02', title: 'Funnel & Tracking Architecture', desc: 'Setup of server-side Conversions API, CRM pipelines, and multi-tier retargeting pathways.' },
-    { step: '03', title: 'High-Velocity Creative Sprints', desc: 'Producing 30+ hook variations, motion videos, and landing page variants designed to maximize stop-rate.' },
-    { step: '04', title: 'Algorithmic Ad Deployment', desc: 'Launching disciplined testing budgets to identify winning audience-creative combinations within 7 days.' },
-    { step: '05', title: 'Compounded Scaling & Optimization', desc: 'Aggressively allocating media budget into top-performing funnels to multiply qualified revenue.' },
+    { step: '01', title: 'تدقيق الجمهور والعرض التجاري', desc: 'تحليل بيانات العملاء السابقة واقتصاديات المنتج والمنافسين لصياغة عرض لا يُقاوم.' },
+    { step: '02', title: 'هيكلة مسارات التحويل والتتبع', desc: 'إعداد واجهات ربط التحويلات بالخادم (CAPI)، وتجهيز خطوط إعادة الاستهداف الذكية.' },
+    { step: '03', title: 'إنتاج إبداعي سريع ومكثف', desc: 'ابتكار أكثر من 20 مدخلاً إعلانياً وفيديو موشن وتصاميم متعددة لجذب انتباه المتصفحين فوراً.' },
+    { step: '04', title: 'إطلاق واختبار الخوارزميات', desc: 'بدء ميزانيات اختبار مدروسة لاكتشاف أفضل الجماهير والإعلانات تفاعلاً خلال 7 أيام.' },
+    { step: '05', title: 'التوسع ومضاعفة العائد', desc: 'ضخ الميزانيات بحكمة في المسارات الأكثر ربحية لتحقيق نمو متسارع في المبيعات.' },
   ];
 
   const featuresAndBenefits = [
-    { title: 'Zero Wasted Ad Spend', desc: 'Every campaign operates under automated stop-loss rules preventing budget bleeding on underperforming creatives.' },
-    { title: 'Multi-Channel Synergy', desc: 'Google Search captures intent generated by TikTok and Meta video ads, maximizing overall conversion efficiency.' },
-    { title: 'Live Transparent Telemetry', desc: 'Direct dashboard access to actual client revenue and leads generated, not just impressions and clicks.' },
-    { title: 'Full In-House Creative Team', desc: 'Copywriters, motion designers, and video editors iterate on ad creative weekly without extra agency retainers.' },
+    { title: 'حماية الميزانية من الهدر', desc: 'قواعد تلقائية ذكية توقف أي إعلان غير مجدٍ فوراً لمنع استنزاف الميزانية.' },
+    { title: 'تكامل متعدد القنوات', desc: 'إعلانات جوجل تحصد نية الشراء الناتجة عن إعلانات تيك توك وميتا، مما يضاعف الفعالية.' },
+    { title: 'شفافية وتقارير حية', desc: 'وصول مباشر للوحة بيانات توضح الإيرادات والعملاء الفعليين وليس مجرد المشاهدات.' },
+    { title: 'فريق إبداعي متكامل', desc: 'كتاب إعلانات، ومصممون، ومحررو فيديو يطورون الإعلانات أسبوعياً دون تكاليف إضافية.' },
   ];
 
   const marketingFaqs = [
     {
-      q: 'How quickly can we expect to see tangible lead flow from marketing campaigns?',
-      a: 'With paid advertising funnels, initial lead flow typically begins within 48 to 72 hours of campaign launch. Full algorithmic learning phase calibration is achieved within 14 days, allowing us to stabilize cost-per-lead and scale spend profitably.',
+      q: 'متى يمكننا توقع تدفق العملاء الفعليين بعد إطلاق الحملات؟',
+      a: 'مع حملات استقطاب العملاء المدفوعة، يبدأ وصول أولى الطلبات عادةً خلال 48 إلى 72 ساعة من إطلاق الحملة. تكتمل مرحلة التعلم الخوارزمي في غضون 14 يوماً، مما يتيح تثبيت تكلفة العميل والتوسع بشكل مربح.',
     },
     {
-      q: 'What minimum ad budget is recommended to start seeing meaningful results?',
-      a: 'We usually recommend a minimum monthly media spend of $1,500 – $3,000 depending on your industry and geography. This provides adequate statistical volume for Meta and Google machine learning algorithms to optimize audience delivery.',
+      q: 'ما هي الميزانية الإعلانية المقترحة لبدء تحقيق نتائج ملموسة؟',
+      a: 'نوصي عادةً بإنفاق إعلاني شهري يتناسب مع مجال نشاطك وسوقك المستهدف، لضمان حصول خوارزميات ميتا وجوجل على بيانات إحصائية كافية لتحسين التوجيه نحو المشترين المؤهلين.',
     },
     {
-      q: 'Do you manage both creative production and media buying in-house?',
-      a: 'Yes. One of PRO SETUP’s core advantages is combining video production, graphic design, and media buying under one roof. When an ad fatigue is detected, our studio creates fresh creative variations immediately.',
+      q: 'هل تديرون إنتاج الإعلانات وشراء المساحات معاً؟',
+      a: 'نعم، وتلك إحدى أقوى ميزات PRO SETUP. نجمع إنتاج الفيديو الاحترافي، والتصميم الجرافيكي، وشراء المساحات الإعلانية معاً. عند تشبع أي إعلان، يصنع استوديو الإنتاج لدينا نسخاً جديدة فوراً دون تأخير.',
     },
   ];
 
   const relevantProjects = PORTFOLIO_PROJECTS.filter(p => p.tags?.includes('marketing') || p.category === 'marketing');
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-left">
+    <div className="py-12 md:py-20 space-y-20 text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* 1. HERO SECTION */}
@@ -131,15 +130,15 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold uppercase tracking-wider">
               <Megaphone className="w-3.5 h-3.5" />
-              <span>Full-Funnel Digital Marketing</span>
+              <span>تسويق رقمي متكامل ومبني على النتائج</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Turn Ad Spend into <span className="text-electric-gradient">Predictable Growth</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2]">
+              حوّل ميزانيتك الإعلانية إلى <span className="text-electric-gradient">نمو تجاري مستدام</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              PRO SETUP engineers integrated marketing engines combining strategic positioning, high-converting social media management, creative ad production, and algorithmic media buying.
+              تبني PRO SETUP محركات تسويقية متكاملة تجمع بين التموضع الاستراتيجي، والإدارة الاحترافية للسوشيال ميديا، والإنتاج الإبداعي للإعلانات، وشراء المساحات الخوارزمي الدقيق.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -148,9 +147,9 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
                 size="md"
                 glow
                 onClick={() => onOpenQuote('digital-marketing')}
-                icon={ArrowRight}
+                icon={ArrowLeft}
               >
-                Launch Marketing Setup
+                ابدأ خطة التسويق الآن
               </Button>
               <Button
                 variant="outline"
@@ -160,7 +159,7 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Explore Campaign Projections
+                استكشف نموذج التوقعات الإعلانية
               </Button>
             </div>
           </div>
@@ -169,7 +168,7 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
             <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] bg-dark-800 relative group">
               <img
                 src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80"
-                alt="Digital Marketing Campaign Strategy"
+                alt="استراتيجية التسويق الرقمي"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/30 to-transparent" />
@@ -180,10 +179,10 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
         {/* 2. THE 7 MANDATED MARKETING PILLARS */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Strategic Architecture"
-            title="Complete 7-Pillar Digital Marketing"
-            highlight="Ecosystem"
-            subtitle="Every component engineered to capture attention, qualify buyers, and compound return-on-ad-spend."
+            badge="المنظومة الاستراتيجية"
+            title="الأركان السبعة المتكاملة"
+            highlight="للتسويق الرقمي"
+            subtitle="كل ركن مصمم لجذب الانتباه، وتأهيل العملاء المحتملين، ومضاعفة العائد على الإنفاق الإعلاني."
             align="center"
           />
 
@@ -206,23 +205,23 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
           </div>
         </div>
 
-        {/* 3. ANIMATED MARKETING CHARTS & SIMULATOR WITH CLEAR SAMPLE NOTATION (Mandated in Prompt 9) */}
+        {/* 3. ANIMATED MARKETING CHARTS & SIMULATOR WITH CLEAR SAMPLE NOTATION */}
         <div id="simulator-section" className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-electric-500/35 backdrop-blur-2xl shadow-glow-md space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-6">
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-                  Interactive Ad Telemetry Simulator
+                  محاكي نتائج الحملات الإعلانية التفاعلي
                 </span>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10">
-                  (Sample Projections / Demonstrative Examples)
+                  (نموذج قياسي توضيحي)
                 </span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">
-                Projected Campaign Performance
+                توقعات أداء الحملات الإعلانية
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl">
-                Adjust simulated monthly ad spend and select ad platform to view projected audience reach, engagement, leads, conversions, and growth metrics.
+                اضبط الميزانية الإعلانية الشهرية التقديرية واختر المنصة الإعلانية لمعاينة الوصول المقدر، والتفاعل، والعملاء المحتملين، ومعدل النمو المتوقع.
               </p>
             </div>
 
@@ -238,7 +237,7 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  {ch === 'meta' ? 'Meta (FB & IG)' : ch === 'google' ? 'Google Ads' : 'TikTok Ads'}
+                  {ch === 'meta' ? 'ميتا (فيسبوك وإنستغرام)' : ch === 'google' ? 'إعلانات جوجل' : 'إعلانات تيك توك'}
                 </button>
               ))}
             </div>
@@ -247,8 +246,8 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
           {/* Budget Slider */}
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs">
-              <span className="font-semibold text-slate-300">Simulated Monthly Media Spend:</span>
-              <span className="font-mono text-base font-bold text-electric-cyan">${budgetMultiplier.toLocaleString()} USD</span>
+              <span className="font-semibold text-slate-300">الميزانية الإعلانية الشهرية المقترحة:</span>
+              <span className="font-mono text-base font-bold text-electric-cyan" dir="ltr">${budgetMultiplier.toLocaleString()} USD</span>
             </div>
             <input
               type="range"
@@ -264,33 +263,33 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
           {/* 5 Required Metrics Cards: Reach, Engagement, Leads, Conversions, Growth */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
             <div className="p-4 rounded-xl bg-dark-900/90 border border-white/5">
-              <span className="text-[11px] text-slate-400 block font-medium">01 • Reach (Impressions)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">01 • الوصول (الظهور)</span>
               <span className="text-xl sm:text-2xl font-black text-white mt-1 block font-mono">{metrics.reach}</span>
-              <span className="text-[10px] text-slate-500 font-mono mt-0.5 block">Estimated Audience</span>
+              <span className="text-[10px] text-slate-500 font-mono mt-0.5 block">جمهور مستهدف مقدر</span>
             </div>
 
             <div className="p-4 rounded-xl bg-dark-900/90 border border-white/5">
-              <span className="text-[11px] text-slate-400 block font-medium">02 • Engagement (Clicks)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">02 • التفاعل (النقرات)</span>
               <span className="text-xl sm:text-2xl font-black text-white mt-1 block font-mono">{metrics.engagement}</span>
-              <span className="text-[10px] text-electric-cyan font-mono mt-0.5 block">Active Interactivity</span>
+              <span className="text-[10px] text-electric-cyan font-mono mt-0.5 block">تفاعل حقيقي ونشط</span>
             </div>
 
             <div className="p-4 rounded-xl bg-dark-900/90 border border-electric-cyan/30 shadow-glow-sm">
-              <span className="text-[11px] text-slate-400 block font-medium">03 • Leads (Direct Inquiries)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">03 • العملاء المحتملين (طلبات تواصل)</span>
               <span className="text-xl sm:text-2xl font-black text-electric-cyan mt-1 block font-mono">{metrics.leads}</span>
-              <span className="text-[10px] text-emerald-400 font-mono mt-0.5 block">Avg CPA: {metrics.cpa}</span>
+              <span className="text-[10px] text-emerald-400 font-mono mt-0.5 block">{metrics.cpa}</span>
             </div>
 
             <div className="p-4 rounded-xl bg-dark-900/90 border border-white/5">
-              <span className="text-[11px] text-slate-400 block font-medium">04 • Conversions (Checkouts)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">04 • التحويلات (طلبات شراء)</span>
               <span className="text-xl sm:text-2xl font-black text-white mt-1 block font-mono">{metrics.conversions}</span>
-              <span className="text-[10px] text-emerald-400 font-mono mt-0.5 block">Projected ROAS: {metrics.roas}</span>
+              <span className="text-[10px] text-emerald-400 font-mono mt-0.5 block">{metrics.roas}</span>
             </div>
 
             <div className="p-4 rounded-xl bg-dark-900/90 border border-emerald-500/30">
-              <span className="text-[11px] text-slate-400 block font-medium">05 • Growth (Velocity)</span>
+              <span className="text-[11px] text-slate-400 block font-medium">05 • سرعة النمو المتوقعة</span>
               <span className="text-xl sm:text-2xl font-black text-emerald-400 mt-1 block font-mono">{metrics.growth}</span>
-              <span className="text-[10px] text-slate-400 font-mono mt-0.5 block">Quarterly Compound</span>
+              <span className="text-[10px] text-slate-400 font-mono mt-0.5 block">تضاعف ربع سنوي</span>
             </div>
           </div>
         </div>
@@ -298,10 +297,10 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
         {/* 4. HOW WE WORK (Workflow Timeline) */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Process Pipeline"
-            title="How We Work &"
-            highlight="Execute"
-            subtitle="A proven, 5-stage sprint engineered to deploy campaigns on-time with maximum ROAS."
+            badge="خارطة الإنجاز"
+            title="منهجية العمل و"
+            highlight="التنفيذ الاحترافي"
+            subtitle="خمس مراحل مجربة ومحكمة لضمان إطلاق الحملات في وقتها وبأعلى عائد استثماري ممكن."
             align="center"
           />
 
@@ -319,10 +318,10 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
         {/* 5. FEATURES & BENEFITS */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Why PRO SETUP"
-            title="Core Features & Business"
-            highlight="Benefits"
-            subtitle="The distinct advantages of partnering with an integrated marketing team."
+            badge="لماذا PRO SETUP؟"
+            title="المزايا التنافسية و"
+            highlight="الفوائد لأعمالك"
+            subtitle="أبرز الفروق الجوهرية للعمل مع شريك تسويقي متكامل يجمع كافة التخصصات."
             align="center"
           />
 
@@ -345,10 +344,10 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-                  Demonstrated Case Studies
+                  نماذج ودراسات حالة
                 </span>
                 <h3 className="text-2xl font-black text-white mt-1">
-                  Marketing Setups in Action
+                  أعمال وتجهيزات تسويقية واقعية
                 </h3>
               </div>
             </div>
@@ -373,10 +372,10 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
         {/* 7. SERVICE-SPECIFIC FAQ */}
         <div className="space-y-6 max-w-4xl mx-auto">
           <SectionHeading
-            badge="Got Questions?"
-            title="Digital Marketing"
-            highlight="FAQ"
-            subtitle="Common questions about budgets, campaign ramp-up periods, and creative iterations."
+            badge="الأسئلة الشائعة"
+            title="استفسارات التسويق"
+            highlight="والحملات الإعلانية"
+            subtitle="إجابات واضحة ومباشرة حول الميزانيات، وفترات التدريب الخوارزمي، وتحديثات المحتوى الإعلاني."
             align="center"
           />
 
@@ -387,7 +386,7 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
                 <div key={i} className="rounded-2xl border border-white/10 bg-dark-800/80 overflow-hidden">
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : i)}
-                    className="w-full p-5 flex items-center justify-between gap-4 text-left"
+                    className="w-full p-5 flex items-center justify-between gap-4 text-right"
                   >
                     <span className="text-sm font-bold text-white flex items-center gap-2.5">
                       <HelpCircle className="w-4 h-4 text-electric-cyan shrink-0" />
@@ -408,13 +407,13 @@ export const DigitalMarketingPage: React.FC<DigitalMarketingPageProps> = ({ onOp
 
         {/* 8. CTA SECTION */}
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl sm:text-3xl font-black text-white">Ready to scale customer acquisition?</h3>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-            Schedule a growth consultation with our marketing team to blueprint your complete acquisition pipeline.
+          <h3 className="text-2xl sm:text-3xl font-black text-white">هل أنت مستعد لمضاعفة قاعدة عملائك؟</h3>
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            احجز جلسة استشارية متخصصة مع فريق التسويق لدينا لوضع مخطط كامل لمسارات استقطاب العملاء والمبيعات الخاصة بمشروعك.
           </p>
           <div className="pt-2">
             <Button variant="primary" onClick={() => onOpenQuote('digital-marketing')} glow>
-              Start Marketing Setup
+              ابدأ خطة التسويق الآن
             </Button>
           </div>
         </div>

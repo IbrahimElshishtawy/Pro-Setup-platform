@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Code2, Smartphone, Database, Flame, Cloud, CreditCard, Shield, Server, CheckCircle2, ArrowRight, Terminal, ExternalLink, Cpu, Layout, Globe, Lock, HelpCircle, ChevronDown, Activity, Sparkles } from 'lucide-react';
+import { Code2, Smartphone, Database, Cloud, CreditCard, Shield, Server, ArrowLeft, Terminal, Cpu, Layout, Globe, HelpCircle, ChevronDown } from 'lucide-react';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
 import { TECH_STACK } from '../../data/techStackData';
-import { PORTFOLIO_PROJECTS } from '../../data/portfolioData';
 
 export interface SoftwareTechPageProps {
   onOpenQuote: (serviceId: string) => void;
@@ -13,62 +12,58 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
   const [activeArchNode, setActiveArchNode] = useState<string>('gateway');
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  // 8 Required Pillars per Prompt 8 & 11
   const softwareCapabilities = [
-    { title: 'Websites & Web Development', desc: 'Next.js, React, and TypeScript web platforms engineered for sub-second load times, dynamic caching, and high search rankings.', icon: Globe },
-    { title: 'Mobile Apps (Flutter & Native)', desc: 'High-performance cross-platform applications with offline sync, biometric authentication, and smooth 60fps animations.', icon: Smartphone },
-    { title: 'Custom Systems & Software', desc: 'Tailor-made enterprise software replacing messy spreadsheets and automating internal dispatching, inventory, and workflows.', icon: Server },
-    { title: 'Interactive Dashboards', desc: 'Real-time telemetry visualization, WebSocket event feeds, and executive reporting engines that make data actionable.', icon: Layout },
-    { title: 'APIs & Microservices', desc: 'Secure, documented REST and GraphQL endpoints designed for horizontal scalability, rate-limiting, and zero data leakage.', icon: Cpu },
-    { title: 'Databases & Data Modeling', desc: 'Relational PostgreSQL architectures, Cloud Firestore document stores, and Redis in-memory caches configured for zero data loss.', icon: Database },
-    { title: 'Cloud Systems & DevOps', desc: 'Google Cloud Platform, Docker containerization, Kubernetes clusters, and automated CI/CD pipelines with zero downtime.', icon: Cloud },
-    { title: 'Payment & E-Commerce Systems', desc: 'Stripe, Paymob, and multi-currency payment gateway integrations with automated reconciliation and fraud detection.', icon: CreditCard },
+    { title: 'المواقع وتطبيقات الويب السريعة', desc: 'منصات Next.js و React حديثة بزمن تحميل أقل من ثانية، وتهيئة تامة لمحركات البحث وتخزين كاش ديناميكي فائق السرعة.', icon: Globe },
+    { title: 'تطبيقات الجوال (Flutter)', desc: 'تطبيقات هواتف ذكية عالية الأداء تعمل على iOS و Android بسلاسة 60 إطاراً في الثانية ودعم العمل دون اتصال بالإنترنت.', icon: Smartphone },
+    { title: 'البرمجيات المخصصة وأنظمة ERP', desc: 'برمجيات مؤسسية مصممة خصيصاً لأتمتة عملياتك، وإدارة المخزون والطلبات وسير العمل بدلاً من الجداول اليدوية المعقدة.', icon: Server },
+    { title: 'لوحات التحكم وتحليل البيانات', desc: 'لوحات بيانات تفاعلية ترصد الأداء الحي، مع رسوم بيانية فورية عبر WebSockets تسهل اتخاذ القرارات الإدارية السليمة.', icon: Layout },
+    { title: 'الواجهات البرمجية (APIs)', desc: 'واجهات REST و GraphQL موثقة وآمنة ومصممة للتوسع الأفقي مع حماية صارمة لمنع تسرب البيانات.', icon: Cpu },
+    { title: 'قواعد البيانات وهيكلة البيانات', desc: 'قواعد بيانات علائقية PostgreSQL وسحابية Firestore مع ذاكرة كاش Redis تضمن حفظ البيانات دون أي فقدان وسرعة استرجاع مذهلة.', icon: Database },
+    { title: 'البنية السحابية وإدارة DevOps', desc: 'حاويات Docker على منصة Google Cloud وسيرفرات مدارة آلياً مع نشر تلقائي CI/CD يضمن استمرارية التشغيل دون توقف.', icon: Cloud },
+    { title: 'بوابات الدفع والتجارة الإلكترونية', desc: 'ربط بوابات الدفع المعتمدة (Stripe، Paymob، فوري، Apple Pay، ومدى) مع كشف الاحتيال والمطابقة المالية الآلية.', icon: CreditCard },
   ];
 
-  // Architecture Diagram Nodes for Interactive Visualization
   const architectureNodes = [
-    { id: 'client', label: '01 • Client Layer', desc: 'Next.js Web / Flutter iOS & Android apps with local caching and offline-first sync.', icon: Smartphone },
-    { id: 'gateway', label: '02 • API Gateway', desc: 'Reverse proxy, JWT token authentication, DDoS mitigation, and SSL termination.', icon: Shield },
-    { id: 'engine', label: '03 • Core Services', desc: 'Event-driven business logic services, task queues, and background notification workers.', icon: Cpu },
-    { id: 'storage', label: '04 • Database & Cloud', desc: 'PostgreSQL relational core, Firestore real-time sync, and encrypted blob storage.', icon: Database },
-    { id: 'payments', label: '05 • Integrations & Pay', desc: 'Stripe / Paymob checkout webhooks, ERP integrations, and third-party APIs.', icon: CreditCard },
+    { id: 'client', label: '01 • طبقة واجهات العميل', desc: 'منصات ويب Next.js وتطبيقات هواتف Flutter تعمل على iOS و Android مع دعم التخزين المحلي.', icon: Smartphone },
+    { id: 'gateway', label: '02 • بوابة الواجهات البرمجية (Gateway)', desc: 'وكيل عكسي متطور، مصادقة عبر JWT، حماية ضد هجمات حجب الخدمة (DDoS)، وتشفير SSL آمن.', icon: Shield },
+    { id: 'engine', label: '03 • محرك الخدمات والعمليات', desc: 'خدمات برمجية مصغرة تعتمد على الأحداث المباشرة (Event-Driven)، وقوائم مهام للمعالجة الخلفية الفورية.', icon: Cpu },
+    { id: 'storage', label: '04 • السحابة وقواعد البيانات', desc: 'قواعد بيانات علائقية PostgreSQL، ومزامنة فورية، وتخزين سحابي مشفر لكافة الملفات الحساسة.', icon: Database },
+    { id: 'payments', label: '05 • بوابات الدفع والتكاملات', desc: 'ربط آلي مع بوابات الدفع، وإشعارات Webhooks فورية لتحديث حالات الطلبات، والربط بالأنظمة الخارجية.', icon: CreditCard },
   ];
 
   const softwareFaqs = [
     {
-      q: 'Do you build native mobile apps or cross-platform applications?',
-      a: 'We specialize in Google Flutter for cross-platform iOS and Android mobile development. Flutter compiles directly to native ARM machine code, giving you 60fps native performance while allowing a single clean codebase that cuts development costs and release cycles in half.',
+      q: 'هل تطورون تطبيقات هواتف ذكية أصلية أم تطبيقات متعددة المنصات؟',
+      a: 'نتخصص في Google Flutter لتطوير تطبيقات متوافقة مع iOS و Android في آن واحد. يترجم Flutter الكود مباشرة إلى تعليمات الآلة الأصلية (Native Machine Code)، مما يمنحك أداء 60 إطاراً في الثانية مع كود برمجي موحد يقلل تكلفة التطوير وزمن الإطلاق إلى النصف.',
     },
     {
-      q: 'Who owns the source code once the software is built?',
-      a: 'Your company owns 100% of the proprietary source code, database schemas, and documentation. We deliver complete Git repositories and deploy directly to your cloud infrastructure accounts.',
+      q: 'من يملك الكود البرمجي المصدري وقواعد البيانات بعد اكتمال المشروع؟',
+      a: 'شركتك تملك 100% من الكود المصدري الأصلي ومخططات قواعد البيانات والتوثيق التقني. نقوم بتسليم مستودعات Git كاملة وننشر الأنظمة مباشرة على حساباتك السحابية الخاصة.',
     },
     {
-      q: 'How do you handle system security, backups, and scalability?',
-      a: 'Every software platform is built using strict clean architecture, encrypted at rest and in transit (TLS/AES-256), with automated daily database backups, Docker container isolation, and cloud auto-scaling.',
+      q: 'كيف تضمنون أمان الأنظمة البرمجية والنسخ الاحتياطي؟',
+      a: 'تُبنى كل منصة وفق معمارية برمجية صارمة (Clean Architecture)، مع تشفير كامل للبيانات أثناء النقل والتخزين (TLS / AES-256)، ونسخ احتياطي يومي آلي لقواعد البيانات، وعزل الأنظمة داخل حاويات Docker السحابية.',
     },
   ];
 
-  const relevantSoftwareProjects = PORTFOLIO_PROJECTS.filter(p => p.tags?.includes('software') || p.category === 'software');
-
   return (
-    <div className="py-12 md:py-20 space-y-20 text-left">
+    <div className="py-12 md:py-20 space-y-20 text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
-        {/* 1. HERO SECTION (Mandated Headline per Prompt 8) */}
+        {/* 1. HERO SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold uppercase tracking-wider">
               <Code2 className="w-3.5 h-3.5" />
-              <span>Full-Stack Engineering & Cloud Infrastructure</span>
+              <span>هندسة البرمجيات المتكاملة والبنية السحابية</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Technology Built Around <span className="text-electric-gradient">Your Business</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2]">
+              تكنولوجيا مبنية حول <span className="text-electric-gradient">أهداف أعمالك</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              We design, build, and scale mission-critical digital products that automate operational bottlenecks and give your business an unfair technological advantage.
+              نصمم ونبني ونوسع منصات وتطبيقات رقمية قوية تؤتمت العمليات المعقدة، وتقدم تجربة استخدام لا تشوبها شائبة، وتمنح مشروعك ميزة تكنولوجية تنافسية غير مسبوقة.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -77,9 +72,9 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
                 size="md"
                 glow
                 onClick={() => onOpenQuote('software-technology')}
-                icon={ArrowRight}
+                icon={ArrowLeft}
               >
-                Discuss Technical Architecture
+                ناقش مشروعك التقني
               </Button>
               <Button
                 variant="outline"
@@ -89,14 +84,14 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Inspect System Architecture
+                معاينة معمارية النظام التفاعلية
               </Button>
             </div>
           </div>
 
           {/* Right: Technical Code Sandbox Mockup */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-dark-950 font-mono text-xs text-left">
+            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-dark-950 font-mono text-xs text-left" dir="ltr">
               {/* Terminal Titlebar */}
               <div className="px-4 py-3 bg-dark-900 border-b border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -134,13 +129,13 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
           </div>
         </div>
 
-        {/* 2. THE 8 MANDATED SOFTWARE CAPABILITIES (Web, Mobile, Systems, Dashboards, APIs, Databases, Cloud, Payments) */}
+        {/* 2. THE 8 SOFTWARE CAPABILITIES */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Engineering Spectrum"
-            title="Complete Software & Technology"
-            highlight="Capabilities"
-            subtitle="Architectures engineered for uptime, bank-grade encryption, and effortless scalability."
+            badge="الطيف الهندسي البرمجي"
+            title="الحلول البرمجية والتقنية"
+            highlight="المتكاملة"
+            subtitle="أنظمة مصممة لضمان استمرارية التشغيل، وتشفير فائق الأمان، وقابلية التوسع دون تعقيد."
             align="center"
           />
 
@@ -163,22 +158,22 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
           </div>
         </div>
 
-        {/* 3. INTERACTIVE TECHNOLOGY ARCHITECTURE VISUALIZATION (Prompt 8 & 11) */}
+        {/* 3. INTERACTIVE TECHNOLOGY ARCHITECTURE VISUALIZATION */}
         <div id="tech-vis-section" className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-electric-500/35 backdrop-blur-2xl shadow-glow-md space-y-8">
           <div className="border-b border-white/10 pb-6 space-y-2">
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-                Interactive Architecture Diagram
+                مخطط المعمارية التقنية التفاعلي
               </span>
               <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                ● Resilient Microservices
+                ● معمارية مرنة عالية الموثوقية
               </span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-black text-white">
-              Enterprise System Topology
+              هيكلية النظم وتدفق البيانات
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 max-w-2xl">
-              Click through the five structural layers below to inspect how user requests flow safely from native client apps to encrypted databases and payment integrations.
+              انقر على أي طبقة من الطبقات الخمس أدناه لاستكشاف كيفية انتقال الطلبات بأمان من تطبيقات العميل إلى قواعد البيانات وبوابات الدفع المشفرة.
             </p>
           </div>
 
@@ -192,7 +187,7 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
                 <button
                   key={node.id}
                   onClick={() => setActiveArchNode(node.id)}
-                  className={`p-4 rounded-2xl border text-left transition-all duration-300 space-y-2.5 ${
+                  className={`p-4 rounded-2xl border text-right transition-all duration-300 space-y-2.5 ${
                     isActive
                       ? 'bg-dark-900 border-electric-cyan shadow-glow-sm scale-[1.02]'
                       : 'bg-dark-950/70 border-white/10 hover:border-white/20'
@@ -216,30 +211,30 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
             return (
               <div className="p-6 rounded-2xl bg-dark-950 border border-white/10 space-y-3">
                 <span className="text-xs font-mono text-electric-cyan uppercase tracking-wider block font-bold">
-                  Layer Deep Dive: {current.label}
+                  تفاصيل الطبقة: {current.label}
                 </span>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
-                  {current.desc} Engineered with redundancy protocols, strict input sanitization, automated telemetry logging, and zero single point of failure.
+                  {current.desc} مصممة وفق بروتوكولات حماية متطورة، وتحقق استباقي من المدخلات لمنع الثغرات، وتسجيل لحظي لكافة العمليات لضمان أقصى درجات الاستقرار.
                 </p>
               </div>
             );
           })()}
         </div>
 
-        {/* 4. VISUAL MOCKUPS SHOWCASE (Browser, Mobile App, Dashboard Mockup per Prompt 11) */}
+        {/* 4. VISUAL MOCKUPS SHOWCASE */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Interface Engineering"
-            title="Multi-Platform Mockup"
-            highlight="Showcase"
-            subtitle="Delivering delightful business interfaces across browsers, mobile phones, and executive dashboards."
+            badge="هندسة الواجهات وتجربة المستخدم"
+            title="نماذج الأنظمة عبر"
+            highlight="مختلف المنصات"
+            subtitle="واجهات أعمال رقمية متطورة وسريعة الاستجابة تعمل بكفاءة عبر المتصفحات، والهواتف، وشاشات المراقبة والتحكم."
             align="center"
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Browser Mockup */}
             <div className="rounded-3xl overflow-hidden bg-dark-900 border border-white/10 p-5 space-y-3 shadow-xl">
-              <div className="flex items-center gap-2 pb-3 border-b border-white/10">
+              <div className="flex items-center gap-2 pb-3 border-b border-white/10" dir="ltr">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
@@ -248,51 +243,51 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950">
                 <img
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
-                  alt="Browser Web Platform Mockup"
+                  alt="منصة الويب السحابية"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white">Browser SaaS Platform</h4>
-                <p className="text-xs text-slate-400">Sub-second Next.js responsive web application with role-based access.</p>
+                <h4 className="text-sm font-bold text-white">منصة ويب سحابية SaaS</h4>
+                <p className="text-xs text-slate-400">تطبيق ويب فائق السرعة عبر Next.js مع مستويات صلاحيات متعددة للموظفين والمديرين.</p>
               </div>
             </div>
 
             {/* Mobile Phone Mockup */}
             <div className="rounded-3xl overflow-hidden bg-dark-900 border border-white/10 p-5 space-y-3 shadow-xl">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <span className="text-[10px] font-mono text-electric-cyan font-bold">iOS & Android App</span>
-                <span className="text-[10px] text-slate-400">Flutter 60fps</span>
+                <span className="text-[10px] font-mono text-electric-cyan font-bold">تطبيق iOS و Android</span>
+                <span className="text-[10px] text-slate-400 font-mono">Flutter 60fps</span>
               </div>
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950">
                 <img
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-                  alt="Mobile Phone Application Mockup"
+                  alt="تطبيق الجوال الذكي"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white">Cross-Platform Mobile Client</h4>
-                <p className="text-xs text-slate-400">Offline-first mobile client with push notifications and biometric lock.</p>
+                <h4 className="text-sm font-bold text-white">تطبيق جوال متعدد المنصات</h4>
+                <p className="text-xs text-slate-400">تطبيق يدعم العمل دون اتصال بالإنترنت، مع إشعارات دفع فورية وتسجيل دخول بالبصمة.</p>
               </div>
             </div>
 
             {/* Dashboard Mockup */}
             <div className="rounded-3xl overflow-hidden bg-dark-900 border border-white/10 p-5 space-y-3 shadow-xl">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <span className="text-[10px] font-mono text-emerald-400 font-bold">Telemetry Dashboard</span>
-                <span className="text-[10px] text-slate-400">Live WebSockets</span>
+                <span className="text-[10px] font-mono text-emerald-400 font-bold">لوحة تحكم تفاعلية</span>
+                <span className="text-[10px] text-slate-400 font-mono">Live WebSockets</span>
               </div>
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950">
                 <img
                   src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
-                  alt="Operations Analytics Dashboard Mockup"
+                  alt="لوحة تحكم العمليات"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-white">Operations Control Center</h4>
-                <p className="text-xs text-slate-400">Real-time throughput metrics, inventory tracking, and revenue alerts.</p>
+                <h4 className="text-sm font-bold text-white">مركز إدارة ومتابعة العمليات</h4>
+                <p className="text-xs text-slate-400">مؤشرات أداء لحظية، وتتبع دقيق للمخزون والطلبات وتنبيهات فورية بالتحصيلات.</p>
               </div>
             </div>
           </div>
@@ -302,13 +297,13 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 backdrop-blur-2xl space-y-8">
           <div className="space-y-2">
             <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-              Core Tech Stack & Frameworks
+              حزمة التقنيات وأطر العمل الأساسية
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-white">
-              Technologies We Master & Deploy
+              تقنيات عالمية نتقنها ونعتمدها
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 max-w-2xl">
-              We leverage modern, industry-standard languages and frameworks to ensure your software infrastructure remains robust, maintainable, and secure.
+              نعتمد أحدث لغات البرمجة وأطر العمل العالمية لضمان بقاء بنيتك التكنولوجية قوية وسريعة وسهلة الصيانة والتطوير المستقبلي.
             </p>
           </div>
 
@@ -322,8 +317,8 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
                   <span className="text-sm font-bold text-white group-hover:text-electric-cyan transition-colors">
                     {tech.name}
                   </span>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400">
-                    {tech.category}
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-400">
+                    {tech.categoryLabel || tech.category}
                   </span>
                 </div>
                 <p className="text-[11px] text-slate-400 leading-snug">
@@ -337,10 +332,10 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
         {/* 6. SERVICE-SPECIFIC FAQ */}
         <div className="space-y-6 max-w-4xl mx-auto">
           <SectionHeading
-            badge="Technical FAQs"
-            title="Software Engineering"
-            highlight="FAQ"
-            subtitle="Common questions regarding code ownership, frameworks, hosting, and SLAs."
+            badge="استفسارات تقنية"
+            title="الأسئلة الشائعة حول"
+            highlight="البرمجة والتقنية"
+            subtitle="إجابات دقيقة حول ملكية الكود، وأطر العمل، والاستضافة السحابية واتفاقيات مستوى الخدمة (SLAs)."
             align="center"
           />
 
@@ -351,7 +346,7 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
                 <div key={i} className="rounded-2xl border border-white/10 bg-dark-800/80 overflow-hidden">
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : i)}
-                    className="w-full p-5 flex items-center justify-between gap-4 text-left"
+                    className="w-full p-5 flex items-center justify-between gap-4 text-right"
                   >
                     <span className="text-sm font-bold text-white flex items-center gap-2.5">
                       <HelpCircle className="w-4 h-4 text-electric-cyan shrink-0" />
@@ -372,13 +367,13 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
 
         {/* 7. CTA SECTION */}
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl sm:text-3xl font-black text-white">Need a custom technical software setup?</h3>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-            Our software engineers can review your functional requirements and blueprint a complete system architecture plan.
+          <h3 className="text-2xl sm:text-3xl font-black text-white">هل تحتاج إلى نظام برمجي مخصص لشركتك؟</h3>
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            مهندسونا مستعدون لدراسة متطلباتك التشغيلية ووضع مخطط معماري تقني متكامل يلبي طموح أعمالك.
           </p>
           <div className="pt-2">
             <Button variant="primary" onClick={() => onOpenQuote('software-technology')} glow>
-              Start Software Project
+              ابدأ مشروعك البرمجي الآن
             </Button>
           </div>
         </div>

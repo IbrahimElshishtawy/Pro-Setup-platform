@@ -1,22 +1,23 @@
 export interface TechItem {
   name: string;
   category: 'mobile' | 'web' | 'cloud' | 'database' | 'security' | 'creative';
+  categoryLabel?: string;
   description: string;
   iconName: string;
   highlight?: boolean;
 }
 
 export const TECH_STACK: TechItem[] = [
-  { name: 'Flutter', category: 'mobile', description: 'Cross-platform native iOS & Android applications with 60fps performance', iconName: 'Smartphone', highlight: true },
-  { name: 'Dart', category: 'mobile', description: 'Type-safe object-oriented language optimized for rapid client UI development', iconName: 'Terminal', highlight: true },
-  { name: 'Firebase', category: 'cloud', description: 'Realtime Cloud Firestore, Firebase Hosting, Authentication & Cloud Functions', iconName: 'Flame', highlight: true },
-  { name: 'Supabase', category: 'cloud', description: 'Open source Firebase alternative with enterprise PostgreSQL & instant APIs', iconName: 'Database', highlight: true },
-  { name: 'REST & GraphQL APIs', category: 'web', description: 'Secure microservices, webhook pipelines & third-party SaaS integrations', iconName: 'Network', highlight: true },
-  { name: 'React & Next.js', category: 'web', description: 'Server-side rendered web applications with instantaneous navigation & SEO', iconName: 'Code', highlight: true },
-  { name: 'TypeScript', category: 'web', description: 'Strict static typing ensuring bulletproof reliability across enterprise codebases', iconName: 'FileCode', highlight: true },
-  { name: 'PostgreSQL & Redis', category: 'database', description: 'ACID-compliant relational storage coupled with sub-millisecond memory caching', iconName: 'HardDrive', highlight: false },
-  { name: 'Google Cloud (GCP)', category: 'cloud', description: 'Containerized Docker microservices, load balancing & global CDN distribution', iconName: 'Cloud', highlight: false },
-  { name: 'Payment Gateways', category: 'web', description: 'Automated processing via Stripe, Paymob, Fawry, Apple Pay & PayPal', iconName: 'CreditCard', highlight: true },
-  { name: 'UniFi & IP CCTV', category: 'security', description: 'Gigabit PoE networks, 4K AI surveillance & smart access control doors', iconName: 'Shield', highlight: true },
-  { name: 'DaVinci & Cinema 4K', category: 'creative', description: 'Hollywood color science, high-speed Sony cinema sensors & motion design', iconName: 'Film', highlight: true },
+  { name: 'Flutter', category: 'mobile', categoryLabel: 'تطبيقات الجوال', description: 'تطبيقات أصلية فائقة السرعة تعمل على iOS و Android بأداء 60 إطاراً في الثانية بكود موحد', iconName: 'Smartphone', highlight: true },
+  { name: 'Dart', category: 'mobile', categoryLabel: 'لغة البرمجة', description: 'لغة كائنية حديثة وآمنة تماماً تدعم معايير Null-Safety لضمان استقرار التطبيقات دون أخطاء برمجية', iconName: 'Terminal', highlight: true },
+  { name: 'Firebase', category: 'cloud', categoryLabel: 'الحلول السحابية', description: 'قواعد بيانات فورية، مصادقة مستخدمين آمنة، وإشعارات دفع سريعة من جوجل', iconName: 'Flame', highlight: true },
+  { name: 'Supabase', category: 'cloud', categoryLabel: 'الخوادم وقواعد البيانات', description: 'قواعد بيانات PostgreSQL متقدمة مع واجهات برمجية فورية ومصادقة مستخدمين عالية الكفاءة', iconName: 'Database', highlight: true },
+  { name: 'REST & GraphQL APIs', category: 'web', categoryLabel: 'الواجهات البرمجية', description: 'معمارية خدمات برمجية دقيقة (Microservices) وربط آمن بين الأنظمة وبوابات الدفع', iconName: 'Network', highlight: true },
+  { name: 'React & Next.js', category: 'web', categoryLabel: 'تطوير الويب', description: 'منصات ويب فائقة السرعة مع تهيئة كاملة لمحركات البحث (SEO) وتجربة تصفح فورية', iconName: 'Code', highlight: true },
+  { name: 'TypeScript', category: 'web', categoryLabel: 'البرمجة القياسية', description: 'كتابة شيفرات برمجية صارمة وموثوقة تمنع الأخطاء غير المتوقعة في بيئات العمل الضخمة', iconName: 'FileCode', highlight: true },
+  { name: 'PostgreSQL & Redis', category: 'database', categoryLabel: 'قواعد البيانات', description: 'تخزين بيانات علائقي فائق الموثوقية مدمج مع ذاكرة كاش مؤقتة فائقة السرعة بأجزاء من الثانية', iconName: 'HardDrive', highlight: false },
+  { name: 'Google Cloud (GCP)', category: 'cloud', categoryLabel: 'البنية السحابية', description: 'حاويات Docker السحابية، توزيع الأحمال الذكي، وشبكات توزيع محتوى عالمية CDN', iconName: 'Cloud', highlight: false },
+  { name: 'بوابات الدفع الإلكتروني', category: 'web', categoryLabel: 'التجارة الإلكترونية', description: 'ربط بوابات الدفع المعتمدة: Stripe، Paymob، فوري، Apple Pay، وبطاقات مدى والمحافظ الإلكترونية', iconName: 'CreditCard', highlight: true },
+  { name: 'UniFi & شبكات IP الذكية', category: 'security', categoryLabel: 'الأنظمة الأمنية', description: 'شبكات PoE جيجابت، كاميرات مراقبة 4K بالذكاء الاصطناعي، وبوابات دخول ذكية', iconName: 'Shield', highlight: true },
+  { name: 'كاميرات Cinema 4K & DaVinci', category: 'creative', categoryLabel: 'الإنتاج البصري', description: 'حساسات تصوير سينمائي 4K، وهندسة تلوين سينمائية، ومؤثرات بصرية متقدمة', iconName: 'Film', highlight: true },
 ];

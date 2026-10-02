@@ -4,85 +4,85 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: '01',
     number: '01',
-    title: 'Discovery',
-    shortDesc: 'Deep audit of business objectives, user personas, and competitor landscape.',
-    description: 'We initiate every client partnership by dissecting your commercial objectives, customer psychology, operational bottlenecks, and physical facility parameters. No guesswork — only actionable intelligence.',
+    title: 'الاستكشاف والتحليل',
+    shortDesc: 'تدقيق عميق لأهداف العمل، دراسة شرائح العملاء المستهدفة، وتحليل المنافسين في السوق.',
+    description: 'نبدأ كل شراكة بدراسة متعمقة لأهدافك التجارية وسلوك جمهورك المستهدف، مع فحص التحديات التشغيلية ومتطلبات المشروع بدقة. لا مجال للافتراضات العشوائية — بل نبني على بيانات دقيقة ورؤى قابلة للتنفيذ.',
     icon: 'Search',
     deliverables: [
-      'Comprehensive Stakeholder Discovery Briefing',
-      'Market & Competitor White-Space Analysis',
-      'Target Audience & Customer Persona Mapping',
-      'Scope of Work & Technical Feasibility Architecture'
+      'وثيقة استكشاف شاملة ومواءمة أصحاب المصلحة',
+      'تحليل فرص السوق والمنافسين ونقاط التميز',
+      'تحديد شرائح الجمهور المستهدف ونماذج المشترين (Personas)',
+      'تحديد نطاق العمل والمعمارية الفنية والجدوى'
     ]
   },
   {
     step: '02',
     number: '02',
-    title: 'Strategy',
-    shortDesc: 'Architecting the master commercial, technical, and creative blueprint.',
-    description: 'We formulate the comprehensive execution roadmap uniting software architecture, media budget allocations, brand positioning, and security camera placement for maximum impact.',
+    title: 'التخطيط والاستراتيجية',
+    shortDesc: 'رسم المخطط التجاري والتقني والإبداعي الشامل للمشروع بأعلى درجات التنسيق.',
+    description: 'نصيغ خارطة طريق متكاملة تجمع بين المعمارية البرمجية، وتوزيع الميزانيات الإعلانية، وتحديد مكانة العلامة التجارية، وحتى التخطيط الهندسي لشبكات المراقبة لضمان أعلى عائد استثماري.',
     icon: 'Compass',
     deliverables: [
-      'Omnichannel Strategy & Media Plan Blueprint',
-      'System Architecture & Database Entity Schemas',
-      'Brand Identity Concept Moodboards & Tone of Voice',
-      'Milestone Timeline & Agile Sprints Schedule'
+      'استراتيجية التسويق المتكامل وخطة الوسائط الإعلانية',
+      'معمارية النظم وهيكلية قواعد البيانات والواجهات البرمجية',
+      'لوحات الإلهام البصري ونبرة صوت العلامة التجارية',
+      'الجدول الزمني ومراحل التسليم الرشيقة (Agile Sprints)'
     ]
   },
   {
     step: '03',
     number: '03',
-    title: 'Design',
-    shortDesc: 'Crafting pixel-perfect UI/UX, brand identity systems, and ad creatives.',
-    description: 'Our design studio translates strategy into tactile visuals: golden-ratio logos, interactive Figma design prototypes, packaging die-lines, and thumb-stopping commercial ad creatives.',
+    title: 'التصميم والهوية البصرية',
+    shortDesc: 'صياغة واجهات مستخدم فائقة الدقة (UI/UX)، ونظم هوية بصرية، ومحتوى إعلاني مبتكر.',
+    description: 'يترجم استوديو التصميم لدينا الاستراتيجية إلى مخرجات بصرية ملموسة: شعارات قائمة على النسب الذهبية، ونماذج Figma تفاعلية، وقوالب تغليف احترافية، ومواد إعلانية تجذب الانتباه على مختلف المنصات.',
     icon: 'Palette',
     deliverables: [
-      'Interactive Figma UI/UX Prototypes (Web & Mobile)',
-      'Vector Logo Marks, Color Tokens & Typography Manual',
-      'Commercial Storyboards & Ad Creative Variations',
-      'Print & Packaging Production Specifications'
+      'نماذج Figma التفاعلية لتجربة وواجهة المستخدم (ويب وتطبيقات)',
+      'رموز الشعار التفاعلية ونظام الألوان ودليل الخطوط القياسي',
+      'لوحات القصة (Storyboards) وتنويعات التصاميم الإعلانية',
+      'مواصفات الطباعة والتغليف القياسية للإنتاج'
     ]
   },
   {
     step: '04',
     number: '04',
-    title: 'Development / Production',
-    shortDesc: 'Writing clean scalable code, shooting 4K cinema media, and installing CCTV.',
-    description: 'Our specialized cross-functional engineering, production, and hardware teams execute in tight synchronization: clean code development, cinema camera shoots, and physical security rigging.',
+    title: 'التطوير البرمجي والإنتاج',
+    shortDesc: 'برمجة أنظمة قابلة للتوسع، وتصوير سينمائي بدقة 4K، وتمديد شبكات المراقبة الأمنية.',
+    description: 'تعمل فرقنا الهندسية والإنتاجية بتناغم تام: كتابة كود برمجي فائق النظافة والكفاءة، وتصوير سينمائي احترافي، وتركيب وتوصيل منظومات المراقبة الأمنية بدقة بالغة.',
     icon: 'Code2',
     deliverables: [
-      'Clean Modular Codebase (Next.js, Flutter, APIs)',
-      '4K Commercial Videos & Studio Product Catalog',
-      'Physical CCTV Conduit, Cabling & NVR Rack Setup',
-      'End-to-End Automated Integration Testing'
+      'بنية برمجية نظيفة ومعيارية (Next.js، Flutter، واجهات برمجية)',
+      'مقاطع فيديو إعلانية 4K وكتالوج تصوير احترافي للمنتجات',
+      'تمديدات شبكات كاميرات المراقبة، وتركيب أجهزة NVR والخوادم',
+      'اختبارات تكامل وأمان آلية وشاملة لضمان الجودة'
     ]
   },
   {
     step: '05',
     number: '05',
-    title: 'Launch',
-    shortDesc: 'Flawless production go-live, ad campaigns activation, and security boot.',
-    description: 'We execute structured go-live operations with zero downtime. Software microservices go live on cloud clusters, ad funnels activate with algorithmic budget pacing, and security grids begin 24/7 recording.',
+    title: 'الإطلاق والتشغيل التجاري',
+    shortDesc: 'إطلاق الإنتاج باحترافية تامة، وتفعيل الحملات الإعلانية، وتشغيل المنظومات الأمنية.',
+    description: 'ندير عمليات الإطلاق الحي بدقة بالغة مع ضمان استمرارية التشغيل دون توقف. تنطلق المنصات السحابية، وتبدأ الحملات الإعلانية بنظام توزيع ذكي للميزانية، وتبدأ المنظومات الأمنية التسجيل الذكي على مدار الساعة.',
     icon: 'Rocket',
     deliverables: [
-      'Cloud Production Cluster Deployment (GCP / Docker)',
-      'Omnichannel Ad Campaigns Live Deployment',
-      'Facility Security Center Verification & Biometrics Boot',
-      '24/7 Go-Live Telemetry Monitoring'
+      'نشر البنية السحابية في بيئة الإنتاج المباشرة (GCP / Docker)',
+      'إطلاق الحملات الإعلانية المتكاملة عبر المنصات المستهدفة',
+      'اختبار منظومة المراقبة والتحكم في الدخول وتفعيل البصمة',
+      'مراقبة فورية لأداء الأنظمة وتجربة المستخدم 24/7'
     ]
   },
   {
     step: '06',
     number: '06',
-    title: 'Support & Optimization',
-    shortDesc: 'Continuous telemetry analysis, algorithmic A/B testing, and SLA maintenance.',
-    description: 'Launch is just day one. We continuously analyze user interaction telemetry, run multivariate split tests on ad hooks, apply software security patches, and monitor surveillance system health.',
+    title: 'الدعم والتحسين المستمر',
+    shortDesc: 'مراقبة المؤشرات، واختبارات A/B المتواصلة، والصيانة الفنية الدورية لضمان النمو.',
+    description: 'يوم الإطلاق هو البداية فقط. نقوم بالتحليل المستمر لتفاعلات المستخدمين، وإجراء اختبارات دقيقة على الإعلانات لرفع معدلات التحويل، وتطبيق التحديثات البرمجية والأمنية الدورية.',
     icon: 'BarChart3',
     deliverables: [
-      'Bi-Weekly Executive Performance & ROAS Reports',
-      'Conversion Rate Optimization (CRO) Iterations',
-      'Ongoing Security Firmware & Code Maintenance SLAs',
-      'Dedicated Growth Partner & Technical Support Line'
+      'تقارير أداء دورية توضح العائد على الإنفاق الإعلاني (ROAS)',
+      'تحسين مستمر لمعدلات التحويل (CRO) وتجربة التصفح',
+      'اتفاقيات صيانة مستمرة (SLA) للبرمجيات وتحديثات الكاميرات',
+      'شريك نمو مخصص وخط دعم فني مباشر لاستفساراتكم'
     ]
   }
 ];

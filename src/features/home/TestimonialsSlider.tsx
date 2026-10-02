@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS_DATA } from '../../data/testimonialsData';
 
 export const TestimonialsSlider: React.FC = () => {
@@ -25,32 +25,32 @@ export const TestimonialsSlider: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-dark-900 border-t border-white/[0.06] overflow-hidden">
+    <section className="relative py-20 bg-dark-900 border-t border-white/[0.06] overflow-hidden text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 block">
-            CLIENT FEEDBACK
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block">
+            آراء وتجارب الشركاء
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
-            Client <span className="text-electric-cyan">Perspectives</span>
+            ماذا يقول <span className="text-electric-cyan">شركاء النجاح</span>
           </h2>
-          <p className="text-xs text-slate-400 pt-1">
-            Sample client partner feedback — official company reviews and case studies are updated regularly.
+          <p className="text-xs text-slate-400 pt-1 font-normal">
+            نماذج من تقييمات الشركاء والعملاء في مختلف القطاعات — التزام ثابت بأعلى معايير الجودة والاحترافية.
           </p>
         </div>
 
         {/* Carousel Container with Left/Right Arrows */}
         <div className="relative flex items-center gap-3 sm:gap-4">
           
-          {/* Prev Arrow */}
+          {/* Right Arrow (Next in RTL) */}
           <button
-            onClick={prev}
-            aria-label="Previous testimonial"
+            onClick={next}
+            aria-label="التقييم التالي"
             className="p-3 rounded-full bg-dark-800/80 hover:bg-dark-750 text-slate-300 hover:text-white border border-white/10 hover:border-electric-500/50 shadow-lg transition-all shrink-0 hover:scale-110 active:scale-95 z-10"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronRight className="w-5 h-5" />
           </button>
 
           {/* Testimonial Cards Grid (3 Columns on Desktop) */}
@@ -58,7 +58,7 @@ export const TestimonialsSlider: React.FC = () => {
             {visibleTestimonials.map((t, idx) => (
               <div
                 key={`${t.id}-${idx}`}
-                className="group relative p-6 rounded-2xl bg-dark-800/80 hover:bg-dark-750/90 border border-white/[0.08] hover:border-electric-500/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-sm flex flex-col justify-between text-left"
+                className="group relative p-6 rounded-2xl bg-dark-800/80 hover:bg-dark-750/90 border border-white/[0.08] hover:border-electric-500/40 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-sm flex flex-col justify-between text-right"
               >
                 <div className="space-y-4">
                   {/* Star Rating */}
@@ -69,7 +69,7 @@ export const TestimonialsSlider: React.FC = () => {
                   </div>
 
                   {/* Quote Body */}
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     "{t.content}"
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export const TestimonialsSlider: React.FC = () => {
                     <h4 className="text-xs font-bold text-white group-hover:text-electric-cyan transition-colors">
                       {t.name}
                     </h4>
-                    <span className="text-[11px] text-slate-400 block">
+                    <span className="text-[11px] text-slate-400 block font-normal">
                       {t.role} • {t.company}
                     </span>
                   </div>
@@ -94,13 +94,13 @@ export const TestimonialsSlider: React.FC = () => {
             ))}
           </div>
 
-          {/* Next Arrow */}
+          {/* Left Arrow (Prev in RTL) */}
           <button
-            onClick={next}
-            aria-label="Next testimonial"
+            onClick={prev}
+            aria-label="التقييم السابق"
             className="p-3 rounded-full bg-dark-800/80 hover:bg-dark-750 text-slate-300 hover:text-white border border-white/10 hover:border-electric-500/50 shadow-lg transition-all shrink-0 hover:scale-110 active:scale-95 z-10"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
 
         </div>

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Palette, CheckCircle2, ArrowRight, Eye, Layers, Sparkles, Box, Layout, PenTool, Image as ImageIcon, ChevronDown, HelpCircle } from 'lucide-react';
+import { Palette, ArrowLeft, Eye, Sparkles, Box, Layout, PenTool, Image as ImageIcon, ChevronDown, HelpCircle } from 'lucide-react';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
-import { PORTFOLIO_PROJECTS } from '../../data/portfolioData';
 
 export interface DesignBrandingPageProps {
   onOpenQuote: (serviceId: string) => void;
@@ -10,76 +9,73 @@ export interface DesignBrandingPageProps {
 
 export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQuote }) => {
   const [selectedPalette, setSelectedPalette] = useState<'cyber' | 'luxury' | 'minimal'>('cyber');
-  const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(null);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
-  // 6 Required Disciplines per Prompt 10
   const creativeDisciplines = [
-    { name: 'Logo Design', desc: 'Golden-ratio emblems and timeless monograms engineered for instant recognition across micro-favicons and monumental signage.', icon: PenTool },
-    { name: 'Brand Identity', desc: 'Comprehensive corporate visual languages, geometric color harmonies, bespoke typographic pairings, and brand assets.', icon: Palette },
-    { name: 'Social Media Design', desc: 'Thumb-stopping feed layouts, reusable Figma social design kits, story templates, and animated kinetic typography.', icon: ImageIcon },
-    { name: 'Advertising Design', desc: 'High-yield commercial banners, billboard collateral, promotional print spreads, and conversion-optimized ad creatives.', icon: Sparkles },
-    { name: 'Packaging Design', desc: 'Tactile luxury packaging, unboxing experiences, debossed foil stamping specifications, and sustainable retail materials.', icon: Box },
-    { name: 'UI/UX Design', desc: 'Clean user interfaces, wireframes, design tokens, component libraries, and intuitive interaction design for web and mobile.', icon: Layout },
+    { name: 'تصميم الشعارات (Logos)', desc: 'شعارات مبنية على النسب الذهبية وأيقونات بصرية خالدة مصممة للظهور بوضوح عبر الأيقونات الرقمية واللافتات الضخمة.', icon: PenTool },
+    { name: 'الهوية البصرية المتكاملة', desc: 'لغة بصرية مؤسسية شاملة، وتناغم لوني هندسي مدروس، وتوليفات خطوط مخصصة، وأدلة استخدام متكاملة للعلامة التجارية.', icon: Palette },
+    { name: 'تصاميم السوشيال ميديا', desc: 'تصاميم تخطف الأنظار، وقوالب Figma جاهزة للمنشورات والقصص، ورسوم خطية ونصوص متحركة (Kinetic Typography).', icon: ImageIcon },
+    { name: 'التصاميم الإعلانية والترويجية', desc: 'بنرات إعلانية رقمية عالية الجاذبية، وإعلانات الطرق، والمطبوعات الترويجية المصممة لرفع معدلات النقر والتحويل.', icon: Sparkles },
+    { name: 'تصميم التغليف والعلب', desc: 'تصاميم علب وتغليف فاخرة وملموسة، وتخطيط هندسي لخطوط القص، وتحديد طبقات اللمعان والطباعة البارزة (Debossed).', icon: Box },
+    { name: 'تصميم واجهات وتجربة المستخدم (UI/UX)', desc: 'واجهات مستخدم تفاعلية انسيابية، ومخططات هيكلية، ومكتبات عناصر متكاملة للمواقع وتطبيقات الهواتف الذكية.', icon: Layout },
   ];
 
-  // Large Project Previews for Creative Studio Experience
   const studioProjects = [
     {
-      name: 'Lumina Brutalist Identity',
-      category: 'Luxury Architecture & Interiors',
-      services: 'Logo Design • Visual Identity • Stationery • Design Book',
+      name: 'هوية Lumina المعمارية',
+      category: 'العمارة الفاخرة والديكور الداخلي',
+      services: 'تصميم الشعار • الهوية البصرية • المطبوعات • كتاب العلامة',
       image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
-      description: 'Monolithic architectural brand identity featuring gold-leaf debossing and strict Swiss modernist grid systems.',
+      description: 'هوية بصرية معمارية مهيبة تعتمد نظام الشبكات السويسرية الصارمة مع لمسات ذهبية بارزة في المطبوعات الفاخرة.',
     },
     {
-      name: 'Velox Eyewear Unboxing',
-      category: 'Consumer DTC Goods',
-      services: 'Packaging Design • Custom Die-Cuts • Foil Stamping',
+      name: 'تجربة تغليف Velox الفاخرة',
+      category: 'المنتجات الاستهلاكية الفاخرة',
+      services: 'تصميم التغليف • خطوط القص المخصصة • الطلاء الحراري اللامع',
       image: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1200&q=80',
-      description: 'Tactile rigid magnetic closure boxes with soft-touch matte coating and embossed metallic branding.',
+      description: 'علب هدايا فاخرة بمغناطيس خفي مع ملمس مخملي مطفأ وشعار معدني بارز يعزز قيمة المنتج عند فتح الصندوق.',
     },
     {
-      name: 'Aura Mobile App Interface',
-      category: 'Mobile Application UI/UX',
-      services: 'UI/UX Design • Design System • Micro-Interactions',
+      name: 'واجهات تطبيق Aura الذكي',
+      category: 'تصميم واجهات وتجربة المستخدم (UI/UX)',
+      services: 'تصميم UI/UX • نظام التصميم القياسي • التفاعلات الحركية',
       image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1200&q=80',
-      description: 'Futuristic fitness tracking dark mode interface with neon accents, custom SVG charts, and haptic feedback design.',
+      description: 'واجهة داكنة متطورة مع تدرجات نيون انسيابية، ورسوم بيانية تفاعلية وتجربة مستخدم تركز على البساطة والسرعة.',
     },
     {
-      name: 'Nexus Brand Guidelines',
-      category: 'Global Freight & Logistics',
-      services: 'Master Brand Book • Iconography • Fleet Signage',
+      name: 'دليل هوية Nexus اللوجستية',
+      category: 'النقل والخدمات اللوجستية',
+      services: 'دليل العلامة الرئيسي • الأيقونات • تصميم أسطول الشاحنات',
       image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
-      description: 'A 140-page master identity manual regulating corporate identity standards across international fleet hubs.',
+      description: 'دليل قياسي شامل يضم معايير الهوية المؤسسية واستخداماتها على أسطول الشاحنات والمقرات والمراسلات الرسمية.',
     },
   ];
 
   const designProcess = [
-    { step: '01', title: 'Positioning & Aesthetic Audit', desc: 'We dissect your market competitors and establish the psychological tone of your brand voice.' },
-    { step: '02', title: 'Concept Directions & Moodboards', desc: 'Developing 3 distinctive creative routes exploring typography, color theory, and logo symbolism.' },
-    { step: '03', title: 'Identity Architecture & Refinement', desc: 'Perfecting chosen visual direction across grid geometries, vector curves, and typographic contrast.' },
-    { step: '04', title: 'Collateral & UI/UX Prototyping', desc: 'Designing actual stationery, packaging die-cuts, social templates, and high-fidelity Figma components.' },
-    { step: '05', title: 'Brand Guidelines & Asset Delivery', desc: 'Compiling master vector formats (SVG, AI, EPS, PDF, Figma) and exhaustive usage rules.' },
+    { step: '01', title: 'التدقيق والتموضع البصري', desc: 'تحليل دقيق للمنافسين في السوق وتحديد النبرة النفسية والطابع العام لشخصية العلامة التجارية.' },
+    { step: '02', title: 'لوحات الإلهام والمسارات الإبداعية', desc: 'تطوير 3 اتجاهات إبداعية متباينة تستكشف فلسفة الخطوط، ونظرية الألوان، ورموز الشعار.' },
+    { step: '03', title: 'هندسة الهوية وصقل التفاصيل', desc: 'صقل الاتجاه المعتمد عبر شبكات هندسية دقيقة، ومنحنيات فيكتور عالية الاحترافية، وتباين الخطوط.' },
+    { step: '04', title: 'المطبوعات وتطبيقات الواقع', desc: 'تصميم المطبوعات الرسمية، وخطوط قص التغليف، وقوالب السوشيال ميديا، ونماذج Figma التفاعلية.' },
+    { step: '05', title: 'دليل العلامة وتسليم الملفات المفتوحة', desc: 'تسليم كافة الملفات المصدرية الأصلية (AI, SVG, EPS, PDF, Figma) مع دليل إرشادات الاستخدام.' },
   ];
 
   const designFaqs = [
     {
-      q: 'What assets are included in a complete PRO SETUP brand identity package?',
-      a: 'A full identity setup includes primary and secondary logo variations, responsive icon marks, typographic pairings, custom color tokens (HEX, RGB, CMYK, Pantone), stationery templates, social media UI kits, and a comprehensive master brand guidelines manual.',
+      q: 'ما هي المخرجات المتضمنة في باقة الهوية البصرية الكاملة من PRO SETUP؟',
+      a: 'تتضمن الباقة المتكاملة: الشعار الأساسي والفرعي، الأيقونات المستجيبة، لوحة الألوان الرقمية والمطبوعة (HEX, RGB, CMYK, Pantone)، الخطوط المعتمدة، قوالب المطبوعات والمراسلات الرسمية، حزمة تصاميم السوشيال ميديا، ودليل إرشادي شامل (Brand Guidelines).',
     },
     {
-      q: 'Do we own the full intellectual property rights to our logos and designs?',
-      a: 'Yes, 100%. Upon final project delivery, all vector source files and full global commercial intellectual property rights are unconditionally transferred to your company.',
+      q: 'هل نمتلك كامل حقوق الملكية الفكرية للشعار والتصاميم بعد التسليم؟',
+      a: 'نعم بنسبة 100%. بمجرد اكتمال المشروع واعتماده، تنتقل إليكم ملكية كافة الملفات المصدرية المفتوحة وحقوق الملكية الفكرية والتجارية الكاملة دون أي قيود.',
     },
     {
-      q: 'Can PRO SETUP assist with actual physical print production and packaging samples?',
-      a: 'Absolutely. We provide print-ready vector artwork with exact die-lines, spot UV masks, foil stamping layers, and paper stock recommendations, and we coordinate directly with specialty print partners.',
+      q: 'هل تساعد PRO SETUP في تجهيز الملفات للطباعة والتنسيق مع المطابع؟',
+      a: 'بالتأكيد. نسلم ملفات فيكتور جاهزة للطباعة مع خطوط القص الدقيقة، وتحديد مناطق الورنيش الموضعي (Spot UV)، والتذهيب الحراري، ونوصي بأفضل خامات الورق وننسق مباشرة مع المطابع المتخصصة.',
     },
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-left">
+    <div className="py-12 md:py-20 space-y-20 text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* 1. HERO SECTION */}
@@ -87,15 +83,15 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold uppercase tracking-wider">
               <Palette className="w-3.5 h-3.5" />
-              <span>Creative Studio & Visual Identity</span>
+              <span>استوديو الإبداع وتصميم الهوية البصرية</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Identities Sculpted to <span className="text-electric-gradient">Command Attention</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2]">
+              هويات بصرية تصنع <span className="text-electric-gradient">هيبة علامتك التجارية</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              In a crowded market, distinct aesthetic authority is your greatest business lever. We design iconic brand identities, luxury packaging, high-converting UI/UX interfaces, and digital design systems.
+              في الأسواق المزدحمة، الحضور البصري القوي هو مفتاح تميزك الحقيقي. نصمم هويات بصرية أيقونية، وتغليفاً فاخراً، وتجارب واجهات مستخدم (UI/UX) تترك انطباعاً دائماً بالفخامة والاحترافية.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -104,9 +100,9 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                 size="md"
                 glow
                 onClick={() => onOpenQuote('design-branding')}
-                icon={ArrowRight}
+                icon={ArrowLeft}
               >
-                Create Your Brand Identity
+                اصنع هوية علامتك الآن
               </Button>
               <Button
                 variant="outline"
@@ -116,7 +112,7 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                   el?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                View Creative Showcase
+                استعرض معرض التصاميم
               </Button>
             </div>
           </div>
@@ -125,7 +121,7 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
             <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] bg-dark-800 relative group">
               <img
                 src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80"
-                alt="Creative Studio Brand Identity Book"
+                alt="كتاب الهوية البصرية"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/30 to-transparent" />
@@ -133,13 +129,13 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
           </div>
         </div>
 
-        {/* 2. THE 6 REQUIRED CREATIVE DISCIPLINES (Prompt 10) */}
+        {/* 2. THE 6 CREATIVE DISCIPLINES */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Studio Capabilities"
-            title="Comprehensive Creative & Design"
-            highlight="Disciplines"
-            subtitle="Bridging strategic market positioning with museum-grade aesthetic execution."
+            badge="قدرات الاستوديو"
+            title="التخصصات الإبداعية و"
+            highlight="حلول التصميم"
+            subtitle="نجمع بين الرؤية الاستراتيجية للعلامة التجارية والتنفيذ الفني عالي المستوى."
             align="center"
           />
 
@@ -162,13 +158,13 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
           </div>
         </div>
 
-        {/* 3. LARGE PROJECT PREVIEWS & INTERACTIVE GALLERY (Prompt 10: Hover reveals Name, Category, Services, View Project) */}
+        {/* 3. LARGE PROJECT PREVIEWS & INTERACTIVE GALLERY */}
         <div id="studio-gallery" className="space-y-8">
           <SectionHeading
-            badge="Interactive Studio Showcase"
-            title="Featured Design & Visual"
-            highlight="Deployments"
-            subtitle="Hover over each project preview to explore services delivered, category, and creative execution."
+            badge="معرض الاستوديو التفاعلي"
+            title="نماذج بارزة من"
+            highlight="إبداعاتنا البصرية"
+            subtitle="مرر مؤشر الماوس فوق أي مشروع لاستكشاف الخدمات المقدمة، والتفاصيل الفنية للتنفيذ."
             align="center"
           />
 
@@ -184,7 +180,6 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
-                {/* Always-visible subtle bottom gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
 
                 {/* Default Bottom Bar */}
@@ -198,7 +193,7 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                   </div>
                 </div>
 
-                {/* Full Dark Overlay Reveal on Hover (Mandated in Prompt 10) */}
+                {/* Full Dark Overlay Reveal on Hover */}
                 <div className="absolute inset-0 bg-dark-950/90 backdrop-blur-md p-8 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="space-y-3">
                     <div className="inline-block px-3 py-1 rounded-full bg-electric-600/20 border border-electric-500/30 text-electric-cyan text-xs font-bold uppercase">
@@ -214,18 +209,18 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
 
                   <div className="space-y-4 pt-4 border-t border-white/10">
                     <div>
-                      <span className="text-[10px] font-mono uppercase text-slate-400 block mb-1">Services Delivered</span>
+                      <span className="text-[10px] font-mono uppercase text-slate-400 block mb-1">الخدمات المنفذة</span>
                       <span className="text-xs font-semibold text-slate-200 block">{proj.services}</span>
                     </div>
 
                     <Button
                       variant="primary"
                       size="sm"
-                      icon={ArrowRight}
+                      icon={ArrowLeft}
                       onClick={() => onOpenQuote('design-branding')}
                       glow
                     >
-                      View Project Details
+                      طلب تفاصيل وتصميم مماثل
                     </Button>
                   </div>
                 </div>
@@ -238,12 +233,12 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
         <div className="p-8 sm:p-10 rounded-3xl bg-dark-800/80 border border-white/10 backdrop-blur-xl space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
             <div>
-              <h4 className="text-lg font-bold text-white">Interactive Brand Design System Tokens</h4>
-              <p className="text-xs text-slate-400">Sample architectural typography and color tokens engineered in our master guidelines.</p>
+              <h4 className="text-lg font-bold text-white">نظام رموز وألوان الهوية التفاعلي</h4>
+              <p className="text-xs text-slate-400">نماذج لتناغم درجات الألوان القياسية التي نصممها في أدلة الهوية البصرية.</p>
             </div>
             
             <div className="flex items-center gap-2">
-              <span className="text-xs text-slate-400">Palette Scheme:</span>
+              <span className="text-xs text-slate-400">نمط اللوحة:</span>
               {(['cyber', 'luxury', 'minimal'] as const).map((p) => (
                 <button
                   key={p}
@@ -252,13 +247,13 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                     selectedPalette === p ? 'bg-electric-600 text-white shadow-sm' : 'bg-dark-900 text-slate-400 border border-white/10'
                   }`}
                 >
-                  {p}
+                  {p === 'cyber' ? 'تقني معاصر' : p === 'luxury' ? 'فخامة وذهبي' : 'تبسيطي Minimal'}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" dir="ltr">
             {selectedPalette === 'cyber' ? (
               <>
                 <div className="p-4 rounded-xl bg-[#05080D] border border-white/10"><span className="text-xs font-mono text-white block">#05080D</span><span className="text-[10px] text-slate-400">Void Obsidian</span></div>
@@ -287,10 +282,10 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
         {/* 5. HOW WE WORK (Design Process) */}
         <div className="space-y-8">
           <SectionHeading
-            badge="Methodology"
-            title="How We Architect Brand"
-            highlight="Identities"
-            subtitle="A structured 5-step creative design sprint from initial brief to vector master delivery."
+            badge="المنهجية الفنية"
+            title="مراحل تصميم وبناء"
+            highlight="الهوية البصرية"
+            subtitle="خمس خطوات منتظمة من جلسة الاستكشاف الأولى وحتى تسليم الملفات المصدرية المفتوحة."
             align="center"
           />
 
@@ -308,10 +303,10 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
         {/* 6. SERVICE-SPECIFIC FAQ */}
         <div className="space-y-6 max-w-4xl mx-auto">
           <SectionHeading
-            badge="Guidance"
-            title="Design & Branding"
-            highlight="FAQ"
-            subtitle="Common questions regarding file formats, copyright transfer, and stationery print setups."
+            badge="إرشادات وتوضيحات"
+            title="الأسئلة الشائعة حول"
+            highlight="الهوية والتصميم"
+            subtitle="إجابات واضحة حول صيغ الملفات، ونقل حقوق الملكية الفكرية، وتجهيزات المطبوعات."
             align="center"
           />
 
@@ -322,7 +317,7 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
                 <div key={i} className="rounded-2xl border border-white/10 bg-dark-800/80 overflow-hidden">
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : i)}
-                    className="w-full p-5 flex items-center justify-between gap-4 text-left"
+                    className="w-full p-5 flex items-center justify-between gap-4 text-right"
                   >
                     <span className="text-sm font-bold text-white flex items-center gap-2.5">
                       <HelpCircle className="w-4 h-4 text-electric-cyan shrink-0" />
@@ -343,13 +338,13 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
 
         {/* 7. CTA SECTION */}
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 text-center space-y-4 shadow-xl">
-          <h3 className="text-2xl sm:text-3xl font-black text-white">Ready for an iconic brand identity?</h3>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
-            Elevate your brand presence above market competitors with a master design system that commands prestige.
+          <h3 className="text-2xl sm:text-3xl font-black text-white">هل أنت مستعد لبناء هوية بصرية استثنائية؟</h3>
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            ارتقِ بعلامتك التجارية فوق المنافسين بنظام بصري متكامل يفرض الاحترام والثقة من اللحظة الأولى.
           </p>
           <div className="pt-2">
             <Button variant="primary" onClick={() => onOpenQuote('design-branding')} glow>
-              Start Branding Project
+              ابدأ مشروع الهوية الآن
             </Button>
           </div>
         </div>

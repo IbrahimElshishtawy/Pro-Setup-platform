@@ -4,61 +4,61 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 'faq-1',
     category: 'general',
-    question: 'What services does PRO SETUP provide?',
-    answer: 'PRO SETUP is a full-service integrated digital solutions provider. We specialize in six core pillars: Digital Marketing & Social Media, Design & Brand Identity, Custom Software & Mobile Apps (Flutter/Web), CCTV & Intelligent Security Surveillance, Cinema Photography & Video Production, and Performance Advertising Campaigns.'
+    question: 'ما هي الخدمات التي تقدمها شركة PRO SETUP؟',
+    answer: 'تُعد PRO SETUP شريكاً متكاملاً للحلول الرقمية وتطوير الأعمال. نحن متخصصون في 6 مجالات رئيسية: التسويق الرقمي وإدارة السوشيال ميديا، تصميم وتطوير الهوية البصرية، برمجة المواقع والتطبيقات المخصصة (Flutter/Web)، توريد وتركيب كاميرات المراقبة والأنظمة الأمنية، التصوير الفوتوغرافي والإنتاج السينمائي، وإدارة الحملات الإعلانية الممولة.'
   },
   {
     id: 'faq-2',
     category: 'general',
-    question: 'Can I request multiple services together?',
-    answer: 'Yes! That is our primary competitive advantage: "All Your Business Needs in One Place". You can bundle software development, branding, advertising, and CCTV setup into one cohesive contract, managed by a dedicated project director, eliminating vendor miscommunication and drastically lowering your overall investment.'
+    question: 'هل يمكنني طلب أكثر من خدمة في باقة واحدة متكاملة؟',
+    answer: 'بالتأكيد! وتلك هي ميزتنا التنافسية الأبرز: "كل ما تحتاجه أعمالك في مكان واحد". يمكنك دمج تطوير البرمجيات، الهوية البصرية، الإعلانات الممولة، وأنظمة المراقبة ضمن عقد موحد وإدارة مشروع متكاملة، مما يمنع تشتت التواصل بين عدة شركات ويقلل التكلفة الإجمالية بشكل ملموس.'
   },
   {
     id: 'faq-3',
     category: 'general',
-    question: 'Do you work with startups as well as established enterprises?',
-    answer: 'Absolutely. We work with ambitious early-stage startups that need a complete 0-to-1 setup (branding, MVP development, launch marketing) as well as established mid-market and enterprise corporations looking to modernize their technology stack, run large-scale ad campaigns, or secure multi-facility premises.'
+    question: 'هل تقدمون خدماتكم للشركات الناشئة أم للمؤسسات الكبرى فقط؟',
+    answer: 'نعمل مع الطرفين باحترافية تامة. ندعم الشركات الناشئة الواعدة ببناء انطلاقتها من الصفر وحتى الإطلاق (الهوية، نموذج العمل الأولي MVP، والتسويق)، كما ندعم الشركات المتوسطة والمؤسسات الكبرى لتحديث بنيتها البرمجية، وتوسيع حملاتها الإعلانية الضخمة، أو تأمين منشآتها ومقراتها بأحدث أنظمة المراقبة.'
   },
   {
     id: 'faq-4',
     category: 'technical',
-    question: 'Do you build custom software and mobile applications?',
-    answer: 'Yes. We engineer bespoke web platforms, cross-platform iOS and Android apps using Flutter, custom ERP/CRM business management portals, cloud microservices, and REST API integrations. All code is built with clean architecture, strict security standards, and comprehensive documentation.'
+    question: 'هل تقومون ببرمجة حلول مخصصة وتطبيقات هواتف ذكية؟',
+    answer: 'نعم، نطور منصات ويب سريعة وآمنة، وتطبيقات هواتف ذكية (iOS و Android) متعددة المنصات باستخدام Flutter، بالإضافة إلى أنظمة إدارة الشركات (ERP / CRM) ولوحات التحكم السحابية المخصصة وربط الواجهات البرمجية (APIs). نلتزم بأعلى معايير جودة الكود البرمجي والحماية وتوثيق الشيفرة.'
   },
   {
     id: 'faq-5',
     category: 'services',
-    question: 'Do you manage social media accounts end-to-end?',
-    answer: 'Yes. Our social media management covers strategic content planning, monthly content calendars, custom graphic design, video reel shooting and editing, community engagement, and bi-weekly analytics reports to build an engaged, loyal following for your brand.'
+    question: 'هل تشمل إدارة السوشيال ميديا إنتاج المحتوى والتصوير بالكامل؟',
+    answer: 'نعم بالكامل. تشمل إدارة منصات التواصل الاجتماعي وضع خطة واستراتيجية النشر الشهرية، كتابة المحتوى التسويقي الإبداعي، تصوير ومونتاج فيديوهات الريلز (Reels) السينمائية، التصاميم الجرافيكية الاحترافية، والتفاعل مع المتابعين، مع تقديم تقارير تحليلية دورية لقياس التفاعل والنمو.'
   },
   {
     id: 'faq-6',
     category: 'services',
-    question: 'Do you provide paid advertising and performance marketing?',
-    answer: 'Yes. We manage and scale targeted advertising campaigns across Meta (Facebook & Instagram), Google (Search, Display, YouTube, Performance Max), TikTok, and LinkedIn. We implement advanced server-side tracking, conversion API integrations, and continuous creative A/B testing to ensure maximum ROAS.'
+    question: 'كيف تديرون الحملات الإعلانية الممولة وما هي المنصات المستهدفة؟',
+    answer: 'ندير حملات إعلانية مدفوعة ومحسوبة العائد عبر مختلف المنصات: ميتا (فيسبوك وإنستغرام)، إعلانات جوجل (بحث، يوتيوب، حملات الأداء الأقصى)، تيك توك، ولينكد إن. نعتمد تتبع التحويلات المتقدم (Conversions API)، واختبارات A/B المستمرة للمحتوى الإعلاني لضمان أفضل عائد على الإنفاق الإعلاني (ROAS).'
   },
   {
     id: 'faq-7',
     category: 'technical',
-    question: 'Do you install and configure CCTV surveillance systems?',
-    answer: 'Yes. We design and install commercial-grade CCTV surveillance networks, including 4K IP cameras, PTZ motion cameras, NVR/DVR storage arrays, biometric access control doors, and dedicated Cat6/Cat7 network cabling. You can securely view live and recorded feeds 24/7 from your smartphone or PC.'
+    question: 'هل تقدمون ضماناً ودعماً فنياً على تركيب كاميرات المراقبة؟',
+    answer: 'نعم، نوفر كاميرات مراقبة شبكية بدقة 4K مع خاصية الرؤية الليلية بالألوان الكاملة والذكاء الاصطناعي لكشف الحركة والوجوه، ونقوم بتمديد شبكات عالية الجودة (Cat6/Cat7)، مع ربط النظام بالهاتف الذكي للمشاهدة والتحكم من أي مكان في العالم على مدار الساعة، بالإضافة إلى ضمان معتمد ودعم فني مستمر.'
   },
   {
     id: 'faq-8',
     category: 'services',
-    question: 'Do you produce commercial advertising videos and photography?',
-    answer: 'Yes. We have a full in-house cinema production crew with 4K cinema cameras, professional studio lighting, audio engineers, and post-production colorists. We produce TV-grade commercials, viral social media reels, corporate documentaries, and e-commerce product catalog photography.'
+    question: 'ما نوع معدات التصوير والإنتاج السينمائي المتوفرة لديكم؟',
+    answer: 'يمتلك الاستوديو كاميرات سينمائية متطورة 4K، معدات إضاءة سينمائية احترافية، ميكروفونات تسجيل صوت عازلة للضوضاء، ومهندسي مونتاج وتلوين سينمائي معتمدين. ننتج إعلانات تجارية للمنتجات، مقاطع وثائقية للشركات، وتغطيات مصورة للمقرات والمؤتمرات.'
   },
   {
     id: 'faq-9',
     category: 'general',
-    question: 'How can I start a project with PRO SETUP?',
-    answer: 'Starting is straightforward: Click "Start Your Project" or "Get Started" anywhere on our website, or contact us directly via WhatsApp or email. We will schedule an initial 30-minute discovery consultation, evaluate your exact scope, and present a transparent proposal and roadmap within 24 to 48 hours.'
+    question: 'كيف يمكنني بدء مشروعي مع PRO SETUP؟',
+    answer: 'البداية في غاية السهولة: انقر على زر "ابدأ مشروعك" أو "طلب استشارة" في أي صفحة بالموقع، أو تواصل معنا مباشرة عبر واتساب أو البريد الإلكتروني. سنحدد معك جلسة استكشافية سريعة لفهم احتياجاتك، ثم نقدم لك مقترحاً مالياً وفنياً متكاملاً وخارطة طريق واضحة خلال 24 إلى 48 ساعة.'
   },
   {
     id: 'faq-10',
     category: 'pricing',
-    question: 'How long does a typical project take to complete?',
-    answer: 'Timelines depend on scope. A complete brand identity typically takes 2–3 weeks; a bespoke web application or Flutter MVP takes 4–8 weeks; a turnkey commercial CCTV installation takes 3–7 business days; and ongoing marketing/advertising services are managed in monthly performance sprints with bi-weekly milestone reviews.'
+    question: 'كم تستغرق المدة الزمنية لإنجاز المشروع عادةً؟',
+    answer: 'تعتمد المدة على حجم المشروع ونطاقه. على سبيل المثال: يستغرق بناء الهوية البصرية المتكاملة عادة من 2 إلى 3 أسابيع؛ وتطوير تطبيق أو منصة ويب من 4 إلى 8 أسابيع؛ وتجهيز منشأة بكاميرات المراقبة والشبكات من 3 إلى 7 أيام عمل؛ بينما تُدار الحملات الإعلانية والتسويق في دورات شهرية مستمرة مع مراجعات أسبوعية للأداء.'
   }
 ];

@@ -33,8 +33,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Cairo', 'Alexandria', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        display: ['Alexandria', 'Cairo', 'Space Grotesk', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
         script: ['Caveat', 'Dancing Script', 'cursive'],
       },

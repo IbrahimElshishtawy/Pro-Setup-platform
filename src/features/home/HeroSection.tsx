@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette } from 'lucide-react';
+import { ArrowLeft, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { Button } from '../../components/common/Button';
 import { SocialIcons } from '../../components/common/SocialIcons';
@@ -16,28 +16,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onSelectVertical,
 }) => {
   return (
-    <section className="relative pt-6 pb-20 md:py-24 lg:py-28 overflow-hidden">
+    <section className="relative pt-6 pb-20 md:py-24 lg:py-28 overflow-hidden text-right">
       {/* Background radial gradient accent */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* LEFT COLUMN: Hero Copy & Actions */}
-          <div className="lg:col-span-6 space-y-6 md:space-y-8 z-10 text-left">
+          {/* RIGHT COLUMN (In RTL): Hero Copy & Actions */}
+          <div className="lg:col-span-6 space-y-6 md:space-y-8 z-10 text-right">
             {/* Small Label */}
-            <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-[0.25em] text-slate-300 uppercase">
+            <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-wide text-slate-300">
               <span className="w-2 h-2 rounded-full bg-electric-cyan shadow-glow-sm" />
-              <span>YOUR VISION</span>
+              <span>رؤيتك المستقبلية</span>
               <span className="text-electric-cyan">•</span>
-              <span>OUR SETUP</span>
+              <span>تجهيزنا الاحترافي</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.1]">
-              All Your Business Needs in{' '}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.25]">
+              كل احتياجات أعمالك في{' '}
               <span className="text-electric-gradient inline-block">
-                One Place
+                مكان واحد
               </span>
             </h1>
 
@@ -51,36 +51,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Button
                 variant="primary"
                 size="lg"
-                icon={ArrowRight}
+                icon={ArrowLeft}
                 glow
                 onClick={onExploreServices}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto font-bold"
               >
-                Explore Our Services
+                استكشف كافة الخدمات
               </Button>
 
               <Button
                 variant="glass"
                 size="lg"
                 icon={Play}
-                iconPosition="left"
+                iconPosition="right"
                 onClick={onWatchVideo}
-                className="w-full sm:w-auto text-slate-200 hover:text-white"
+                className="w-full sm:w-auto text-slate-200 hover:text-white font-medium"
               >
-                Watch Our Video
+                شاهد الفيديو التعريفي
               </Button>
             </div>
 
             {/* Social Media System Row with tooltips & official SVGs */}
             <div className="pt-2">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">
-                Official Channels:
+              <span className="text-xs font-bold text-slate-400 block mb-3">
+                قنوات التواصل والمتابعة الرسمية:
               </span>
               <SocialIcons size="md" variant="glow" />
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Interactive Floating Glass Cards Grid */}
+          {/* LEFT COLUMN (In RTL): Interactive Floating Glass Cards Grid */}
           <div className="lg:col-span-6 relative perspective-1000">
             {/* Ambient Back Glow */}
             <div className="absolute inset-0 bg-radial-gradient from-electric-600/15 via-transparent to-transparent blur-2xl pointer-events-none" />
@@ -95,15 +95,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-                  alt="Software & Code Engineering"
+                  alt="تطوير البرمجيات والأنظمة"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
                 
                 {/* Bottom Pill Badge */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
                   <Code2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Software</span>
+                  <span>برمجيات وتطبيقات</span>
                 </div>
               </div>
 
@@ -114,14 +114,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-                  alt="Security CCTV Camera Systems"
+                  alt="أنظمة كاميرات المراقبة CCTV"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
                 
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
                   <ShieldCheck className="w-3.5 h-3.5 text-electric-cyan" />
-                  <span>Security</span>
+                  <span>أنظمة أمنية CCTV</span>
                 </div>
               </div>
 
@@ -132,14 +132,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
-                  alt="Cinema Video Production Rig"
+                  alt="الإنتاج المرئي والتصوير السينمائي"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
                 
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
                   <Camera className="w-3.5 h-3.5 text-electric-cyan" />
-                  <span className="truncate">Photo & Video</span>
+                  <span className="truncate">تصوير وإنتاج مرئي</span>
                 </div>
               </div>
 
@@ -150,14 +150,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
-                  alt="Digital Marketing Campaign Management"
+                  alt="التسويق الرقمي وإدارة الحملات"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
                 
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
                   <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Marketing</span>
+                  <span>تسويق رقمي</span>
                 </div>
               </div>
 
@@ -168,24 +168,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               >
                 <img
                   src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80"
-                  alt="Creative Graphic Design & Brand Identity"
+                  alt="الهوية التجارية والتصميم الإبداعي"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
                 
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-semibold group-hover:border-electric-cyan/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
                   <Palette className="w-3.5 h-3.5 text-pink-400" />
-                  <span>Design</span>
+                  <span>تصميم وهوية</span>
                 </div>
               </div>
 
             </div>
 
-            {/* Handwritten Floating Badge: "Creative Ideas Real Results" */}
-            <div className="absolute -bottom-6 -right-2 sm:-bottom-4 sm:right-4 z-20 pointer-events-none transform rotate-3 select-none">
-              <div className="relative font-script text-2xl sm:text-3xl text-white font-bold tracking-wide drop-shadow-[0_4px_16px_rgba(0,102,255,0.7)] flex flex-col items-center">
-                <span>Creative Ideas</span>
-                <span className="text-electric-cyan">Real Results</span>
+            {/* Handwritten Floating Badge: "أفكار إبداعية • نتائج حقيقية" */}
+            <div className="absolute -bottom-6 -left-2 sm:-bottom-4 sm:left-4 z-20 pointer-events-none transform -rotate-3 select-none text-center">
+              <div className="relative font-bold text-xl sm:text-2xl text-white tracking-wide drop-shadow-[0_4px_16px_rgba(0,102,255,0.7)] flex flex-col items-center">
+                <span>أفكار إبداعية</span>
+                <span className="text-electric-cyan">نتائج حقيقية ملموسة</span>
                 <svg className="w-28 sm:w-36 h-4 text-electric-cyan" viewBox="0 0 140 20" fill="none">
                   <path d="M5 12 Q 70 2 135 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>

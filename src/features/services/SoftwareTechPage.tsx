@@ -276,7 +276,7 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
             <div className="rounded-3xl overflow-hidden bg-dark-900 border border-white/10 p-5 space-y-3 shadow-xl">
               <div className="flex items-center justify-between pb-3 border-b border-white/10">
                 <span className="text-[10px] font-mono text-emerald-400 font-bold">لوحة تحكم تفاعلية</span>
-                <span className="text-[10px] text-slate-400 font-mono">Live WebSockets</span>
+                <span className="text-[10px] text-slate-400 font-mono" dir="ltr">Live WebSockets</span>
               </div>
               <div className="aspect-[4/3] rounded-xl overflow-hidden bg-dark-950">
                 <img

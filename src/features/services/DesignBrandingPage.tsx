@@ -253,27 +253,27 @@ export const DesignBrandingPage: React.FC<DesignBrandingPageProps> = ({ onOpenQu
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" dir="ltr">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3" dir="rtl">
             {selectedPalette === 'cyber' ? (
               <>
-                <div className="p-4 rounded-xl bg-[#05080D] border border-white/10"><span className="text-xs font-mono text-white block">#05080D</span><span className="text-[10px] text-slate-400">Void Obsidian</span></div>
-                <div className="p-4 rounded-xl bg-[#0066FF] text-white"><span className="text-xs font-mono block">#0066FF</span><span className="text-[10px] text-blue-200">Electric Brand Blue</span></div>
-                <div className="p-4 rounded-xl bg-[#00D2FF] text-dark-950 font-bold"><span className="text-xs font-mono block">#00D2FF</span><span className="text-[10px] text-blue-900">Cyan Highlight</span></div>
-                <div className="p-4 rounded-xl bg-[#16233B] text-white"><span className="text-xs font-mono block">#16233B</span><span className="text-[10px] text-slate-400">Slate Structure</span></div>
+                <div className="p-4 rounded-xl bg-[#05080D] border border-white/10"><span className="text-xs font-mono text-white block" dir="ltr">#05080D</span><span className="text-[10px] text-slate-400">أسود كوني عميق</span></div>
+                <div className="p-4 rounded-xl bg-[#0066FF] text-white"><span className="text-xs font-mono block" dir="ltr">#0066FF</span><span className="text-[10px] text-blue-200">أزرق كهربائي للعلامة</span></div>
+                <div className="p-4 rounded-xl bg-[#00D2FF] text-dark-950 font-bold"><span className="text-xs font-mono block" dir="ltr">#00D2FF</span><span className="text-[10px] text-blue-900">سيان مضيء ساطع</span></div>
+                <div className="p-4 rounded-xl bg-[#16233B] text-white"><span className="text-xs font-mono block" dir="ltr">#16233B</span><span className="text-[10px] text-slate-400">كحلي هيكلي متزن</span></div>
               </>
             ) : selectedPalette === 'luxury' ? (
               <>
-                <div className="p-4 rounded-xl bg-[#0B0C10] border border-white/10"><span className="text-xs font-mono text-white block">#0B0C10</span><span className="text-[10px] text-slate-400">Obsidian Black</span></div>
-                <div className="p-4 rounded-xl bg-[#C5A059] text-dark-950 font-bold"><span className="text-xs font-mono block">#C5A059</span><span className="text-[10px] text-amber-950">Champagne Gold</span></div>
-                <div className="p-4 rounded-xl bg-[#E5DCC5] text-dark-950 font-bold"><span className="text-xs font-mono block">#E5DCC5</span><span className="text-[10px] text-amber-900">Pearl Sand</span></div>
-                <div className="p-4 rounded-xl bg-[#1F2833] text-white"><span className="text-xs font-mono block">#1F2833</span><span className="text-[10px] text-slate-400">Graphite Neutral</span></div>
+                <div className="p-4 rounded-xl bg-[#0B0C10] border border-white/10"><span className="text-xs font-mono text-white block" dir="ltr">#0B0C10</span><span className="text-[10px] text-slate-400">أسود بركاني فاخر</span></div>
+                <div className="p-4 rounded-xl bg-[#C5A059] text-dark-950 font-bold"><span className="text-xs font-mono block" dir="ltr">#C5A059</span><span className="text-[10px] text-amber-950">ذهب شامبين ملكي</span></div>
+                <div className="p-4 rounded-xl bg-[#E5DCC5] text-dark-950 font-bold"><span className="text-xs font-mono block" dir="ltr">#E5DCC5</span><span className="text-[10px] text-amber-900">رملي لؤلؤي ناعم</span></div>
+                <div className="p-4 rounded-xl bg-[#1F2833] text-white"><span className="text-xs font-mono block" dir="ltr">#1F2833</span><span className="text-[10px] text-slate-400">جرافيت حيادي راقٍ</span></div>
               </>
             ) : (
               <>
-                <div className="p-4 rounded-xl bg-[#090A0F] border border-white/10"><span className="text-xs font-mono text-white block">#090A0F</span><span className="text-[10px] text-slate-400">Pure Mono Dark</span></div>
-                <div className="p-4 rounded-xl bg-[#6366F1] text-white"><span className="text-xs font-mono block">#6366F1</span><span className="text-[10px] text-indigo-200">Neo Violet</span></div>
-                <div className="p-4 rounded-xl bg-[#F8FAFC] text-dark-950 font-bold"><span className="text-xs font-mono block">#F8FAFC</span><span className="text-[10px] text-slate-700">Studio White</span></div>
-                <div className="p-4 rounded-xl bg-[#334155] text-white"><span className="text-xs font-mono block">#334155</span><span className="text-[10px] text-slate-300">Steel Slate</span></div>
+                <div className="p-4 rounded-xl bg-[#090A0F] border border-white/10"><span className="text-xs font-mono text-white block" dir="ltr">#090A0F</span><span className="text-[10px] text-slate-400">داكن أحادي نقي</span></div>
+                <div className="p-4 rounded-xl bg-[#6366F1] text-white"><span className="text-xs font-mono block" dir="ltr">#6366F1</span><span className="text-[10px] text-indigo-200">بنفسجي نيو نيون</span></div>
+                <div className="p-4 rounded-xl bg-[#F8FAFC] text-dark-950 font-bold"><span className="text-xs font-mono block" dir="ltr">#F8FAFC</span><span className="text-[10px] text-slate-700">أبيض استوديو نقي</span></div>
+                <div className="p-4 rounded-xl bg-[#334155] text-white"><span className="text-xs font-mono block" dir="ltr">#334155</span><span className="text-[10px] text-slate-300">فولاذي صلب متباين</span></div>
               </>
             )}
           </div>

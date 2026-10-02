@@ -1,49 +1,54 @@
 import { TestimonialItem } from '../core/types/common';
 
+/**
+ * Client Testimonials Data
+ * NOTE: As per agency compliance guidelines (Rule 28), all names, companies, and testimonial bodies
+ * use clearly marked placeholders until verified client information and authorized press releases are provided.
+ */
 export const TESTIMONIALS_DATA: TestimonialItem[] = [
   {
     id: 'test-1',
-    name: 'Ahmed Mostafa',
-    role: 'Business Owner',
-    company: 'Nexus Group',
+    name: '[Client Partner Placeholder - Enterprise Group]',
+    role: 'Managing Director',
+    company: '[Enterprise Partner Organization]',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    content: 'Pro Setup transformed our online presence. Their team is professional, creative and always on time. Having software development, marketing, and security under one roof saved us months of vendor headache.'
+    content: '[Sample Client Feedback] PRO SETUP provided an integrated service setup that united digital marketing, custom software architecture, and infrastructure security under one cohesive execution team.'
   },
   {
     id: 'test-2',
-    name: 'Sara Khaled',
-    role: 'Marketing Manager',
-    company: 'Lumina Living',
+    name: '[Client Partner Placeholder - Commercial Brand]',
+    role: 'Marketing & Brand Director',
+    company: '[Retail & Lifestyle Brand]',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    content: 'The website and social media designs they created for us are amazing. Highly recommended! Our engagement shot up by 300% within the first 60 days of launching their campaign.'
+    content: '[Sample Client Feedback] The visual identity, commercial video production, and social media campaigns established a distinctive market presence and streamlined multi-channel audience engagement.'
   },
   {
     id: 'test-3',
-    name: 'Mohamed Adel',
-    role: 'CEO',
-    company: 'Apex Industrial Hub',
+    name: '[Client Partner Placeholder - Industrial Facility]',
+    role: 'Operations & Security Lead',
+    company: '[Industrial & Logistics Park]',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    content: 'Excellent service and great support. They really understand what we need. The 64-camera CCTV surveillance grid and custom access control they installed has run flawlessly 24/7.'
+    content: '[Sample Client Feedback] The turnkey CCTV surveillance installation, dedicated IP network setup, and multi-zone access control system delivered seamless 24/7 facility monitoring and zero downtime.'
   },
   {
     id: 'test-4',
-    name: 'Tarek Nabil',
-    role: 'CTO & Co-Founder',
-    company: 'Aura Digital Platform',
+    name: '[Client Partner Placeholder - Technology Venture]',
+    role: 'Chief Technology Officer',
+    company: '[Fintech & Mobile Services]',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    content: 'The Flutter mobile application and web dashboard engineering is top-tier. Clean code architecture, sub-second response times, and exceptional attention to UI micro-interactions.'
+    content: '[Sample Client Feedback] High-grade software engineering across web and mobile platforms with clean microservice architecture, low latency response times, and intuitive design ergonomics.'
   },
   {
     id: 'test-5',
-    name: 'Nourhan El-Sayed',
-    role: 'E-Commerce Director',
-    company: 'Velox Brands',
+    name: '[Client Partner Placeholder - E-Commerce Group]',
+    role: 'Commercial Operations Head',
+    company: '[Omnichannel Commerce Partner]',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80',
     rating: 5,
-    content: 'Their advertising team scaled our direct-to-consumer revenue from $25k to over $180k/month while maintaining a 4.9x ROAS. They act as genuine growth partners, not just service contractors.'
+    content: '[Sample Client Feedback] Strategic paid advertising campaigns and performance creative production delivered consistent conversion velocity and measurable ROI across target customer segments.'
   }
 ];

@@ -15,6 +15,7 @@ import { HeroSection } from './features/home/HeroSection';
 import { ServicesOverview } from './features/home/ServicesOverview';
 import { WhyChooseUs } from './features/home/WhyChooseUs';
 import { RecentProjects } from './features/home/RecentProjects';
+import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
 import { TestimonialsSlider } from './features/home/TestimonialsSlider';
 import { CtaBanner } from './features/home/CtaBanner';
 
@@ -58,6 +59,71 @@ export function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Dynamic SEO Page Title & Meta Description update
+  useEffect(() => {
+    const titles: Record<ActivePage, { title: string; desc: string }> = {
+      'home': {
+        title: 'PRO SETUP | All Your Business Needs in One Place',
+        desc: 'PRO SETUP provides Digital Marketing, Software Development, Branding, CCTV Security, Photography, Video Production, and Advertising under one roof.'
+      },
+      'services': {
+        title: 'Services Overview | PRO SETUP - Everything Your Business Needs',
+        desc: 'Explore PRO SETUP integrated capabilities: Marketing, Creative Design, Software Engineering, CCTV Security, Video Production, and Advertising.'
+      },
+      'digital-marketing': {
+        title: 'Digital Marketing & Social Media Management | PRO SETUP',
+        desc: 'Performance marketing, audience targeting, social media growth, content creation, and lead generation analytics.'
+      },
+      'design-branding': {
+        title: 'Design & Branding Studio | PRO SETUP',
+        desc: 'Logo design, brand identity systems, social media design, packaging, and UI/UX digital design.'
+      },
+      'software-technology': {
+        title: 'Software & Technology Solutions | PRO SETUP',
+        desc: 'Web development, mobile applications, custom software, dashboards, APIs, cloud systems, and payment integrations.'
+      },
+      'security-surveillance': {
+        title: 'CCTV & Security Systems Installation | PRO SETUP',
+        desc: 'Professional CCTV, IP cameras, NVR/DVR systems, network architecture, and 24/7 access control monitoring.'
+      },
+      'photography-video': {
+        title: 'Commercial Photography & Video Production | PRO SETUP',
+        desc: 'High-end media production, 4K commercial videos, product photography, advertising reels, and cinematic color grading.'
+      },
+      'advertising': {
+        title: 'Commercial Advertising & Media Campaigns | PRO SETUP',
+        desc: 'Complete campaign lifecycle: Idea, Strategy, Creative, Production, Advertising, and Optimization.'
+      },
+      'portfolio': {
+        title: 'Portfolio & Case Studies | PRO SETUP',
+        desc: 'Discover our work across digital marketing, software, branding, security installations, and video production.'
+      },
+      'about': {
+        title: 'About PRO SETUP | Your Vision. Our Setup.',
+        desc: 'Learn about our integrated business model, mission, vision, operational values, and leadership team.'
+      },
+      'process': {
+        title: 'Our 6-Step Delivery Process | PRO SETUP',
+        desc: 'From Discovery and Strategy to Design, Development, Launch, and Continuous Optimization.'
+      },
+      'contact': {
+        title: 'Contact PRO SETUP | Let\'s Build Something Great',
+        desc: 'Get in touch with our team for project inquiries, custom quotes, and consultations.'
+      },
+      'faq': {
+        title: 'Frequently Asked Questions | PRO SETUP',
+        desc: 'Common questions about our integrated services, process, security installations, and technical capabilities.'
+      }
+    };
+
+    const currentMeta = titles[activePage] || titles['home'];
+    document.title = currentMeta.title;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', currentMeta.desc);
+    }
+  }, [activePage]);
+
   const navigateTo = (page: ActivePage) => {
     setActivePage(page);
     window.location.hash = page;
@@ -99,6 +165,7 @@ export function App() {
               onSelectProject={(p) => setSelectedProject(p)}
               onViewAll={() => navigateTo('portfolio')}
             />
+            <SocialMediaShowcase />
             <TestimonialsSlider />
             <CtaBanner onContactClick={() => navigateTo('contact')} />
           </>

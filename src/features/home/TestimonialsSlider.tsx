@@ -31,11 +31,14 @@ export const TestimonialsSlider: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 block">
-            WHAT OUR CLIENTS SAY
+            CLIENT FEEDBACK
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
-            Trusted by <span className="text-electric-cyan">Businesses</span>
+            Client <span className="text-electric-cyan">Perspectives</span>
           </h2>
+          <p className="text-xs text-slate-400 pt-1">
+            Sample client partner feedback — official company reviews and case studies are updated regularly.
+          </p>
         </div>
 
         {/* Carousel Container with Left/Right Arrows */}

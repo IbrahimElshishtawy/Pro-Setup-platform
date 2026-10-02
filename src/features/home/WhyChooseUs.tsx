@@ -57,8 +57,8 @@ export const WhyChooseUs: React.FC = () => {
                     <CheckCircle2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-white block">Cairo Headquarters & Lab</span>
-                    <span className="text-[11px] text-slate-400">Integrated Hardware & Digital Studio</span>
+                    <span className="text-xs font-bold text-white block">PRO SETUP Operations Hub</span>
+                    <span className="text-[11px] text-slate-400">Integrated Hardware & Digital Studio • {COMPANY_INFO.contact.address}</span>
                   </div>
                 </div>
                 <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">

@@ -18,6 +18,9 @@ import { RecentProjects } from './features/home/RecentProjects';
 import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
 import { TestimonialsSlider } from './features/home/TestimonialsSlider';
 import { CtaBanner } from './features/home/CtaBanner';
+import { VipClientOffer } from './features/home/VipClientOffer';
+import { BackgroundAtmosphere } from './components/common/BackgroundAtmosphere';
+import { Sparkles } from 'lucide-react';
 
 // Dedicated Sub-Pages
 import { ServicesPage } from './features/services/ServicesPage';
@@ -39,6 +42,7 @@ export function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
+  const [activePromoCode, setActivePromoCode] = useState<string>('FIRST-VIP-25');
 
   // Sync with browser hash if present (e.g. #portfolio, #services)
   useEffect(() => {
@@ -130,28 +134,51 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleOpenQuote = (serviceId?: string) => {
+  const handleOpenQuote = (serviceId?: string, promoCode?: string) => {
     setPreselectedService(serviceId);
+    if (promoCode) {
+      setActivePromoCode(promoCode);
+    }
     setIsQuoteModalOpen(true);
   };
 
   return (
-    <div className="relative min-h-screen bg-dark-900 bg-tech-grid text-slate-100 flex flex-col justify-between selection:bg-electric-600 selection:text-white">
+    <div className="relative min-h-screen bg-dark-900 text-slate-100 flex flex-col justify-between selection:bg-electric-600 selection:text-white overflow-hidden">
+      {/* Dynamic Animated Luxury Tech Atmosphere Background */}
+      <BackgroundAtmosphere />
+
       {/* Top Scroll Progress Bar */}
       <ScrollProgress />
 
       {/* Futuristic Desktop Custom Cursor */}
       <CustomCursor />
 
+      {/* Top VIP Announcement Launch Bar */}
+      <div className="relative z-30 bg-gradient-to-r from-electric-600/90 via-[#0B132B] to-amber-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
+        <span className="inline-flex items-center gap-1.5 font-bold text-amber-300">
+          <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
+          <span>عرض الإطلاق التجاري الحصري:</span>
+        </span>
+        <span className="text-slate-200">
+          كُن شريكنا وعميلنا المميّز الأول واحصل على خصم 25% + استشارة تسويقية وتقنية مجانية!
+        </span>
+        <button
+          onClick={() => handleOpenQuote(undefined, 'FIRST-VIP-25')}
+          className="underline decoration-amber-400 font-extrabold text-amber-300 hover:text-white transition-colors cursor-pointer text-[11px] mr-1"
+        >
+          اغتنم العرض الآن ←
+        </button>
+      </div>
+
       {/* Global Navigation Header */}
       <Navbar
         activePage={activePage}
         onNavigate={navigateTo}
-        onOpenQuote={() => handleOpenQuote()}
+        onOpenQuote={() => handleOpenQuote(undefined, 'FIRST-VIP-25')}
       />
 
       {/* Main Content Router */}
-      <main className="flex-1 pt-20">
+      <main className="relative z-10 flex-1 pt-16">
         {activePage === 'home' && (
           <>
             <HeroSection
@@ -159,6 +186,8 @@ export function App() {
               onWatchVideo={() => setIsVideoModalOpen(true)}
               onSelectVertical={(vert) => navigateTo(vert as ActivePage)}
             />
+            {/* VIP Client First Acquisition Offer Section */}
+            <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'FIRST-VIP-25')} />
             <ServicesOverview onNavigate={navigateTo} />
             <WhyChooseUs />
             <RecentProjects
@@ -255,6 +284,7 @@ export function App() {
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
         preselectedService={preselectedService}
+        initialPromoCode={activePromoCode}
       />
     </div>
   );

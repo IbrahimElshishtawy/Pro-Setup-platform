@@ -22,6 +22,10 @@ export interface QuotePayload {
   budget: string;
   timeline: string;
   details: string;
+  orderNumber?: string;
+  voucherCode?: string;
+  discountLabel?: string;
+  packageName?: string;
   createdAt?: unknown;
 }
 
@@ -67,14 +71,16 @@ export async function submitInquiry(data: InquiryPayload): Promise<{ success: bo
 }
 
 /**
- * Saves an interactive quote request to Firebase Cloud Firestore.
+ * Saves an interactive commercial order & quote request to Firebase Cloud Firestore.
  */
-export async function submitQuote(data: QuotePayload): Promise<{ success: boolean; id: string; mode: 'firebase' | 'local' }> {
+export async function submitQuote(data: QuotePayload): Promise<{ success: boolean; id: string; orderNumber: string; mode: 'firebase' | 'local' }> {
   const timestamp = new Date().toISOString();
+  const orderNumber = data.orderNumber || `PRO-${Math.floor(1000 + Math.random() * 9000)}`;
+  const enrichedData = { ...data, orderNumber, timestamp };
   
   try {
     const existing = JSON.parse(localStorage.getItem('prosetup_quotes') || '[]');
-    existing.push({ ...data, timestamp });
+    existing.push(enrichedData);
     localStorage.setItem('prosetup_quotes', JSON.stringify(existing));
   } catch (e) {
     console.error('Local backup failed', e);
@@ -83,19 +89,19 @@ export async function submitQuote(data: QuotePayload): Promise<{ success: boolea
   if (isFirebaseConfigured && db) {
     try {
       const docRef = await addDoc(collection(db, 'quotes'), {
-        ...data,
+        ...enrichedData,
         createdAt: serverTimestamp(),
-        status: 'pending_review',
+        status: 'confirmed_commercial_order',
       });
-      return { success: true, id: docRef.id, mode: 'firebase' };
+      return { success: true, id: docRef.id, orderNumber, mode: 'firebase' };
     } catch (err) {
       console.error('[PRO SETUP Firestore Error] Failed to write quote to cloud:', err);
-      return { success: true, id: `local_${Date.now()}`, mode: 'local' };
+      return { success: true, id: `local_${Date.now()}`, orderNumber, mode: 'local' };
     }
   }
 
   await new Promise(r => setTimeout(r, 600));
-  return { success: true, id: `demo_${Date.now()}`, mode: 'local' };
+  return { success: true, id: `demo_${Date.now()}`, orderNumber, mode: 'local' };
 }
 
 /**

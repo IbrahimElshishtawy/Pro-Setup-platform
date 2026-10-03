@@ -137,3 +137,37 @@
 .pulse-border-glow {
   animation: pulseBorder 3s infinite ease-in-out;
 }
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0, 210, 255, 0.15) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerEffect 4s infinite;
+}
+
+/* Printable Receipt Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: black !important;
+    background: white !important;
+  }
+}
+

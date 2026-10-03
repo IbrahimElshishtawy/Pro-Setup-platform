@@ -252,27 +252,37 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
 
           {/* Right Action CTA */}
           <div className="hidden sm:flex items-center gap-3">
-            <Button
-              variant="primary"
-              size="sm"
-              icon={ArrowLeft}
-              glow
-              onClick={onOpenQuote}
-            >
-              ابدأ مشروعك معنا
-            </Button>
+            <div className="relative">
+              <span className="absolute -top-3 -right-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-dark-950 text-[10px] font-black shadow-glow-sm animate-bounce z-10">
+                خصم 25% VIP
+              </span>
+              <Button
+                variant="primary"
+                size="sm"
+                icon={ArrowLeft}
+                glow
+                onClick={onOpenQuote}
+              >
+                ابدأ مشروعك معنا
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={onOpenQuote}
-              className="text-xs px-3 py-1.5 font-bold"
-            >
-              ابدأ الآن
-            </Button>
+            <div className="relative">
+              <span className="absolute -top-2.5 -right-1 px-1.5 py-0.2 rounded-full bg-amber-500 text-dark-950 text-[9px] font-black z-10">
+                VIP
+              </span>
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={onOpenQuote}
+                className="text-xs px-3 py-1.5 font-bold"
+              >
+                ابدأ الآن
+              </Button>
+            </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl bg-dark-800 text-slate-200 border border-white/10 hover:border-electric-500/50 focus:outline-none"
@@ -402,18 +412,28 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               تواصل معنا
             </button>
 
-            <div className="pt-4">
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-electric-600/20 to-dark-900 border border-amber-500/30 text-right space-y-1.5 my-2">
+              <div className="flex items-center justify-between text-xs font-bold text-amber-300">
+                <span>🔥 عرض العميل الأول المميز</span>
+                <span className="px-1.5 py-0.5 rounded bg-amber-500 text-dark-950 font-black text-[9px]">خصم 25% VIP</span>
+              </div>
+              <p className="text-[11px] text-slate-300 leading-snug">
+                احجز مقعدك ضمن أول 5 عملاء مميزين واحصل على خصم 25% واستشارة مجانية!
+              </p>
+            </div>
+
+            <div className="pt-2 space-y-2">
               <Button
                 variant="primary"
                 size="md"
-                className="w-full font-bold"
+                className="w-full font-bold shadow-glow-sm"
                 icon={ArrowLeft}
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenQuote();
                 }}
               >
-                ابدأ مشروعك الآن
+                طلب التجهيز واغتنام العرض
               </Button>
             </div>
           </div>

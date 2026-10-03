@@ -43,19 +43,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           {/* COLUMN 1: Brand & Tagline */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-electric-600 to-electric-cyan p-[1px] shadow-glow-sm">
-                <div className="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center">
-                  <span className="font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan to-white">
-                    P
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 via-electric-600 to-electric-cyan p-[1.5px] shadow-glow-sm">
+                <div className="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
+                  <span className="font-black text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-electric-cyan to-white tracking-wider">
+                    PS
                   </span>
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-black text-2xl tracking-tight text-white flex items-center gap-1.5">
-                  PRO <span className="text-electric-cyan">SETUP</span>
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-black text-2xl tracking-tighter text-white">
+                    PS
+                  </span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-electric-cyan/15 text-electric-cyan border border-electric-cyan/25 tracking-wide">
+                    INTERNATIONAL
+                  </span>
+                </div>
                 <span className="text-[11px] tracking-wide text-slate-400 font-medium">
-                  {COMPANY_INFO.positioning}
+                  PRO SETUP • منظومة حلول وتجهيزات الأعمال
                 </span>
               </div>
             </div>

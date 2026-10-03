@@ -1,63 +1,98 @@
 import React from 'react';
-import { ArrowLeft, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette } from 'lucide-react';
+import { ArrowLeft, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette, Sparkles, MessageSquare } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { Button } from '../../components/common/Button';
 import { SocialIcons } from '../../components/common/SocialIcons';
+import { ENV } from '../../core/config/env';
 
 export interface HeroSectionProps {
   onExploreServices: () => void;
   onWatchVideo: () => void;
   onSelectVertical: (verticalId: string) => void;
+  onOpenQuote?: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   onExploreServices,
   onWatchVideo,
   onSelectVertical,
+  onOpenQuote,
 }) => {
-  return (
-    <section className="relative pt-6 pb-20 md:py-24 lg:py-28 overflow-hidden text-right">
-      {/* Background radial gradient accent */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
+  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201234567890').replace(/[^0-9]/g, '');
+  const whatsappHeroHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
+    'مرحباً فريق PS الدولي، أود الاستفسار عن تجهيز متكامل لأعمالي والاستفادة من عرض الافتتاح للشركاء الأوائل.'
+  )}`;
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  return (
+    <section className="relative pt-8 pb-20 md:py-24 lg:py-28 overflow-hidden text-right">
+      
+      {/* 1. International Enterprise Glass Headquarters Hero Backdrop */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <img 
+          src="/images/ps_hero_backdrop.jpg" 
+          alt="PS International Enterprise Headquarters" 
+          className="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
+        />
+        {/* Dark Cinematic Vignette & Color Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/90 to-dark-950/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-transparent to-dark-950" />
+        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,102,255,0.18),rgba(255,255,255,0))]" />
+      </div>
+
+      {/* Background radial gradient accent */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-electric-600/15 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* RIGHT COLUMN (In RTL): Hero Copy & Actions */}
-          <div className="lg:col-span-6 space-y-6 md:space-y-8 z-10 text-right">
-            {/* Small Label */}
-            <div className="inline-flex items-center gap-2 text-xs md:text-sm font-bold tracking-wide text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-electric-cyan shadow-glow-sm" />
-              <span>رؤيتك المستقبلية</span>
+          <div className="lg:col-span-6 space-y-6 md:space-y-8 text-right">
+            
+            {/* Top Brand Pill & Global Reach */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-dark-900/90 border border-electric-cyan/30 text-xs md:text-sm font-bold shadow-lg backdrop-blur-md">
+              <span className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-amber-400 to-amber-600 text-dark-950 font-black text-[11px]">
+                PS
+              </span>
+              <span className="text-white font-extrabold tracking-wider">PRO SETUP INTERNATIONAL</span>
               <span className="text-electric-cyan">•</span>
-              <span>تجهيزنا الاحترافي</span>
+              <span className="text-amber-300 font-semibold">كيان التجهيزات الشاملة</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.25]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.22]">
               كل احتياجات أعمالك في{' '}
-              <span className="text-electric-gradient inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-l from-electric-cyan via-blue-400 to-amber-300 inline-block">
                 مكان واحد
               </span>
             </h1>
 
-            {/* Sub-description */}
+            {/* Sub-description with Enterprise Punch */}
             <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-xl">
               {COMPANY_INFO.subDescription}
             </p>
 
-            {/* Dual CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Dual CTA Buttons & Quick WhatsApp Option */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
               <Button
                 variant="primary"
                 size="lg"
                 icon={ArrowLeft}
                 glow
-                onClick={onExploreServices}
-                className="w-full sm:w-auto font-bold"
+                onClick={onOpenQuote || onExploreServices}
+                className="w-full sm:w-auto font-bold shadow-glow-md"
               >
-                استكشف كافة الخدمات
+                اطلب تجهيز مشروعك الآن
               </Button>
+
+              <a
+                href={whatsappHeroHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 active:scale-95"
+              >
+                <MessageSquare className="w-4 h-4 fill-white" />
+                <span>محادثة واتساب فورية</span>
+              </a>
 
               <Button
                 variant="glass"
@@ -65,16 +100,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 icon={Play}
                 iconPosition="right"
                 onClick={onWatchVideo}
-                className="w-full sm:w-auto text-slate-200 hover:text-white font-medium"
+                className="w-full sm:w-auto text-slate-200 hover:text-white font-medium text-xs sm:text-sm"
               >
-                شاهد الفيديو التعريفي
+                الفيديو التعريفي
               </Button>
             </div>
 
-            {/* Social Media System Row with tooltips & official SVGs */}
-            <div className="pt-2">
-              <span className="text-xs font-bold text-slate-400 block mb-3">
-                قنوات التواصل والمتابعة الرسمية:
+            {/* Live Stats Pill Strip */}
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-400">
+              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3 py-1 rounded-lg border border-white/[0.06]">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>مسؤولية تنفيذ 100% بعقد موحد</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3 py-1 rounded-lg border border-white/[0.06]">
+                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                <span>عرض الافتتاح التجاري نشط (-25%)</span>
+              </div>
+            </div>
+
+            {/* Social Media System Row with tooltips */}
+            <div className="pt-1">
+              <span className="text-xs font-bold text-slate-400 block mb-2.5">
+                قنوات المتابعة والتواصل الدولية:
               </span>
               <SocialIcons size="md" variant="glow" />
             </div>
@@ -83,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* LEFT COLUMN (In RTL): Interactive Floating Glass Cards Grid */}
           <div className="lg:col-span-6 relative perspective-1000">
             {/* Ambient Back Glow */}
-            <div className="absolute inset-0 bg-radial-gradient from-electric-600/15 via-transparent to-transparent blur-2xl pointer-events-none" />
+            <div className="absolute inset-0 bg-radial-gradient from-electric-600/20 via-transparent to-transparent blur-2xl pointer-events-none" />
 
             {/* The 5 Verticals Grid (Software, Security, Photo/Video, Marketing, Design) */}
             <div className="relative grid grid-cols-12 gap-3 sm:gap-4 max-w-lg mx-auto lg:max-w-none">

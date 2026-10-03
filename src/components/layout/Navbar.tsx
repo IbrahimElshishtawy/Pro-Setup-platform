@@ -75,25 +75,30 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo - Matching Visual Identity */}
+          {/* Logo - Matching Visual Identity PS */}
           <button
             onClick={() => handleLinkClick('home')}
-            className="flex items-center gap-3 group text-right focus:outline-none"
-            aria-label="الرئيسية - PRO SETUP"
+            className="flex items-center gap-3 group text-right focus:outline-none cursor-pointer"
+            aria-label="الرئيسية - PS INTERNATIONAL"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-electric-600 to-electric-cyan p-[1px] shadow-glow-sm group-hover:shadow-glow-md transition-all">
-              <div className="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center">
-                <span className="font-extrabold text-xl text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan to-white">
-                  P
+            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 via-electric-600 to-electric-cyan p-[1.5px] shadow-glow-sm group-hover:shadow-glow-md transition-all">
+              <div className="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
+                <span className="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-electric-cyan to-white tracking-wider">
+                  PS
                 </span>
               </div>
             </div>
             <div className="flex flex-col text-right">
-              <span className="font-display font-black text-xl tracking-tight text-white flex items-center gap-1.5">
-                PRO <span className="text-electric-cyan">SETUP</span>
-              </span>
-              <span className="text-[10px] tracking-wide text-slate-400 font-medium -mt-1">
-                تجهيزات وحلول الأعمال المتكاملة
+              <div className="flex items-center gap-1.5">
+                <span className="font-display font-black text-2xl tracking-tighter text-white">
+                  PS
+                </span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-electric-cyan/15 text-electric-cyan border border-electric-cyan/25 tracking-wide">
+                  INTERNATIONAL
+                </span>
+              </div>
+              <span className="text-[10px] tracking-wide text-slate-400 font-medium -mt-0.5">
+                PRO SETUP • تجهيزات وحلول الأعمال
               </span>
             </div>
           </button>

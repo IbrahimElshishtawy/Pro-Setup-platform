@@ -19,6 +19,9 @@ import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
 import { TestimonialsSlider } from './features/home/TestimonialsSlider';
 import { CtaBanner } from './features/home/CtaBanner';
 import { VipClientOffer } from './features/home/VipClientOffer';
+import { TheCollectiveStory } from './features/home/TheCollectiveStory';
+import { InteractiveMediaShowcase } from './features/home/InteractiveMediaShowcase';
+import { SponsorsAndFeaturedAds } from './features/home/SponsorsAndFeaturedAds';
 import { BackgroundAtmosphere } from './components/common/BackgroundAtmosphere';
 import { Sparkles } from 'lucide-react';
 
@@ -42,7 +45,7 @@ export function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
-  const [activePromoCode, setActivePromoCode] = useState<string>('FIRST-VIP-25');
+  const [activePromoCode, setActivePromoCode] = useState<string>('PS-FOUNDER-25');
 
   // Sync with browser hash if present (e.g. #portfolio, #services)
   useEffect(() => {
@@ -154,19 +157,19 @@ export function App() {
       <CustomCursor />
 
       {/* Top VIP Announcement Launch Bar */}
-      <div className="relative z-30 bg-gradient-to-r from-electric-600/90 via-[#0B132B] to-amber-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
+      <div className="relative z-30 bg-gradient-to-r from-amber-600/90 via-[#0B132B] to-electric-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-1.5 font-bold text-amber-300">
           <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
-          <span>عرض الإطلاق التجاري الحصري:</span>
+          <span>عرض الافتتاح التجاري الرسمي لـ PS:</span>
         </span>
         <span className="text-slate-200">
-          كُن شريكنا وعميلنا المميّز الأول واحصل على خصم 25% + استشارة تسويقية وتقنية مجانية!
+          كُن أحد أول 50 عميلاً مؤسساً واحصل على خصم 25% + دراسة استشارية وتشخيصية مجانية!
         </span>
         <button
-          onClick={() => handleOpenQuote(undefined, 'FIRST-VIP-25')}
+          onClick={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
           className="underline decoration-amber-400 font-extrabold text-amber-300 hover:text-white transition-colors cursor-pointer text-[11px] mr-1"
         >
-          اغتنم العرض الآن ←
+          تفعيل عرض الافتتاح الآن ←
         </button>
       </div>
 
@@ -174,7 +177,7 @@ export function App() {
       <Navbar
         activePage={activePage}
         onNavigate={navigateTo}
-        onOpenQuote={() => handleOpenQuote(undefined, 'FIRST-VIP-25')}
+        onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
       />
 
       {/* Main Content Router */}
@@ -185,9 +188,30 @@ export function App() {
               onExploreServices={() => navigateTo('services')}
               onWatchVideo={() => setIsVideoModalOpen(true)}
               onSelectVertical={(vert) => navigateTo(vert as ActivePage)}
+              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
             />
-            {/* VIP Client First Acquisition Offer Section */}
-            <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'FIRST-VIP-25')} />
+
+            {/* The Collective Story: فلسفة تحالف النخبة تحت مظلة PS */}
+            <TheCollectiveStory
+              onExploreServices={() => navigateTo('services')}
+              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
+            />
+
+            {/* VIP Grand Opening Commercial Offer */}
+            <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')} />
+
+            {/* Interactive Media & Image Showcase Gallery */}
+            <InteractiveMediaShowcase
+              onSelectProject={(p) => setSelectedProject(p)}
+              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
+            />
+
+            {/* Sponsors, Tech Partners & Featured Commercial Spotlight */}
+            <SponsorsAndFeaturedAds
+              onOpenSponsorshipModal={() => handleOpenQuote('طلب رعاية ومساحة إعلانية تجارية')}
+              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
+            />
+
             <ServicesOverview onNavigate={navigateTo} />
             <WhyChooseUs />
             <RecentProjects

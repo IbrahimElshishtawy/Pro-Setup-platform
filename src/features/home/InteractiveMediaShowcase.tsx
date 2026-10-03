@@ -11,7 +11,7 @@ import {
   ChevronLeft
 } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../../data/portfolioData';
-import { ProjectItem } from '../../core/types/portfolio';
+import { ProjectItem, ProjectCategory } from '../../core/types/portfolio';
 import { Button } from '../../components/common/Button';
 import { ENV } from '../../core/config/env';
 
@@ -24,22 +24,22 @@ export const InteractiveMediaShowcase: React.FC<InteractiveMediaShowcaseProps> =
   onSelectProject,
   onOpenQuote,
 }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('all');
   const [lightboxProject, setLightboxProject] = useState<ProjectItem | null>(null);
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState<number>(0);
 
-  const categories = [
+  const categories: { id: ProjectCategory; label: string }[] = [
     { id: 'all', label: 'كافة الأعمال' },
     { id: 'software', label: 'البرمجيات والأنظمة' },
     { id: 'security', label: 'كاميرات المراقبة والأمن' },
-    { id: 'production', label: 'الإنتاج السينمائي والتصوير' },
+    { id: 'video', label: 'الإنتاج السينمائي والتصوير' },
     { id: 'branding', label: 'الهوية البصرية وتصميم UI/UX' },
     { id: 'marketing', label: 'الحملات والتسويق الرقمي' },
   ];
 
   const filteredProjects = PORTFOLIO_PROJECTS.filter((p) => {
     if (activeCategory === 'all') return true;
-    return p.category === activeCategory || p.tags.includes(activeCategory);
+    return p.category === activeCategory || (p.tags ? p.tags.includes(activeCategory) : false);
   });
 
   const openLightbox = (project: ProjectItem) => {

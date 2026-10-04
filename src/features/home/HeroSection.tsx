@@ -18,7 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onSelectVertical,
   onOpenQuote,
 }) => {
-  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201234567890').replace(/[^0-9]/g, '');
+  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201099959133').replace(/[^0-9]/g, '');
   const whatsappHeroHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
     'مرحباً فريق PS الدولي، أود الاستفسار عن تجهيز متكامل لأعمالي والاستفادة من عرض الافتتاح للشركاء الأوائل.'
   )}`;

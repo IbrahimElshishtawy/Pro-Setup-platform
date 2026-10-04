@@ -15,10 +15,10 @@ export const ENV = {
   
   // Contacts
   CONTACT: {
-    WHATSAPP: import.meta.env.VITE_CONTACT_WHATSAPP || "+201234567890",
-    EMAIL: import.meta.env.VITE_CONTACT_EMAIL || "info@prosetup.com",
-    PHONE: import.meta.env.VITE_CONTACT_PHONE || "+201234567890",
-    LOCATION: import.meta.env.VITE_OFFICE_LOCATION || "Cairo, Egypt",
+    WHATSAPP: import.meta.env.VITE_CONTACT_WHATSAPP || "+201099959133",
+    EMAIL: import.meta.env.VITE_CONTACT_EMAIL || "prosetup203@gmail.com",
+    PHONE: import.meta.env.VITE_CONTACT_PHONE || "+20 10 99959133",
+    LOCATION: import.meta.env.VITE_OFFICE_LOCATION || "القاهرة، مصر",
   },
   
   IS_PROD: import.meta.env.PROD,

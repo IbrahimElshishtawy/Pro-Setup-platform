@@ -29,7 +29,7 @@ export const SOCIAL_PLATFORMS: SocialPlatformData[] = [
     id: 'instagram',
     name: 'Instagram',
     placeholderUrl: COMPANY_INFO.social.instagram,
-    handle: '@prosetup',
+    handle: '@pro203setup',
     color: '#E4405F',
     svg: ({ className = 'w-4 h-4' }) => (
       <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -41,7 +41,7 @@ export const SOCIAL_PLATFORMS: SocialPlatformData[] = [
     id: 'tiktok',
     name: 'TikTok',
     placeholderUrl: COMPANY_INFO.social.tiktok,
-    handle: '@prosetup',
+    handle: '@pro203setup',
     color: '#00F2FE',
     svg: ({ className = 'w-4 h-4' }) => (
       <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -65,7 +65,7 @@ export const SOCIAL_PLATFORMS: SocialPlatformData[] = [
     id: 'youtube',
     name: 'YouTube',
     placeholderUrl: COMPANY_INFO.social.youtube,
-    handle: '@prosetup',
+    handle: '@Pro_Setup_01',
     color: '#FF0000',
     svg: ({ className = 'w-4 h-4' }) => (
       <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -77,7 +77,7 @@ export const SOCIAL_PLATFORMS: SocialPlatformData[] = [
     id: 'whatsapp',
     name: 'WhatsApp',
     placeholderUrl: COMPANY_INFO.social.whatsapp,
-    handle: '@prosetup',
+    handle: '+20 10 99959133',
     color: '#25D366',
     svg: ({ className = 'w-4 h-4' }) => (
       <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

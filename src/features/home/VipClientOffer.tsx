@@ -8,7 +8,7 @@ interface VipClientOfferProps {
 }
 
 export const VipClientOffer: React.FC<VipClientOfferProps> = ({ onClaimOffer }) => {
-  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201234567890').replace(/[^0-9]/g, '');
+  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201099959133').replace(/[^0-9]/g, '');
   const whatsappHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
     'مرحباً فريق PS الدولي، أود تفعيل عرض الافتتاح التجاري وحجز مقعدي كعميل مؤسس بخصم 25% مع الاستشارة المجانية الشاملة.'
   )}`;

@@ -24,7 +24,7 @@ export const SponsorsAndFeaturedAds: React.FC<SponsorsAndFeaturedAdsProps> = ({
   onOpenQuote,
 }) => {
   const getWhatsAppLink = (messageText: string) => {
-    const cleanPhone = (ENV.CONTACT.WHATSAPP || '201234567890').replace(/[^0-9]/g, '');
+    const cleanPhone = (ENV.CONTACT.WHATSAPP || '201099959133').replace(/[^0-9]/g, '');
     const msg = encodeURIComponent(messageText);
     return `https://wa.me/${cleanPhone}?text=${msg}`;
   };

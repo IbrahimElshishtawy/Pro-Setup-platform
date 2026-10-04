@@ -159,7 +159,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     if (!orderReceipt) return;
     
     // Normalize target phone number
-    const cleanPhone = (ENV.CONTACT.WHATSAPP || COMPANY_INFO.contact.phone || '201234567890')
+    const cleanPhone = (ENV.CONTACT.WHATSAPP || COMPANY_INFO.contact.phone || '201099959133')
       .replace(/[^0-9]/g, '');
 
     const servicesText = orderReceipt.services.join('، ');

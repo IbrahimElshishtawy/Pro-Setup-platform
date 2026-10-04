@@ -52,7 +52,7 @@ export const InteractiveMediaShowcase: React.FC<InteractiveMediaShowcaseProps> =
   };
 
   const getWhatsAppLink = (projectTitle: string) => {
-    const cleanPhone = (ENV.CONTACT.WHATSAPP || '201234567890').replace(/[^0-9]/g, '');
+    const cleanPhone = (ENV.CONTACT.WHATSAPP || '201099959133').replace(/[^0-9]/g, '');
     const msg = encodeURIComponent(
       `مرحباً فريق PS، اطلعت على معرض الأعمال وأعجبني مشروع: (${projectTitle}). أرغب في معرفة التكلفة والمدة لتنفيذ تجهيز مماثل لشركتي.`
     );

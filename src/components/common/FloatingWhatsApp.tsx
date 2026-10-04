@@ -4,7 +4,7 @@ import { COMPANY_INFO } from '../../core/config/constants';
 import { ENV } from '../../core/config/env';
 
 export const FloatingWhatsApp: React.FC = () => {
-  const cleanPhone = (ENV.CONTACT.WHATSAPP || COMPANY_INFO.contact.phone || '201234567890')
+  const cleanPhone = (ENV.CONTACT.WHATSAPP || COMPANY_INFO.contact.phone || '201099959133')
     .replace(/[^0-9]/g, '');
 
   const defaultMsg = encodeURIComponent(

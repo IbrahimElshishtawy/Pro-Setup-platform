@@ -10,7 +10,7 @@ interface SocialShowcaseCard {
   desc: string;
   badge: string;
   url: string;
-  platformId: 'instagram' | 'tiktok' | 'linkedin' | 'youtube' | 'whatsapp';
+  platformId: 'facebook' | 'instagram' | 'tiktok' | 'linkedin' | 'youtube' | 'whatsapp';
   color: string;
   gradient: string;
   actionText: string;
@@ -18,6 +18,18 @@ interface SocialShowcaseCard {
 
 export const SocialMediaShowcase: React.FC = () => {
   const showcaseCards: SocialShowcaseCard[] = [
+    {
+      id: 'facebook',
+      name: 'Facebook',
+      nameAr: 'فيسبوك',
+      desc: 'المجتمع التفاعلي، العروض الحصرية، وآخر أخبار وخدمات تجهيز الأعمال الشاملة.',
+      badge: 'المجتمع والمنشورات',
+      url: COMPANY_INFO.social.facebook,
+      platformId: 'facebook',
+      color: '#1877F2',
+      gradient: 'from-[#1877F2]/15 via-blue-900/10 to-transparent',
+      actionText: 'متابعة على Facebook',
+    },
     {
       id: 'instagram',
       name: 'Instagram',
@@ -102,8 +114,8 @@ export const SocialMediaShowcase: React.FC = () => {
           </p>
         </div>
 
-        {/* 5-Card Staggered Premium Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        {/* 6-Card Staggered Premium Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {showcaseCards.map((card) => {
             const platform = SOCIAL_PLATFORMS.find(p => p.id === card.platformId);
             const Icon = platform ? platform.svg : MessageSquare;

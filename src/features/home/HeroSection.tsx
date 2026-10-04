@@ -1,9 +1,7 @@
-import React from 'react';
-import { ArrowLeft, Play, Code2, ShieldCheck, Camera, TrendingUp, Palette, Sparkles, MessageSquare } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ArrowLeft, Play, MessageSquare, Sparkles, Code2, ShieldCheck, Video, TrendingUp } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
-import { Button } from '../../components/common/Button';
-import { SocialIcons } from '../../components/common/SocialIcons';
-import { ENV } from '../../core/config/env';
+import { Button } from '../../components/ui/Button';
 
 export interface HeroSectionProps {
   onExploreServices: () => void;
@@ -18,68 +16,124 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onSelectVertical,
   onOpenQuote,
 }) => {
-  const cleanPhone = (ENV.CONTACT.WHATSAPP || '201099959133').replace(/[^0-9]/g, '');
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHeadlineLoaded, setIsHeadlineLoaded] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsHeadlineLoaded(true), 150);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Subtle 3D perspective mouse tilt
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+    setMousePos({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos({ x: 0, y: 0 });
+  };
+
+  const cleanPhone = (COMPANY_INFO.contact.whatsappNumber || '201099959133').replace(/[^0-9]/g, '');
   const whatsappHeroHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
-    'مرحباً فريق PS الدولي، أود الاستفسار عن تجهيز متكامل لأعمالي والاستفادة من عرض الافتتاح للشركاء الأوائل.'
+    'مرحباً فريق PS الدولي، أود الاستفسار عن تجهيز متكامل لأعمالي والاستفادة من عرض الافتتاح التجاري.'
   )}`;
 
+  // Headline words for cinematic word-by-word reveal
+  const headlineWords = [
+    { text: 'كل', isGradient: false },
+    { text: 'احتياجات', isGradient: false },
+    { text: 'أعمالك', isGradient: false },
+    { text: 'في', isGradient: false },
+    { text: 'مكان', isGradient: true },
+    { text: 'واحد', isGradient: true },
+  ];
+
   return (
-    <section className="relative pt-8 pb-20 md:py-24 lg:py-28 overflow-hidden text-right">
-      
-      {/* 1. International Enterprise Glass Headquarters Hero Backdrop */}
+    <section
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 md:py-28 overflow-hidden text-right select-none"
+    >
+      {/* 1. Deep Cinematic Background Image & Mesh Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <img 
-          src="/images/ps_hero_backdrop.jpg" 
-          alt="PS International Enterprise Headquarters" 
-          className="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
+        <img
+          src="/images/ps_hero_backdrop.jpg"
+          alt="PS International Enterprise Headquarters"
+          className="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000 ease-out"
         />
-        {/* Dark Cinematic Vignette & Color Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-950 via-dark-950/90 to-dark-950/75" />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-transparent to-dark-950" />
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,102,255,0.18),rgba(255,255,255,0))]" />
+        {/* Soft Vignette & Depth Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/95 to-[#020617]/85" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/90 via-transparent to-[#020617]" />
+        
+        {/* Large Technical Grid with Radial Mask fading to edges */}
+        <div className="absolute inset-0 bg-tech-grid opacity-25 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,black_30%,transparent_100%)]" />
+
+        {/* Dynamic slow mesh blobs */}
+        <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] animate-pulse" />
+        <div className="absolute bottom-1/4 end-1/4 w-[450px] h-[450px] bg-cyan-500/12 rounded-full blur-[140px] animate-float-slow" />
       </div>
 
-      {/* Background radial gradient accent */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-electric-600/15 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* RIGHT COLUMN (In RTL): Hero Copy & Actions */}
-          <div className="lg:col-span-6 space-y-6 md:space-y-8 text-right">
+          {/* START COLUMN (In RTL): Hero Copy & Primary Actions */}
+          <div className="lg:col-span-7 space-y-6 md:space-y-8 text-right">
             
-            {/* Top Brand Pill & Global Reach */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-dark-900/90 border border-electric-cyan/30 text-xs md:text-sm font-bold shadow-lg backdrop-blur-md">
-              <span className="flex items-center justify-center w-5 h-5 rounded-md bg-gradient-to-br from-amber-400 to-amber-600 text-dark-950 font-black text-[11px]">
+            {/* Top Brand Pill with Glow */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-cyan-400/30 text-xs md:text-sm font-bold shadow-lg backdrop-blur-md">
+              <span className="flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-amber-400 to-amber-600 text-dark-950 font-black text-xs shadow-sm">
                 PS
               </span>
               <span className="text-white font-extrabold tracking-wider">PRO SETUP INTERNATIONAL</span>
-              <span className="text-electric-cyan">•</span>
-              <span className="text-amber-300 font-semibold">كيان التجهيزات الشاملة</span>
+              <span className="text-cyan-400">•</span>
+              <span className="text-amber-300 font-semibold">كيان التجهيزات الشاملة للشركات</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-black tracking-tight text-white leading-[1.22]">
-              كل احتياجات أعمالك في{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-l from-electric-cyan via-blue-400 to-amber-300 inline-block">
-                مكان واحد
-              </span>
+            {/* Oversized Arabic Headline with Word-by-Word Reveal */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight text-white leading-[1.15]">
+              {headlineWords.map((word, idx) => (
+                <span
+                  key={idx}
+                  style={{
+                    transitionDelay: `${idx * 80 + 100}ms`,
+                    transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                  }}
+                  className={`inline-block ms-3 transition-all duration-700 ${
+                    isHeadlineLoaded
+                      ? 'opacity-100 translate-y-0 blur-0'
+                      : 'opacity-0 translate-y-6 blur-md'
+                  } ${
+                    word.isGradient
+                      ? 'text-transparent bg-clip-text bg-gradient-to-l from-cyan-400 via-blue-400 to-amber-300'
+                      : 'text-white'
+                  }`}
+                >
+                  {word.text}
+                </span>
+              ))}
             </h1>
 
             {/* Sub-description with Enterprise Punch */}
-            <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
               {COMPANY_INFO.subDescription}
             </p>
 
-            {/* Dual CTA Buttons & Quick WhatsApp Option */}
+            {/* Primary & Secondary Actions Strip */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
               <Button
                 variant="primary"
                 size="lg"
                 icon={ArrowLeft}
                 glow
+                magnetic
                 onClick={onOpenQuote || onExploreServices}
-                className="w-full sm:w-auto font-bold shadow-glow-md"
+                className="w-full sm:w-auto font-black shadow-glow-md text-sm md:text-base px-8 py-4"
               >
                 اطلب تجهيز مشروعك الآن
               </Button>
@@ -88,7 +142,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href={whatsappHeroHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>محادثة واتساب فورية</span>
@@ -98,147 +152,134 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 variant="glass"
                 size="lg"
                 icon={Play}
-                iconPosition="right"
+                iconPosition="start"
                 onClick={onWatchVideo}
-                className="w-full sm:w-auto text-slate-200 hover:text-white font-medium text-xs sm:text-sm"
+                className="w-full sm:w-auto text-slate-200 hover:text-white font-medium text-xs sm:text-sm px-5 py-3.5"
               >
                 الفيديو التعريفي
               </Button>
             </div>
 
-            {/* Live Stats Pill Strip */}
+            {/* Trust Guarantee Badges */}
             <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-400">
-              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3 py-1 rounded-lg border border-white/[0.06]">
+              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3.5 py-1.5 rounded-lg border border-white/[0.06]">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>مسؤولية تنفيذ 100% بعقد موحد</span>
+                <span>مسؤولية تنفيذ 100% بعقد دولي موحد</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3 py-1 rounded-lg border border-white/[0.06]">
+              <div className="flex items-center gap-1.5 bg-white/[0.04] px-3.5 py-1.5 rounded-lg border border-white/[0.06]">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>عرض الافتتاح التجاري نشط (-25%)</span>
+                <span>عرض الشركاء المؤسسين مفعل (-25%)</span>
               </div>
             </div>
 
-            {/* Social Media System Row with tooltips */}
-            <div className="pt-1">
-              <span className="text-xs font-bold text-slate-400 block mb-2.5">
-                قنوات المتابعة والتواصل الدولية:
-              </span>
-              <SocialIcons size="md" variant="glow" />
-            </div>
           </div>
 
-          {/* LEFT COLUMN (In RTL): Interactive Floating Glass Cards Grid */}
-          <div className="lg:col-span-6 relative perspective-1000">
-            {/* Ambient Back Glow */}
-            <div className="absolute inset-0 bg-radial-gradient from-electric-600/20 via-transparent to-transparent blur-2xl pointer-events-none" />
-
-            {/* The 5 Verticals Grid (Software, Security, Photo/Video, Marketing, Design) */}
-            <div className="relative grid grid-cols-12 gap-3 sm:gap-4 max-w-lg mx-auto lg:max-w-none">
-              
-              {/* Card 1: Software & Code (Top Left) */}
+          {/* END COLUMN (In RTL): 3D Floating Glass Capability Panels */}
+          <div className="lg:col-span-5 relative perspective-1000 hidden md:block">
+            <div
+              className="relative w-full h-[520px] transition-transform duration-500 ease-out"
+              style={{
+                transform: `rotateY(${mousePos.x * -7}deg) rotateX(${mousePos.y * 7}deg)`,
+                transformStyle: 'preserve-3d',
+              }}
+            >
+              {/* Panel 1: Software & Web Systems (Top Depth) */}
               <div
                 onClick={() => onSelectVertical('software-technology')}
-                className="col-span-7 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/11]"
+                style={{ transform: 'translateZ(40px)' }}
+                className="absolute top-2 start-4 end-12 p-4 rounded-2xl bg-[#080E1C]/85 border border-cyan-400/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-cyan-300 transition-all duration-300 group"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
-                  alt="تطوير البرمجيات والأنظمة"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
-                
-                {/* Bottom Pill Badge */}
-                <div className="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
-                  <Code2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>برمجيات وتطبيقات</span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs">
+                    <Code2 className="w-4 h-4" />
+                    <span>SOFTWARE & ARCHITECTURE</span>
+                  </div>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 font-mono">
+                    v2.4 READY
+                  </span>
+                </div>
+                <div className="font-mono text-xs text-slate-300 bg-dark-950/70 p-2.5 rounded-lg border border-white/5 space-y-1">
+                  <div className="text-cyan-400">$ ps.deployEnterpriseSystem();</div>
+                  <div className="text-slate-400 text-[11px]">→ Architecture: Next.js + Flutter + Cloud</div>
+                  <div className="text-emerald-400 text-[11px]">✓ Status: 100% Operational & Scalable</div>
                 </div>
               </div>
 
-              {/* Card 2: Security & Surveillance (Top Right) */}
+              {/* Panel 2: CCTV & Security Systems (Mid-Left Depth) */}
               <div
                 onClick={() => onSelectVertical('security-surveillance')}
-                className="col-span-5 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/14]"
+                style={{ transform: 'translateZ(70px)' }}
+                className="absolute top-44 start-10 end-4 p-4 rounded-2xl bg-[#0B152A]/90 border border-blue-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-blue-400 transition-all duration-300 group"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80"
-                  alt="أنظمة كاميرات المراقبة CCTV"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
-                
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
-                  <ShieldCheck className="w-3.5 h-3.5 text-electric-cyan" />
-                  <span>أنظمة أمنية CCTV</span>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2 text-blue-400 font-mono text-xs">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    <span>CCTV SURVEILLANCE & ACCESS</span>
+                  </div>
+                  <span className="flex items-center gap-1 text-[10px] text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    LIVE 4K
+                  </span>
+                </div>
+                <div className="relative h-24 rounded-lg overflow-hidden border border-white/10 scanlines">
+                  <img
+                    src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80"
+                    alt="CCTV Security Grid"
+                    className="w-full h-full object-cover opacity-80"
+                  />
+                  <div className="absolute bottom-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-slate-300">
+                    CAM_01 // SECURE_FACILITY
+                  </div>
                 </div>
               </div>
 
-              {/* Card 3: Photography & Video (Mid-Right Stack) */}
+              {/* Panel 3: Cinematic Production & Media (Bottom Depth) */}
               <div
                 onClick={() => onSelectVertical('photography-video')}
-                className="col-span-6 col-start-7 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/11]"
+                style={{ transform: 'translateZ(90px)' }}
+                className="absolute bottom-4 start-0 end-16 p-4 rounded-2xl bg-[#091222]/90 border border-purple-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-purple-400 transition-all duration-300 group"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
-                  alt="الإنتاج المرئي والتصوير السينمائي"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
-                
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
-                  <Camera className="w-3.5 h-3.5 text-electric-cyan" />
-                  <span className="truncate">تصوير وإنتاج مرئي</span>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2 text-purple-400 font-mono text-xs">
+                    <Video className="w-4 h-4" />
+                    <span>CINEMATIC 4K COMMERCIALS</span>
+                  </div>
+                  <span className="text-[10px] text-red-400 font-bold flex items-center gap-1 font-mono">
+                    <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    REC 24FPS
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-16 h-12 rounded-lg bg-black/60 border border-white/10 overflow-hidden flex-shrink-0">
+                    <img
+                      src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=300&q=80"
+                      alt="Cinematic production"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-xs text-slate-300">
+                    <div className="font-bold text-white">إعلانات تجارية سينمائية 4K</div>
+                    <div className="text-[10px] text-slate-400 font-mono">RED & ARRI • Custom Sound Design</div>
+                  </div>
                 </div>
               </div>
 
-              {/* Card 4: Digital Marketing (Mid-Left Stack) */}
+              {/* Panel 4: Digital Marketing Growth Badge (Floating Accent) */}
               <div
                 onClick={() => onSelectVertical('digital-marketing')}
-                className="col-span-6 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/14]"
+                style={{ transform: 'translateZ(110px)' }}
+                className="absolute -bottom-2 -end-2 p-3.5 rounded-xl bg-gradient-to-br from-[#0D1C38] to-[#060D1A] border border-cyan-400/40 shadow-xl cursor-pointer hover:scale-105 transition-transform"
               >
-                <img
-                  src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80"
-                  alt="التسويق الرقمي وإدارة الحملات"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
-                
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
-                  <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>تسويق رقمي</span>
+                <div className="flex items-center gap-2 text-cyan-300 text-xs font-bold">
+                  <TrendingUp className="w-4 h-4 text-cyan-400" />
+                  <span>عائد إعلاني ROAS: 5.2x</span>
                 </div>
-              </div>
-
-              {/* Card 5: Design & Branding (Bottom Center-Right) */}
-              <div
-                onClick={() => onSelectVertical('design-branding')}
-                className="col-span-6 group relative rounded-2xl overflow-hidden bg-dark-800 border border-white/10 hover:border-electric-cyan/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-glow-md cursor-pointer aspect-[16/12]"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80"
-                  alt="الهوية التجارية والتصميم الإبداعي"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
-                
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-900/80 backdrop-blur-md border border-white/10 text-white text-xs font-bold group-hover:border-electric-cyan/40">
-                  <Palette className="w-3.5 h-3.5 text-pink-400" />
-                  <span>تصميم وهوية</span>
+                <div className="text-[10px] text-slate-400 mt-1 font-mono">
+                  +1.4M Impression Reach
                 </div>
               </div>
 
             </div>
-
-            {/* Handwritten Floating Badge: "أفكار إبداعية • نتائج حقيقية" */}
-            <div className="absolute -bottom-6 -left-2 sm:-bottom-4 sm:left-4 z-20 pointer-events-none transform -rotate-3 select-none text-center">
-              <div className="relative font-bold text-xl sm:text-2xl text-white tracking-wide drop-shadow-[0_4px_16px_rgba(0,102,255,0.7)] flex flex-col items-center">
-                <span>أفكار إبداعية</span>
-                <span className="text-electric-cyan">نتائج حقيقية ملموسة</span>
-                <svg className="w-28 sm:w-36 h-4 text-electric-cyan" viewBox="0 0 140 20" fill="none">
-                  <path d="M5 12 Q 70 2 135 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
-              </div>
-            </div>
-
           </div>
 
         </div>

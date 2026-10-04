@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowLeft, ChevronDown, ChevronLeft, TrendingUp, Palette, Code2, ShieldCheck, Sparkles } from 'lucide-react';
-import { NAV_LINKS, MEGA_MENU_CATEGORIES } from '../../core/config/constants';
-import { Button } from '../common/Button';
+import { Menu, X, ArrowLeft, ChevronDown, ChevronLeft, TrendingUp, Palette, Code2, ShieldCheck, Sparkles, MessageSquare } from 'lucide-react';
+import { NAV_LINKS, MEGA_MENU_CATEGORIES, COMPANY_INFO } from '../../core/config/constants';
+import { Button } from '../ui/Button';
 import { ActivePage } from '../../core/types/common';
 
 export interface NavbarProps {
@@ -64,26 +64,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
     activePage === 'photography-video' ||
     activePage === 'advertising';
 
+  const cleanPhone = (COMPANY_INFO.contact.whatsappNumber || '201099959133').replace(/[^0-9]/g, '');
+  const whatsappNavHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
+    'مرحباً فريق PS الدولي، أود الاستفسار عن تجهيز أعمالي.'
+  )}`;
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
+      className={`fixed top-0 start-0 w-full z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-950/92 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl py-3.5'
+          ? 'bg-[#020617]/90 backdrop-blur-2xl border-b border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.8)] py-3.5'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo - Matching Visual Identity PS */}
+          {/* Logo - Dominant Visual Identity PS */}
           <button
             onClick={() => handleLinkClick('home')}
-            className="flex items-center gap-3 group text-right focus:outline-none cursor-pointer"
+            className="flex items-center gap-3 group text-right focus:outline-none cursor-pointer select-none"
             aria-label="الرئيسية - PS INTERNATIONAL"
           >
-            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 via-electric-600 to-electric-cyan p-[1.5px] shadow-glow-sm group-hover:shadow-glow-md transition-all">
-              <div className="w-full h-full bg-dark-950 rounded-[10px] flex items-center justify-center">
-                <span className="font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-electric-cyan to-white tracking-wider">
+            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 via-blue-600 to-cyan-400 p-[1.5px] shadow-[0_0_15px_rgba(0,102,255,0.4)] group-hover:shadow-[0_0_25px_rgba(0,210,255,0.6)] transition-all">
+              <div className="w-full h-full bg-[#050B16] rounded-[10px] flex items-center justify-center">
+                <span className="font-display font-black text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-cyan-400 to-white tracking-wider">
                   PS
                 </span>
               </div>
@@ -93,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 <span className="font-display font-black text-2xl tracking-tighter text-white">
                   PS
                 </span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-electric-cyan/15 text-electric-cyan border border-electric-cyan/25 tracking-wide">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-400/15 text-cyan-300 border border-cyan-400/25 tracking-wide font-mono">
                   INTERNATIONAL
                 </span>
               </div>
@@ -104,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-dark-800/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/[0.07]">
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-[#080D1A]/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/[0.08]">
             {NAV_LINKS.map((link) => {
               if (link.id === 'services') {
                 return (
@@ -116,9 +121,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                   >
                     <button
                       onClick={() => handleLinkClick('services')}
-                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
                         isServicesActive
-                          ? 'text-white bg-white/[0.08] shadow-sm font-bold'
+                          ? 'text-white bg-white/[0.1] shadow-sm font-bold'
                           : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                       }`}
                       aria-expanded={servicesMegaMenuOpen}
@@ -126,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                       <span>{link.label}</span>
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          servicesMegaMenuOpen ? 'rotate-180 text-electric-cyan' : 'text-slate-400'
+                          servicesMegaMenuOpen ? 'rotate-180 text-cyan-400' : 'text-slate-400'
                         }`}
                       />
                     </button>
@@ -134,23 +139,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                     {/* Animated Mega Menu Dropdown */}
                     {servicesMegaMenuOpen && (
                       <div
-                        className="absolute top-full -right-20 lg:-right-36 mt-3 w-[720px] lg:w-[840px] p-6 rounded-3xl bg-dark-950/95 backdrop-blur-2xl border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-200 z-50 text-right"
+                        className="absolute top-full -end-20 lg:-end-36 mt-3 w-[720px] lg:w-[840px] p-6 rounded-3xl bg-[#030712]/95 backdrop-blur-2xl border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-200 z-50 text-right"
                         onMouseEnter={handleMouseEnterMenu}
                         onMouseLeave={handleMouseLeaveMenu}
                       >
                         {/* Mega Menu Header */}
                         <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-5">
                           <div>
-                            <span className="text-xs font-bold text-electric-cyan uppercase tracking-wider block">
-                              كل احتياجات أعمالك في مكان واحد
+                            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider block font-mono">
+                              ALL YOUR BUSINESS NEEDS IN ONE PLACE
                             </span>
-                            <h3 className="text-base font-black text-white">
-                              طيف القدرات والحلول المتكاملة
+                            <h3 className="text-base font-black text-white mt-0.5">
+                              طيف القدرات والحلول المتكاملة لشركة PS
                             </h3>
                           </div>
                           <button
                             onClick={() => handleLinkClick('services')}
-                            className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-electric-cyan transition-colors"
+                            className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
                           >
                             <span>عرض كافة الخدمات</span>
                             <ArrowLeft className="w-3.5 h-3.5" />
@@ -169,8 +174,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                                 onMouseEnter={() => setHoveredCategory(cat.id)}
                                 className={`p-4 rounded-2xl transition-all duration-300 flex flex-col justify-between text-right ${
                                   isHovered
-                                    ? 'bg-dark-800/90 border border-electric-cyan/40 shadow-glow-sm'
-                                    : 'bg-dark-900/50 border border-white/[0.05] hover:bg-dark-800/50'
+                                    ? 'bg-[#0D182E] border border-cyan-400/40 shadow-[0_0_20px_rgba(0,102,255,0.25)]'
+                                    : 'bg-[#070D1A]/60 border border-white/[0.05] hover:bg-[#0B1528]'
                                 }`}
                               >
                                 <div className="space-y-3">
@@ -179,8 +184,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                                     <div
                                       className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
                                         isHovered
-                                          ? 'bg-electric-600 text-white'
-                                          : 'bg-white/5 text-electric-cyan'
+                                          ? 'bg-blue-600 text-white'
+                                          : 'bg-white/5 text-cyan-400'
                                       }`}
                                     >
                                       <Icon className="w-4 h-4" />
@@ -201,7 +206,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                                       <button
                                         key={i}
                                         onClick={() => handleLinkClick(svc.path)}
-                                        className="w-full text-right text-xs text-slate-300 hover:text-electric-cyan transition-colors flex items-center justify-between group/svc py-0.5"
+                                        className="w-full text-right text-xs text-slate-300 hover:text-cyan-400 transition-colors flex items-center justify-between group/svc py-0.5 cursor-pointer"
                                       >
                                         <span className="truncate">{svc.name}</span>
                                         <ChevronLeft className="w-3 h-3 text-slate-500 opacity-0 group-hover/svc:opacity-100 group-hover/svc:-translate-x-0.5 transition-all shrink-0" />
@@ -214,9 +219,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                                 <div className="pt-4 mt-2">
                                   <button
                                     onClick={() => handleLinkClick(cat.targetPage)}
-                                    className={`w-full py-1.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-all ${
+                                    className={`w-full py-1.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer ${
                                       isHovered
-                                        ? 'bg-electric-600 text-white shadow-sm'
+                                        ? 'bg-blue-600 text-white shadow-sm'
                                         : 'bg-white/5 text-slate-300 hover:bg-white/10'
                                     }`}
                                   >
@@ -240,25 +245,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 <button
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                     isActive
-                      ? 'text-white bg-white/[0.08] shadow-sm font-bold'
+                      ? 'text-white bg-white/[0.1] shadow-sm font-bold'
                       : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-electric-cyan rounded-full shadow-glow-sm" />
+                    <span className="absolute bottom-1 start-1/2 -translate-x-1/2 w-4 h-[2px] bg-cyan-400 rounded-full shadow-[0_0_8px_#00D2FF]" />
                   )}
                 </button>
               );
             })}
           </nav>
 
-          {/* Right Action CTA */}
+          {/* End Action CTA */}
           <div className="hidden sm:flex items-center gap-3">
             <div className="relative">
-              <span className="absolute -top-3 -right-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-dark-950 text-[10px] font-black shadow-glow-sm animate-bounce z-10">
+              <span className="absolute -top-3 -start-2 px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-dark-950 text-[10px] font-black shadow-md animate-bounce z-10">
                 خصم 25% VIP
               </span>
               <Button
@@ -273,24 +278,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="relative">
-              <span className="absolute -top-2.5 -right-1 px-1.5 py-0.2 rounded-full bg-amber-500 text-dark-950 text-[9px] font-black z-10">
-                VIP
-              </span>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={onOpenQuote}
-                className="text-xs px-3 py-1.5 font-bold"
-              >
-                ابدأ الآن
-              </Button>
-            </div>
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={onOpenQuote}
+              className="text-xs px-3 py-1.5 font-bold"
+            >
+              ابدأ الآن
+            </Button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-dark-800 text-slate-200 border border-white/10 hover:border-electric-500/50 focus:outline-none"
+              className="p-2.5 rounded-xl bg-white/[0.06] text-slate-200 border border-white/10 hover:border-cyan-400/50 focus:outline-none cursor-pointer"
               aria-label="تبديل القائمة"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -299,15 +299,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
         </div>
       </div>
 
-      {/* Mobile Animated Accordion Drawer Menu */}
+      {/* Luxury Full-Screen / Drawer Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-dark-950/98 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto text-right">
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-[#020617]/98 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto text-right">
           <div className="flex flex-col space-y-2 text-right">
             <button
               onClick={() => handleLinkClick('home')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right ${
+              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right cursor-pointer ${
                 activePage === 'home'
-                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30 font-bold'
+                  ? 'bg-blue-600/20 text-cyan-300 border border-blue-500/30 font-bold'
                   : 'text-slate-200 hover:bg-white/5'
               }`}
             >
@@ -315,15 +315,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
             </button>
 
             {/* Services Accordion Button */}
-            <div className="rounded-xl border border-white/5 overflow-hidden bg-dark-900/50">
+            <div className="rounded-xl border border-white/5 overflow-hidden bg-white/[0.02]">
               <button
                 onClick={() => setMobileServicesAccordionOpen(!mobileServicesAccordionOpen)}
-                className="w-full px-4 py-3 text-base font-medium text-slate-200 flex items-center justify-between hover:bg-white/5 transition-all text-right"
+                className="w-full px-4 py-3 text-base font-medium text-slate-200 flex items-center justify-between hover:bg-white/5 transition-all text-right cursor-pointer"
               >
-                <span className={isServicesActive ? 'text-electric-cyan font-bold' : ''}>خدماتنا المتكاملة</span>
+                <span className={isServicesActive ? 'text-cyan-400 font-bold' : ''}>خدماتنا المتكاملة</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${
-                    mobileServicesAccordionOpen ? 'rotate-180 text-electric-cyan' : 'text-slate-400'
+                    mobileServicesAccordionOpen ? 'rotate-180 text-cyan-400' : 'text-slate-400'
                   }`}
                 />
               </button>
@@ -333,7 +333,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 <div className="p-3 border-t border-white/5 space-y-3 bg-dark-950/60 animate-in fade-in duration-200">
                   <button
                     onClick={() => handleLinkClick('services')}
-                    className="w-full text-right px-3 py-2 rounded-lg bg-electric-600/10 text-xs font-bold text-electric-cyan flex items-center justify-between"
+                    className="w-full text-right px-3 py-2 rounded-lg bg-blue-600/10 text-xs font-bold text-cyan-400 flex items-center justify-between cursor-pointer"
                   >
                     <span>نظرة عامة: كل ما يحتاجه مشروعك</span>
                     <ArrowLeft className="w-3.5 h-3.5" />
@@ -343,25 +343,25 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                     {MEGA_MENU_CATEGORIES.map((cat) => {
                       const Icon = getCategoryIcon(cat.icon);
                       return (
-                        <div key={cat.id} className="p-3 rounded-xl bg-dark-900 border border-white/5 space-y-2 text-right">
+                        <div key={cat.id} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2 text-right">
                           <button
                             onClick={() => handleLinkClick(cat.targetPage)}
-                            className="w-full flex items-center justify-between text-right"
+                            className="w-full flex items-center justify-between text-right cursor-pointer"
                           >
                             <div className="flex items-center gap-2">
-                              <Icon className="w-4 h-4 text-electric-cyan" />
+                              <Icon className="w-4 h-4 text-cyan-400" />
                               <span className="text-xs font-bold text-white">{cat.title}</span>
                             </div>
-                            <span className="text-[10px] text-electric-cyan font-medium">استكشف ←</span>
+                            <span className="text-[10px] text-cyan-300 underline">عرض</span>
                           </button>
-                          <div className="pr-6 space-y-1">
-                            {cat.services.map((svc, sIdx) => (
+                          <div className="grid grid-cols-2 gap-1.5 pt-1">
+                            {cat.services.map((svc, i) => (
                               <button
-                                key={sIdx}
+                                key={i}
                                 onClick={() => handleLinkClick(svc.path)}
-                                className="w-full text-right text-[11px] text-slate-400 hover:text-white block py-0.5"
+                                className="text-right text-[11px] text-slate-400 hover:text-white truncate p-1 rounded bg-white/[0.02] cursor-pointer"
                               >
-                                • {svc.name}
+                                {svc.name}
                               </button>
                             ))}
                           </div>
@@ -373,72 +373,41 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               )}
             </div>
 
-            <button
-              onClick={() => handleLinkClick('portfolio')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right ${
-                activePage === 'portfolio'
-                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30 font-bold'
-                  : 'text-slate-200 hover:bg-white/5'
-              }`}
-            >
-              معرض أعمالنا
-            </button>
+            {NAV_LINKS.filter((l) => l.id !== 'home' && l.id !== 'services').map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleLinkClick(link.id)}
+                className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right cursor-pointer ${
+                  activePage === link.id
+                    ? 'bg-blue-600/20 text-cyan-300 border border-blue-500/30 font-bold'
+                    : 'text-slate-200 hover:bg-white/5'
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
 
-            <button
-              onClick={() => handleLinkClick('about')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right ${
-                activePage === 'about'
-                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30 font-bold'
-                  : 'text-slate-200 hover:bg-white/5'
-              }`}
-            >
-              عن الشركة
-            </button>
-
-            <button
-              onClick={() => handleLinkClick('process')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right ${
-                activePage === 'process'
-                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30 font-bold'
-                  : 'text-slate-200 hover:bg-white/5'
-              }`}
-            >
-              خطة العمل
-            </button>
-
-            <button
-              onClick={() => handleLinkClick('contact')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right ${
-                activePage === 'contact'
-                  ? 'bg-electric-600/20 text-electric-cyan border border-electric-500/30 font-bold'
-                  : 'text-slate-200 hover:bg-white/5'
-              }`}
-            >
-              تواصل معنا
-            </button>
-
-            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/20 via-electric-600/20 to-dark-900 border border-amber-500/30 text-right space-y-1.5 my-2">
-              <div className="flex items-center justify-between text-xs font-bold text-amber-300">
-                <span>🔥 عرض العميل الأول المميز</span>
-                <span className="px-1.5 py-0.5 rounded bg-amber-500 text-dark-950 font-black text-[9px]">خصم 25% VIP</span>
-              </div>
-              <p className="text-[11px] text-slate-300 leading-snug">
-                احجز مقعدك ضمن أول 5 عملاء مميزين واحصل على خصم 25% واستشارة مجانية!
-              </p>
-            </div>
-
-            <div className="pt-2 space-y-2">
+            {/* Direct WhatsApp Callout in Mobile Menu */}
+            <div className="pt-4 border-t border-white/10 space-y-3">
+              <a
+                href={whatsappNavHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600/90 text-white font-bold text-sm shadow-md"
+              >
+                <MessageSquare className="w-4 h-4 fill-white" />
+                <span>محادثة واتساب فورية</span>
+              </a>
               <Button
                 variant="primary"
                 size="md"
-                className="w-full font-bold shadow-glow-sm"
-                icon={ArrowLeft}
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenQuote();
                 }}
+                className="w-full font-bold"
               >
-                طلب التجهيز واغتنام العرض
+                طلب عرض أسعار مع كود الخصم
               </Button>
             </div>
           </div>

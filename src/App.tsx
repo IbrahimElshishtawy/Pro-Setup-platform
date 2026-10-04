@@ -3,26 +3,30 @@ import { ActivePage } from './core/types/common';
 import { ProjectItem } from './core/types/portfolio';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { CustomCursor } from './components/common/CustomCursor';
+import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
+import { PageLoadIntro } from './components/common/PageLoadIntro';
+import { BackgroundAtmosphere } from './components/common/BackgroundAtmosphere';
 import { ProjectDetailModal } from './components/modals/ProjectDetailModal';
 import { VideoPlayerModal } from './components/modals/VideoPlayerModal';
 import { QuoteModal } from './components/modals/QuoteModal';
+import { PORTFOLIO_PROJECTS } from './data/portfolioData';
 
-// Home Views
+// Home Views & Cinematic Sections
 import { HeroSection } from './features/home/HeroSection';
-import { ServicesOverview } from './features/home/ServicesOverview';
-import { WhyChooseUs } from './features/home/WhyChooseUs';
-import { RecentProjects } from './features/home/RecentProjects';
-import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
-import { TestimonialsSlider } from './features/home/TestimonialsSlider';
-import { CtaBanner } from './features/home/CtaBanner';
-import { VipClientOffer } from './features/home/VipClientOffer';
+import { TrustMarquee } from './components/sections/TrustMarquee';
 import { TheCollectiveStory } from './features/home/TheCollectiveStory';
+import { VipClientOffer } from './features/home/VipClientOffer';
+import { ServicesOverview } from './features/home/ServicesOverview';
 import { InteractiveMediaShowcase } from './features/home/InteractiveMediaShowcase';
+import { AboutSection } from './components/sections/AboutSection';
+import { PortfolioSection } from './components/sections/PortfolioSection';
+import { WhyChooseUs } from './features/home/WhyChooseUs';
+import { TestimonialsSection } from './components/sections/TestimonialsSection';
 import { SponsorsAndFeaturedAds } from './features/home/SponsorsAndFeaturedAds';
-import { BackgroundAtmosphere } from './components/common/BackgroundAtmosphere';
+import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
+import { CtaBanner } from './components/sections/CtaBanner';
 import { Sparkles } from 'lucide-react';
 
 // Dedicated Sub-Pages
@@ -70,55 +74,55 @@ export function App() {
   useEffect(() => {
     const titles: Record<ActivePage, { title: string; desc: string }> = {
       'home': {
-        title: 'PRO SETUP | كل ما تحتاجه أعمالك في مكان واحد',
-        desc: 'تقدم PRO SETUP حلول التسويق الرقمي، تطوير البرمجيات، الهوية البصرية، كاميرات المراقبة، التصوير والإنتاج السينمائي، والحملات الإعلانية تحت سقف واحد.'
+        title: 'PS | PRO SETUP INTERNATIONAL — التجهيزات المتكاملة والحلول الرقمية للشركات',
+        desc: 'شركة PS (PRO SETUP INTERNATIONAL) الكيان الدولي الشامل لتجهيز وتطوير الأعمال: هندسة البرمجيات، شبكات المراقبة وكاميرات CCTV، الإنتاج السينمائي، وحملات النمو والتسويق الدولي.'
       },
       'services': {
-        title: 'الخدمات المتكاملة | PRO SETUP - كل ما تحتاجه أعمالك',
-        desc: 'استكشف منظومة خدمات PRO SETUP: التسويق الرقمي، الهوية البصرية، تطوير البرمجيات والتطبيقات، كاميرات المراقبة، الإنتاج السينمائي، والإعلانات.'
+        title: 'الخدمات المتكاملة | PS INTERNATIONAL - كل ما تحتاجه أعمالك في مكان واحد',
+        desc: 'استكشف منظومة خدمات PS: التسويق الرقمي، الهوية البصرية، تطوير البرمجيات والتطبيقات، كاميرات المراقبة، والإنتاج السينمائي.'
       },
       'digital-marketing': {
-        title: 'التسويق الرقمي وإدارة السوشيال ميديا | PRO SETUP',
+        title: 'التسويق الرقمي وإدارة السوشيال ميديا | PS INTERNATIONAL',
         desc: 'حملات تسويقية مبنية على الأداء، استهداف الجماهير، إدارة منصات التواصل، صناعة المحتوى، ولوحات تحكم فورية لاستقطاب العملاء.'
       },
       'design-branding': {
-        title: 'استوديو الهوية البصرية وتصميم UI/UX | PRO SETUP',
+        title: 'استوديو الهوية البصرية وتصميم UI/UX | PS INTERNATIONAL',
         desc: 'تصميم الشعارات، نظم الهوية البصرية للشركات، تصاميم السوشيال ميديا، التغليف الفاخر، وتصميم واجهات وتجربة المستخدم للمواقع والتطبيقات.'
       },
       'software-technology': {
-        title: 'الحلول البرمجية والتقنية وتطوير المنصات | PRO SETUP',
+        title: 'الحلول البرمجية والتقنية وتطوير المنصات | PS INTERNATIONAL',
         desc: 'تطوير مواقع الويب السريعة، وتطبيقات الجوال عبر Flutter، والبرمجيات المخصصة، ولوحات البيانات، والواجهات البرمجية، والبنية السحابية.'
       },
       'security-surveillance': {
-        title: 'توريد وتركيب كاميرات المراقبة والأنظمة الأمنية | PRO SETUP',
+        title: 'توريد وتركيب كاميرات المراقبة والأنظمة الأمنية | PS INTERNATIONAL',
         desc: 'أنظمة CCTV تجارية، كاميرات IP بدقة 4K، وحدات تخزين NVR/DVR، شبكات PoE معزولة، وبوابات التحكم في الدخول والمراقبة 24/7.'
       },
       'photography-video': {
-        title: 'التصوير التجاري والإنتاج السينمائي | PRO SETUP',
+        title: 'التصوير التجاري والإنتاج السينمائي | PS INTERNATIONAL',
         desc: 'إنتاج إعلامي فائق الدقة، إعلانات تجارية سينمائية 4K، تصوير المنتجات، فيديوهات الريلز السريعة، وهندسة تلوين سينمائية.'
       },
       'advertising': {
-        title: 'الحملات الإعلانية وإدارة الميزانيات | PRO SETUP',
+        title: 'الحملات الإعلانية وإدارة الميزانيات | PS INTERNATIONAL',
         desc: 'إدارة الحملات الإعلانية المتكاملة: الفكرة، الاستراتيجية، الابتكار، الإنتاج المرئي، الإطلاق الخوارزمي، والتحسين لمضاعفة العائد.'
       },
       'portfolio': {
-        title: 'معرض الأعمال ودراسات الحالة | PRO SETUP',
+        title: 'معرض الأعمال ودراسات الحالة | PS INTERNATIONAL',
         desc: 'استكشف نماذج مشاريعنا المتكاملة في البرمجيات، الهويات البصرية، الحملات الإعلانية، والأنظمة الأمنية والإنتاج السينمائي.'
       },
       'about': {
-        title: 'عن PRO SETUP | رؤيتك. تجهيزنا المتكامل.',
+        title: 'عن شركة PS INTERNATIONAL | تحالف النخبة لتجهيز الأعمال',
         desc: 'تعرف على نموذج عملنا المتكامل، ورؤيتنا، ورسالتنا، وقيمنا الجوهرية، وفريق القيادة المتخصص في تجهيز الأعمال.'
       },
       'process': {
-        title: 'منهجية العمل المكونة من 6 خطوات | PRO SETUP',
+        title: 'منهجية العمل المكونة من 6 خطوات | PS INTERNATIONAL',
         desc: 'من الاستكشاف والتخطيط الاستراتيجي إلى التصميم والبرمجة والإطلاق الحي والدعم المستمر.'
       },
       'contact': {
-        title: 'تواصل مع PRO SETUP | لنصنع شيئاً عظيماً معاً',
+        title: 'تواصل مع PS INTERNATIONAL | لنصنع شيئاً عظيماً معاً',
         desc: 'تواصل مباشرة مع فريقنا لمناقشة مشروعك، وطلب عروض الأسعار والاستشارات المخصصة.'
       },
       'faq': {
-        title: 'الأسئلة الشائعة والإرشادات | PRO SETUP',
+        title: 'الأسئلة الشائعة والإرشادات | PS INTERNATIONAL',
         desc: 'إجابات وافية على كافة الاستفسارات المتعلقة بخدماتنا المتكاملة، ومراحل العمل، والأنظمة التقنية والأمنية.'
       }
     };
@@ -146,18 +150,21 @@ export function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-dark-900 text-slate-100 flex flex-col justify-between selection:bg-electric-600 selection:text-white overflow-hidden">
-      {/* Dynamic Animated Luxury Tech Atmosphere Background */}
+    <div className="relative min-h-screen bg-[#020617] text-slate-100 flex flex-col justify-between selection:bg-blue-600 selection:text-white overflow-hidden">
+      {/* 1. Page Load Intro Animation (<1s) */}
+      <PageLoadIntro />
+
+      {/* 2. Dynamic Animated Luxury Tech Atmosphere Background */}
       <BackgroundAtmosphere />
 
-      {/* Top Scroll Progress Bar */}
+      {/* 3. Top Scroll Progress Bar */}
       <ScrollProgress />
 
-      {/* Futuristic Desktop Custom Cursor */}
+      {/* 4. Futuristic Desktop Custom Cursor */}
       <CustomCursor />
 
-      {/* Top VIP Announcement Launch Bar */}
-      <div className="relative z-30 bg-gradient-to-r from-amber-600/90 via-[#0B132B] to-electric-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
+      {/* 5. Top VIP Announcement Launch Bar */}
+      <div className="relative z-30 bg-gradient-to-r from-amber-600/90 via-[#0B132B] to-blue-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-1.5 font-bold text-amber-300">
           <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
           <span>عرض الافتتاح التجاري الرسمي لـ PS:</span>
@@ -173,23 +180,27 @@ export function App() {
         </button>
       </div>
 
-      {/* Global Navigation Header */}
+      {/* 6. Global Navigation Header */}
       <Navbar
         activePage={activePage}
         onNavigate={navigateTo}
         onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
       />
 
-      {/* Main Content Router */}
+      {/* 7. Main Content Router */}
       <main className="relative z-10 flex-1 pt-16">
         {activePage === 'home' && (
           <>
+            {/* Cinematic Full-screen Hero Section */}
             <HeroSection
               onExploreServices={() => navigateTo('services')}
               onWatchVideo={() => setIsVideoModalOpen(true)}
               onSelectVertical={(vert) => navigateTo(vert as ActivePage)}
               onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
             />
+
+            {/* Trust Marquee: Sectors & Industries Served */}
+            <TrustMarquee />
 
             {/* The Collective Story: فلسفة تحالف النخبة تحت مظلة PS */}
             <TheCollectiveStory
@@ -200,27 +211,53 @@ export function App() {
             {/* VIP Grand Opening Commercial Offer */}
             <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')} />
 
+            {/* Cinematic Services Storytelling: Chapter-by-Chapter Scenes */}
+            <ServicesOverview
+              onNavigate={navigateTo}
+              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
+            />
+
             {/* Interactive Media & Image Showcase Gallery */}
             <InteractiveMediaShowcase
               onSelectProject={(p) => setSelectedProject(p)}
               onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
             />
 
-            {/* Sponsors, Tech Partners & Featured Commercial Spotlight */}
+            {/* Split Cinematic About Section with Counters & Manifesto */}
+            <AboutSection
+              onExploreMore={() => navigateTo('about')}
+              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
+            />
+
+            {/* Categorized Portfolio Section with Interactive Filters */}
+            <PortfolioSection
+              onSelectProject={(p) => {
+                const match = PORTFOLIO_PROJECTS.find(item => item.id === p.id || item.slug === p.slug) || PORTFOLIO_PROJECTS[0];
+                setSelectedProject(match);
+              }}
+              onViewAll={() => navigateTo('portfolio')}
+            />
+
+            {/* Why Choose Us Enterprise Pillars */}
+            <WhyChooseUs />
+
+            {/* Sponsors, Tech Partners & Commercial Spotlight */}
             <SponsorsAndFeaturedAds
               onOpenSponsorshipModal={() => handleOpenQuote('طلب رعاية ومساحة إعلانية تجارية')}
               onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
             />
 
-            <ServicesOverview onNavigate={navigateTo} />
-            <WhyChooseUs />
-            <RecentProjects
-              onSelectProject={(p) => setSelectedProject(p)}
-              onViewAll={() => navigateTo('portfolio')}
-            />
+            {/* Cinematic Testimonials Slider */}
+            <TestimonialsSection />
+
+            {/* Social Media Showcase */}
             <SocialMediaShowcase />
-            <TestimonialsSlider />
-            <CtaBanner onContactClick={() => navigateTo('contact')} />
+
+            {/* Dramatic CTA Banner */}
+            <CtaBanner
+              onContactClick={() => navigateTo('contact')}
+              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
+            />
           </>
         )}
 
@@ -283,7 +320,7 @@ export function App() {
       {/* Floating Action WhatsApp */}
       <FloatingWhatsApp />
 
-      {/* Global Footer */}
+      {/* Global Cinematic Footer */}
       <Footer
         onNavigate={navigateTo}
         onOpenQuote={() => handleOpenQuote()}

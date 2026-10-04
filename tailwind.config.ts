@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+
 export default {
   content: [
     "./index.html",
@@ -9,14 +10,14 @@ export default {
     extend: {
       colors: {
         dark: {
-          950: '#030508',
-          900: '#05080D', // Primary background per visual reference
-          850: '#080D14', // Secondary background
-          800: '#0D1522', // Surface cards
-          750: '#111B2C', // Elevated surface
-          700: '#16233B',
-          600: '#1F3153',
-          500: '#2A4370',
+          950: '#020617', // Deep navy / near-black background per Step 4
+          900: '#050816', // Primary deep background
+          850: '#07111F', // Secondary deep background
+          800: '#0B1220', // Surface cards & modules
+          750: '#0F1A2E', // Elevated surface
+          700: '#15243F',
+          600: '#1F3459',
+          500: '#2C497C',
         },
         electric: {
           50: '#EBF5FF',
@@ -41,7 +42,7 @@ export default {
       backgroundImage: {
         'radial-gradient': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
         'electric-gradient': 'linear-gradient(135deg, #0066FF 0%, #00D2FF 100%)',
-        'dark-card': 'linear-gradient(180deg, rgba(13, 21, 34, 0.75) 0%, rgba(8, 13, 20, 0.95) 100%)',
+        'dark-card': 'linear-gradient(180deg, rgba(11, 18, 32, 0.75) 0%, rgba(5, 8, 22, 0.95) 100%)',
         'hero-glow': 'radial-gradient(ellipse 60% 50% at 50% -10%, rgba(0, 102, 255, 0.25), transparent 70%)',
         'blue-glow-card': 'linear-gradient(180deg, rgba(0, 102, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%)',
       },
@@ -59,6 +60,7 @@ export default {
         'shimmer': 'shimmer 2.5s linear infinite',
         'radar': 'radar 4s linear infinite',
         'marquee': 'marquee 25s linear infinite',
+        'marquee-rtl': 'marqueeRTL 30s linear infinite',
       },
       keyframes: {
         float: {
@@ -70,8 +72,8 @@ export default {
           '50%': { opacity: 1, transform: 'scale(1.05)' },
         },
         shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
         radar: {
           '0%': { transform: 'rotate(0deg)' },
@@ -81,8 +83,12 @@ export default {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
         },
+        marqueeRTL: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(50%)' },
+        },
       },
     },
   },
   plugins: [],
-}
+} satisfies Config;

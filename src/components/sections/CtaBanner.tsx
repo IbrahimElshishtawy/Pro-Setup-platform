@@ -19,11 +19,11 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
   )}`;
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden text-right">
+    <section className="relative py-10 md:py-14 overflow-hidden text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Dramatic Container with Gradient Border & Atmospheric Blur */}
-        <div className="relative rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20 overflow-hidden bg-gradient-to-br from-[#060D1E] via-[#09152F] to-[#040814] border border-cyan-400/30 shadow-[0_20px_70px_rgba(0,102,255,0.25)]">
+        <div className="relative rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden bg-gradient-to-br from-[#060D1E] via-[#09152F] to-[#040814] border border-cyan-400/30 shadow-[0_20px_70px_rgba(0,102,255,0.25)]">
           
           {/* Animated Ambient Color Blobs */}
           <div className="absolute -top-32 -start-32 w-80 h-80 bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse" />
@@ -36,13 +36,13 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
           <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
             
             {/* Top Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs md:text-sm font-bold shadow-md mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs md:text-sm font-bold shadow-md mb-4">
               <Sparkles className="w-4 h-4 text-amber-300 animate-spin" style={{ animationDuration: '4s' }} />
               <span>{CTA_BANNER_DATA.eyebrow}</span>
             </div>
 
             {/* Giant Dramatic Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.2] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-[1.2] tracking-tight">
               {CTA_BANNER_DATA.title.replace(CTA_BANNER_DATA.highlightWord, '')}
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-cyan-400 via-blue-400 to-amber-300 inline-block">
                 {CTA_BANNER_DATA.highlightWord}
@@ -50,12 +50,12 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
             </h2>
 
             {/* Sub-text description */}
-            <p className="mt-6 text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+            <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
               {CTA_BANNER_DATA.description}
             </p>
 
             {/* Dual Magnetic Action Buttons */}
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4 w-full">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 w-full">
               <Button
                 variant="primary"
                 size="lg"

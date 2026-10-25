@@ -33,22 +33,22 @@ export const VipClientOffer: React.FC<VipClientOfferProps> = ({ onClaimOffer }) 
       badge: 'أولوية قصوى'
     },
     {
-      title: 'مساحة إعلانية وترويجية في قائمة شركاء النجاح',
-      desc: 'إبراز شركتك في الصفحة الرئيسية ومساحات الرعاة الرسميين لمنصة PS.',
+      title: 'صيانة ودعم فني مجاني لمدة 3 أشهر',
+      desc: 'متابعة استقرار المنظومة، وتحديثات البرمجيات والشبكات الأمنية، وضمان التشغيل الكامل.',
       icon: Award,
-      badge: 'ترويج مجاني'
+      badge: 'ضمان مجاني'
     }
   ];
 
   return (
-    <section className="relative py-16 sm:py-24 overflow-hidden z-10">
+    <section className="relative py-8 sm:py-12 overflow-hidden z-10">
       {/* Background radial glow specifically for this offer */}
       <div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[950px] h-[350px] sm:h-[500px] bg-gradient-to-r from-electric-600/15 via-electric-cyan/15 to-amber-500/10 rounded-full blur-[140px] pointer-events-none" 
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl p-6 sm:p-12 lg:p-14 bg-gradient-to-b from-[#0B132B]/95 via-[#070E20]/95 to-[#040812]/95 border border-amber-500/30 shadow-2xl backdrop-blur-2xl overflow-hidden group">
+        <div className="relative rounded-3xl p-5 sm:p-8 lg:p-10 bg-gradient-to-b from-[#0B132B]/95 via-[#070E20]/95 to-[#040812]/95 border border-amber-500/30 shadow-2xl backdrop-blur-2xl overflow-hidden group">
           
           {/* Animated top shimmer border */}
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent animate-shimmer" />

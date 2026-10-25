@@ -115,11 +115,11 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. HERO SECTION */}
-        <div className="text-center space-y-5 max-w-4xl mx-auto">
+        <div className="text-center space-y-4 max-w-4xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold uppercase tracking-wider">
             <span>منظومة متكاملة لنمو الأعمال</span>
           </div>
@@ -134,7 +134,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenQu
         </div>
 
         {/* 2. ALTERNATING LAYOUT CATEGORIES */}
-        <div className="space-y-16 lg:space-y-24">
+        <div className="space-y-10 lg:space-y-14">
           {serviceCategories.map((cat, index) => {
             const Icon = cat.icon;
             const isImageLeft = index % 2 === 0;

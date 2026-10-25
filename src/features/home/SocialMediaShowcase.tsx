@@ -93,11 +93,11 @@ export const SocialMediaShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-dark-950 border-t border-b border-white/[0.06] text-right">
+    <section className="relative py-10 md:py-14 overflow-hidden bg-dark-950 border-t border-b border-white/[0.06] text-right">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-80 bg-radial-gradient from-electric-600/10 via-electric-cyan/5 to-transparent blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8 md:space-y-10">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-bold uppercase tracking-wider">

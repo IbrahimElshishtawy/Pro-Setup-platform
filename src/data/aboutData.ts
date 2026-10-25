@@ -8,32 +8,32 @@ export interface AboutStatItem {
 
 export const ABOUT_STATS: AboutStatItem[] = [
   {
-    id: 'years',
-    value: 8,
-    suffix: '+',
-    label: 'سنوات من الخبرة والريادة',
-    description: 'تحالف استراتيجي من نخبة المتخصصين والمهندسين.',
-  },
-  {
-    id: 'projects',
-    value: 140,
-    suffix: '+',
-    label: 'مشروع وموقع مجهز بالكامل',
-    description: 'في البرمجيات، شبكات CCTV، والإنتاج السينمائي.',
-  },
-  {
-    id: 'clients',
-    value: 98,
-    suffix: '%',
-    label: 'نسبة رضا واستبقاء العملاء',
-    description: 'شراكات تشغيلية طويلة الأمد وعقود رعاية مستمرة.',
-  },
-  {
-    id: 'sectors',
+    id: 'services',
     value: 6,
+    suffix: '+',
+    label: 'منظومات كبرى تحت مظلة واحدة',
+    description: 'سوفت وير، أمن سيبراني، كاميرات، صيانة، وتسويق وإعلانات.',
+  },
+  {
+    id: 'integration',
+    value: 100,
+    suffix: '%',
+    label: 'مسؤولية تنفيذية وتجهيز متكامل',
+    description: 'شريك استراتيجي موحد يُنهي فوضى التنسيق بين شركات منفصلة.',
+  },
+  {
+    id: 'founders',
+    value: 4,
     suffix: '',
-    label: 'قطاعات تخصصية كبرى',
-    description: 'تغطي كافة متطلبات تأسيس الأعمال دون وسطاء.',
+    label: 'ركائز تخصصية يقودها الشركاء المؤسسون',
+    description: 'هندسة البرمجيات، الأمن، الإدارة المالية، والتشغيل الميداني.',
+  },
+  {
+    id: 'vendors',
+    value: 0,
+    suffix: '',
+    label: 'تشتت بين الموردين والوسطاء',
+    description: 'عقد موحد، مسؤولية واحدة، وجودة متسقة لكافة تفاصيل مشروعك.',
   },
 ];
 

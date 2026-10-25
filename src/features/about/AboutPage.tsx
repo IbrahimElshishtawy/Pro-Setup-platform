@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Target, Zap, Award, CheckCircle2, ArrowLeft, Building2, Sparkles, Compass } from 'lucide-react';
+import { ShieldCheck, Target, Zap, Award, CheckCircle2, ArrowLeft, Building2, Sparkles, Compass, MapPin, ExternalLink, Globe, Navigation } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { SectionHeading } from '../../components/common/SectionHeading';
 import { Button } from '../../components/common/Button';
@@ -18,34 +18,50 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
 
   const teamMembers = [
     {
-      name: '[الرئيس التنفيذي]',
-      position: 'Chief Executive Officer',
-      specialization: 'تطوير الأعمال الاستراتيجي والنمو المؤسسي',
-      photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+      name: 'أيمن وليد',
+      roleAr: 'الرئيس التنفيذي (CEO)',
+      position: 'Chief Executive Officer (CEO)',
+      specialization: 'الرؤية الاستراتيجية وتطوير الأعمال والاستثمار المؤسسي',
+      photo: '/images/ayman_walead.jpeg',
+      link: 'https://www.facebook.com/share/19qbgkCLPP/',
+      linkLabel: 'حساب Facebook',
+      isWebsite: false,
     },
     {
-      name: '[رئيس قطاع البرمجيات والأنظمة]',
-      position: 'Head of Software & Cloud Systems',
-      specialization: 'تطوير Flutter، المعمارية السحابية وقواعد البيانات',
-      photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      name: 'إبراهيم الششتاوي',
+      roleAr: 'المدير التقني ومهندس البرمجيات (CTO)',
+      position: 'Chief Technology Officer (CTO)',
+      specialization: 'هندسة البرمجيات المتقدمة، المعمارية السحابية والأنظمة التقنية',
+      photo: '/images/ibraham_elshishtawy.jpeg',
+      link: 'https://ibrahimelshishtawy-bber6ghhv-covantage-sr.vercel.app/',
+      linkLabel: 'الموقع الشخصي / Portfolio',
+      isWebsite: true,
     },
     {
-      name: '[المدير الإبداعي والفني]',
-      position: 'Head of Brand Design & UI/UX',
-      specialization: 'الهوية البصرية، تصميم المنتجات وتجارب المستخدم',
-      photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      name: 'أحمد حسن',
+      roleAr: 'المدير المالي (CFO)',
+      position: 'Chief Financial Officer (CFO)',
+      specialization: 'الإدارة والتخطيط المالي، حوكمة الميزانيات وإدارة الاستثمارات والسيولة',
+      photo: '/images/ahmad_hassen.jpeg',
+      link: 'https://www.facebook.com/share/1FV5jZxC4G/',
+      linkLabel: 'حساب Facebook',
+      isWebsite: false,
     },
     {
-      name: '[مسؤول الأنظمة الأمنية والمراقبة]',
-      position: 'Director of Hardware & Surveillance',
-      specialization: 'شبكات كاميرات المراقبة، وتجهيز غرف السيرفرات والبوابات',
-      photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      name: 'محمد أحمد',
+      roleAr: 'المدير الإداري (COO)',
+      position: 'Administrative Director (COO)',
+      specialization: 'إدارة العمليات التشغيلية، حوكمة المشاريع والمتابعة الميدانية للمنشآت',
+      photo: '/images/mahamed_ahmad.jpeg',
+      link: 'https://www.facebook.com/mohammad.ahmad.310962?sfnsn=wa&mibextid=RUbZ1f',
+      linkLabel: 'حساب Facebook',
+      isWebsite: false,
     },
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. SECTION: WHO WE ARE */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -71,13 +87,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] bg-dark-800 relative group">
+            <div className="rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl aspect-[4/3] bg-dark-900 relative group">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                alt="مركز عمليات وتجهيزات PRO SETUP"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="/images/packground.jpeg"
+                alt="شعار وهوية PRO SETUP الرسمية"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-950/60 via-transparent to-transparent opacity-30 group-hover:opacity-10 transition-opacity" />
             </div>
           </div>
         </div>
@@ -169,10 +185,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
         {/* 5. SECTION: OUR TEAM */}
         <div className="space-y-8">
           <SectionHeading
-            badge="القيادة والإشراف"
-            title="الفريق المتخصص خلف"
-            highlight="نجاحات PRO SETUP"
-            subtitle="مهندسو برمجيات معتمدون، ومخرجون إبداعيون، وخبراء أمن وشبكات يقودون كل تفصيلة في مشروعك."
+            badge="فريق التأسيس والقيادة"
+            title="الفريق المؤسس خلف"
+            highlight="شركة PRO SETUP"
+            subtitle="القيادات التنفيذية، التقنية، المالية، والإدارية التي أسست الشركة وتقود نجاح وتكامل مشاريعها."
             align="center"
           />
 
@@ -180,38 +196,54 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
             {teamMembers.map((member, i) => (
               <div
                 key={i}
-                className="group relative rounded-3xl overflow-hidden bg-dark-800/90 border border-white/10 hover:border-electric-cyan/50 transition-all p-5 space-y-4 shadow-xl"
+                className="group relative rounded-3xl overflow-hidden bg-dark-800/90 border border-white/10 hover:border-electric-cyan/50 transition-all p-5 space-y-4 shadow-xl flex flex-col justify-between"
               >
-                <div className="relative aspect-square rounded-2xl overflow-hidden bg-dark-950">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-60" />
+                <div className="space-y-4">
+                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-dark-950 border border-white/5">
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-60" />
+                  </div>
+
+                  <div className="space-y-1.5 text-right">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-base font-bold text-white group-hover:text-electric-cyan transition-colors">
+                        {member.name}
+                      </h4>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-electric-600/15 text-electric-cyan border border-electric-500/20 font-medium">
+                        شريك مؤسس
+                      </span>
+                    </div>
+                    <span className="text-xs text-electric-cyan font-bold block">
+                      {member.roleAr}
+                    </span>
+                    <span className="text-[11px] text-slate-400 font-mono block" dir="ltr">
+                      {member.position}
+                    </span>
+                    <p className="text-[11px] text-slate-400 leading-relaxed pt-1">
+                      {member.specialization}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <h4 className="text-base font-bold text-white group-hover:text-electric-cyan transition-colors">
-                    {member.name}
-                  </h4>
-                  <span className="text-xs text-electric-cyan font-semibold block font-mono" dir="ltr">
-                    {member.position}
-                  </span>
-                  <p className="text-[11px] text-slate-400 leading-relaxed pt-1">
-                    {member.specialization}
-                  </p>
-                </div>
-
-                <div className="pt-2 border-t border-white/5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-slate-500">القناة الرسمية:</span>
+                <div className="pt-3 border-t border-white/5 flex items-center justify-between mt-auto">
+                  <span className="text-[10px] font-mono text-slate-500">الملف الشخصي:</span>
                   <a
-                    href={COMPANY_INFO.social.linkedin}
+                    href={member.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-semibold text-slate-400 hover:text-electric-cyan transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-electric-cyan transition-colors"
                   >
-                    حساب LinkedIn ←
+                    {member.isWebsite ? (
+                      <Globe className="w-3.5 h-3.5 text-electric-cyan" />
+                    ) : (
+                      <ExternalLink className="w-3.5 h-3.5 text-electric-cyan" />
+                    )}
+                    <span>{member.linkLabel}</span>
+                    <span dir="ltr">←</span>
                   </a>
                 </div>
               </div>
@@ -219,7 +251,99 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
           </div>
         </div>
 
-        {/* 6. CTA SECTION */}
+        {/* 6. SECTION: COMPANY LOCATION */}
+        <div className="space-y-8">
+          <SectionHeading
+            badge="المقر الرئيسي والانتشار"
+            title="مقر شركة"
+            highlight="PRO SETUP الرسمية"
+            subtitle="نستقبل عملاءنا وشركاء نجاحنا في مقرنا المجهز لتنسيق كافة المشاريع البرمجية والميدانية."
+            align="center"
+          />
+
+          <div className="p-8 sm:p-10 rounded-3xl bg-dark-800/80 border border-white/10 backdrop-blur-xl relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-electric-cyan/5 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-600/15 border border-electric-500/25 text-electric-cyan text-xs font-semibold">
+                  <MapPin className="w-4 h-4" />
+                  <span>الموقع الجغرافي المعتمد</span>
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-2xl sm:text-3xl font-black text-white">
+                    زورنا في مقرنا أو احصل على الاتجاهات مباشرة
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    يضم مقر PRO SETUP استوديوهات الإنتاج المرئي، ومختبرات هندسة وتطوير البرمجيات، ومركز العمليات والمراقبة الأمنية. متاحون يومياً لخدمتكم واستقبال متطلبات مشاريعكم التجارية.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-2xl bg-dark-900 border border-white/5 space-y-1">
+                    <span className="text-[11px] text-slate-400 block font-semibold">العنوان والمقر:</span>
+                    <span className="text-sm font-bold text-white block">{COMPANY_INFO.contact.address}</span>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-dark-900 border border-white/5 space-y-1">
+                    <span className="text-[11px] text-slate-400 block font-semibold">أوقات العمل الرسمية:</span>
+                    <span className="text-xs font-bold text-white block">{COMPANY_INFO.contact.workingHours}</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <a
+                    href={COMPANY_INFO.contact.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-electric-gradient text-dark-950 font-bold text-sm shadow-glow-sm hover:scale-105 active:scale-95 transition-all"
+                  >
+                    <Navigation className="w-4 h-4" />
+                    <span>فتح الموقع في خرائط Google</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                  <a
+                    href={COMPANY_INFO.contact.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 hover:border-electric-cyan/40 transition-all"
+                  >
+                    <span>تنسيق موعد زيارة عبر واتساب</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <a
+                  href={COMPANY_INFO.contact.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group relative rounded-2xl overflow-hidden border border-electric-cyan/30 bg-dark-950 p-6 text-center space-y-4 shadow-xl hover:border-electric-cyan transition-all"
+                >
+                  <div className="w-16 h-16 rounded-2xl bg-electric-cyan/15 border border-electric-cyan/30 text-electric-cyan mx-auto flex items-center justify-center group-hover:scale-110 group-hover:shadow-glow-sm transition-all">
+                    <MapPin className="w-8 h-8" />
+                  </div>
+                  <div className="space-y-1">
+                    <span className="text-sm font-bold text-white block group-hover:text-electric-cyan transition-colors">
+                      خرائط Google التفاعلية (Google Maps)
+                    </span>
+                    <p className="text-xs text-slate-400">
+                      اضغط هنا للانتقال مباشرة إلى إحداثيات مقر PRO SETUP الدقيقة على خرائط Google
+                    </p>
+                  </div>
+                  <div className="pt-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-electric-cyan group-hover:underline">
+                      <span>عرض على الخريطة</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 7. CTA SECTION */}
         <div className="p-8 sm:p-12 rounded-3xl bg-dark-800/90 border border-white/10 text-center space-y-4 shadow-xl">
           <h3 className="text-2xl sm:text-3xl font-black text-white">هل أنت مستعد للشراكة مع فريق متكامل؟</h3>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">

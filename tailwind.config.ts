@@ -68,8 +68,8 @@ export default {
           '50%': { transform: 'translateY(-12px)' },
         },
         pulseGlow: {
-          '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
-          '50%': { opacity: 1, transform: 'scale(1.05)' },
+          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+          '50%': { opacity: '1', transform: 'scale(1.05)' },
         },
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },

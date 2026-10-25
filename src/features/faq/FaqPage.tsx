@@ -26,8 +26,8 @@ export const FaqPage: React.FC<FaqPageProps> = ({ onOpenQuote }) => {
   };
 
   return (
-    <div className="py-12 md:py-16 space-y-16 text-right">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Header */}
         <SectionHeading

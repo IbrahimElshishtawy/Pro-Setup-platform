@@ -50,7 +50,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   const { ref: sectionRef, isInView } = useInView<HTMLElement>({ threshold: 0.15 });
 
   return (
-    <section ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden text-right">
+    <section ref={sectionRef} className="relative py-10 md:py-14 overflow-hidden text-right">
       {/* Background Decorative Tech Grid with Radial Mask */}
       <div className="absolute inset-0 bg-tech-grid opacity-25 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,black_40%,transparent_100%)] pointer-events-none" />
 
@@ -68,11 +68,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           highlightedWord="منظومات المستقبل"
           description={COMPANY_INFO.detailedDescription}
           align="center"
-          className="mb-16 md:mb-20"
+          className="mb-8 md:mb-10"
         />
 
         {/* Split Cinematic Composition */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* Visual Side: Layered Glass Composition & Manifesto */}
           <div className="lg:col-span-6 relative">

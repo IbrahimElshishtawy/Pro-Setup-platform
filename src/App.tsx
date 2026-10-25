@@ -3,7 +3,6 @@ import { ActivePage } from './core/types/common';
 import { ProjectItem } from './core/types/portfolio';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { CustomCursor } from './components/ui/CustomCursor';
 import { ScrollProgress } from './components/common/ScrollProgress';
 import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 import { PageLoadIntro } from './components/common/PageLoadIntro';
@@ -23,11 +22,8 @@ import { InteractiveMediaShowcase } from './features/home/InteractiveMediaShowca
 import { AboutSection } from './components/sections/AboutSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
 import { WhyChooseUs } from './features/home/WhyChooseUs';
-import { TestimonialsSection } from './components/sections/TestimonialsSection';
-import { SponsorsAndFeaturedAds } from './features/home/SponsorsAndFeaturedAds';
 import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
 import { CtaBanner } from './components/sections/CtaBanner';
-import { Sparkles } from 'lucide-react';
 
 // Dedicated Sub-Pages
 import { ServicesPage } from './features/services/ServicesPage';
@@ -160,27 +156,7 @@ export function App() {
       {/* 3. Top Scroll Progress Bar */}
       <ScrollProgress />
 
-      {/* 4. Futuristic Desktop Custom Cursor */}
-      <CustomCursor />
-
-      {/* 5. Top VIP Announcement Launch Bar */}
-      <div className="relative z-30 bg-gradient-to-r from-amber-600/90 via-[#0B132B] to-blue-600/90 text-white text-xs py-2 px-4 border-b border-white/10 text-center flex items-center justify-center gap-2 flex-wrap">
-        <span className="inline-flex items-center gap-1.5 font-bold text-amber-300">
-          <Sparkles className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '4s' }} />
-          <span>عرض الافتتاح التجاري الرسمي لـ PS:</span>
-        </span>
-        <span className="text-slate-200">
-          كُن أحد أول 50 عميلاً مؤسساً واحصل على خصم 25% + دراسة استشارية وتشخيصية مجانية!
-        </span>
-        <button
-          onClick={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
-          className="underline decoration-amber-400 font-extrabold text-amber-300 hover:text-white transition-colors cursor-pointer text-[11px] mr-1"
-        >
-          تفعيل عرض الافتتاح الآن ←
-        </button>
-      </div>
-
-      {/* 6. Global Navigation Header */}
+      {/* 4. Global Navigation Header */}
       <Navbar
         activePage={activePage}
         onNavigate={navigateTo}
@@ -240,15 +216,6 @@ export function App() {
 
             {/* Why Choose Us Enterprise Pillars */}
             <WhyChooseUs />
-
-            {/* Sponsors, Tech Partners & Commercial Spotlight */}
-            <SponsorsAndFeaturedAds
-              onOpenSponsorshipModal={() => handleOpenQuote('طلب رعاية ومساحة إعلانية تجارية')}
-              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
-            />
-
-            {/* Cinematic Testimonials Slider */}
-            <TestimonialsSection />
 
             {/* Social Media Showcase */}
             <SocialMediaShowcase />

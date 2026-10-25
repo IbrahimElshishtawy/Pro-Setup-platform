@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ArrowLeft, Play, MessageSquare, Sparkles, Code2, ShieldCheck, Video, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Play, MessageSquare, Sparkles, Code2, ShieldCheck, Video, TrendingUp, Film } from 'lucide-react';
 import { COMPANY_INFO } from '../../core/config/constants';
 import { Button } from '../../components/ui/Button';
 
@@ -58,17 +58,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[100svh] flex items-center justify-center pt-24 pb-16 md:py-28 overflow-hidden text-right select-none"
+      className="relative pt-2 pb-6 md:pt-4 md:pb-8 overflow-hidden text-right select-none"
     >
-      {/* 1. Deep Cinematic Background Image & Mesh Overlay */}
+      {/* 1. Deep Cinematic Background Video & Mesh Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <img
-          src="/images/ps_hero_backdrop.jpg"
-          alt="PS International Enterprise Headquarters"
-          className="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000 ease-out"
-        />
-        {/* Soft Vignette & Depth Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/95 to-[#020617]/85" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/ps_hero_backdrop.jpg"
+          className="w-full h-full object-cover object-center opacity-40 scale-105 transition-transform duration-1000 ease-out"
+        >
+          <source src="/video/1.mp4" type="video/mp4" />
+        </video>
+        {/* Soft Vignette & Depth Gradients for High Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/90 to-[#020617]/75" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/90 via-transparent to-[#020617]" />
         
         {/* Large Technical Grid with Radial Mask fading to edges */}
@@ -80,14 +85,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
           {/* START COLUMN (In RTL): Hero Copy & Primary Actions */}
-          <div className="lg:col-span-7 space-y-6 md:space-y-8 text-right">
+          <div className="lg:col-span-7 space-y-4 md:space-y-5 text-right">
             
             {/* Top Brand Pill with Glow */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-cyan-400/30 text-xs md:text-sm font-bold shadow-lg backdrop-blur-md">
-              <span className="flex items-center justify-center w-6 h-6 rounded-md bg-gradient-to-br from-amber-400 to-amber-600 text-dark-950 font-black text-xs shadow-sm">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-cyan-400/30 text-xs md:text-sm font-bold shadow-lg backdrop-blur-md">
+              <span className="flex items-center justify-center w-5 h-5 rounded bg-gradient-to-br from-amber-400 to-amber-600 text-dark-950 font-black text-[11px] shadow-sm">
                 PS
               </span>
               <span className="text-white font-extrabold tracking-wider">PRO SETUP INTERNATIONAL</span>
@@ -96,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Oversized Arabic Headline with Word-by-Word Reveal */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tight text-white leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.75rem] font-black tracking-tight text-white leading-[1.18]">
               {headlineWords.map((word, idx) => (
                 <span
                   key={idx}
@@ -104,7 +109,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     transitionDelay: `${idx * 80 + 100}ms`,
                     transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
                   }}
-                  className={`inline-block ms-3 transition-all duration-700 ${
+                  className={`inline-block ms-2.5 sm:ms-3 transition-all duration-700 ${
                     isHeadlineLoaded
                       ? 'opacity-100 translate-y-0 blur-0'
                       : 'opacity-0 translate-y-6 blur-md'
@@ -119,13 +124,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               ))}
             </h1>
 
-            {/* Sub-description with Enterprise Punch */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
-              {COMPANY_INFO.subDescription}
+            {/* Sub-description with Enterprise Punch & Clear Value Prop */}
+            <p className="text-sm sm:text-base md:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+              نشأت شركة <strong className="text-white font-bold">PS (PRO SETUP)</strong> لتكون الكيان الشامل الذي ينهي تشتت المؤسسات بين جهات متعددة؛ نجمع تحت سقف واحد أحدث <span className="text-cyan-300 font-semibold">الحلول البرمجية والسحابية</span>، وأنظمة <span className="text-blue-300 font-semibold">الشبكات والمراقبة (CCTV)</span>، إلى جانب بناء <span className="text-amber-300 font-semibold">الهويات المؤسسية</span>، والإنتاج المرئي، والتسويق الرقمي الدولي لنمنحك تجربة متكاملة تقود أعمالك نحو التميز <span className="text-emerald-400 font-semibold">بكفاءة وأمان</span>.
             </p>
 
             {/* Primary & Secondary Actions Strip */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
               <Button
                 variant="primary"
                 size="lg"
@@ -177,7 +182,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* END COLUMN (In RTL): 3D Floating Glass Capability Panels */}
           <div className="lg:col-span-5 relative perspective-1000 hidden md:block">
             <div
-              className="relative w-full h-[520px] transition-transform duration-500 ease-out"
+              className="relative w-full h-[460px] transition-transform duration-500 ease-out"
               style={{
                 transform: `rotateY(${mousePos.x * -7}deg) rotateX(${mousePos.y * 7}deg)`,
                 transformStyle: 'preserve-3d',
@@ -187,9 +192,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div
                 onClick={() => onSelectVertical('software-technology')}
                 style={{ transform: 'translateZ(40px)' }}
-                className="absolute top-2 start-4 end-12 p-4 rounded-2xl bg-[#080E1C]/85 border border-cyan-400/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-cyan-300 transition-all duration-300 group"
+                className="absolute top-0 start-4 end-12 p-3.5 rounded-2xl bg-[#080E1C]/85 border border-cyan-400/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-cyan-300 transition-all duration-300 group"
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2.5">
                   <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs">
                     <Code2 className="w-4 h-4" />
                     <span>SOFTWARE & ARCHITECTURE</span>
@@ -209,7 +214,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div
                 onClick={() => onSelectVertical('security-surveillance')}
                 style={{ transform: 'translateZ(70px)' }}
-                className="absolute top-44 start-10 end-4 p-4 rounded-2xl bg-[#0B152A]/90 border border-blue-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-blue-400 transition-all duration-300 group"
+                className="absolute top-36 start-10 end-4 p-3.5 rounded-2xl bg-[#0B152A]/90 border border-blue-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-blue-400 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2 text-blue-400 font-mono text-xs">
@@ -221,14 +226,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     LIVE 4K
                   </span>
                 </div>
-                <div className="relative h-24 rounded-lg overflow-hidden border border-white/10 scanlines">
-                  <img
-                    src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80"
-                    alt="CCTV Security Grid"
-                    className="w-full h-full object-cover opacity-80"
-                  />
-                  <div className="absolute bottom-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-slate-300">
-                    CAM_01 // SECURE_FACILITY
+                <div className="relative h-20 rounded-lg overflow-hidden border border-white/10 bg-[#040A18] scanlines flex items-center justify-center">
+                  {/* Tech Grid and AI Reticle */}
+                  <div className="absolute inset-0 bg-tech-grid opacity-30" />
+                  <div className="relative z-10 flex flex-col items-center justify-center">
+                    <div className="relative flex items-center justify-center">
+                      <div className="w-7 h-7 rounded-full border border-cyan-400/40 animate-ping absolute" />
+                      <div className="w-5 h-5 rounded-full border border-cyan-400/80 flex items-center justify-center bg-cyan-950/40">
+                        <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                      </div>
+                    </div>
+                    <span className="text-[9px] font-mono text-cyan-300 mt-1 tracking-wider">AI_DETECTION: ACTIVE</span>
+                  </div>
+                  <div className="absolute top-1.5 start-2 text-[9px] font-mono text-emerald-400 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>CAM_01 // SECURE_FACILITY</span>
+                  </div>
+                  <div className="absolute bottom-1.5 end-2 text-[8px] font-mono text-slate-400">
+                    4K UHD • 60 FPS
                   </div>
                 </div>
               </div>
@@ -237,7 +252,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div
                 onClick={() => onSelectVertical('photography-video')}
                 style={{ transform: 'translateZ(90px)' }}
-                className="absolute bottom-4 start-0 end-16 p-4 rounded-2xl bg-[#091222]/90 border border-purple-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-purple-400 transition-all duration-300 group"
+                className="absolute bottom-2 start-0 end-16 p-3.5 rounded-2xl bg-[#091222]/90 border border-purple-500/30 backdrop-blur-xl shadow-2xl cursor-pointer hover:border-purple-400 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2 text-purple-400 font-mono text-xs">
@@ -250,12 +265,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-16 h-12 rounded-lg bg-black/60 border border-white/10 overflow-hidden flex-shrink-0">
-                    <img
-                      src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=300&q=80"
-                      alt="Cinematic production"
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-16 h-12 rounded-lg bg-gradient-to-br from-[#1b0d36] to-[#050b18] border border-purple-500/40 overflow-hidden flex-shrink-0 flex items-center justify-center relative group-hover:border-purple-400 transition-colors">
+                    {/* Viewfinder crosshairs and audio bars */}
+                    <div className="absolute inset-1 border border-purple-400/20 rounded pointer-events-none" />
+                    <Film className="w-5 h-5 text-purple-400 group-hover:scale-110 transition-transform" />
+                    {/* Miniature Live Audio Visualizer Bars */}
+                    <div className="absolute bottom-1 end-1.5 flex items-end gap-0.5">
+                      <span className="w-0.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
+                      <span className="w-0.5 h-3 bg-amber-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
+                      <span className="w-0.5 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
+                    </div>
+                    <div className="absolute top-1 start-1.5 text-[7px] font-mono text-red-400 font-bold">
+                      4K
+                    </div>
                   </div>
                   <div className="text-xs text-slate-300">
                     <div className="font-bold text-white">إعلانات تجارية سينمائية 4K</div>

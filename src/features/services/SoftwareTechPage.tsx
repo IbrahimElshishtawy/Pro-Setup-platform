@@ -47,8 +47,8 @@ export const SoftwareTechPage: React.FC<SoftwareTechPageProps> = ({ onOpenQuote 
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. HERO SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

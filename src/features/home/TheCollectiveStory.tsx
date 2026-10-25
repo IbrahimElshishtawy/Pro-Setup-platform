@@ -71,7 +71,7 @@ export const TheCollectiveStory: React.FC<TheCollectiveStoryProps> = ({
   ];
 
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden text-right border-y border-white/[0.06] bg-dark-950/80">
+    <section className="relative py-10 md:py-14 overflow-hidden text-right border-y border-white/[0.06] bg-dark-950/80">
       {/* Ambient background glows */}
       <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 left-1/4 w-96 h-96 bg-electric-cyan/10 rounded-full blur-[130px] pointer-events-none" />
@@ -79,7 +79,7 @@ export const TheCollectiveStory: React.FC<TheCollectiveStoryProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-8 md:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-electric-600/10 border border-electric-cyan/30 text-electric-cyan text-xs sm:text-sm font-bold shadow-sm">
             <Sparkles className="w-4 h-4 text-electric-cyan animate-pulse" />
             <span>قصة تأسيس PS • تحالف النخبة المستقلة</span>
@@ -98,7 +98,7 @@ export const TheCollectiveStory: React.FC<TheCollectiveStoryProps> = ({
         </div>
 
         {/* 5 Integrated Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 md:mb-10">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (

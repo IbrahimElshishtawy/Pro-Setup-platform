@@ -60,7 +60,7 @@ export const InteractiveMediaShowcase: React.FC<InteractiveMediaShowcaseProps> =
   };
 
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden text-right">
+    <section className="relative py-10 md:py-14 overflow-hidden text-right">
       {/* Background Lighting */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-electric-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
@@ -68,7 +68,7 @@ export const InteractiveMediaShowcase: React.FC<InteractiveMediaShowcaseProps> =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6 md:mb-8">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-electric-cyan/10 border border-electric-cyan/25 text-electric-cyan text-xs font-bold">
               <Sparkles className="w-3.5 h-3.5" />

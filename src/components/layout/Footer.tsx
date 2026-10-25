@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
   };
 
   return (
-    <footer className="relative bg-[#02050E] border-t border-white/[0.08] pt-20 pb-12 overflow-hidden text-right select-none">
+    <footer className="relative bg-[#02050E] border-t border-white/[0.08] pt-10 pb-8 overflow-hidden text-right select-none">
       
       {/* Soft Top Radial Glow and Center Aura */}
       <div className="absolute top-0 start-1/2 -translate-x-1/2 w-3/4 h-32 bg-gradient-to-b from-blue-600/15 via-cyan-500/5 to-transparent blur-3xl pointer-events-none" />
@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Columns Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10 pb-16 border-b border-white/[0.08]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-10 border-b border-white/[0.08]">
           
           {/* COLUMN 1: Dominant Brand Identity & Statement */}
           <div className="lg:col-span-4 space-y-5">
@@ -248,10 +248,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                 </a>
               </div>
 
-              <div className="flex items-center gap-2.5 text-slate-400">
-                <MapPin className="w-4 h-4 text-slate-500 shrink-0" />
+              <a
+                href={COMPANY_INFO.contact.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-slate-400 hover:text-electric-cyan transition-colors group"
+                title="عرض المقر على خرائط Google"
+              >
+                <MapPin className="w-4 h-4 text-slate-500 group-hover:text-electric-cyan shrink-0 transition-colors" />
                 <span>المقر الإقليمي: {COMPANY_INFO.contact.address}</span>
-              </div>
+              </a>
             </div>
 
             <div className="pt-2">

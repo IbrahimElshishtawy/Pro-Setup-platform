@@ -1,30 +1,27 @@
 import React from 'react';
 import { INDUSTRIES_SERVED } from '../../data/marqueeData';
 import {
-  Cpu,
-  Building2,
-  Activity,
-  ShoppingBag,
-  UtensilsCrossed,
+  Code2,
+  ShieldAlert,
+  Smartphone,
+  Camera,
+  Megaphone,
+  TrendingUp,
+  Film,
+  Palette,
   Briefcase,
-  GraduationCap,
-  Car,
-  Rocket,
-  ShieldCheck,
   LucideIcon,
 } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
-  Cpu,
-  Building2,
-  Activity,
-  ShoppingBag,
-  UtensilsCrossed,
-  Briefcase,
-  GraduationCap,
-  Car,
-  Rocket,
-  ShieldCheck,
+  Code2,
+  ShieldAlert,
+  Smartphone,
+  Camera,
+  Megaphone,
+  TrendingUp,
+  Film,
+  Palette,
 };
 
 export const TrustMarquee: React.FC = () => {
@@ -32,12 +29,12 @@ export const TrustMarquee: React.FC = () => {
   const marqueeItems = [...INDUSTRIES_SERVED, ...INDUSTRIES_SERVED];
 
   return (
-    <section className="relative w-full py-8 md:py-12 border-y border-white/[0.06] bg-[#030712]/90 backdrop-blur-md overflow-hidden select-none">
+    <section className="relative w-full py-4 md:py-6 border-y border-white/[0.06] bg-[#030712]/90 backdrop-blur-md overflow-hidden select-none">
       {/* Narrative Label */}
-      <div className="max-w-7xl mx-auto px-4 mb-4 text-center">
+      <div className="max-w-7xl mx-auto px-4 mb-3 text-center">
         <div className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 tracking-wider">
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-          <span>القطاعات والصناعات المجهزة تحت مظلة PS الدولية:</span>
+          <span>الخدمات والحلول المتكاملة التي تنفذها شركة PRO SETUP لعملائها:</span>
         </div>
       </div>
 

@@ -21,7 +21,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
       : SHOWCASE_PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden text-right">
+    <section className="relative py-10 md:py-14 overflow-hidden text-right">
       {/* Background Lighting Blobs */}
       <div className="absolute top-1/4 end-10 w-96 h-96 bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 start-10 w-96 h-96 bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none" />
@@ -36,11 +36,11 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           highlightedWord="حالات النجاح"
           description="نماذج واقعية من منظومات برمجية، شبكات أمنية، هويات تجارية، وأفلام سينمائية أبدعناها لشركائنا التجاريين بمعايير دولية صارمة."
           align="center"
-          className="mb-12"
+          className="mb-6 md:mb-8"
         />
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-14">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8 md:mb-10">
           {PORTFOLIO_CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat.id;
             return (

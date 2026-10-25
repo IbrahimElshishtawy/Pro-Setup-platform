@@ -59,11 +59,11 @@ export const PhotographyVideoPage: React.FC<PhotographyVideoPageProps> = ({ onOp
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. CINEMATIC HERO SECTION */}
-        <div className="relative rounded-3xl overflow-hidden border border-white/10 p-8 sm:p-14 lg:p-20 bg-dark-950 shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden border border-white/10 p-6 sm:p-10 lg:p-12 bg-dark-950 shadow-2xl">
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1800&q=80"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle2, Sparkles, Navigation } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle2, Sparkles, Navigation, ExternalLink } from 'lucide-react';
 import { COMPANY_INFO, SERVICE_CATEGORIES } from '../../core/config/constants';
 import { Button } from '../../components/common/Button';
 import { SocialIcons } from '../../components/common/SocialIcons';
@@ -50,8 +50,8 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. HERO SECTION */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -152,21 +152,42 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* MAP SECTION */}
-            <div className="p-6 rounded-3xl bg-dark-800/60 border border-white/10 space-y-3">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-300 uppercase tracking-wider">
-                <Navigation className="w-4 h-4 text-electric-cyan" />
-                <span>موقع المقر على الخريطة</span>
+            <div className="p-6 rounded-3xl bg-dark-800/80 border border-white/10 space-y-4 shadow-xl">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-300 uppercase tracking-wider">
+                <div className="flex items-center gap-2">
+                  <Navigation className="w-4 h-4 text-electric-cyan" />
+                  <span>موقع المقر على الخريطة</span>
+                </div>
+                <span className="text-[10px] text-electric-cyan font-mono px-2 py-0.5 rounded-full bg-electric-600/15 border border-electric-500/20">
+                  مباشر
+                </span>
               </div>
 
-              <div className="rounded-2xl p-6 bg-dark-950 border border-dashed border-white/15 text-center space-y-2">
-                <MapPin className="w-8 h-8 text-electric-cyan mx-auto opacity-70" />
-                <span className="text-xs font-semibold text-white block">
-                  الموقع: {COMPANY_INFO.contact.address}
-                </span>
-                <p className="text-[11px] text-slate-400 max-w-xs mx-auto">
-                  تظهر الخريطة التفاعلية الدقيقة عند اعتماد الإحداثيات الجغرافية الرسمية للمنشأة.
-                </p>
-              </div>
+              <a
+                href={COMPANY_INFO.contact.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl p-5 bg-dark-950 border border-electric-cyan/25 hover:border-electric-cyan transition-all text-center space-y-3 relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-electric-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-12 h-12 rounded-xl bg-electric-cyan/15 border border-electric-cyan/30 text-electric-cyan mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="space-y-1">
+                  <span className="text-sm font-bold text-white block group-hover:text-electric-cyan transition-colors">
+                    مقر شركة PRO SETUP الرسمي
+                  </span>
+                  <span className="text-xs text-slate-400 block">
+                    {COMPANY_INFO.contact.address}
+                  </span>
+                </div>
+                <div className="pt-2">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-cyan group-hover:underline">
+                    <span>فتح في تطبيق خرائط Google</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
 

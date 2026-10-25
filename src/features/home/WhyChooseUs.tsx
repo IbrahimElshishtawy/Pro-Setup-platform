@@ -7,10 +7,10 @@ import { useCounter } from '../../hooks/useCounter';
 export const WhyChooseUs: React.FC = () => {
   const { ref, isInView } = useInView({ threshold: 0.2 });
 
-  const stat1 = useCounter(10, 1800, isInView);
-  const stat2 = useCounter(50, 2000, isInView);
-  const stat3 = useCounter(20, 1900, isInView);
-  const stat4 = useCounter(100, 2200, isInView);
+  const stat1 = useCounter(6, 1800, isInView);
+  const stat2 = useCounter(100, 2000, isInView);
+  const stat3 = useCounter(24, 1900, isInView);
+  const stat4 = useCounter(0, 1500, isInView);
 
   const pillars = [
     {
@@ -36,9 +36,9 @@ export const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section id="about" ref={ref} className="relative py-20 bg-dark-900 border-t border-white/[0.06] overflow-hidden text-right">
+    <section id="about" ref={ref} className="relative py-10 md:py-14 bg-dark-900 border-t border-white/[0.06] overflow-hidden text-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* RIGHT in RTL: Image Studio Workspace */}
           <div className="lg:col-span-6 relative">
@@ -115,34 +115,34 @@ export const WhyChooseUs: React.FC = () => {
                   {stat1}+
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
-                  خدمات متخصصة
+                  قطاعات متكاملة
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-white/[0.02] text-center">
                 <span className="text-2xl sm:text-3xl font-black text-electric-cyan block">
-                  {stat2}+
+                  {stat2}%
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
-                  مشروع مكتمل
+                  مسؤولية تنفيذ موحدة
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-white/[0.02] text-center">
                 <span className="text-2xl sm:text-3xl font-black text-white block">
-                  {stat3}+
+                  {stat3}/7
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
-                  عميل وشريك نجاح
+                  دعم مباشر واستجابة
                 </span>
               </div>
 
               <div className="p-3 rounded-xl bg-white/[0.02] text-center">
                 <span className="text-2xl sm:text-3xl font-black text-electric-cyan block">
-                  {stat4}%
+                  {stat4}
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
-                  التزام بالمعايير
+                  تشتت بين الموردين
                 </span>
               </div>
             </div>

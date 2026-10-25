@@ -17,7 +17,7 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
   }[glowColor];
 
   return (
-    <div className={`relative w-full py-8 md:py-14 flex items-center justify-center overflow-hidden pointer-events-none select-none ${className}`}>
+    <div className={`relative w-full py-3 md:py-5 flex items-center justify-center overflow-hidden pointer-events-none select-none ${className}`}>
       {/* Soft Horizontal Radial Line */}
       <div className="w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       

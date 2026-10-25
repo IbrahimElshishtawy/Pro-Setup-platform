@@ -15,10 +15,10 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
   onOpenQuote,
 }) => {
   return (
-    <section id="services" className="relative py-20 lg:py-32 overflow-hidden text-right">
+    <section id="services" className="relative py-10 md:py-16 overflow-hidden text-right">
       
       {/* Global Section Heading */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 md:mb-12">
         <SectionTitle
           chapterNumber="01"
           eyebrow="فصول المنظومة المتكاملة"
@@ -29,7 +29,7 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 md:space-y-36">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 md:space-y-16">
 
         {/* ========================================================
             SCENE 01: SOFTWARE & CLOUD ARCHITECTURE
@@ -164,13 +164,16 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
                 <span className="text-[11px] text-slate-400">SECURE LAN 10Gbps</span>
               </div>
 
-              {/* 4-Cam Grid Preview */}
+              {/* 4-Cam Grid Preview with Software Overlays */}
               <div className="grid grid-cols-2 gap-2.5">
-                <div className="relative rounded-lg overflow-hidden border border-white/10 scanlines h-28 sm:h-36">
+                <div className="relative rounded-lg overflow-hidden border border-white/10 scanlines h-28 sm:h-36 bg-dark-950">
                   <img
                     src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=500&q=80"
                     alt="CCTV Gate Camera"
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/packground.jpeg';
+                    }}
                   />
                   <div className="absolute top-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-300">
                     CAM_01 // MAIN_GATE
@@ -180,25 +183,32 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
                   </div>
                 </div>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10 scanlines h-28 sm:h-36">
+                <div className="relative rounded-lg overflow-hidden border border-emerald-500/30 scanlines h-28 sm:h-36 bg-dark-950">
                   <img
-                    src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=80"
-                    alt="CCTV Warehouse Camera"
+                    src="/images/packground.jpeg"
+                    alt="CCTV Facility with AI Software"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-300">
-                    CAM_02 // WAREHOUSE
+                  <div className="absolute top-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-300 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span>CAM_02 // AI_FACILITY</span>
+                  </div>
+                  <div className="absolute bottom-2 start-2 bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 px-1.5 py-0.5 rounded text-[8px] font-mono">
+                    AI DETECT: MOTION 99.8%
                   </div>
                   <div className="absolute bottom-2 end-2 text-[9px] font-mono text-red-400 bg-black/70 px-1.5 rounded">
                     4K LIVE
                   </div>
                 </div>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10 scanlines h-28 sm:h-36">
+                <div className="relative rounded-lg overflow-hidden border border-white/10 scanlines h-28 sm:h-36 bg-dark-950">
                   <img
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80"
                     alt="CCTV Corporate Office"
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/images/packground.jpeg';
+                    }}
                   />
                   <div className="absolute top-2 start-2 bg-dark-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-300">
                     CAM_03 // HQ_OFFICE
@@ -208,17 +218,18 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
                   </div>
                 </div>
 
-                <div className="relative rounded-lg overflow-hidden border border-white/10 bg-[#0A1224] p-3 flex flex-col justify-between text-right">
-                  <div className="text-[11px] font-mono text-cyan-400 font-bold">
-                    SYSTEM HEALTH
+                <div className="relative rounded-lg overflow-hidden border border-emerald-500/20 bg-[#0A1224] p-3 flex flex-col justify-between text-right">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-cyan-400 font-bold">
+                    <span>AI SOFTWARE ENGINE</span>
+                    <span className="text-[9px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.2 rounded">V4.2 LIVE</span>
                   </div>
                   <div className="space-y-1 font-mono text-[10px] text-slate-300">
-                    <div>Storage: <span className="text-emerald-400">92 Days RAID</span></div>
-                    <div>PoE Ports: <span className="text-cyan-400">32/32 Active</span></div>
-                    <div>AI Alerts: <span className="text-emerald-400">0 Breaches</span></div>
+                    <div>Smart Software: <span className="text-emerald-400">Mobile & Web App</span></div>
+                    <div>AI Analytics: <span className="text-cyan-400">Face & Motion</span></div>
+                    <div>Cloud Sync: <span className="text-emerald-400">100% Encrypted</span></div>
                   </div>
                   <div className="w-full bg-emerald-500/20 text-emerald-400 text-center py-1 rounded text-[10px] font-bold">
-                    100% SECURE
+                    SYSTEM SECURE & CONNECTED
                   </div>
                 </div>
               </div>
@@ -230,33 +241,33 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
           <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 text-xs font-bold font-mono">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>CHAPTER 02 // SECURITY & SURVEILLANCE</span>
+              <span>CHAPTER 02 // CCTV INSTALLATION & SMART SOFTWARE</span>
             </div>
 
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
-              توريد وتركيب كاميرات المراقبة والأنظمة الأمنية الذكية
+              تركيب كاميرات المراقبة وتزويدها بالبرمجيات والأنظمة الذكية
             </h3>
 
             <p className="text-base md:text-lg text-slate-300 font-normal leading-relaxed">
-              نؤمّن مقرات الشركات والمصانع والمنشآت التجارية بأحدث كاميرات IP فائقة الدقة (4K Ultra-HD)، مع شبكات كابلات PoE معزولة وخوادم تسجيل NVR مركزية، مع بوابات التحكم في الدخول البيومترية (Access Control).
+              لا نقتصر على التثبيت والتمديد الميداني للكاميرات فقط؛ بل ندمج كاميراتك ببرمجيات مراقبة مخصصة (Software Integration) تمنحك تحكماً وبثاً حياً مباشراً عبر الهاتف والكمبيوتر، مع خوارزميات الذكاء الاصطناعي لكشف الحركة والتعرف على الوجوه، وربطها سحابياً بأنظمة منشأتك.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="flex items-center gap-2.5 text-xs md:text-sm text-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>كاميرات IP ذكية بدقة 4K مع رؤية ليلية ملونة</span>
+                <span>برمجيات تحكم ومتابعة سحابية مخصصة عبر الهاتف والكمبيوتر</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs md:text-sm text-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>تمديد شبكات ألياف ضوئية وكابلات Cat6 معزولة</span>
+                <span>تحليل الفيديو بالذكاء الاصطناعي وكشف الحركة وتحديد الهوية</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs md:text-sm text-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>خوادم NVR وتخزين سحابي ومحلي مشفر</span>
+                <span>تركيب كاميرات 4K IP فائقة الدقة بتغطية شاملة بدون نقاط عمياء</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs md:text-sm text-slate-200">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <span>بوابات بصمة وحضور ذكية للتحكم بالدخول</span>
+                <span>ربط برمجي مع أنظمة المنشأة وبوابات الدخول (Access Control)</span>
               </div>
             </div>
 
@@ -268,13 +279,13 @@ export const ServicesOverview: React.FC<ServicesOverviewProps> = ({
                 glow
                 onClick={() => onNavigate('security-surveillance')}
               >
-                استكشف المنظومات الأمنية
+                استكشف منظومة الكاميرات والسوفت وير
               </Button>
               <button
                 onClick={() => onOpenQuote?.('الأنظمة الأمنية والمراقبة')}
                 className="text-xs md:text-sm font-bold text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-1.5 cursor-pointer"
               >
-                <span>طلب معاينة ميدانية وعرض أسعار</span>
+                <span>طلب معاينة ميدانية وبرمجة المنظومة</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </button>
             </div>

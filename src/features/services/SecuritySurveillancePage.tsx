@@ -23,10 +23,10 @@ export const SecuritySurveillancePage: React.FC<SecuritySurveillancePageProps> =
   }, []);
 
   const securityCapabilities = [
-    { title: 'تركيب كاميرات المراقبة (CCTV)', desc: 'توزيع وتثبيت كاميرات المراقبة الداخلية والخارجية للمنشآت مع تغطية شاملة 100% وإلغاء النقاط العمياء تماماً.', icon: Video },
+    { title: 'تركيب وتوزيع كاميرات المراقبة (CCTV)', desc: 'توزيع وتثبيت احترافي لكاميرات المراقبة الداخلية والخارجية للمنشآت مع تغطية شاملة 100% وإلغاء النقاط العمياء تماماً.', icon: Video },
+    { title: 'تثبيت ودمج برمجيات المراقبة المخصصة', desc: 'تزويد كاميراتك بسوفت وير مخصص على السيرفرات والموبايل يتيح التحكم الكامل، والبث الحي المشفر، وإدارة الفروع المتعددة.', icon: Server },
     { title: 'كاميرات شبكية 4K IP بالذكاء الاصطناعي', desc: 'حساسات بصرية فائقة الدقة تدعم الرؤية الليلية الملونة بالكامل والتعرف الذكي على الأشخاص والسيارات وقراءة لوحات المركبات.', icon: Eye },
-    { title: 'أجهزة التسجيل الرقمية DVR', desc: 'أجهزة تسجيل موثوقة للأنظمة التناظرية والهجينة مع خوارزميات ضغط ذكية لتوفير مساحة التخزين دون تقليل جودة الفيديو.', icon: Server },
-    { title: 'أنظمة NVR ومصفوفات RAID', desc: 'أجهزة تسجيل شبكية للمؤسسات تدعم مصفوفات أقراص RAID لحماية التسجيلات من التلف وتخزين مستمر حتى 120 يوماً.', icon: HardDrive },
+    { title: 'أنظمة NVR ومصفوفات RAID السحابية', desc: 'أجهزة تسجيل شبكية للمؤسسات تدعم مصفوفات أقراص RAID لحماية التسجيلات من التلف وتخزين مستمر حتى 120 يوماً.', icon: HardDrive },
     { title: 'تمديد الشبكات السلكية وتقنية PoE', desc: 'تمديدات كابلات نحاسية معزولة Cat6/Cat7، ومفاتيح شبكة مدارة تدعم الطاقة عبر الإيثرنت (PoE) وعزل شبكة الكاميرات.', icon: Wifi },
     { title: 'أنظمة التحكم في الدخول (Access Control)', desc: 'بوابات ذكية ببصمة الوجه والإصبع، وبطاقات RFID، وأقفال كهرومغناطيسية مع أجهزة حضور وانصراف آلية للموظفين.', icon: Lock },
     { title: 'المراقبة المستمرة 24/7 عبر الهاتف', desc: 'شاشات مركز تحكم متطورة وتطبيقات هواتف مشفرة تتيح البث المباشر والتنبيهات الفورية عند استشعار أي حركة مريبة.', icon: ShieldCheck },
@@ -91,8 +91,8 @@ export const SecuritySurveillancePage: React.FC<SecuritySurveillancePageProps> =
   ];
 
   return (
-    <div className="py-12 md:py-20 space-y-20 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* 1. HERO SECTION */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -103,11 +103,11 @@ export const SecuritySurveillancePage: React.FC<SecuritySurveillancePageProps> =
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.2]">
-              أمّن ما <span className="text-electric-gradient">يهمك أكثر</span>
+              تركيب كاميرات المراقبة <span className="text-electric-gradient">وبرمجياتها الذكية</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-              اقضِ على النقاط العمياء تماماً مع أنظمة CCTV التجارية المتقدمة، وكاميرات IP بدقة 4K مدعومة بالذكاء الاصطناعي، ووحدات تخزين NVR آمنة، وبوابات تحكم بيومترية مصممة لأعلى المعايير.
+              تثبيت وتركيب هندسي معتمد لكاميرات المراقبة 4K IP مع تزويدها ببرمجيات مراقبة مخصصة (Custom Software) وتطبيقات هواتف ذكية وتحليلات ذكاء اصطناعي (AI)، مع خوادم NVR وبوابات بيومترية متكاملة.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">

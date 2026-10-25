@@ -27,8 +27,8 @@ export const ProcessPage: React.FC<ProcessPageProps> = ({ onOpenQuote }) => {
   const CurrentIcon = getIcon(current.icon);
 
   return (
-    <div className="py-12 md:py-24 space-y-24 text-right">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-8 md:py-12 space-y-12 text-right">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Header */}
         <SectionTitle

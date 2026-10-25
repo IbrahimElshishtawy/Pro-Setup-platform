@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { LucideIcon } from 'lucide-react';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'glass';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'glass' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   icon?: LucideIcon;
   iconPosition?: 'start' | 'end';
@@ -55,6 +55,8 @@ export const Button: React.FC<ButtonProps> = ({
       'bg-dark-800 text-slate-100 border border-slate-700 hover:border-slate-500 hover:bg-dark-750 active:scale-[0.98]',
     glass:
       'bg-white/[0.06] text-white border border-white/[0.12] backdrop-blur-md hover:bg-white/[0.12] hover:border-white/[0.2] active:scale-[0.98]',
+    outline:
+      'bg-transparent text-slate-200 border border-white/20 hover:border-cyan-400 hover:text-white hover:bg-white/[0.06] active:scale-[0.98]',
     ghost:
       'bg-transparent text-slate-300 hover:text-white hover:bg-white/[0.06] border border-transparent active:scale-[0.98]',
   }[variant];

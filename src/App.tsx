@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ActivePage } from './core/types/common';
 import { ProjectItem } from './core/types/portfolio';
+import { CourseCategoryId } from './core/types/academy';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ScrollProgress } from './components/common/ScrollProgress';
@@ -39,6 +40,15 @@ import { ProcessPage } from './features/process/ProcessPage';
 import { ContactPage } from './features/contact/ContactPage';
 import { FaqPage } from './features/faq/FaqPage';
 
+// Academy & Technical Services Pages
+import { AcademyLandingPage } from './features/academy/AcademyLandingPage';
+import { CourseCatalogPage } from './features/academy/CourseCatalogPage';
+import { CourseDetailPage } from './features/academy/CourseDetailPage';
+import { LearningPathsPage } from './features/academy/LearningPathsPage';
+import { AcademyAboutPage } from './features/academy/AcademyAboutPage';
+import { AcademyRegisterPage } from './features/academy/AcademyRegisterPage';
+import { TechnicalServicesPage } from './features/services/TechnicalServicesPage';
+
 export function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -47,23 +57,69 @@ export function App() {
   const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
   const [activePromoCode, setActivePromoCode] = useState<string>('PS-FOUNDER-25');
 
-  // Sync with browser hash if present (e.g. #portfolio, #services)
+  // Academy routing state
+  const [selectedCourseSlug, setSelectedCourseSlug] = useState<string>('modern-frontend-development');
+  const [catalogInitialCategory, setCatalogInitialCategory] = useState<CourseCategoryId | 'all'>('all');
+  const [registerInitialCourseSlug, setRegisterInitialCourseSlug] = useState<string | undefined>(undefined);
+
+  // Sync with browser URL / hash (support both direct pathnames and #hash)
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '') as ActivePage;
+    const handleUrlChange = () => {
+      const rawHash = window.location.hash.replace('#', '');
+      const rawPath = window.location.pathname.replace(/^\//, '');
+
+      // Check course detail pattern e.g. #academy-course-modern-frontend-development or /academy/courses/xyz
+      if (rawHash.startsWith('academy-course-')) {
+        const slug = rawHash.replace('academy-course-', '');
+        setSelectedCourseSlug(slug);
+        setActivePage('academy-course-detail');
+        return;
+      }
+
+      if (rawPath.startsWith('academy/courses/')) {
+        const slug = rawPath.replace('academy/courses/', '');
+        if (slug) {
+          setSelectedCourseSlug(slug);
+          setActivePage('academy-course-detail');
+          return;
+        }
+      }
+
+      // Check direct path mapping
+      const pathMap: Record<string, ActivePage> = {
+        'academy': 'academy',
+        'academy/courses': 'academy-courses',
+        'academy/paths': 'academy-paths',
+        'academy/about': 'academy-about',
+        'academy/register': 'academy-register',
+        'technical-services': 'technical-services',
+      };
+
+      if (pathMap[rawPath]) {
+        setActivePage(pathMap[rawPath]);
+        return;
+      }
+
       const validPages: ActivePage[] = [
         'home', 'services', 'digital-marketing', 'design-branding',
         'software-technology', 'security-surveillance', 'photography-video',
-        'advertising', 'portfolio', 'about', 'process', 'contact', 'faq'
+        'advertising', 'portfolio', 'about', 'process', 'contact', 'faq',
+        'academy', 'academy-courses', 'academy-course-detail', 'academy-paths',
+        'academy-about', 'academy-register', 'technical-services'
       ];
-      if (validPages.includes(hash)) {
-        setActivePage(hash);
+
+      if (validPages.includes(rawHash as ActivePage)) {
+        setActivePage(rawHash as ActivePage);
       }
     };
 
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    handleUrlChange();
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('hashchange', handleUrlChange);
+      window.removeEventListener('popstate', handleUrlChange);
+    };
   }, []);
 
   // Dynamic SEO Page Title & Meta Description update
@@ -120,6 +176,34 @@ export function App() {
       'faq': {
         title: 'الأسئلة الشائعة والإرشادات | PS INTERNATIONAL',
         desc: 'إجابات وافية على كافة الاستفسارات المتعلقة بخدماتنا المتكاملة، ومراحل العمل، والأنظمة التقنية والأمنية.'
+      },
+      'academy': {
+        title: 'أكاديمية ProSetup للتدريب التقني المتقدم | مسارات البرمجة والشبكات وصيانة الهواتف',
+        desc: 'انضم إلى ProSetup Academy: برامج تدريبية وتطبيقية معملية في هندسة الويب، تطبيقات Flutter، الأمن السيبراني، شبكات الحاسوب، وصيانة الهواتف الذكية.'
+      },
+      'academy-courses': {
+        title: 'دليل الدورات التدريبية والمختبرات التقنية | ProSetup Academy',
+        desc: 'استكشف كافة دورات البرمجة والشبكات والأمن السيبراني وصيانة الهواتف الذكية المعتمدة على التدريب العملي والمشاريع الحقيقية.'
+      },
+      'academy-course-detail': {
+        title: 'تفاصيل المنهج التدريبي والمشاريع | ProSetup Academy',
+        desc: 'تعرف على محاور الدورة، الوحدات التدريبية، المشاريع العملية، والمتطلبات المسبقة في أكاديمية ProSetup.'
+      },
+      'academy-paths': {
+        title: 'المسارات والخرائط المهنية المنسقة | ProSetup Academy',
+        desc: 'مسارات تعليمية متسلسلة تأخذك من الصفر حتى الاحتراف والجاهزية لسوق العمل في مجالات التكنولوجيا وصيانة الأجهزة الذكية.'
+      },
+      'academy-about': {
+        title: 'عن ProSetup Academy | رؤيتنا وفلسفة التعليم المعملي التطبيقي',
+        desc: 'تعرف على فلسفة التعليم العملي، ورسالتنا في سد الفجوة بين التعليم النظري وسوق العمل، وتجهيزات مختبراتنا الفنية.'
+      },
+      'academy-register': {
+        title: 'التسجيل في دورات ProSetup Academy | استشارة المسار وحجز المقعد',
+        desc: 'سجل بياناتك للالتحاق ببرامجنا التدريبية أو حجز استشارة مجانية مع المستشارين الفنيين لتحديد المسار الأنسب لمستواك.'
+      },
+      'technical-services': {
+        title: 'صيانة الهواتف الذكية والحلول الفنية المؤسسية | PS INTERNATIONAL',
+        desc: 'خدمات معملية لإصلاح أعطال اللوحات الأم، الشاشات، استبدال البطاريات، التفليش، وعقود الصيانة الدورية للأجهزة المؤسسية.'
       }
     };
 
@@ -131,9 +215,25 @@ export function App() {
     }
   }, [activePage]);
 
-  const navigateTo = (page: ActivePage) => {
+  const navigateTo = (
+    page: ActivePage,
+    meta?: { courseSlug?: string; category?: CourseCategoryId | 'all' }
+  ) => {
+    if (meta?.courseSlug) {
+      setSelectedCourseSlug(meta.courseSlug);
+      setRegisterInitialCourseSlug(meta.courseSlug);
+    }
+    if (meta?.category) {
+      setCatalogInitialCategory(meta.category);
+    }
+
     setActivePage(page);
-    window.location.hash = page;
+
+    if (page === 'academy-course-detail' && meta?.courseSlug) {
+      window.location.hash = `academy-course-${meta.courseSlug}`;
+    } else {
+      window.location.hash = page;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -228,6 +328,7 @@ export function App() {
           </>
         )}
 
+        {/* Existing Technical & Business Services */}
         {activePage === 'services' && (
           <ServicesPage
             onNavigate={navigateTo}
@@ -262,6 +363,79 @@ export function App() {
           <AdvertisingPage onOpenQuote={handleOpenQuote} />
         )}
 
+        {/* Dedicated Technical Repair Services Page */}
+        {activePage === 'technical-services' && (
+          <TechnicalServicesPage
+            onOpenQuote={handleOpenQuote}
+            onNavigateToAcademy={() => navigateTo('academy')}
+          />
+        )}
+
+        {/* ProSetup Academy Sub-Pages */}
+        {activePage === 'academy' && (
+          <AcademyLandingPage
+            onNavigateToCourses={(cat) => navigateTo('academy-courses', { category: cat as CourseCategoryId })}
+            onNavigateToCourseDetail={(slug) => navigateTo('academy-course-detail', { courseSlug: slug })}
+            onNavigateToPaths={() => navigateTo('academy-paths')}
+            onNavigateToAbout={() => navigateTo('academy-about')}
+            onNavigateToRegister={(slug) => {
+              if (slug) setRegisterInitialCourseSlug(slug);
+              navigateTo('academy-register');
+            }}
+          />
+        )}
+
+        {activePage === 'academy-courses' && (
+          <CourseCatalogPage
+            initialCategory={catalogInitialCategory}
+            onNavigateToCourseDetail={(slug) => navigateTo('academy-course-detail', { courseSlug: slug })}
+            onNavigateToRegister={(slug) => {
+              if (slug) setRegisterInitialCourseSlug(slug);
+              navigateTo('academy-register');
+            }}
+            onBackToAcademyHome={() => navigateTo('academy')}
+          />
+        )}
+
+        {activePage === 'academy-course-detail' && (
+          <CourseDetailPage
+            courseSlug={selectedCourseSlug}
+            onNavigateToCourse={(slug) => navigateTo('academy-course-detail', { courseSlug: slug })}
+            onNavigateToCatalog={() => navigateTo('academy-courses')}
+            onRegisterForCourse={(slug) => {
+              setRegisterInitialCourseSlug(slug);
+              navigateTo('academy-register');
+            }}
+          />
+        )}
+
+        {activePage === 'academy-paths' && (
+          <LearningPathsPage
+            onNavigateToCourse={(slug) => navigateTo('academy-course-detail', { courseSlug: slug })}
+            onEnrollPath={(pathSlug) => {
+              navigateTo('academy-register');
+            }}
+            onBackToAcademyHome={() => navigateTo('academy')}
+          />
+        )}
+
+        {activePage === 'academy-about' && (
+          <AcademyAboutPage
+            onNavigateToCourses={() => navigateTo('academy-courses')}
+            onNavigateToRegister={() => navigateTo('academy-register')}
+            onBackToAcademyHome={() => navigateTo('academy')}
+          />
+        )}
+
+        {activePage === 'academy-register' && (
+          <AcademyRegisterPage
+            initialCourseSlug={registerInitialCourseSlug}
+            onNavigateToCatalog={() => navigateTo('academy-courses')}
+            onBackToAcademyHome={() => navigateTo('academy')}
+          />
+        )}
+
+        {/* General Brand Pages */}
         {activePage === 'portfolio' && (
           <PortfolioPage
             onSelectProject={(p) => setSelectedProject(p)}

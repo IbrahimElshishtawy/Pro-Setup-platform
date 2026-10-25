@@ -133,3 +133,61 @@ export async function subscribeNewsletter(email: string): Promise<{ success: boo
   await new Promise(r => setTimeout(r, 400));
   return { success: true, mode: 'local' };
 }
+
+export interface AcademyRegistrationRecord {
+  fullName: string;
+  phoneNumber: string;
+  email?: string;
+  courseSlug: string;
+  courseTitle: string;
+  experienceLevel: string;
+  preferredFormat: string;
+  preferredContact: string;
+  message?: string;
+  registrationNumber?: string;
+  createdAt?: unknown;
+  timestamp?: string;
+}
+
+/**
+ * Saves a student registration for ProSetup Academy to Firebase Cloud Firestore.
+ */
+export async function submitAcademyRegistration(data: AcademyRegistrationRecord): Promise<{
+  success: boolean;
+  id: string;
+  registrationNumber: string;
+  mode: 'firebase' | 'local';
+}> {
+  const timestamp = new Date().toISOString();
+  const registrationNumber = `PSA-${Math.floor(1000 + Math.random() * 9000)}`;
+  const enrichedData = { ...data, registrationNumber, timestamp };
+
+  // 1. Resilient local backup
+  try {
+    const existing = JSON.parse(localStorage.getItem('prosetup_academy_registrations') || '[]');
+    existing.push(enrichedData);
+    localStorage.setItem('prosetup_academy_registrations', JSON.stringify(existing));
+  } catch (e) {
+    console.error('Local academy registration backup failed', e);
+  }
+
+  // 2. Write to Firestore if connected
+  if (isFirebaseConfigured && db) {
+    try {
+      const docRef = await addDoc(collection(db, 'academy_registrations'), {
+        ...enrichedData,
+        createdAt: serverTimestamp(),
+        status: 'pending_contact',
+      });
+      return { success: true, id: docRef.id, registrationNumber, mode: 'firebase' };
+    } catch (err) {
+      console.error('[PRO SETUP Firestore Error] Failed to write academy registration to cloud:', err);
+      return { success: true, id: `local_${Date.now()}`, registrationNumber, mode: 'local' };
+    }
+  }
+
+  // Simulate network delay for UX
+  await new Promise(r => setTimeout(r, 600));
+  return { success: true, id: `demo_${Date.now()}`, registrationNumber, mode: 'local' };
+}
+

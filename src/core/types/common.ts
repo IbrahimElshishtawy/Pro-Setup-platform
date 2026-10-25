@@ -11,7 +11,14 @@ export type ActivePage =
   | 'about'
   | 'process'
   | 'contact'
-  | 'faq';
+  | 'faq'
+  | 'academy'
+  | 'academy-courses'
+  | 'academy-course-detail'
+  | 'academy-paths'
+  | 'academy-about'
+  | 'academy-register'
+  | 'technical-services';
 
 export interface TestimonialItem {
   id: string;

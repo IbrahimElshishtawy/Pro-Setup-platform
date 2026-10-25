@@ -138,6 +138,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
                 </button>
               </li>
               <li>
+                <button onClick={() => handleNav('academy')} className="text-cyan-300 hover:text-cyan-200 font-bold transition-colors cursor-pointer flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span>أكاديمية ProSetup (جديد)</span>
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('academy-courses')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                  دليل الدورات التدريبية
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('academy-paths')} className="hover:text-cyan-400 transition-colors cursor-pointer">
+                  الخرائط والمسارات المهنية
+                </button>
+              </li>
+              <li>
                 <button onClick={() => handleNav('portfolio')} className="hover:text-cyan-400 transition-colors cursor-pointer">
                   معرض أعمالنا
                 </button>
@@ -172,6 +188,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               منظومة القطاعات
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-400">
+              <li>
+                <button onClick={() => handleNav('technical-services')} className="hover:text-cyan-400 transition-colors cursor-pointer font-bold text-slate-200">
+                  صيانة الهواتف والحلول الفنية
+                </button>
+              </li>
               <li>
                 <button onClick={() => handleNav('software-technology')} className="hover:text-cyan-400 transition-colors cursor-pointer">
                   البرمجيات والمنصات السحابية

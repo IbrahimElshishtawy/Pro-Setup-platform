@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowLeft, ChevronDown, ChevronLeft, TrendingUp, Palette, Code2, ShieldCheck, Sparkles, MessageSquare } from 'lucide-react';
+import { Menu, X, ArrowLeft, ChevronDown, ChevronLeft, TrendingUp, Palette, Code2, ShieldCheck, Sparkles, MessageSquare, Wrench, GraduationCap } from 'lucide-react';
 import { NAV_LINKS, MEGA_MENU_CATEGORIES, COMPANY_INFO } from '../../core/config/constants';
 import { Button } from '../ui/Button';
 import { ActivePage } from '../../core/types/common';
@@ -15,6 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesMegaMenuOpen, setServicesMegaMenuOpen] = useState(false);
   const [mobileServicesAccordionOpen, setMobileServicesAccordionOpen] = useState(false);
+  const [mobileAcademyAccordionOpen, setMobileAcademyAccordionOpen] = useState(false);
   const [hoveredCategory, setHoveredCategory] = useState<string>('digital');
 
   const menuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -50,6 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
       case 'TrendingUp': return TrendingUp;
       case 'Palette': return Palette;
       case 'Code2': return Code2;
+      case 'Wrench': return Wrench;
       case 'ShieldCheck': return ShieldCheck;
       default: return Sparkles;
     }
@@ -60,9 +62,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
     activePage === 'digital-marketing' ||
     activePage === 'design-branding' ||
     activePage === 'software-technology' ||
+    activePage === 'technical-services' ||
     activePage === 'security-surveillance' ||
     activePage === 'photography-video' ||
     activePage === 'advertising';
+
+  const isAcademyActive =
+    activePage === 'academy' ||
+    activePage === 'academy-courses' ||
+    activePage === 'academy-course-detail' ||
+    activePage === 'academy-paths' ||
+    activePage === 'academy-about' ||
+    activePage === 'academy-register';
 
   const cleanPhone = (COMPANY_INFO.contact.whatsappNumber || '201099959133').replace(/[^0-9]/g, '');
   const whatsappNavHref = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
@@ -239,20 +250,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 );
               }
 
-              const isActive = activePage === link.id;
+              const isAcademy = link.id === 'academy';
+              const isActive = isAcademy ? isAcademyActive : activePage === link.id;
 
               return (
                 <button
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative cursor-pointer ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative cursor-pointer ${
                     isActive
-                      ? 'text-white bg-white/[0.1] shadow-sm font-bold'
+                      ? isAcademy
+                        ? 'text-cyan-300 bg-cyan-500/15 border border-cyan-400/30 shadow-[0_0_15px_rgba(0,210,255,0.2)] font-bold'
+                        : 'text-white bg-white/[0.1] shadow-sm font-bold'
+                      : isAcademy
+                      ? 'text-cyan-300/90 hover:text-cyan-200 hover:bg-cyan-500/10'
                       : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
                   }`}
                 >
-                  {link.label}
-                  {isActive && (
+                  {isAcademy && <GraduationCap className="w-4 h-4 text-cyan-400 shrink-0" />}
+                  <span>{link.label}</span>
+                  {isAcademy && (
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-cyan-400 text-dark-950 font-mono tracking-tight">
+                      NEW
+                    </span>
+                  )}
+                  {isActive && !isAcademy && (
                     <span className="absolute bottom-1 start-1/2 -translate-x-1/2 w-4 h-[2px] bg-cyan-400 rounded-full shadow-[0_0_8px_#00D2FF]" />
                   )}
                 </button>
@@ -314,6 +336,62 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               الرئيسية
             </button>
 
+            {/* Academy Mobile Accordion */}
+            <div className="rounded-xl border border-cyan-500/25 overflow-hidden bg-cyan-950/20">
+              <button
+                onClick={() => setMobileAcademyAccordionOpen(!mobileAcademyAccordionOpen)}
+                className="w-full px-4 py-3 text-base font-bold text-cyan-300 flex items-center justify-between hover:bg-white/5 transition-all text-right cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5 text-cyan-400" />
+                  <span>أكاديمية ProSetup</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-400 text-dark-950">
+                    جديد
+                  </span>
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    mobileAcademyAccordionOpen ? 'rotate-180 text-cyan-400' : 'text-slate-400'
+                  }`}
+                />
+              </button>
+
+              {mobileAcademyAccordionOpen && (
+                <div className="p-3 border-t border-cyan-500/20 space-y-1.5 bg-dark-950/70 animate-in fade-in duration-200">
+                  <button
+                    onClick={() => handleLinkClick('academy')}
+                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                  >
+                    رئيسية الأكاديمية
+                  </button>
+                  <button
+                    onClick={() => handleLinkClick('academy-courses')}
+                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                  >
+                    دليل الدورات التدريبية (7)
+                  </button>
+                  <button
+                    onClick={() => handleLinkClick('academy-paths')}
+                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                  >
+                    الخرائط والمسارات المهنية
+                  </button>
+                  <button
+                    onClick={() => handleLinkClick('academy-about')}
+                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                  >
+                    عن الأكاديمية والمنهجية
+                  </button>
+                  <button
+                    onClick={() => handleLinkClick('academy-register')}
+                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 cursor-pointer"
+                  >
+                    استمارة التسجيل والاستشارة
+                  </button>
+                </div>
+              )}
+            </div>
+
             {/* Services Accordion Button */}
             <div className="rounded-xl border border-white/5 overflow-hidden bg-white/[0.02]">
               <button
@@ -373,7 +451,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               )}
             </div>
 
-            {NAV_LINKS.filter((l) => l.id !== 'home' && l.id !== 'services').map((link) => (
+            {NAV_LINKS.filter((l) => l.id !== 'home' && l.id !== 'services' && l.id !== 'academy').map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleLinkClick(link.id)}

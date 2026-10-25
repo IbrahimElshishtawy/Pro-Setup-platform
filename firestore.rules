@@ -21,5 +21,13 @@ service cloud.firestore {
       allow create: if request.resource.data.email is string;
       allow read, update, delete: if request.auth != null;
     }
+
+    // ProSetup Academy Registrations
+    match /academy_registrations/{registrationId} {
+      allow create: if request.resource.data.fullName is string
+                    && request.resource.data.phoneNumber is string
+                    && request.resource.data.courseSlug is string;
+      allow read, update, delete: if request.auth != null;
+    }
   }
 }

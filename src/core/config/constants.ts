@@ -42,6 +42,7 @@ export const COMPANY_INFO = {
 export const NAV_LINKS = [
   { id: "home", label: "الرئيسية", href: "#home" },
   { id: "services", label: "خدماتنا", href: "#services" },
+  { id: "academy", label: "أكاديمية ProSetup", href: "#academy", isAcademy: true },
   { id: "portfolio", label: "معرض أعمالنا", href: "#portfolio" },
   { id: "about", label: "عن الشركة", href: "#about" },
   { id: "process", label: "خطة العمل", href: "#process" },
@@ -90,6 +91,19 @@ export const MEGA_MENU_CATEGORIES = [
     ],
   },
   {
+    id: "technical-repair",
+    title: "صيانة الهواتف والحلول الفنية",
+    shortDesc: "إصلاح اللوحات الأم، اللحام الميكروسكوبي، وتفليش الأنظمة",
+    icon: "Wrench",
+    targetPage: "technical-services",
+    services: [
+      { name: "صيانة شاشات وبطاريات الهواتف", path: "technical-services" },
+      { name: "إصلاح اللوحات الأم Micro-Soldering", path: "technical-services" },
+      { name: "سوفت وير الهواتف وإصلاح الإقلاع", path: "technical-services" },
+      { name: "عقود صيانة أجهزة الشركات (SLA)", path: "technical-services" },
+    ],
+  },
+  {
     id: "security",
     title: "الأنظمة الأمنية والمراقبة",
     shortDesc: "كاميرات مراقبة CCTV، بوابات الدخول والشبكات المحمية",
@@ -108,6 +122,7 @@ export const SERVICE_CATEGORIES = [
   { id: "digital-marketing", name: "التسويق الرقمي", shortDesc: "إدارة السوشيال ميديا، الإعلانات الممولة ونمو الجمهور" },
   { id: "design-branding", name: "التصميم وبناء الهوية", shortDesc: "الهوية البصرية، واجهات UI/UX، وتصميم التغليف" },
   { id: "software-technology", name: "البرمجيات والتكنولوجيا", shortDesc: "مواقع الويب، تطبيقات الجوال، والأنظمة السحابية" },
+  { id: "technical-services", name: "صيانة الهواتف والعتاد", shortDesc: "صيانة ميكروسكوبية، إصلاح اللوحات، وتفليش الهواتف الذكية" },
   { id: "security-surveillance", name: "الأمن والمراقبة الذكية", shortDesc: "كاميرات CCTV، أنظمة التحكم بالدخول، وشبكات NVR" },
   { id: "photography-video", name: "التصوير والإنتاج المرئي", shortDesc: "تصوير تجاري سينمائي، فيديوهات إعلانية، وريلز" },
   { id: "advertising", name: "الحملات الإعلانية", shortDesc: "استراتيجية إعلانية متكاملة وإدارة ميزانيات احترافية" },

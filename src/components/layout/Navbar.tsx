@@ -28,6 +28,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const handleMouseEnterMenu = () => {
     if (menuTimeoutRef.current) clearTimeout(menuTimeoutRef.current);
     setServicesMegaMenuOpen(true);
@@ -321,86 +332,104 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
         </div>
       </div>
 
-      {/* Luxury Full-Screen / Drawer Mobile Menu */}
+      {/* Mobile Menu Backdrop */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-[#020617]/98 backdrop-blur-2xl border-b border-white/10 p-6 shadow-2xl animate-in slide-in-from-top duration-300 max-h-[85vh] overflow-y-auto text-right">
-          <div className="flex flex-col space-y-2 text-right">
+        <div
+          className="md:hidden fixed inset-0 bg-black/85 z-40 transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Solid High-Contrast Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-[65px] bottom-0 bg-[#030712] border-t border-cyan-500/30 p-5 shadow-2xl z-50 overflow-y-auto text-right">
+          <div className="flex flex-col space-y-3 pb-8 text-right">
+            {/* Home link */}
             <button
               onClick={() => handleLinkClick('home')}
-              className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right cursor-pointer ${
+              className={`w-full px-4 py-3 rounded-xl text-base font-bold transition-all text-right flex items-center justify-between cursor-pointer ${
                 activePage === 'home'
-                  ? 'bg-blue-600/20 text-cyan-300 border border-blue-500/30 font-bold'
-                  : 'text-slate-200 hover:bg-white/5'
+                  ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                  : 'bg-[#0b1322] text-slate-100 hover:bg-[#121f36] hover:text-white border border-white/10'
               }`}
             >
-              الرئيسية
+              <span>الرئيسية</span>
+              <span className="text-xs text-cyan-400 font-mono">01</span>
             </button>
 
             {/* Academy Mobile Accordion */}
-            <div className="rounded-xl border border-cyan-500/25 overflow-hidden bg-cyan-950/20">
+            <div className="rounded-xl border border-cyan-500/40 overflow-hidden bg-[#071326] shadow-md">
               <button
                 onClick={() => setMobileAcademyAccordionOpen(!mobileAcademyAccordionOpen)}
-                className="w-full px-4 py-3 text-base font-bold text-cyan-300 flex items-center justify-between hover:bg-white/5 transition-all text-right cursor-pointer"
+                className="w-full px-4 py-3.5 text-base font-bold text-cyan-300 flex items-center justify-between bg-[#0a1b36] hover:bg-[#0e2448] transition-all text-right cursor-pointer"
               >
-                <div className="flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-cyan-400" />
-                  <span>أكاديمية ProSetup</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-400 text-dark-950">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300">
+                    <GraduationCap className="w-4 h-4" />
+                  </div>
+                  <span className="text-white font-black text-base">أكاديمية ProSetup</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-cyan-400 text-dark-950 font-mono">
                     جديد
                   </span>
                 </div>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
+                  className={`w-5 h-5 transition-transform duration-200 ${
                     mobileAcademyAccordionOpen ? 'rotate-180 text-cyan-400' : 'text-slate-400'
                   }`}
                 />
               </button>
 
               {mobileAcademyAccordionOpen && (
-                <div className="p-3 border-t border-cyan-500/20 space-y-1.5 bg-dark-950/70 animate-in fade-in duration-200">
+                <div className="p-3 border-t border-cyan-500/20 space-y-2 bg-[#050c18] animate-in fade-in duration-200">
                   <button
                     onClick={() => handleLinkClick('academy')}
-                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                    className="w-full text-right px-4 py-2.5 rounded-lg text-sm font-bold text-white bg-[#0b182e] hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-all flex items-center justify-between cursor-pointer"
                   >
-                    رئيسية الأكاديمية
+                    <span>رئيسية الأكاديمية</span>
+                    <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
                   </button>
                   <button
                     onClick={() => handleLinkClick('academy-courses')}
-                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                    className="w-full text-right px-4 py-2.5 rounded-lg text-sm font-bold text-white bg-[#0b182e] hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-all flex items-center justify-between cursor-pointer"
                   >
-                    دليل الدورات التدريبية (7)
+                    <span>دليل الدورات التدريبية (7)</span>
+                    <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
                   </button>
                   <button
                     onClick={() => handleLinkClick('academy-paths')}
-                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                    className="w-full text-right px-4 py-2.5 rounded-lg text-sm font-bold text-white bg-[#0b182e] hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-all flex items-center justify-between cursor-pointer"
                   >
-                    الخرائط والمسارات المهنية
+                    <span>الخرائط والمسارات المهنية</span>
+                    <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
                   </button>
                   <button
                     onClick={() => handleLinkClick('academy-about')}
-                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-semibold text-slate-200 hover:text-cyan-300 hover:bg-white/5 cursor-pointer"
+                    className="w-full text-right px-4 py-2.5 rounded-lg text-sm font-bold text-white bg-[#0b182e] hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 transition-all flex items-center justify-between cursor-pointer"
                   >
-                    عن الأكاديمية والمنهجية
+                    <span>عن الأكاديمية والمنهجية</span>
+                    <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
                   </button>
                   <button
                     onClick={() => handleLinkClick('academy-register')}
-                    className="w-full text-right px-3 py-2 rounded-lg text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 cursor-pointer"
+                    className="w-full text-right px-4 py-3 rounded-lg text-sm font-black text-dark-950 bg-gradient-to-r from-cyan-400 via-cyan-300 to-blue-400 hover:brightness-110 shadow-md transition-all flex items-center justify-between cursor-pointer"
                   >
-                    استمارة التسجيل والاستشارة
+                    <span>استمارة التسجيل والاستشارة المباشرة</span>
+                    <ArrowLeft className="w-4 h-4 text-dark-950" />
                   </button>
                 </div>
               )}
             </div>
 
             {/* Services Accordion Button */}
-            <div className="rounded-xl border border-white/5 overflow-hidden bg-white/[0.02]">
+            <div className="rounded-xl border border-white/10 overflow-hidden bg-[#0b1322]">
               <button
                 onClick={() => setMobileServicesAccordionOpen(!mobileServicesAccordionOpen)}
-                className="w-full px-4 py-3 text-base font-medium text-slate-200 flex items-center justify-between hover:bg-white/5 transition-all text-right cursor-pointer"
+                className="w-full px-4 py-3.5 text-base font-bold text-slate-100 flex items-center justify-between hover:bg-white/5 transition-all text-right cursor-pointer"
               >
-                <span className={isServicesActive ? 'text-cyan-400 font-bold' : ''}>خدماتنا المتكاملة</span>
+                <span className={isServicesActive ? 'text-cyan-400 font-black' : 'text-white'}>خدماتنا وحلول الأعمال</span>
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
+                  className={`w-5 h-5 transition-transform duration-200 ${
                     mobileServicesAccordionOpen ? 'rotate-180 text-cyan-400' : 'text-slate-400'
                   }`}
                 />
@@ -408,36 +437,40 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
 
               {/* Accordion Content */}
               {mobileServicesAccordionOpen && (
-                <div className="p-3 border-t border-white/5 space-y-3 bg-dark-950/60 animate-in fade-in duration-200">
+                <div className="p-3 border-t border-white/10 space-y-3 bg-[#060c16] animate-in fade-in duration-200">
                   <button
                     onClick={() => handleLinkClick('services')}
-                    className="w-full text-right px-3 py-2 rounded-lg bg-blue-600/10 text-xs font-bold text-cyan-400 flex items-center justify-between cursor-pointer"
+                    className="w-full text-right px-4 py-2.5 rounded-lg bg-blue-600/20 text-xs font-bold text-cyan-300 border border-blue-500/30 flex items-center justify-between cursor-pointer"
                   >
                     <span>نظرة عامة: كل ما يحتاجه مشروعك</span>
-                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
                   </button>
 
-                  <div className="grid grid-cols-1 gap-2 pt-1">
+                  <div className="grid grid-cols-1 gap-2.5 pt-1">
                     {MEGA_MENU_CATEGORIES.map((cat) => {
                       const Icon = getCategoryIcon(cat.icon);
                       return (
-                        <div key={cat.id} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 space-y-2 text-right">
+                        <div key={cat.id} className="p-3.5 rounded-xl bg-[#0b162c] border border-white/10 space-y-2 text-right">
                           <button
                             onClick={() => handleLinkClick(cat.targetPage)}
                             className="w-full flex items-center justify-between text-right cursor-pointer"
                           >
-                            <div className="flex items-center gap-2">
-                              <Icon className="w-4 h-4 text-cyan-400" />
-                              <span className="text-xs font-bold text-white">{cat.title}</span>
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-lg bg-blue-600/30 flex items-center justify-center text-cyan-400">
+                                <Icon className="w-4 h-4" />
+                              </div>
+                              <span className="text-sm font-bold text-white">{cat.title}</span>
                             </div>
-                            <span className="text-[10px] text-cyan-300 underline">عرض</span>
+                            <span className="text-xs font-bold text-cyan-300 bg-cyan-400/15 px-2 py-0.5 rounded border border-cyan-400/25">
+                              عرض
+                            </span>
                           </button>
-                          <div className="grid grid-cols-2 gap-1.5 pt-1">
+                          <div className="grid grid-cols-2 gap-2 pt-1.5">
                             {cat.services.map((svc, i) => (
                               <button
                                 key={i}
                                 onClick={() => handleLinkClick(svc.path)}
-                                className="text-right text-[11px] text-slate-400 hover:text-white truncate p-1 rounded bg-white/[0.02] cursor-pointer"
+                                className="text-right text-xs font-semibold text-slate-200 hover:text-white truncate p-2 rounded-lg bg-[#070e1b] hover:bg-[#122240] border border-white/5 transition-all cursor-pointer"
                               >
                                 {svc.name}
                               </button>
@@ -451,17 +484,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
               )}
             </div>
 
+            {/* Other Direct Links */}
             {NAV_LINKS.filter((l) => l.id !== 'home' && l.id !== 'services' && l.id !== 'academy').map((link) => (
               <button
                 key={link.id}
                 onClick={() => handleLinkClick(link.id)}
-                className={`px-4 py-3 rounded-xl text-base font-medium transition-all text-right cursor-pointer ${
+                className={`w-full px-4 py-3 rounded-xl text-base font-bold transition-all text-right flex items-center justify-between cursor-pointer ${
                   activePage === link.id
-                    ? 'bg-blue-600/20 text-cyan-300 border border-blue-500/30 font-bold'
-                    : 'text-slate-200 hover:bg-white/5'
+                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20'
+                    : 'bg-[#0b1322] text-slate-100 hover:bg-[#121f36] hover:text-white border border-white/10'
                 }`}
               >
-                {link.label}
+                <span>{link.label}</span>
+                <ChevronLeft className="w-4 h-4 text-slate-400" />
               </button>
             ))}
 
@@ -471,7 +506,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                 href={whatsappNavHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600/90 text-white font-bold text-sm shadow-md"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg transition-all"
               >
                 <MessageSquare className="w-4 h-4 fill-white" />
                 <span>محادثة واتساب فورية</span>
@@ -483,7 +518,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, onNavigate, onOpenQu
                   setMobileMenuOpen(false);
                   onOpenQuote();
                 }}
-                className="w-full font-bold"
+                className="w-full font-black py-3.5 text-sm"
               >
                 طلب عرض أسعار مع كود الخصم
               </Button>

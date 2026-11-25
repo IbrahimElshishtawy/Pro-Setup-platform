@@ -4,7 +4,7 @@ import { CinematicSection } from '../motion/CinematicSection';
 import { TextReveal } from '../motion/TextReveal';
 import { Reveal } from '../motion/Reveal';
 import { StaggerContainer } from '../motion/StaggerContainer';
-import { FacebookIcon, InstagramIcon } from '../ui/SocialIcons';
+import { FacebookIcon, InstagramIcon, TikTokIcon } from '../ui/SocialIcons';
 import { MOTION_CONFIG } from '../../lib/motion';
 
 export function ContactSection() {
@@ -147,7 +147,7 @@ export function ContactSection() {
                     صفحات Kitchen Pro الرسمية
                   </p>
                 </div>
-                <div className="flex items-center gap-2.5">
+                <div className="flex flex-wrap items-center gap-2.5">
                   <a
                     href={SITE_CONTACT.instagramUrl}
                     target="_blank"
@@ -165,6 +165,15 @@ export function ContactSection() {
                   >
                     <FacebookIcon className="w-3.5 h-3.5" />
                     <span>Facebook</span>
+                  </a>
+                  <a
+                    href={SITE_CONTACT.tiktokUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-border px-4 py-2 text-xs font-medium text-charcoal hover:border-charcoal transition-colors"
+                  >
+                    <TikTokIcon className="w-3.5 h-3.5" />
+                    <span>TikTok</span>
                   </a>
                 </div>
               </div>

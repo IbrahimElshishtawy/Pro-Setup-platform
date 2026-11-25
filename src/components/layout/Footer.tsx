@@ -1,7 +1,7 @@
 import { MapPin, Phone } from 'lucide-react';
 import { NAV_LINKS, SITE_CONTACT } from '../../data/siteData';
 import { BrandLogo } from '../ui/BrandLogo';
-import { FacebookIcon, InstagramIcon } from '../ui/SocialIcons';
+import { FacebookIcon, InstagramIcon, TikTokIcon } from '../ui/SocialIcons';
 import { Reveal } from '../motion/Reveal';
 
 export function Footer() {
@@ -19,7 +19,7 @@ export function Footer() {
                 بجودة التصميم والتنفيذ وخدمة ما بعد البيع وضمان مدى الحياة وفقاً
                 لشروط الشركة.
               </p>
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
                   href={SITE_CONTACT.instagramUrl}
                   target="_blank"
@@ -39,6 +39,16 @@ export function Footer() {
                 >
                   <FacebookIcon className="w-3.5 h-3.5" />
                   <span>Facebook</span>
+                </a>
+                <a
+                  href={SITE_CONTACT.tiktokUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="تيك توك Kitchen Pro"
+                  className="inline-flex items-center gap-2 border border-border-dark px-3.5 py-2 text-xs text-surface/85 hover:border-steel hover:text-white transition-colors"
+                >
+                  <TikTokIcon className="w-3.5 h-3.5" />
+                  <span>TikTok</span>
                 </a>
               </div>
             </div>

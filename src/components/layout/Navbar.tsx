@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { NAV_LINKS, SITE_CONTACT } from '../../data/siteData';
 import { BrandLogo } from '../ui/BrandLogo';
-import { FacebookIcon, InstagramIcon } from '../ui/SocialIcons';
+import { FacebookIcon, InstagramIcon, TikTokIcon } from '../ui/SocialIcons';
 import { MOTION_CONFIG } from '../../lib/motion';
 
 export function Navbar() {
@@ -85,6 +85,15 @@ export function Navbar() {
               <FacebookIcon className="w-4 h-4" />
             </a>
             <a
+              href={SITE_CONTACT.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="حساب Kitchen Pro على تيك توك"
+              className="inline-flex items-center justify-center w-9 h-9 border border-border text-graphite hover:border-charcoal hover:text-charcoal transition-colors duration-200"
+            >
+              <TikTokIcon className="w-4 h-4" />
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-4 py-2.5 transition-colors duration-200"
             >
@@ -153,6 +162,16 @@ export function Navbar() {
               className="inline-flex items-center justify-center w-11 h-11 border border-border text-charcoal hover:bg-surface-soft transition-colors"
             >
               <FacebookIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={SITE_CONTACT.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={mobileOpen ? 0 : -1}
+              aria-label="تيك توك Kitchen Pro"
+              className="inline-flex items-center justify-center w-11 h-11 border border-border text-charcoal hover:bg-surface-soft transition-colors"
+            >
+              <TikTokIcon className="w-4 h-4" />
             </a>
           </div>
         </div>

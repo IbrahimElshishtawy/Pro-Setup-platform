@@ -53,6 +53,7 @@ export const SITE_CONTACT = {
   googleMapsUrl: 'https://maps.app.goo.gl/75fKbNpSz46uQyc19?g_st=aw',
   instagramUrl: 'https://www.instagram.com/kitchenpro210?hvrq=MXd2ODl4Y3hoMjdvbA==',
   facebookUrl: 'https://www.facebook.com/share/19ijqL6xDb/',
+  tiktokUrl: 'https://www.tiktok.com/@kitchen.pro38',
 };
 
 export function buildWhatsAppLink(phoneIndex: 0 | 1, message: string): string {

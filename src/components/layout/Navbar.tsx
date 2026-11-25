@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, ArrowUpLeft } from 'lucide-react';
-import { NAV_LINKS } from '../../data/siteData';
+import { Menu, X, Phone } from 'lucide-react';
+import { NAV_LINKS, SITE_CONTACT } from '../../data/siteData';
 import { BrandLogo } from '../ui/BrandLogo';
+import { FacebookIcon, InstagramIcon } from '../ui/SocialIcons';
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,7 +32,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
-        <div className="flex h-[72px] items-center justify-between gap-4">
+        <div className="flex h-[76px] items-center justify-between gap-4">
           <a
             href="#hero"
             aria-label="Kitchen Pro الرئيسية"
@@ -40,7 +41,7 @@ export function Navbar() {
             <BrandLogo />
           </a>
 
-          <nav aria-label="التنقل الرئيسي" className="hidden lg:flex items-center gap-8">
+          <nav aria-label="التنقل الرئيسي" className="hidden lg:flex items-center gap-7">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -52,13 +53,31 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2.5">
+            <a
+              href={SITE_CONTACT.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="حساب Kitchen Pro على إنستجرام"
+              className="inline-flex items-center justify-center w-9 h-9 border border-border text-graphite hover:border-charcoal hover:text-charcoal transition-colors"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={SITE_CONTACT.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="صفحة Kitchen Pro على فيسبوك"
+              className="inline-flex items-center justify-center w-9 h-9 border border-border text-graphite hover:border-charcoal hover:text-charcoal transition-colors"
+            >
+              <FacebookIcon className="w-4 h-4" />
+            </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-5 py-2.5 transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-4 py-2.5 transition-colors duration-200"
             >
-              <span>احجز معاينة</span>
-              <ArrowUpLeft className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5" />
+              <span>كلمنا دلوقتي</span>
             </a>
           </div>
 
@@ -77,7 +96,7 @@ export function Navbar() {
       {/* Mobile Menu Drawer */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-border bg-surface">
-          <div className="mx-auto max-w-[1380px] px-4 sm:px-6 py-6 flex flex-col gap-1">
+          <div className="mx-auto max-w-[1380px] px-4 sm:px-6 py-5 flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -88,14 +107,34 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-5 py-3 transition-colors"
-            >
-              <span>احجز معاينة هندسية</span>
-              <ArrowUpLeft className="w-4 h-4" />
-            </a>
+            <div className="mt-4 pt-4 border-t border-border flex items-center gap-3">
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-4 py-3 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>كلمنا وابدأ مشروعك</span>
+              </a>
+              <a
+                href={SITE_CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="إنستجرام Kitchen Pro"
+                className="inline-flex items-center justify-center w-11 h-11 border border-border text-charcoal hover:bg-surface-soft transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href={SITE_CONTACT.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="فيسبوك Kitchen Pro"
+                className="inline-flex items-center justify-center w-11 h-11 border border-border text-charcoal hover:bg-surface-soft transition-colors"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       )}

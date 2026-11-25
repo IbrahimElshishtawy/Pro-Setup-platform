@@ -1,297 +1,165 @@
-export type ProjectCategory = 'all' | 'kitchens' | 'windows' | 'dressing';
+export type GalleryCategory = 'all' | 'kitchens' | 'windows' | 'dressing';
 
-export interface SolutionItem {
-  code: string;
-  id: Exclude<ProjectCategory, 'all'>;
-  title: string;
-  subtitle: string;
-  description: string;
-  specs: string[];
-  image: string;
+export interface PhoneContact {
+  label: string;
+  display: string;
+  telHref: string;
+  whatsappHref: string;
 }
 
-export interface ProjectItem {
+export interface ServiceItem {
+  code: string;
+  id: GalleryCategory | 'after-sales';
+  title: string;
+  description: string;
+  linkToGallery?: GalleryCategory;
+}
+
+export interface GalleryItem {
   id: string;
-  code: string;
   title: string;
-  category: Exclude<ProjectCategory, 'all'>;
+  category: Exclude<GalleryCategory, 'all'>;
   categoryLabel: string;
-  location: string;
-  year: string;
-  area: string;
-  material: string;
-  finish: string;
-  summary: string;
-  details: string[];
+  caption: string;
   image: string;
-}
-
-export interface ProcessStage {
-  step: string;
-  title: string;
-  duration: string;
-  description: string;
-}
-
-export interface MaterialSpec {
-  code: string;
-  name: string;
-  origin: string;
-  swatch: string;
-  thickness: string;
-  usage: string;
 }
 
 export const SITE_CONTACT = {
   brandName: 'Kitchen Pro',
-  brandTagline: 'Architectural Kitchens · Windows · Dressing Systems',
-  phoneDisplay: '+20 10 0000 0000',
-  phoneHref: 'tel:+201000000000',
-  whatsappNumber: import.meta.env.VITE_CONTACT_WHATSAPP || '201000000000',
-  email: import.meta.env.VITE_CONTACT_EMAIL || 'info@kitchenpro.eg',
-  location: import.meta.env.VITE_OFFICE_LOCATION || 'القاهرة الجديدة، مصر',
-  workingHours: 'السبت – الخميس | 10:00 ص – 7:00 م',
+  brandLogo: '/images/logo.png',
+  heroImage: '/images/ktichen_pro.png',
+  aboutImage: '/images/imagekitchen.png',
+  phones: [
+    {
+      label: 'الرقم الأول',
+      display: '01095671416',
+      telHref: 'tel:01095671416',
+      whatsappHref: 'https://wa.me/201095671416',
+    },
+    {
+      label: 'الرقم الثاني',
+      display: '01044991391',
+      telHref: 'tel:01044991391',
+      whatsappHref: 'https://wa.me/201044991391',
+    },
+  ] as PhoneContact[],
+  googleMapsUrl: 'https://maps.app.goo.gl/75fKbNpSz46uQyc19?g_st=aw',
+  instagramUrl: 'https://www.instagram.com/kitchenpro210?hvrq=MXd2ODl4Y3hoMjdvbA==',
+  facebookUrl: 'https://www.facebook.com/share/19ijqL6xDb/',
 };
+
+export function buildWhatsAppLink(phoneIndex: 0 | 1, message: string): string {
+  const base = SITE_CONTACT.phones[phoneIndex].whatsappHref;
+  return `${base}?text=${encodeURIComponent(message)}`;
+}
 
 export const NAV_LINKS = [
   { label: 'الرئيسية', href: '#hero' },
-  { label: 'الحلول', href: '#solutions' },
-  { label: 'الأعمال', href: '#portfolio' },
-  { label: 'التصنيع والخامات', href: '#craftsmanship' },
+  { label: 'عن الشركة', href: '#about' },
+  { label: 'خدماتنا', href: '#services' },
+  { label: 'أعمالنا', href: '#portfolio' },
+  { label: 'الضمان', href: '#guarantee' },
   { label: 'تواصل معنا', href: '#contact' },
 ];
 
-export const HERO_SPECS = [
-  { code: 'SUS-304', label: 'ستانلس ستيل غذائي مقاوم للصدأ' },
-  { code: '±0.5 mm', label: 'دقة تقطيع وتجميع CNC' },
-  { code: '10 YRS', label: 'ضمان هيكلي على التصنيع' },
+export const COMPANY_PILLARS = [
+  { code: '01', label: 'الاهتمام بجودة التصميم والتنفيذ' },
+  { code: '02', label: 'حلول مناسبة لمساحتك واحتياجاتك' },
+  { code: '03', label: 'خدمة ما بعد البيع وضمان مدى الحياة وفقاً لشروط الشركة' },
 ];
 
-export const SOLUTIONS: SolutionItem[] = [
+export const SERVICES: ServiceItem[] = [
   {
     code: '01',
     id: 'kitchens',
-    title: 'المطابخ العصرية',
-    subtitle: 'Modern Stainless & Architectural Kitchens',
+    title: 'المطابخ',
     description:
-      'تصميم وتصنيع مطابخ حديثة بهياكل مقاومة للرطوبة والحرارة، تجمع بين الاستيل المصقول والأسطح المطفية الهادئة وتوزيع وظيفي مدروس لكل سنتيمتر.',
-    specs: ['ستانلس ستيل 304 مصقول', 'مفصلات ومجاري Soft-Close أوروبية', 'تأسيس إضاءة مخفية مدروسة'],
-    image: '/images/project-steel-kitchen.jpg',
+      'بنساعدك تختار تصميم مطبخ يناسب مساحة بيتك وطريقة استخدامك، مع الاهتمام بتقسيم الوحدات والتفاصيل اللي بتسهّل عليك كل يوم.',
+    linkToGallery: 'kitchens',
   },
   {
     code: '02',
     id: 'windows',
-    title: 'الشبابيك والواجهات',
-    subtitle: 'Thermal-Break Aluminum & Glass Systems',
+    title: 'الشبابيك',
     description:
-      'أنظمة شبابيك وأبواب منزلقة بقطاعات رفيعة تمنحك رؤية مفتوحة وعزلاً صوتياً وحرارياً عالياً، بتشطيبات فحمية مطفية تندمج مع العمارة المعاصرة.',
-    specs: ['قطاعات ألومنيوم عازلة للحرارة', 'زجاج مزدوج عازل للصوت', 'إكسسوارات ألمانية عالية التحمل'],
-    image: '/images/project-windows.jpg',
+      'بنقدم حلول للشبابيك بتصميمات عصرية تناسب شكل المكان واحتياجاتك، مع الاهتمام بالتفاصيل وجودة التنفيذ.',
+    linkToGallery: 'windows',
   },
   {
     code: '03',
     id: 'dressing',
-    title: 'الدريسنج روم',
-    subtitle: 'Modular Walk-In Wardrobe Systems',
+    title: 'الدريسنج',
     description:
-      'وحدات تخزين ودريسنج روم بتقسيم هندسي مرن، أبواب زجاجية بإطارات معدنية دقيقة، وإضاءة داخلية هادئة تبرز التنظيم وسهولة الاستخدام اليومي.',
-    specs: ['تقسيم معياري حسب المساحة', 'إطارات ألومنيوم مطفي وزجاج مدخن', 'وحدات أدراج وإكسسوارات مدمجة'],
-    image: '/images/project-dressing.jpg',
+      'بنصمم وحدات دريسنج تساعدك تستغل المساحة بشكل أفضل، وتنظم هدومك ومستلزماتك بطريقة عملية وشكل مرتب.',
+    linkToGallery: 'dressing',
+  },
+  {
+    code: '04',
+    id: 'after-sales',
+    title: 'خدمة ما بعد البيع',
+    description:
+      'علاقتنا بيك مش بتنتهي بعد التركيب. بنهتم بمتابعة الخدمة والتواصل معاك بعد التسليم.',
   },
 ];
 
-export const CATEGORY_FILTERS: { id: ProjectCategory; label: string }[] = [
-  { id: 'all', label: 'كل الأعمال' },
+export const GALLERY_FILTERS: { id: GalleryCategory; label: string }[] = [
+  { id: 'all', label: 'الكل' },
   { id: 'kitchens', label: 'المطابخ' },
   { id: 'windows', label: 'الشبابيك' },
   { id: 'dressing', label: 'الدريسنج' },
 ];
 
-export const PROJECTS: ProjectItem[] = [
+/**
+ * معرض أعمال Kitchen Pro — لإضافة صورة جديدة، أضف الصورة داخل public/images/
+ * ثم أضف عنصراً جديداً في هذه القائمة فقط.
+ */
+export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    id: 'kp-01',
-    code: 'KP-2026-01',
-    title: 'مطبخ جزيرة استيل معماري',
+    id: 'kp-showroom-kitchen',
+    title: 'معرض Kitchen Pro للمطابخ العصرية',
     category: 'kitchens',
     categoryLabel: 'المطابخ',
-    location: 'القاهرة الجديدة',
-    year: '2026',
-    area: '28 م²',
-    material: 'ستانلس ستيل 304 + جرافيت مطفي',
-    finish: 'Brushed Hairline Steel',
-    summary:
-      'مطبخ مفتوح بجزيرة مركزية من الاستيل المصقول بالكامل مع وحدات طويلة بدون مقابض بتشطيب فحمي مطفي، لتجربة استخدام عملية وسهلة التنظيف.',
-    details: [
-      'سطح عمل وحوض مدمج بدون فواصل من ستانلس ستيل 304 بسُمك 1.5 مم',
-      'وحدات تخزين رأسية بآليات فتح Push-to-Open وإغلاق هادئ',
-      'توزيع هندسي لمثلث الحركة يراعي الإضاءة الطبيعية والتهوية',
-    ],
-    image: '/images/hero-kitchen.jpg',
+    caption: 'تصميم مطبخ عصري يجمع بين الخطوط البسيطة والاستغلال العملي للمساحة.',
+    image: '/images/ktichen_pro.png',
   },
   {
-    id: 'kp-02',
-    code: 'KP-2026-02',
-    title: 'وحدة مطبخ ستانلس متصلة',
+    id: 'kp-modern-kitchen-design',
+    title: 'تصميم وتنفيذ المطابخ الحديثة',
     category: 'kitchens',
     categoryLabel: 'المطابخ',
-    location: 'الشيخ زايد',
-    year: '2026',
-    area: '19 م²',
-    material: 'ستانلس ستيل 304 + رمادي ناعم',
-    finish: 'Matte Soft Gray / Brushed Steel',
-    summary:
-      'تصميم خطي هادئ يجمع بين مقاومة الاستيل في منطقة التحضير والغسيل مع وحدات علوية باللون الرمادي الناعم وإضاءة خطية مخفية.',
-    details: [
-      'تقطيع ليزر دقيق لضمان استقامة الفواصل بنسبة 2 مم فقط',
-      'إضاءة LED محايدة 4000K مدمجة داخل الهيكل العلوي',
-      'عزل داخلي لتقليل صوت الماء والارتطام على سطح الاستيل',
-    ],
+    caption: 'توزيع متوازن لوحدات المطبخ والإضاءة بما يناسب الاستخدام اليومي.',
+    image: '/images/imagekitchen.png',
+  },
+  {
+    id: 'kp-steel-kitchen',
+    title: 'مطبخ بتفاصيل استيل هادئة',
+    category: 'kitchens',
+    categoryLabel: 'المطابخ',
+    caption: 'تقسيم عملي للوحدات مع أسطح سهلة التنظيف وتصميم حديث.',
     image: '/images/project-steel-kitchen.jpg',
   },
   {
-    id: 'kp-03',
-    code: 'KP-2026-03',
-    title: 'مطبخ جرافيت وحجر طبيعي',
+    id: 'kp-graphite-kitchen',
+    title: 'مطبخ بألوان محايدة وتصميم مفتوح',
     category: 'kitchens',
     categoryLabel: 'المطابخ',
-    location: 'العاصمة الإدارية',
-    year: '2025',
-    area: '24 م²',
-    material: 'جرافيت مطفي مضاد للبصمات + حجر رمادي',
-    finish: 'Anti-Fingerprint Matte Graphite',
-    summary:
-      'تكوين معماري متوازن يعتمد على واجهات جرافيت مطفية مقاومة للبصمات والخدوش مع جزيرة حجرية وتفاصيل استيل دقيقة في المقابض والحوض.',
-    details: [
-      'واجهات مقاومة للبصمات والحرارة مع حواف ليزر غير مرئية',
-      'نظام تنظيم داخلي للأدراج من الألومنيوم المؤكسد',
-      'تكامل كامل مع الأجهزة المدمجة Built-In',
-    ],
+    caption: 'تناسق بين درجات الرمادي والفحمي لراحة بصرية ومساحة حركة مريحة.',
     image: '/images/project-graphite-kitchen.jpg',
   },
   {
-    id: 'kp-04',
-    code: 'KP-2026-04',
-    title: 'واجهات وشبابيك منزلقة عازلة',
+    id: 'kp-windows',
+    title: 'حلول الشبابيك العصرية',
     category: 'windows',
     categoryLabel: 'الشبابيك',
-    location: 'الساحل الشمالي',
-    year: '2026',
-    area: '42 م² واجهات',
-    material: 'ألومنيوم Thermal-Break + زجاج مزدوج',
-    finish: 'Powder-Coated Charcoal Matte',
-    summary:
-      'شبابيك وأبواب منزلقة بارتفاع كامل من الأرضية للسقف بقطاعات نحيفة تزيد من دخول الإضاءة الطبيعية مع عزل حراري وصوتي فعّال.',
-    details: [
-      'زجاج مزدوج 24 مم محقون بغاز الأرجون للعزل الحراري',
-      'مجاري تصريف مياه مخفية ومقاومة لظروف الرطوبة الساحلية',
-      'مفصلات وعجلات تتحمل أوزان الضلف الكبيرة بسلاسة تامة',
-    ],
+    caption: 'تصميمات شبابيك تتماشى مع شكل المكان وتوفر إضاءة طبيعية واضحة.',
     image: '/images/project-windows.jpg',
   },
   {
-    id: 'kp-05',
-    code: 'KP-2026-05',
-    title: 'دريسنج روم بإطارات زجاجية',
+    id: 'kp-dressing',
+    title: 'وحدات دريسنج وتنظيم المساحة',
     category: 'dressing',
     categoryLabel: 'الدريسنج',
-    location: 'التجمع الخامس',
-    year: '2026',
-    area: '16 م²',
-    material: 'ألومنيوم فحمي + زجاج مدخن + رمادي معماري',
-    finish: 'Anodized Charcoal & Smoked Glass',
-    summary:
-      'غرفة ملابس منظمة بأبواب زجاجية مدخنة وإطارات معدنية دقيقة، مع أرفف قابلة للتعديل وإضاءة خطية تشتغل تلقائياً عند الفتح.',
-    details: [
-      'وحدات تعليق من الاستيل المصقول وأدراج مبطنة للإكسسوارات',
-      'حساسات حركة هادئة لإضاءة الأرفف الداخلية',
-      'استغلال كامل للارتفاع حتى السقف بدون مساحات مهدرة',
-    ],
+    caption: 'تقسيم منظم لوحدات التخزين يساعدك تستغل كل مساحة بشكل عملي.',
     image: '/images/project-dressing.jpg',
-  },
-  {
-    id: 'kp-06',
-    code: 'KP-2025-06',
-    title: 'تفاصيل تجميع وحواف ستيل CNC',
-    category: 'kitchens',
-    categoryLabel: 'المطابخ',
-    location: 'ورشة Kitchen Pro',
-    year: '2026',
-    area: 'تفاصيل هندسية',
-    material: 'ستانلس ستيل 304 مقوى',
-    finish: 'Precision Mitered Edge',
-    summary:
-      'نموذج يوضح دقة التقاء الزوايا 45 درجة، تشطيب الحواف المصقولة، وانسيابية المجاري المخفية التي تمنح كل وحدة عمراً افتراضياً طويلاً.',
-    details: [
-      'تشكيل وتثنية على ماكينات CNC بدقة ±0.5 مم',
-      'لحام وتنعيم غير مرئي للزوايا والأسطح المتصلة',
-      'اختبار تحمل الحركة لـ 80,000 دورة فتح وإغلاق',
-    ],
-    image: '/images/craftsmanship-steel.jpg',
-  },
-];
-
-export const PROCESS_STAGES: ProcessStage[] = [
-  {
-    step: '01',
-    title: 'المعاينة والرفع المساحي',
-    duration: '1 – 2 يوم',
-    description:
-      'رفع المقاسات بالليزر في الموقع بدقة مليمترية ودراسة نقاط الكهرباء والسباكة والإضاءة الطبيعية.',
-  },
-  {
-    step: '02',
-    title: 'التصميم الهندسي واعتماد الخامات',
-    duration: '3 – 5 أيام',
-    description:
-      'إعداد رسومات تنفيذية وتصور ثلاثي الأبعاد واضح، مع اختيار عينات الاستيل والقطاعات والإكسسوارات.',
-  },
-  {
-    step: '03',
-    title: 'التصنيع الدقيق في المصنع',
-    duration: '14 – 21 يوماً',
-    description:
-      'التقطيع والتشكيل على خطوط CNC مع فحص جودة لكل مفصلة وحافة وتشطيب قبل خروج المشروع.',
-  },
-  {
-    step: '04',
-    title: 'التركيب والضبط والتسليم',
-    duration: '2 – 4 أيام',
-    description:
-      'تركيب احترافي بواسطة فريق فني متخصص، وزن جميع الضلف والأدراج، وتسليم شهادة الضمان.',
-  },
-];
-
-export const MATERIAL_SPECS: MaterialSpec[] = [
-  {
-    code: 'MAT-01',
-    name: 'ستانلس ستيل 304 مصقول',
-    origin: 'مقاوم للصدأ والحرارة',
-    swatch: '#8C9298',
-    thickness: '1.2 – 1.5 mm',
-    usage: 'الأسطح، الأحواض المدمجة، وهياكل المطابخ',
-  },
-  {
-    code: 'MAT-02',
-    name: 'فحمي مطفي مقاوم للبصمات',
-    origin: 'تشطيب معماري هادئ',
-    swatch: '#25292D',
-    thickness: '18 mm',
-    usage: 'واجهات المطابخ وإطارات الشبابيك',
-  },
-  {
-    code: 'MAT-03',
-    name: 'جرافيت معماري عميق',
-    origin: 'مقاوم للخدش والرطوبة',
-    swatch: '#343A40',
-    thickness: '18 – 22 mm',
-    usage: 'وحدات التخزين والدريسنج روم',
-  },
-  {
-    code: 'MAT-04',
-    name: 'رمادي ناعم مطفي',
-    origin: 'توازن بصري وإضاءة',
-    swatch: '#E5E7E8',
-    thickness: '18 mm',
-    usage: 'الوحدات العلوية والأرفف الداخلية',
   },
 ];

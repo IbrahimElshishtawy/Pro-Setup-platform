@@ -12,7 +12,14 @@ export interface ServiceItem {
   id: GalleryCategory | 'after-sales';
   title: string;
   description: string;
+  image?: string;
   linkToGallery?: GalleryCategory;
+}
+
+export interface StorytellingStep {
+  step: string;
+  title: string;
+  description: string;
 }
 
 export interface GalleryItem {
@@ -75,6 +82,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'المطابخ',
     description:
       'بنساعدك تختار تصميم مطبخ يناسب مساحة بيتك وطريقة استخدامك، مع الاهتمام بتقسيم الوحدات والتفاصيل اللي بتسهّل عليك كل يوم.',
+    image: '/images/project-steel-kitchen.jpg',
     linkToGallery: 'kitchens',
   },
   {
@@ -83,6 +91,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'الشبابيك',
     description:
       'بنقدم حلول للشبابيك بتصميمات عصرية تناسب شكل المكان واحتياجاتك، مع الاهتمام بالتفاصيل وجودة التنفيذ.',
+    image: '/images/project-windows.jpg',
     linkToGallery: 'windows',
   },
   {
@@ -91,6 +100,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'الدريسنج',
     description:
       'بنصمم وحدات دريسنج تساعدك تستغل المساحة بشكل أفضل، وتنظم هدومك ومستلزماتك بطريقة عملية وشكل مرتب.',
+    image: '/images/project-dressing.jpg',
     linkToGallery: 'dressing',
   },
   {
@@ -99,6 +109,28 @@ export const SERVICES: ServiceItem[] = [
     title: 'خدمة ما بعد البيع',
     description:
       'علاقتنا بيك مش بتنتهي بعد التركيب. بنهتم بمتابعة الخدمة والتواصل معاك بعد التسليم.',
+    image: '/images/ktichen_pro.png',
+  },
+];
+
+export const STORYTELLING_STEPS: StorytellingStep[] = [
+  {
+    step: '01',
+    title: 'تصميم يبدأ من مساحتك الحقيقية',
+    description:
+      'قبل أي خطوة، بنفهم مساحة بيتك وطريقة استخدامك اليومي علشان كل وحدة وممر وإضاءة تكون في مكانها الصح.',
+  },
+  {
+    step: '02',
+    title: 'اهتمام بالتفاصيل وجودة التنفيذ',
+    description:
+      'سواء في المطبخ أو الشبابيك أو الدريسنج، بنركز على دقة التشطيب والتقفيل علشان الشكل العصري يعيش معاك بنفس الجودة.',
+  },
+  {
+    step: '03',
+    title: 'تسليم مريح ومتابعة بعد البيع',
+    description:
+      'شغلنا مش بيخلص يوم التركيب — بنفضل معاك بخدمة ما بعد البيع وضمان مدى الحياة وفقاً لشروط الشركة.',
   },
 ];
 

@@ -5,13 +5,19 @@ import {
   type GalleryCategory,
   type GalleryItem,
 } from '../../data/siteData';
-import { Reveal } from '../ui/Reveal';
+import { CinematicSection } from '../motion/CinematicSection';
+import { TextReveal } from '../motion/TextReveal';
+import { Reveal } from '../motion/Reveal';
+import { ImageReveal } from '../motion/ImageReveal';
+import { MOTION_CONFIG } from '../../lib/motion';
 
 interface PortfolioSectionProps {
   activeCategory: GalleryCategory;
   onSelectCategory: (category: GalleryCategory) => void;
   onSelectProject: (item: GalleryItem) => void;
 }
+
+const REVEAL_DIRECTIONS = ['bottom', 'right', 'left'] as const;
 
 export function PortfolioSection({
   activeCategory,
@@ -24,24 +30,32 @@ export function PortfolioSection({
       : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="bg-surface-white border-b border-border py-20 lg:py-28">
+    <CinematicSection id="portfolio" className="bg-surface-white border-b border-border py-20 lg:py-28">
       <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
-        <Reveal>
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-border">
-            <div className="space-y-3 max-w-2xl">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-10 border-b border-border">
+          <div className="space-y-3 max-w-2xl">
+            <Reveal variant="fade">
               <p className="font-mono text-xs tracking-[0.16em] uppercase text-steel-muted" dir="ltr">
                 03 / GALLERY
               </p>
-              <h2 className="text-2xl sm:text-4xl font-semibold text-charcoal leading-snug">
-                شوف شغلنا على أرض الواقع
-              </h2>
+            </Reveal>
+            <TextReveal
+              as="h2"
+              delayMs={80}
+              className="text-2xl sm:text-4xl font-semibold text-charcoal leading-snug"
+            >
+              شوف شغلنا على أرض الواقع
+            </TextReveal>
+            <Reveal variant="paragraph" delayMs={150}>
               <p className="text-sm sm:text-base text-graphite leading-relaxed">
                 كل مشروع ليه تفاصيله، وكل مساحة ليها حل مناسب. اتفرج على مجموعة من
                 أعمال Kitchen Pro واختار التصميم اللي قريب من ذوقك.
               </p>
-            </div>
+            </Reveal>
+          </div>
 
-            {/* Category Filter Tabs */}
+          {/* Category Filter Tabs */}
+          <Reveal variant="button" delayMs={180}>
             <div
               role="tablist"
               aria-label="تصفية معرض الأعمال حسب القسم"
@@ -67,13 +81,18 @@ export function PortfolioSection({
                 );
               })}
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        {/* Extensible Architectural Gallery Grid */}
+        {/* Staggered Architectural Gallery Grid */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredItems.map((item, idx) => (
-            <Reveal key={item.id} variant="image" delayMs={(idx % 3) * 60}>
+            <ImageReveal
+              key={item.id}
+              direction={REVEAL_DIRECTIONS[idx % REVEAL_DIRECTIONS.length]}
+              delayMs={(idx % 3) * MOTION_CONFIG.stagger.tight}
+              className="h-full"
+            >
               <article className="group border border-border bg-surface flex flex-col h-full transition-colors duration-300 hover:border-charcoal/60">
                 <button
                   type="button"
@@ -85,21 +104,22 @@ export function PortfolioSection({
                       src={item.image}
                       alt={item.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-architectural group-hover:scale-[1.03]"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-architectural md:group-hover:scale-[1.04]"
                     />
                     <span className="absolute top-3 right-3 bg-surface/95 border border-border px-2.5 py-1 text-[11px] font-medium text-charcoal">
                       {item.categoryLabel}
                     </span>
                     <span
-                      className="absolute bottom-3 left-3 w-8 h-8 bg-charcoal/80 text-surface flex items-center justify-center opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+                      className="absolute bottom-3 left-3 w-8 h-8 bg-charcoal/85 text-surface flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
                       aria-hidden="true"
                     >
                       <Maximize2 className="w-3.5 h-3.5" />
                     </span>
                   </div>
 
+                  {/* Always visible on mobile & desktop — never relies solely on hover */}
                   <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between gap-3 w-full">
-                    <h3 className="text-lg font-semibold text-charcoal group-hover:text-accent-blue transition-colors">
+                    <h3 className="text-lg font-semibold text-charcoal transition-colors duration-200 group-hover:text-accent-blue">
                       {item.title}
                     </h3>
                     <p className="text-sm text-graphite leading-relaxed">
@@ -108,10 +128,10 @@ export function PortfolioSection({
                   </div>
                 </button>
               </article>
-            </Reveal>
+            </ImageReveal>
           ))}
         </div>
       </div>
-    </section>
+    </CinematicSection>
   );
 }

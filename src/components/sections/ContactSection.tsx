@@ -1,7 +1,11 @@
 import { Phone, MessageCircle, MapPin, ArrowUpLeft } from 'lucide-react';
 import { SITE_CONTACT, buildWhatsAppLink } from '../../data/siteData';
-import { Reveal } from '../ui/Reveal';
+import { CinematicSection } from '../motion/CinematicSection';
+import { TextReveal } from '../motion/TextReveal';
+import { Reveal } from '../motion/Reveal';
+import { StaggerContainer } from '../motion/StaggerContainer';
 import { FacebookIcon, InstagramIcon } from '../ui/SocialIcons';
+import { MOTION_CONFIG } from '../../lib/motion';
 
 export function ContactSection() {
   const defaultWhatsappHref = buildWhatsAppLink(
@@ -10,56 +14,71 @@ export function ContactSection() {
   );
 
   return (
-    <section id="contact" className="bg-surface py-20 lg:py-28">
+    <CinematicSection id="contact" className="bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Heading & Primary Action Buttons */}
-          <Reveal className="lg:col-span-6 space-y-6">
-            <p className="font-mono text-xs tracking-[0.16em] uppercase text-steel-muted" dir="ltr">
-              05 / CONTACT KITCHEN PRO
-            </p>
-            <h2 className="text-2xl sm:text-4xl font-semibold text-charcoal leading-snug">
+          <div className="lg:col-span-6 space-y-6">
+            <Reveal variant="fade">
+              <p className="font-mono text-xs tracking-[0.16em] uppercase text-steel-muted" dir="ltr">
+                06 / CONTACT KITCHEN PRO
+              </p>
+            </Reveal>
+
+            <TextReveal
+              as="h2"
+              delayMs={80}
+              className="text-2xl sm:text-4xl font-semibold text-charcoal leading-snug"
+            >
               عندك فكرة لمطبخك أو بيتك؟ خلينا نبدأ
-            </h2>
-            <p className="text-base text-graphite leading-relaxed max-w-xl">
-              احكيلنا إنت محتاج إيه، وإحنا نساعدك تعرف أنسب الحلول لمساحتك واحتياجاتك.
-            </p>
+            </TextReveal>
+
+            <Reveal variant="paragraph" delayMs={150}>
+              <p className="text-base text-graphite leading-relaxed max-w-xl">
+                احكيلنا إنت محتاج إيه، وإحنا نساعدك تعرف أنسب الحلول لمساحتك واحتياجاتك.
+              </p>
+            </Reveal>
 
             {/* Primary Direct CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-3">
-              <a
-                href={SITE_CONTACT.phones[0].telHref}
-                className="inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-6 py-3.5 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                <span>اتصل بينا</span>
-              </a>
+            <Reveal variant="button" delayMs={220}>
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-3">
+                <a
+                  href={SITE_CONTACT.phones[0].telHref}
+                  className="inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-6 py-3.5 transition-colors duration-200"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>اتصل بينا</span>
+                </a>
 
-              <a
-                href={defaultWhatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal hover:bg-charcoal hover:text-surface text-sm font-medium px-6 py-3.5 transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>ابعتلنا واتساب</span>
-              </a>
+                <a
+                  href={defaultWhatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 border border-charcoal text-charcoal hover:bg-charcoal hover:text-surface text-sm font-medium px-6 py-3.5 transition-colors duration-200"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>ابعتلنا واتساب</span>
+                </a>
 
-              <a
-                href={SITE_CONTACT.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-border bg-surface-white text-charcoal hover:border-charcoal text-sm font-medium px-6 py-3.5 transition-colors"
-              >
-                <MapPin className="w-4 h-4" />
-                <span>زورنا على الخريطة</span>
-              </a>
-            </div>
-          </Reveal>
+                <a
+                  href={SITE_CONTACT.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 border border-border bg-surface-white text-charcoal hover:border-charcoal text-sm font-medium px-6 py-3.5 transition-colors duration-200"
+                >
+                  <MapPin className="w-4 h-4" />
+                  <span>زورنا على الخريطة</span>
+                </a>
+              </div>
+            </Reveal>
+          </div>
 
-          {/* Direct Phone Numbers, WhatsApp & Social Cards */}
-          <Reveal delayMs={80} className="lg:col-span-6">
-            <div className="border border-border bg-surface-white divide-y divide-border">
+          {/* Direct Phone Numbers, WhatsApp & Social Cards with Stagger */}
+          <div className="lg:col-span-6">
+            <StaggerContainer
+              staggerMs={MOTION_CONFIG.stagger.tight}
+              className="border border-border bg-surface-white divide-y divide-border"
+            >
               {SITE_CONTACT.phones.map((phone, index) => (
                 <div
                   key={phone.display}
@@ -149,10 +168,10 @@ export function ContactSection() {
                   </a>
                 </div>
               </div>
-            </div>
-          </Reveal>
+            </StaggerContainer>
+          </div>
         </div>
       </div>
-    </section>
+    </CinematicSection>
   );
 }

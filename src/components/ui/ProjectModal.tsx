@@ -33,11 +33,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="gallery-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal/80 p-4 sm:p-6 overflow-y-auto"
+      className="kp-modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-charcoal/80 p-4 sm:p-6 overflow-y-auto"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-4xl bg-surface-white border border-border my-auto max-h-[90vh] overflow-y-auto"
+        className="kp-modal-panel w-full max-w-4xl bg-surface-white border border-border my-auto max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 z-10 bg-surface-white border-b border-border px-5 sm:px-7 py-4 flex items-center justify-between gap-4">
@@ -74,7 +74,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             href={whatsappInquiry}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-6 py-3 transition-colors shrink-0"
+            className="inline-flex items-center justify-center gap-2 bg-accent-blue hover:bg-accent-blue-hover text-white text-sm font-medium px-6 py-3 transition-colors duration-200 shrink-0"
           >
             <MessageCircle className="w-4 h-4" />
             <span>اسأل عن تصميم مشابه</span>

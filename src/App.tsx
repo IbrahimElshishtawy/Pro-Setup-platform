@@ -5,6 +5,7 @@ import { HeroSection } from './components/sections/HeroSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { SolutionsSection } from './components/sections/SolutionsSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
+import { ProjectShowcaseSection } from './components/sections/ProjectShowcaseSection';
 import { GuaranteeSection } from './components/sections/GuaranteeSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { ProjectModal } from './components/ui/ProjectModal';
@@ -26,6 +27,7 @@ export default function App() {
           onSelectCategory={setActiveCategory}
           onSelectProject={setSelectedItem}
         />
+        <ProjectShowcaseSection />
         <GuaranteeSection />
         <ContactSection />
       </main>

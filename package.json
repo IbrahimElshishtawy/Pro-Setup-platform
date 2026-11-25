@@ -1,12 +1,15 @@
 {
-  "name": "pro-setup-platform",
+  "name": "kitchen-pro",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "firebase:emulate": "npm run build && firebase emulators:start --only hosting",
+    "firebase:preview": "npm run build && firebase hosting:channel:deploy preview --expires 7d",
     "deploy": "npm run build && firebase deploy --only hosting"
   },
   "dependencies": {
@@ -18,13 +21,11 @@
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.6.1",
-    "canvas-confetti": "^1.9.4",
     "postcss": "^8.5.28",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.8.2",

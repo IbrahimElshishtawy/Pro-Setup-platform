@@ -2,144 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --bg-dark: #020617;
-    --bg-secondary: #050816;
-    --card-bg: rgba(11, 18, 32, 0.75);
-    --electric-blue: #0066FF;
-    --electric-cyan: #00D2FF;
-  }
+/* ==========================================================================
+   Kitchen Pro — Modern Stainless Steel Design Tokens
+   Adjust brand palette centrally from these CSS custom properties.
+   ========================================================================== */
+:root {
+  --kp-steel: #8C9298;
+  --kp-steel-muted: #6C7278;
+  --kp-charcoal: #25292D;
+  --kp-graphite: #343A40;
+  --kp-off-white: #F5F5F2;
+  --kp-pure-white: #FFFFFF;
+  --kp-soft-gray: #E5E7E8;
+  --kp-accent-blue: #526D82;
+  --kp-accent-blue-hover: #41586B;
+  --kp-border: #D6D9DB;
+  --kp-border-dark: #3D444B;
+}
 
+@layer base {
   html {
+    font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
+    background-color: var(--kp-off-white);
+    color: var(--kp-charcoal);
     scroll-behavior: smooth;
-    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background-color: #020617;
-    color: #F1F5F9;
-    overflow-x: hidden;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: clip;
   }
 
-  /* Custom Sleek Scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #020617;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #0F1A2E;
-    border-radius: 9999px;
-    border: 2px solid #020617;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #0066FF;
+  /* Accessible focus ring using controlled accent blue */
+  :focus-visible {
+    outline: 2px solid var(--kp-accent-blue);
+    outline-offset: 2px;
   }
 }
 
-/* Subtle Futuristic Tech Background Grid */
-.bg-tech-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+/* ==========================================================================
+   Calm Architectural Reveal Utilities
+   No heavy parallax, no scroll hijacking, honors prefers-reduced-motion.
+   ========================================================================== */
+.kp-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.bg-dot-matrix {
-  background-image: radial-gradient(rgba(0, 102, 255, 0.15) 1px, transparent 1px);
-  background-size: 24px 24px;
+.kp-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Glassmorphism Classes */
-.glass-panel {
-  background: rgba(11, 18, 32, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.kp-image-reveal {
+  opacity: 0;
+  clip-path: inset(4% 0 0 0);
+  transition:
+    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 850ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.glass-panel-hover {
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.glass-panel-hover:hover {
-  background: rgba(15, 26, 46, 0.88);
-  border-color: rgba(0, 102, 255, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(0, 102, 255, 0.3);
-  transform: translateY(-4px);
+.kp-image-reveal.is-visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
 }
 
-.glass-nav {
-  background: rgba(2, 6, 23, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+/* Subtle architectural grid hairline background for technical sections */
+.kp-blueprint-grid {
+  background-image:
+    linear-gradient(to left, rgba(140, 146, 152, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(140, 146, 152, 0.08) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
-/* Electric Glow Borders & Text */
-.text-electric-gradient {
-  background: linear-gradient(135deg, #00D2FF 0%, #0066FF 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.border-glow-blue {
-  border-color: rgba(0, 102, 255, 0.4);
-  box-shadow: 0 0 15px -2px rgba(0, 102, 255, 0.3);
-}
-
-/* Perspective 3D Container for Hero Visual */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-/* Scanline Effect for CCTV simulation */
-.scanlines {
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.25) 50%
-  ), linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.05),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.05)
-  );
-  background-size: 100% 3px, 6px 100%;
-}
-
-@keyframes pulseBorder {
-  0%, 100% {
-    border-color: rgba(0, 102, 255, 0.3);
-    box-shadow: 0 0 15px rgba(0, 102, 255, 0.2);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    border-color: rgba(0, 210, 255, 0.7);
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
-  }
-}
 
-.pulse-border-glow {
-  animation: pulseBorder 3s infinite ease-in-out;
-}
+  .kp-reveal,
+  .kp-image-reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    transition: none;
+  }
 
-/* Printable Receipt Styling */
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  #printable-receipt, #printable-receipt * {
-    visibility: visible;
-  }
-  #printable-receipt {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    color: black !important;
-    background: white !important;
+  .animate-subtle-zoom {
+    animation: none;
   }
 }

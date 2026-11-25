@@ -42,9 +42,9 @@ export const COMPANY_INFO = {
 export const NAV_LINKS = [
   { id: "home", label: "الرئيسية", href: "#home" },
   { id: "services", label: "خدماتنا", href: "#services" },
-  { id: "academy", label: "أكاديمية ProSetup", href: "#academy", isAcademy: true },
   { id: "portfolio", label: "معرض أعمالنا", href: "#portfolio" },
   { id: "about", label: "عن الشركة", href: "#about" },
+  { id: "academy", label: "أكاديمية ProSetup", href: "#academy", isAcademy: true },
   { id: "process", label: "خطة العمل", href: "#process" },
   { id: "contact", label: "تواصل معنا", href: "#contact" },
 ];

@@ -15,15 +15,17 @@ import { PORTFOLIO_PROJECTS } from './data/portfolioData';
 
 // Home Views & Cinematic Sections
 import { HeroSection } from './features/home/HeroSection';
+import { QuickCalloutBar } from './components/sections/QuickCalloutBar';
+import { AboutSection } from './components/sections/AboutSection';
 import { TrustMarquee } from './components/sections/TrustMarquee';
+import { ServicesOverview } from './features/home/ServicesOverview';
+import { WhyChooseUs } from './features/home/WhyChooseUs';
 import { TheCollectiveStory } from './features/home/TheCollectiveStory';
 import { VipClientOffer } from './features/home/VipClientOffer';
-import { ServicesOverview } from './features/home/ServicesOverview';
-import { InteractiveMediaShowcase } from './features/home/InteractiveMediaShowcase';
-import { AboutSection } from './components/sections/AboutSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
-import { WhyChooseUs } from './features/home/WhyChooseUs';
+import { VideoShowcaseBanner } from './components/sections/VideoShowcaseBanner';
 import { SocialMediaShowcase } from './features/home/SocialMediaShowcase';
+import { InteractiveMediaShowcase } from './features/home/InteractiveMediaShowcase';
 import { CtaBanner } from './components/sections/CtaBanner';
 
 // Dedicated Sub-Pages
@@ -267,7 +269,7 @@ export function App() {
       <main className="relative z-10 flex-1 pt-16">
         {activePage === 'home' && (
           <>
-            {/* Cinematic Full-screen Hero Section */}
+            {/* 1. Cinematic Full-screen Hero Section with Video & Quality Badges (CyberWise: 875752b) */}
             <HeroSection
               onExploreServices={() => navigateTo('services')}
               onWatchVideo={() => setIsVideoModalOpen(true)}
@@ -275,37 +277,42 @@ export function App() {
               onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
             />
 
-            {/* Trust Marquee: Sectors & Industries Served */}
-            <TrustMarquee />
-
-            {/* The Collective Story: فلسفة تحالف النخبة تحت مظلة PS */}
-            <TheCollectiveStory
-              onExploreServices={() => navigateTo('services')}
-              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
+            {/* 2. Top Quick Callout Mini-CTA Bar (CyberWise: a740222) */}
+            <QuickCalloutBar
+              title="هل تبحث عن حماية وتجهيز متكامل لأعمالك على مدار 24/7؟"
+              subtitle="فريقنا المتخصص في هندسة البرمجيات، شبكات المراقبة، والتسويق الدولي جاهز لدعمك فوراً."
+              buttonText="ابدأ مجاناً الآن"
+              onAction={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
             />
 
-            {/* VIP Grand Opening Commercial Offer */}
-            <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')} />
-
-            {/* Cinematic Services Storytelling: Chapter-by-Chapter Scenes */}
-            <ServicesOverview
-              onNavigate={navigateTo}
-              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
-            />
-
-            {/* Interactive Media & Image Showcase Gallery */}
-            <InteractiveMediaShowcase
-              onSelectProject={(p) => setSelectedProject(p)}
-              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
-            />
-
-            {/* Split Cinematic About Section with Counters & Manifesto */}
+            {/* 3. Comprehensive Solutions / About & Manifesto Section (CyberWise: d4007d9) */}
             <AboutSection
               onExploreMore={() => navigateTo('about')}
               onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
             />
 
-            {/* Categorized Portfolio Section with Interactive Filters */}
+            {/* 4. Sliding Text Ticker Marquee Ribbon (CyberWise: 676c428) */}
+            <TrustMarquee />
+
+            {/* 5. Robust Core Services Grid with Learn More (CyberWise: 73943fa) */}
+            <ServicesOverview
+              onNavigate={navigateTo}
+              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
+            />
+
+            {/* 6. Why Choose Us / Complete Defense Pillars (CyberWise: 5453f55) */}
+            <WhyChooseUs />
+
+            {/* 7. The Collective Story & Foundation Philosophy (CyberWise: Counters & Pillars 367cb44) */}
+            <TheCollectiveStory
+              onExploreServices={() => navigateTo('services')}
+              onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}
+            />
+
+            {/* 8. Consultation Offer & VIP Experience Guarantee (CyberWise: 65f5d2a) */}
+            <VipClientOffer onClaimOffer={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')} />
+
+            {/* 9. Categorized Portfolio Section & Projects Grid (CyberWise: 176fab7) */}
             <PortfolioSection
               onSelectProject={(p) => {
                 const match = PORTFOLIO_PROJECTS.find(item => item.id === p.id || item.slug === p.slug) || PORTFOLIO_PROJECTS[0];
@@ -314,13 +321,19 @@ export function App() {
               onViewAll={() => navigateTo('portfolio')}
             />
 
-            {/* Why Choose Us Enterprise Pillars */}
-            <WhyChooseUs />
+            {/* 10. Cinematic Full-width Video Showcase Banner (CyberWise: 1688b2f) */}
+            <VideoShowcaseBanner onPlay={() => setIsVideoModalOpen(true)} />
 
-            {/* Social Media Showcase */}
+            {/* 11. Latest Media, Social Insights & Project Showcase (CyberWise: 6eacc92) */}
             <SocialMediaShowcase />
 
-            {/* Dramatic CTA Banner */}
+            {/* 12. Interactive Media Showcase Gallery */}
+            <InteractiveMediaShowcase
+              onSelectProject={(p) => setSelectedProject(p)}
+              onOpenQuote={(service) => handleOpenQuote(service, 'PS-FOUNDER-25')}
+            />
+
+            {/* 13. Dramatic Bottom CTA Banner (CyberWise: 64a82dc) */}
             <CtaBanner
               onContactClick={() => navigateTo('contact')}
               onOpenQuote={() => handleOpenQuote(undefined, 'PS-FOUNDER-25')}

@@ -62,13 +62,13 @@ export function AboutSection() {
             <ImageReveal
               direction="left"
               delayMs={120}
-              className="border border-border bg-charcoal aspect-square sm:aspect-[4/3]"
+              className="border border-border bg-deep aspect-square sm:aspect-[4/3]"
             >
               <img
                 src={SITE_CONTACT.aboutImage}
                 alt="تصميم وتنفيذ المطابخ الحديثة في Kitchen Pro"
                 loading="lazy"
-                className="w-full h-full object-contain bg-charcoal"
+                className="w-full h-full object-contain bg-deep"
               />
             </ImageReveal>
           </div>

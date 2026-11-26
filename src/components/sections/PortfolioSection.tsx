@@ -99,7 +99,7 @@ export function PortfolioSection({
                   onClick={() => onSelectProject(item)}
                   className="text-right flex flex-col flex-1 focus-visible:outline-accent-blue"
                 >
-                  <div className="w-full aspect-[4/3] overflow-hidden bg-charcoal border-b border-border relative">
+                  <div className="w-full aspect-[4/3] overflow-hidden bg-deep border-b border-border relative">
                     <img
                       src={item.image}
                       alt={item.title}
@@ -110,7 +110,7 @@ export function PortfolioSection({
                       {item.categoryLabel}
                     </span>
                     <span
-                      className="absolute bottom-3 left-3 w-8 h-8 bg-charcoal/85 text-surface flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
+                      className="absolute bottom-3 left-3 w-8 h-8 bg-deep/85 border border-border text-charcoal flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300"
                       aria-hidden="true"
                     >
                       <Maximize2 className="w-3.5 h-3.5" />

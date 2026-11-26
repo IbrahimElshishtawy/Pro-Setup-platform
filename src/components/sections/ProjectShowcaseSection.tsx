@@ -26,7 +26,7 @@ export function ProjectShowcaseSection() {
               src={SITE_CONTACT.heroImage}
               alt="تفاصيل تصميم وتنفيذ المطابخ العصرية في Kitchen Pro"
               intensity={18}
-              className="border border-border bg-charcoal aspect-[4/3]"
+              className="border border-border bg-deep aspect-[4/3]"
             />
             <div className="flex items-center justify-between text-xs text-steel-muted px-1">
               <span>معرض وتصميمات Kitchen Pro</span>

@@ -6,17 +6,18 @@
    Kitchen Pro — Modern Stainless Steel Design Tokens & Motion Primitives
    ========================================================================== */
 :root {
-  --kp-steel: #8C9298;
-  --kp-steel-muted: #6C7278;
-  --kp-charcoal: #25292D;
-  --kp-graphite: #343A40;
-  --kp-off-white: #F5F5F2;
-  --kp-pure-white: #FFFFFF;
-  --kp-soft-gray: #E5E7E8;
-  --kp-accent-blue: #526D82;
-  --kp-accent-blue-hover: #41586B;
-  --kp-border: #D6D9DB;
-  --kp-border-dark: #3D444B;
+  --kp-steel: #9BA3AC;
+  --kp-steel-muted: #8B949E;
+  --kp-charcoal: #F1F3F5;
+  --kp-graphite: #B4BCC4;
+  --kp-deep: #0B0D10;
+  --kp-off-white: #111316;
+  --kp-pure-white: #181B20;
+  --kp-soft-gray: #22272E;
+  --kp-accent-blue: #5E7E97;
+  --kp-accent-blue-hover: #4D6B82;
+  --kp-border: #2A3038;
+  --kp-border-dark: #232830;
 
   /* Centralized Motion CSS Custom Properties */
   --kp-ease-architectural: cubic-bezier(0.22, 1, 0.36, 1);
@@ -27,6 +28,7 @@
 
 @layer base {
   html {
+    color-scheme: dark;
     font-family: 'IBM Plex Sans Arabic', system-ui, -apple-system, sans-serif;
     background-color: var(--kp-off-white);
     color: var(--kp-charcoal);

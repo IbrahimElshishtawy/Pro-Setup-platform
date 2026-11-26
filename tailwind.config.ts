@@ -16,6 +16,9 @@ export default {
         graphite: {
           DEFAULT: 'var(--kp-graphite)',
         },
+        deep: {
+          DEFAULT: 'var(--kp-deep)',
+        },
         surface: {
           DEFAULT: 'var(--kp-off-white)',
           white: 'var(--kp-pure-white)',

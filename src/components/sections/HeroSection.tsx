@@ -76,7 +76,7 @@ export function HeroSection() {
 
           {/* Step 1 & 2: Cinematic Hero Image with Slow Zoom Out */}
           <div className="lg:col-span-6 order-2">
-            <div className="relative overflow-hidden border border-border bg-charcoal aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4]">
+            <div className="relative overflow-hidden border border-border bg-deep aspect-[4/3] sm:aspect-[16/11] lg:aspect-[5/4]">
               <img
                 src={SITE_CONTACT.heroImage}
                 alt="معرض Kitchen Pro للمطابخ العصرية والشبابيك والدريسنج"

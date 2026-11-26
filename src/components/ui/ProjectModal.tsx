@@ -33,7 +33,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="gallery-modal-title"
-      className="kp-modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-charcoal/80 p-4 sm:p-6 overflow-y-auto"
+      className="kp-modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
       onClick={onClose}
     >
       <div
@@ -54,7 +54,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
         </div>
 
-        <div className="bg-charcoal border-b border-border flex items-center justify-center">
+        <div className="bg-deep border-b border-border flex items-center justify-center">
           <img
             src={project.image}
             alt={project.title}

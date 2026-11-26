@@ -14,10 +14,10 @@ export function GuaranteeSection() {
     <CinematicSection
       id="guarantee"
       dark
-      className="bg-charcoal text-surface border-b border-border-dark py-20 lg:py-24 kp-blueprint-grid"
+      className="bg-deep text-charcoal border-b border-border py-20 lg:py-24 kp-blueprint-grid"
     >
       <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
-        <div className="border border-border-dark bg-graphite/35 p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="border border-border bg-surface-white/80 p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8 space-y-5">
             <Reveal variant="fade">
               <div className="inline-flex items-center gap-2.5 text-xs font-mono tracking-[0.16em] uppercase text-steel">
@@ -29,13 +29,13 @@ export function GuaranteeSection() {
             <TextReveal
               as="h2"
               delayMs={80}
-              className="text-2xl sm:text-4xl font-semibold text-surface leading-snug"
+              className="text-2xl sm:text-4xl font-semibold text-charcoal leading-snug"
             >
               إحنا معاك حتى بعد ما الشغل يخلص
             </TextReveal>
 
             <Reveal variant="paragraph" delayMs={160}>
-              <p className="text-base sm:text-lg text-surface/80 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-graphite leading-relaxed max-w-2xl">
                 بنؤمن إن جودة الشغل بتبان مع الوقت، وعلشان كده بنهتم بخدمة ما بعد
                 البيع، وبنوفر ضمان مدى الحياة وفقاً لشروط الشركة.
               </p>

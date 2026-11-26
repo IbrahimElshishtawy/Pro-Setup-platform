@@ -48,7 +48,7 @@ export function SolutionsSection({ onSelectCategory }: SolutionsSectionProps) {
             >
               <div>
                 {service.image && (
-                  <div className="aspect-[16/9] overflow-hidden border-b border-border bg-charcoal">
+                  <div className="aspect-[16/9] overflow-hidden border-b border-border bg-deep">
                     <img
                       src={service.image}
                       alt={service.title}

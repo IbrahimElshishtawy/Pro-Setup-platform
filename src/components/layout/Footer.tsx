@@ -8,13 +8,13 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal text-surface border-t border-border-dark">
+    <footer className="bg-deep text-charcoal border-t border-border">
       <div className="mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10 py-14 sm:py-16">
         <Reveal variant="fade">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border-dark">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-border">
             <div className="md:col-span-5 space-y-5">
-              <BrandLogo inverted />
-              <p className="text-sm leading-relaxed text-surface/75 max-w-md">
+              <BrandLogo />
+              <p className="text-sm leading-relaxed text-graphite max-w-md">
                 شركة متخصصة في جميع أعمال المطابخ والشبابيك والدريسنج، مع الاهتمام
                 بجودة التصميم والتنفيذ وخدمة ما بعد البيع وضمان مدى الحياة وفقاً
                 لشروط الشركة.
@@ -25,7 +25,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="إنستجرام Kitchen Pro"
-                  className="inline-flex items-center gap-2 border border-border-dark px-3.5 py-2 text-xs text-surface/85 hover:border-steel hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-border px-3.5 py-2 text-xs text-graphite hover:border-steel hover:text-charcoal transition-colors"
                 >
                   <InstagramIcon className="w-3.5 h-3.5" />
                   <span>Instagram</span>
@@ -35,7 +35,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="فيسبوك Kitchen Pro"
-                  className="inline-flex items-center gap-2 border border-border-dark px-3.5 py-2 text-xs text-surface/85 hover:border-steel hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-border px-3.5 py-2 text-xs text-graphite hover:border-steel hover:text-charcoal transition-colors"
                 >
                   <FacebookIcon className="w-3.5 h-3.5" />
                   <span>Facebook</span>
@@ -45,7 +45,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="تيك توك Kitchen Pro"
-                  className="inline-flex items-center gap-2 border border-border-dark px-3.5 py-2 text-xs text-surface/85 hover:border-steel hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 border border-border px-3.5 py-2 text-xs text-graphite hover:border-steel hover:text-charcoal transition-colors"
                 >
                   <TikTokIcon className="w-3.5 h-3.5" />
                   <span>TikTok</span>
@@ -62,7 +62,7 @@ export function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-sm text-surface/80 hover:text-white transition-colors"
+                      className="text-sm text-graphite hover:text-charcoal transition-colors"
                     >
                       {link.label}
                     </a>
@@ -75,14 +75,14 @@ export function Footer() {
               <h3 className="text-xs font-mono uppercase tracking-[0.16em] text-steel">
                 التواصل والموقع
               </h3>
-              <ul className="space-y-3 text-sm text-surface/85">
+              <ul className="space-y-3 text-sm text-graphite">
                 {SITE_CONTACT.phones.map((phone) => (
                   <li key={phone.display} className="flex items-center gap-2.5">
                     <Phone className="w-3.5 h-3.5 text-steel shrink-0" />
                     <a
                       href={phone.telHref}
                       dir="ltr"
-                      className="font-mono text-sm hover:text-white transition-colors"
+                      className="font-mono text-sm hover:text-charcoal transition-colors"
                     >
                       {phone.display}
                     </a>
@@ -93,7 +93,7 @@ export function Footer() {
                     href={SITE_CONTACT.googleMapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-surface/85 hover:text-white transition-colors underline underline-offset-4 decoration-border-dark hover:decoration-surface"
+                    className="inline-flex items-center gap-2 text-sm text-graphite hover:text-charcoal transition-colors underline underline-offset-4 decoration-border hover:decoration-charcoal"
                   >
                     <MapPin className="w-3.5 h-3.5 text-steel shrink-0" />
                     <span>زورنا على الخريطة (Google Maps)</span>

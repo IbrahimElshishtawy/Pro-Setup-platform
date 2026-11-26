@@ -1,4 +1,9 @@
-export type GalleryCategory = 'all' | 'kitchens' | 'windows' | 'dressing';
+export type GalleryCategory =
+  | 'all'
+  | 'kitchens'
+  | 'windows'
+  | 'dressing'
+  | 'bathroom-vanities';
 
 export interface PhoneContact {
   label: string;
@@ -89,10 +94,10 @@ export const SERVICES: ServiceItem[] = [
   {
     code: '02',
     id: 'windows',
-    title: 'الشبابيك',
+    title: 'الشبابيك والأبواب',
     description:
-      'بنقدم حلول للشبابيك بتصميمات عصرية تناسب شكل المكان واحتياجاتك، مع الاهتمام بالتفاصيل وجودة التنفيذ.',
-    image: '/images/project-windows.jpg',
+      'بنقدم حلول متكاملة للشبابيك والأبواب بتصميمات عصرية وعزل ممتاز، مع الاهتمام بدقة التقفيل وجودة القطاعات والإكسسوارات.',
+    image: '/images/project-windows-doors.jpg',
     linkToGallery: 'windows',
   },
   {
@@ -106,6 +111,15 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     code: '04',
+    id: 'bathroom-vanities',
+    title: 'وحدات حوض الحمام',
+    description:
+      'بنصمم وننفذ وحدات حوض حمام مقاومة للرطوبة بتقسيم عملي للتخزين، تجمع بين الشكل الفخم والاستخدام المريح كل يوم.',
+    image: '/images/project-bathroom-vanity-1.jpg',
+    linkToGallery: 'bathroom-vanities',
+  },
+  {
+    code: '05',
     id: 'after-sales',
     title: 'خدمة ما بعد البيع',
     description:
@@ -125,7 +139,7 @@ export const STORYTELLING_STEPS: StorytellingStep[] = [
     step: '02',
     title: 'اهتمام بالتفاصيل وجودة التنفيذ',
     description:
-      'سواء في المطبخ أو الشبابيك أو الدريسنج، بنركز على دقة التشطيب والتقفيل علشان الشكل العصري يعيش معاك بنفس الجودة.',
+      'سواء في المطبخ أو الشبابيك والأبواب أو الدريسنج أو وحدات حوض الحمام، بنركز على دقة التشطيب والتقفيل علشان الشكل العصري يعيش معاك بنفس الجودة.',
   },
   {
     step: '03',
@@ -138,8 +152,9 @@ export const STORYTELLING_STEPS: StorytellingStep[] = [
 export const GALLERY_FILTERS: { id: GalleryCategory; label: string }[] = [
   { id: 'all', label: 'الكل' },
   { id: 'kitchens', label: 'المطابخ' },
-  { id: 'windows', label: 'الشبابيك' },
+  { id: 'windows', label: 'الشبابيك والأبواب' },
   { id: 'dressing', label: 'الدريسنج' },
+  { id: 'bathroom-vanities', label: 'وحدات حوض الحمام' },
 ];
 
 /**
@@ -180,10 +195,26 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     image: '/images/project-graphite-kitchen.jpg',
   },
   {
+    id: 'kp-windows-doors',
+    title: 'شبابيك وأبواب ألوميتال منزلقة',
+    category: 'windows',
+    categoryLabel: 'الشبابيك والأبواب',
+    caption: 'قطاعات عصرية للشبابيك والأبواب المنزلقة بعزل ممتاز وإطلالة واسعة وإضاءة طبيعية.',
+    image: '/images/project-windows-doors.jpg',
+  },
+  {
+    id: 'kp-modern-doors',
+    title: 'أبواب داخلية بتصميم معماري عصري',
+    category: 'windows',
+    categoryLabel: 'الشبابيك والأبواب',
+    caption: 'أبواب عصرية بخطوط هادئة وخامات متينة تناسب المساحات الحديثة.',
+    image: '/images/project-doors.jpg',
+  },
+  {
     id: 'kp-windows',
     title: 'حلول الشبابيك العصرية',
     category: 'windows',
-    categoryLabel: 'الشبابيك',
+    categoryLabel: 'الشبابيك والأبواب',
     caption: 'تصميمات شبابيك تتماشى مع شكل المكان وتوفر إضاءة طبيعية واضحة.',
     image: '/images/project-windows.jpg',
   },
@@ -194,5 +225,21 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     categoryLabel: 'الدريسنج',
     caption: 'تقسيم منظم لوحدات التخزين يساعدك تستغل كل مساحة بشكل عملي.',
     image: '/images/project-dressing.jpg',
+  },
+  {
+    id: 'kp-bathroom-vanity-1',
+    title: 'وحدة حوض حمام معلّقة بتصميم عصري',
+    category: 'bathroom-vanities',
+    categoryLabel: 'وحدات حوض الحمام',
+    caption: 'وحدة حوض حمام مقاومة للرطوبة بخامات فاخرة وإضاءة هادئة ومساحة تخزين منظمة.',
+    image: '/images/project-bathroom-vanity-1.jpg',
+  },
+  {
+    id: 'kp-bathroom-vanity-2',
+    title: 'وحدة حوض حمام بأدراج وتخزين عملي',
+    category: 'bathroom-vanities',
+    categoryLabel: 'وحدات حوض الحمام',
+    caption: 'تصميم مينيمال لوحدة حوض الحمام مع أدراج عملية وسطح مقاوم للمياه وسهل التنظيف.',
+    image: '/images/project-bathroom-vanity-2.jpg',
   },
 ];

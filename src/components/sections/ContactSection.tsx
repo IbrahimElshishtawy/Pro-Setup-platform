@@ -10,7 +10,7 @@ import { MOTION_CONFIG } from '../../lib/motion';
 export function ContactSection() {
   const defaultWhatsappHref = buildWhatsAppLink(
     0,
-    'أهلاً Kitchen Pro، عندي استفسار بخصوص مطبخ / شبابيك / دريسنج وحابب أبدأ مشروعي معاكم.',
+    'أهلاً Kitchen Pro، عندي استفسار بخصوص مطبخ / شبابيك وأبواب / دريسنج / وحدة حوض حمام وحابب أبدأ مشروعي معاكم.',
   );
 
   return (
@@ -106,7 +106,7 @@ export function ContactSection() {
                     <a
                       href={buildWhatsAppLink(
                         index as 0 | 1,
-                        'أهلاً Kitchen Pro، حابب أستفسر عن المطابخ والشبابيك والدريسنج.',
+                        'أهلاً Kitchen Pro، حابب أستفسر عن المطابخ والشبابيك والأبواب والدريسنج ووحدات حوض الحمام.',
                       )}
                       target="_blank"
                       rel="noopener noreferrer"

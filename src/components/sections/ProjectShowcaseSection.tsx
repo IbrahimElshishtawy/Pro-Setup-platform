@@ -56,8 +56,9 @@ export function ProjectShowcaseSection() {
               </TextReveal>
               <Reveal variant="paragraph" delayMs={150}>
                 <p className="text-sm sm:text-base text-graphite leading-relaxed">
-                  كل تفصيلة في المطبخ أو الشبابيك أو الدريسنج بتمشي بخطوات واضحة
-                  ومنظمة علشان النتيجة تطلع زي ما تخيلتها وأريح في الاستخدام.
+                  كل تفصيلة في المطبخ أو الشبابيك والأبواب أو الدريسنج أو وحدات
+                  حوض الحمام بتمشي بخطوات واضحة ومنظمة علشان النتيجة تطلع زي ما
+                  تخيلتها وأريح في الاستخدام.
                 </p>
               </Reveal>
             </div>

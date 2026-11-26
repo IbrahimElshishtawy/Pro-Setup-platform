@@ -15,9 +15,9 @@ export function Footer() {
             <div className="md:col-span-5 space-y-5">
               <BrandLogo />
               <p className="text-sm leading-relaxed text-graphite max-w-md">
-                شركة متخصصة في جميع أعمال المطابخ والشبابيك والدريسنج، مع الاهتمام
-                بجودة التصميم والتنفيذ وخدمة ما بعد البيع وضمان مدى الحياة وفقاً
-                لشروط الشركة.
+                شركة متخصصة في جميع أعمال المطابخ والشبابيك والأبواب والدريسنج
+                ووحدات حوض الحمام، مع الاهتمام بجودة التصميم والتنفيذ وخدمة ما
+                بعد البيع وضمان مدى الحياة وفقاً لشروط الشركة.
               </p>
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
@@ -105,7 +105,7 @@ export function Footer() {
 
           <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-steel">
             <p>© {year} Kitchen Pro. جميع الحقوق محفوظة.</p>
-            <p>مطابخ · شبابيك · دريسنج</p>
+            <p>مطابخ · شبابيك وأبواب · دريسنج · وحدات حوض حمام</p>
           </div>
         </Reveal>
       </div>

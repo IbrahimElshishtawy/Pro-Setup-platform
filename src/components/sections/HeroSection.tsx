@@ -47,9 +47,9 @@ export function HeroSection() {
             {/* Step 5: Description Fade + Subtle Rise */}
             <Reveal variant="paragraph" delayMs={280} immediate={entered}>
               <p className="text-base sm:text-lg text-graphite leading-relaxed max-w-xl">
-                في Kitchen Pro بنصمم وننفذ المطابخ والشبابيك والدريسنج بطريقة تجمع بين
-                الشكل العصري والاستغلال العملي للمساحة، مع اهتمام بكل تفصيلة من أول
-                التصميم لحد التركيب.
+                في Kitchen Pro بنصمم وننفذ المطابخ والشبابيك والأبواب والدريسنج
+                ووحدات حوض الحمام بطريقة تجمع بين الشكل العصري والاستغلال العملي
+                للمساحة، مع اهتمام بكل تفصيلة من أول التصميم لحد التركيب.
               </p>
             </Reveal>
 

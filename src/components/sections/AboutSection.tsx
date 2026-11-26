@@ -29,8 +29,8 @@ export function AboutSection() {
             <Reveal variant="paragraph" delayMs={160}>
               <div className="space-y-4 text-base text-graphite leading-relaxed">
                 <p>
-                  عارفين إن المطبخ والدريسنج والشبابيك مش مجرد أجزاء في البيت، دي
-                  تفاصيل بتفرق في راحتك وشكل المكان.
+                  عارفين إن المطبخ والدريسنج والشبابيك والأبواب ووحدات حوض الحمام
+                  مش مجرد أجزاء في البيت، دي تفاصيل بتفرق في راحتك وشكل المكان.
                 </p>
                 <p>
                   علشان كده في Kitchen Pro بنهتم إن كل تصميم يكون مناسب لمساحتك

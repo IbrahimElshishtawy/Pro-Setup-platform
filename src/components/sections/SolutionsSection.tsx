@@ -31,15 +31,15 @@ export function SolutionsSection({ onSelectCategory }: SolutionsSectionProps) {
           </div>
           <Reveal variant="paragraph" delayMs={140} className="lg:col-span-5">
             <p className="text-sm sm:text-base text-graphite leading-relaxed">
-              بنشتغل في جميع أعمال المطابخ والشبابيك والدريسنج مع اهتمام بجودة
-              التصميم والتنفيذ وخدمة ما بعد البيع.
+              بنشتغل في جميع أعمال المطابخ والشبابيك والأبواب والدريسنج ووحدات
+              حوض الحمام مع اهتمام بجودة التصميم والتنفيذ وخدمة ما بعد البيع.
             </p>
           </Reveal>
         </div>
 
         <StaggerContainer
           staggerMs={MOTION_CONFIG.stagger.standard}
-          className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 md:[&>*:last-child]:col-span-2"
         >
           {SERVICES.map((service) => (
             <article
@@ -48,7 +48,11 @@ export function SolutionsSection({ onSelectCategory }: SolutionsSectionProps) {
             >
               <div>
                 {service.image && (
-                  <div className="aspect-[16/9] overflow-hidden border-b border-border bg-deep">
+                  <div
+                    className={`overflow-hidden border-b border-border bg-deep ${
+                      !service.linkToGallery ? 'aspect-[16/9] md:aspect-[21/7]' : 'aspect-[16/9]'
+                    }`}
+                  >
                     <img
                       src={service.image}
                       alt={service.title}

@@ -32,7 +32,7 @@ export function BrandLogo({ inverted = false }: BrandLogoProps) {
             inverted ? 'text-steel' : 'text-steel-muted'
           }`}
         >
-          مطابخ · شبابيك · دريسنج
+          مطابخ · شبابيك وأبواب · دريسنج · وحدات حمام
         </span>
       </span>
     </span>
